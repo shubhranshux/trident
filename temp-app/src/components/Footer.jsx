@@ -109,6 +109,13 @@ export default function Footer() {
             ))}
           </div>
         </div>
+
+        {/* Built by credit */}
+        <div className="text-center mt-8 pt-6 border-t border-white/5">
+          <span className="text-[11px] font-medium text-bg-light/30 tracking-wider">
+            Crafted with AI by <a href="#" className="text-bg-light/50 hover:text-white transition-colors font-bold">Tekkzy</a> — AI-Powered Intelligent Cloud Solutions
+          </span>
+        </div>
         
       </div>
     </footer>
