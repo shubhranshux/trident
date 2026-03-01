@@ -15,10 +15,10 @@ export default function Header() {
   }, []);
 
   return (
-    <>
+    <div className="fixed top-0 left-0 w-full z-50">
       {/* Utility Bar */}
-      <div className="hidden lg:block bg-primary border-b border-primary/20 relative z-50">
-        <div className="max-w-7xl mx-auto px-6 flex justify-between items-center py-2.5">
+      <div className={"hidden lg:block bg-primary border-b border-primary/20 transition-all duration-500 " + (scrolled ? "max-h-0 overflow-hidden py-0 border-b-0" : "max-h-20 py-2.5")}>
+        <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
           <span className="text-[11px] font-semibold text-white/80 tracking-widest uppercase">
             Affiliated to BPUT &nbsp;<span className="text-secondary opacity-50">|</span>&nbsp; NAAC 'A' Accredited
           </span>
@@ -29,16 +29,16 @@ export default function Header() {
         </div>
       </div>
 
-      <header className={"sticky top-0 z-40 transition-all duration-500 " + (scrolled ? "bg-white/95 backdrop-blur-lg shadow-[0_10px_40px_-10px_rgba(62,58,54,0.1)] py-2" : "bg-white py-4")}>
-        <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+      <header className={"transition-all duration-500 bg-white " + (scrolled ? "shadow-[0_4px_20px_-4px_rgba(62,58,54,0.12)] py-3" : "py-5")}>
+        <div className="mx-auto px-6 xl:px-12 flex items-center justify-between">
             
           {/* Logo Lockup */}
-          <a href="#" className="flex items-center gap-4 group cursor-pointer">
-            <div className="bg-soft p-1.5 rounded-xl border border-secondary/20 group-hover:bg-white transition-colors flex items-center justify-center">
-              <img src={logo} alt="TAT Logo" className="w-10 h-10 md:w-12 md:h-12 min-w-[40px] min-h-[40px] md:min-w-[48px] md:min-h-[48px] object-contain flex-shrink-0 block" />
-            </div>
-            <div className="flex flex-col justify-center">
-              <div className="serif text-2xl font-black text-[#3E3A36] leading-none tracking-tight mt-1">Trident Academy</div>
+          <a href="#" className="flex items-center gap-3.5 group cursor-pointer">
+            <img src={logo} alt="TAT Logo" className="w-12 h-12 md:w-[52px] md:h-[52px] object-contain flex-shrink-0 drop-shadow-sm" />
+            <div className="hidden sm:flex flex-col justify-center">
+              <div className="serif text-[22px] md:text-[24px] font-black text-[#3E3A36] leading-none tracking-[0.04em] uppercase">Trident</div>
+              <div className="w-full h-[1px] bg-gradient-to-r from-[#8B6E66] to-transparent my-[3px]"></div>
+              <div className="text-[9px] md:text-[10px] font-semibold text-[#8B6E66] tracking-[0.22em] uppercase leading-none">Academy of Technology</div>
             </div>
           </a>
 
@@ -49,7 +49,7 @@ export default function Header() {
                 <li key={item.label} className="relative group"
                   onMouseEnter={() => setActiveNav(item.label)}
                   onMouseLeave={() => setActiveNav(null)}>
-                  <div className={"nav-link flex items-center gap-1.5 text-[14px] uppercase tracking-widest cursor-pointer whitespace-nowrap " + (activeNav === item.label ? "text-primary active" : "text-[#3E3A36]")}>
+                  <div className={"nav-link flex items-center gap-1 text-[13px] uppercase tracking-[0.12em] cursor-pointer whitespace-nowrap font-bold " + (activeNav === item.label ? "text-primary active" : "text-[#3E3A36]")}>
                     {item.label}
                     <ChevronDown size={14} className={`transition-transform duration-300 ${activeNav === item.label ? 'rotate-180 text-primary' : 'text-secondary'}`}/>
                   </div>
@@ -73,7 +73,7 @@ export default function Header() {
               <Search size={16} />
               <input placeholder="Search campus..." className="bg-transparent outline-none placeholder-secondary/80 w-32 text-[#3E3A36] text-[13px] font-bold" />
             </div>
-            <a href="#" className="btn-rose text-[12px] font-bold px-7 py-3 rounded uppercase">Apply Now</a>
+            <a href="#" className="btn-rose text-[12px] font-bold px-7 py-3 rounded uppercase whitespace-nowrap">Apply Now</a>
           </div>
 
           {/* Mobile Toggle */}
@@ -106,6 +106,6 @@ export default function Header() {
           </div>
         )}
       </header>
-    </>
+    </div>
   );
 }

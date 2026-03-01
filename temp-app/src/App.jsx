@@ -24,8 +24,8 @@ export default function App() {
           --text-dark: #3E3A36;
         }
 
-        body { font-family: 'DM Sans', sans-serif; background-color: var(--bg-light); color: var(--text-dark); }
-        .serif { font-family: 'Playfair Display', serif; }
+        body { font-family: 'DM Sans', sans-serif; background-color: var(--bg-light); color: var(--text-dark); font-weight: 500; }
+        .serif { font-family: 'Playfair Display', serif; font-weight: 900; }
         
         .bg-primary { background-color: var(--primary-rose) !important; color: white; }
         .bg-secondary { background-color: var(--secondary-beige) !important; color: white; }
@@ -99,6 +99,8 @@ export default function App() {
       `}</style>
 
       <Header />
+      {/* Spacer for fixed header */}
+      <div className="h-[120px] lg:h-[100px]"></div>
       <Hero />
       {/* All sections after Hero are wrapped in an opaque container 
           so they scroll over the fixed Hero section */}

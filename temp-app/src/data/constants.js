@@ -1,5 +1,5 @@
 export const NAV_LINKS = [
-  { label: "Academics",   sub: ["B.Tech Programs","M.Tech","MBA","MCA","Ph.D Programs","Diploma"] },
+  { label: "Academics",   sub: ["B.Tech CSE","B.Tech ECE","B.Tech Mechanical","B.Tech Civil","B.Tech EEE"] },
   { label: "Admissions",  sub: ["How to Apply","Eligibility","Fee Structure","Scholarships","JEE / OJEE"] },
   { label: "Research",    sub: ["Research Centers","Publications","Projects","Collaborations","SIRO-DSIR"] },
   { label: "Campus Life", sub: ["Hostels","Sports Complex","Clubs & Fests","Cafeteria","Health Center"] },
@@ -26,8 +26,7 @@ export const PROGRAMS = [
   { name:"Electronics & Communication",    dept:"B.Tech", icon:"📡", dur:"4 Years", seats:120 },
   { name:"Mechanical Engineering",          dept:"B.Tech", icon:"⚙️",  dur:"4 Years", seats:120 },
   { name:"Civil Engineering",               dept:"B.Tech", icon:"🏗️", dur:"4 Years", seats:60  },
-  { name:"Business Administration",         dept:"MBA",    icon:"📊", dur:"2 Years", seats:120 },
-  { name:"Computer Applications",           dept:"MCA",    icon:"🖥️", dur:"2 Years", seats:60  },
+  { name:"Electrical & Electronics",        dept:"B.Tech", icon:"⚡", dur:"4 Years", seats:60  },
 ];
 
 export const RECRUITERS = ["TCS","Infosys","Wipro","HCL","Capgemini","Accenture","Cognizant","Tech Mahindra","L&T Infotech","IBM","Hexaware","Mphasis"];

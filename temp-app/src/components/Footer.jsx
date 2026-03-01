@@ -8,11 +8,9 @@ export default function Footer() {
       {/* Decorative Brand Accent Line */}
       <div className="absolute top-0 left-0 w-full h-[6px] bg-gradient-to-r from-primary via-secondary to-primary bg-[length:200%_auto] animate-[pulse_5s_ease-in-out_infinite]"></div>
       
-      {/* Subtle Background Abstract overlay */}
-      <div className="absolute right-0 bottom-0 w-full h-full overflow-hidden pointer-events-none opacity-5 flex items-end justify-end">
-        <div className="text-[400px] leading-none font-serif font-black transform translate-y-24 translate-x-20 text-white select-none relative z-0">
-          T
-        </div>
+      {/* Subtle Background Logo Watermark */}
+      <div className="absolute right-0 bottom-0 w-full h-full overflow-hidden pointer-events-none opacity-[0.03] flex items-end justify-end">
+        <img src={logo} alt="" className="w-[400px] h-[400px] object-contain transform translate-y-16 translate-x-16" />
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -37,12 +35,12 @@ export default function Footer() {
           
           {/* Brand Info */}
           <div className="lg:col-span-4 lg:pr-8">
-            <div className="flex items-center gap-5 mb-8">
-              <div className="bg-bg-light p-2.5 rounded-xl shadow-lg border-2 border-primary/20">
-                <img src={logo} alt="TAT Logo" className="w-[52px] h-[52px] object-contain" />
-              </div>
+            <div className="flex items-center gap-3.5 mb-8">
+              <img src={logo} alt="TAT Logo" className="w-[52px] h-[52px] object-contain flex-shrink-0 drop-shadow-sm" />
               <div className="flex flex-col justify-center">
-                <div className="serif text-2xl font-black leading-none tracking-tight text-white mt-1">Trident Academy</div>
+                <div className="serif text-[22px] md:text-[24px] font-black leading-none tracking-[0.04em] uppercase text-white">Trident</div>
+                <div className="w-full h-[1px] bg-gradient-to-r from-[#8B6E66] to-transparent my-[3px]"></div>
+                <div className="text-[9px] md:text-[10px] font-semibold text-[#8B6E66] tracking-[0.22em] uppercase leading-none">Academy of Technology</div>
               </div>
             </div>
             

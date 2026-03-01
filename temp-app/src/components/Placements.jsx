@@ -98,31 +98,36 @@ export default function Placements() {
 
           {/* Recruiter Logos Grid */}
           <FadeInUp delay={600}>
-            <div className="text-center mb-8">
+            <div className="text-center mb-10">
+              <div className="w-12 h-[2px] bg-gradient-to-r from-transparent via-white/30 to-transparent mx-auto mb-4"></div>
               <span className="text-[11px] font-bold uppercase tracking-[0.3em] text-white/40">Trusted by Industry Leaders</span>
             </div>
             <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
-              {RECRUITERS.map(r => {
-                const logoUrl = `https://logo.clearbit.com/${domainMap[r] || r.toLowerCase().replace(/\s+/g, '') + '.com'}?size=80`;
+              {RECRUITERS.map((r) => {
+                const domain = domainMap[r] || r.toLowerCase().replace(/\s+/g, '') + '.com';
+                const faviconUrl = `https://www.google.com/s2/favicons?domain=${domain}&sz=64`;
                 return (
-                  <span key={r} className="group/chip relative bg-white/[0.07] hover:bg-white border border-white/10 hover:border-white/80 text-white hover:text-[#3E3A36] text-[13px] font-bold px-6 py-3 rounded-full transition-all duration-400 cursor-default backdrop-blur-sm shadow-lg transform hover:-translate-y-1 hover:shadow-[0_15px_30px_-5px_rgba(255,255,255,0.15)] min-w-[100px] text-center overflow-hidden">
+                  <span 
+                    key={r} 
+                    className="group/chip relative bg-white/[0.06] hover:bg-white border border-white/[0.08] hover:border-white text-white hover:text-[#3E3A36] font-bold rounded-2xl cursor-default overflow-hidden h-[48px] flex items-center pl-6 pr-6 transition-colors duration-300 hover:shadow-[0_8px_24px_-6px_rgba(255,255,255,0.15)]"
+                  >
+                    {/* Accent bar on hover */}
+                    <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-[#8B6E66] to-[#A59381] scale-x-0 group-hover/chip:scale-x-100 transition-transform duration-300 origin-left"></div>
+                    
+                    {/* Favicon - fixed position, only fades in */}
+                    <img 
+                      src={faviconUrl} 
+                      alt="" 
+                      className="w-5 h-5 object-contain opacity-0 group-hover/chip:opacity-100 transition-opacity duration-200 rounded-sm flex-shrink-0 mr-2"
+                    />
                     {/* Text label */}
-                    <span className="inline-block transition-all duration-300 group-hover/chip:opacity-0 group-hover/chip:scale-75">
+                    <span className="text-[13px] whitespace-nowrap">
                       {r}
-                    </span>
-                    {/* Logo on hover */}
-                    <span className="absolute inset-0 flex items-center justify-center opacity-0 group-hover/chip:opacity-100 transition-all duration-300 scale-75 group-hover/chip:scale-100">
-                      <img 
-                        src={logoUrl} 
-                        alt={`${r} logo`} 
-                        className="h-7 w-auto max-w-[70px] object-contain"
-                        onError={(e) => { e.target.style.display = 'none'; e.target.parentElement.previousElementSibling.style.opacity = '1'; e.target.parentElement.previousElementSibling.style.transform = 'scale(1)'; }}
-                      />
                     </span>
                   </span>
                 );
               })}
-              <span className="bg-gradient-to-r from-[#8B6E66]/30 to-[#A59381]/30 border border-white/15 text-white/90 text-[13px] font-black px-6 py-3 rounded-full italic backdrop-blur-sm">
+              <span className="bg-white/[0.04] border border-white/10 text-white/70 text-[13px] font-black px-6 rounded-2xl italic h-[48px] flex items-center justify-center">
                 +308 more
               </span>
             </div>
