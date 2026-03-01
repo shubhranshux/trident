@@ -1,14 +1,14 @@
 import Header from "./components/Header";
 import Hero from "./components/Hero";
-import Discover from "./components/Discover";
 import AboutSection from "./components/AboutSection";
+import Programs from "./components/Programs";
 import AtAGlance from "./components/AtAGlance";
 import Facilities from "./components/Facilities";
-import Programs from "./components/Programs";
+import Discover from "./components/Discover";
 import Placements from "./components/Placements";
+import Testimonials from "./components/Testimonials";
 import Events from "./components/Events";
 import NewsSection from "./components/NewsSection";
-import Testimonials from "./components/Testimonials";
 import Footer from "./components/Footer";
 
 export default function App() {
@@ -24,8 +24,11 @@ export default function App() {
           --text-dark: #3E3A36;
         }
 
-        body { font-family: 'DM Sans', sans-serif; background-color: var(--bg-light); color: var(--text-dark); font-weight: 500; }
-        .serif { font-family: 'Playfair Display', serif; font-weight: 900; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'DM Sans', sans-serif; background-color: var(--bg-light); color: var(--text-dark); font-weight: 700; font-size: 19px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+        .serif { font-family: 'Playfair Display', serif; font-weight: 900; line-height: 1.08; letter-spacing: -0.02em; }
+        h1, h2, h3 { font-weight: 900; letter-spacing: -0.02em; }
+        p { font-size: 19px; line-height: 1.75; font-weight: 500; }
         
         .bg-primary { background-color: var(--primary-rose) !important; color: white; }
         .bg-secondary { background-color: var(--secondary-beige) !important; color: white; }
@@ -51,7 +54,7 @@ export default function App() {
           background: rgba(255,255,255,0.1); z-index: -1; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .btn-rose:hover::before { width: 100%; }
-        .btn-rose:hover { transform: translateY(-3px); box-shadow: 0 15px 35px -10px rgba(139, 110, 102, 0.8); }
+        .btn-rose:hover { transform: translateY(-2px); box-shadow: 0 12px 30px -10px rgba(139, 110, 102, 0.7); }
         
         .btn-outline-rose { border: 1.5px solid var(--primary-rose); color: var(--primary-rose); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); letter-spacing: 0.1em;}
         .btn-outline-rose:hover { background-color: var(--primary-rose); color: white; transform: translateY(-2px); box-shadow: 0 10px 20px -10px rgba(139, 110, 102, 0.4);}
@@ -81,8 +84,8 @@ export default function App() {
         .card-hover { transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); border: 1px solid rgba(165, 147, 129, 0.2); background: #ffffff; }
         .card-hover:hover { 
           border-color: var(--primary-rose) !important; 
-          box-shadow: 0 30px 60px -15px rgba(62, 58, 54, 0.1); 
-          transform: translateY(-8px);
+          box-shadow: 0 20px 40px -15px rgba(62, 58, 54, 0.1); 
+          transform: translateY(-4px);
         }
         
         /* Soft Ticker */
@@ -102,20 +105,19 @@ export default function App() {
       {/* Spacer for fixed header */}
       <div className="h-[120px] lg:h-[100px]"></div>
       <Hero />
-      {/* All sections after Hero are wrapped in an opaque container 
-          so they scroll over the fixed Hero section */}
-      <div className="relative z-10 bg-[#EFE7DF] -mt-16 sm:-mt-24 rounded-t-[40px] md:rounded-t-[60px] overflow-hidden">
-        <Discover />
+      {/* All sections after Hero scroll over the fixed Hero */}
+      <main className="relative z-10 bg-[#EFE7DF] -mt-16 sm:-mt-24 rounded-t-[40px] md:rounded-t-[60px] overflow-hidden">
         <AboutSection />
+        <Programs />
         <AtAGlance />
         <Facilities />
-        <Programs />
-        <Events />
+        <Discover />
         <Placements />
         <Testimonials />
+        <Events />
         <NewsSection />
         <Footer />
-      </div>
+      </main>
     </div>
   );
 }

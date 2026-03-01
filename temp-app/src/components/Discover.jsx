@@ -49,7 +49,7 @@ export default function Discover() {
             <FadeInUp key={c.title} delay={c.delay}>
               <a href="#" className="group block h-[500px] rounded-2xl overflow-hidden relative shadow-[0_15px_30px_-5px_rgba(62,58,54,0.1)] hover:shadow-[0_25px_50px_-15px_rgba(139,110,102,0.3)] transition-all duration-700">
                  {/* Image */}
-                 <img src={c.img} alt={c.title} className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-[1.5s] ease-out" />
+                 <img src={c.img} alt={c.title} loading="lazy" className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-[1.5s] ease-out" />
                  
                  {/* Gradient Overlay */}
                  <div className="absolute inset-0 bg-gradient-to-t from-[#3E3A36]/90 via-[#3E3A36]/40 to-transparent"></div>

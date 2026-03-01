@@ -49,7 +49,7 @@ export default function Header() {
                 <li key={item.label} className="relative group"
                   onMouseEnter={() => setActiveNav(item.label)}
                   onMouseLeave={() => setActiveNav(null)}>
-                  <div className={"nav-link flex items-center gap-1 text-[13px] uppercase tracking-[0.12em] cursor-pointer whitespace-nowrap font-bold " + (activeNav === item.label ? "text-primary active" : "text-[#3E3A36]")}>
+                  <div className={"nav-link flex items-center gap-1 text-[14px] uppercase tracking-[0.14em] cursor-pointer whitespace-nowrap font-extrabold " + (activeNav === item.label ? "text-primary active" : "text-[#3E3A36]")}>
                     {item.label}
                     <ChevronDown size={14} className={`transition-transform duration-300 ${activeNav === item.label ? 'rotate-180 text-primary' : 'text-secondary'}`}/>
                   </div>

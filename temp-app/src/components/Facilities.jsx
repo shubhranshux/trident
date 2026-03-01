@@ -75,7 +75,7 @@ export default function Facilities() {
               <div className={`group relative w-full h-full rounded-[24px] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-700 cursor-pointer`}>
                 
                 {/* Background Image */}
-                <img src={f.img} alt={f.title} className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-[1.5s] ease-out" />
+                <img src={f.img} alt={f.title} loading="lazy" className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-[1.5s] ease-out" />
                 
                 {/* Gradient Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#1A1817]/90 via-[#1A1817]/30 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500"></div>
