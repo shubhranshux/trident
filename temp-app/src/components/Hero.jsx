@@ -21,14 +21,9 @@ export default function Hero() {
       {/* Decorative vertical accent line */}
       <div className="hidden lg:block absolute left-[7%] top-[20%] bottom-[20%] w-[1px] bg-gradient-to-b from-transparent via-white/20 to-transparent"></div>
       
-      <div className="relative z-10 h-full flex flex-col justify-center">
+      <div className="relative z-10 h-full flex flex-col justify-center pt-24">
         <div className="max-w-7xl mx-auto px-6 lg:px-16 w-full">
-          <SlideIn direction="left" delay={100} duration={1000}>
-            <div className="inline-flex items-center gap-2.5 bg-white/10 backdrop-blur-md border border-white/15 text-white/90 text-[11px] font-bold uppercase tracking-[0.3em] px-6 py-3 rounded-full mb-10">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse inline-block"></span>
-              NAAC 'A' Accredited &nbsp;·&nbsp; Affiliated to BPUT
-            </div>
-          </SlideIn>
+
           
           <FadeInUp delay={300} duration={1200}>
             <h1 className="serif text-5xl md:text-7xl lg:text-[96px] font-black text-white leading-[1.02] mb-8 max-w-5xl">
@@ -40,12 +35,6 @@ export default function Hero() {
           </FadeInUp>
 
           <FadeInUp delay={500} duration={1200}>
-            <p className="text-white/60 text-lg md:text-xl max-w-2xl mb-10 leading-relaxed">
-              Shaping future-ready engineers through world-class education, cutting-edge research, and industry partnerships.
-            </p>
-          </FadeInUp>
-
-          <FadeInUp delay={600} duration={1200}>
             <div className="flex flex-wrap items-center gap-4">
               <a href="#" className="bg-white text-[#3E3A36] px-10 py-4 rounded-lg font-extrabold text-[14px] flex items-center gap-3 uppercase tracking-wider hover:shadow-[0_20px_40px_-10px_rgba(255,255,255,0.3)] transition-all duration-300">
                 Apply Now <ArrowRight size={18} />
