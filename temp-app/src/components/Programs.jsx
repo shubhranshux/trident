@@ -50,9 +50,6 @@ export default function Programs() {
                 A rigorous curriculum led by visionary scholars, providing hands-on immersive learning across diverse disciplines.
               </p>
             </div>
-            <a href="#" className="flex items-center gap-2 text-sm font-bold text-primary uppercase tracking-widest hover:text-secondary transition-colors whitespace-nowrap group">
-              View all programs <ArrowRight size={18} className="transform group-hover:translate-x-2 transition-transform"/>
-            </a>
           </div>
         </SlideIn>
 
@@ -92,6 +89,22 @@ export default function Programs() {
               </a>
             </FadeInUp>
           ))}
+
+          {/* Special "Explore All" Card to fill the grid slot */}
+          <FadeInUp delay={600}>
+            <a href="#" className="bg-[#3E3A36] rounded-[24px] overflow-hidden group relative flex flex-col h-full shadow-[0_20px_40px_-10px_rgba(62,58,54,0.4)] transition-all duration-500 transform hover:-translate-y-2 items-center justify-center p-10 text-center border-2 border-[#D4B5A0]/20 hover:border-[#D4B5A0]/80">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#8B6E66]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none mix-blend-overlay"></div>
+              
+              <div className="w-20 h-20 rounded-full border border-white/20 bg-white/5 backdrop-blur-md flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 group-hover:bg-white text-white group-hover:text-[#3E3A36]">
+                <ArrowRight size={32} />
+              </div>
+              
+              <h3 className="serif font-bold text-white text-2xl md:text-3xl mb-4 group-hover:text-[#F5EEEC] transition-colors">Explore All Programs</h3>
+              <p className="text-white/60 text-sm font-medium leading-relaxed max-w-[80%]">
+                Discover over 50+ specialized undergraduate and postgraduate degrees.
+              </p>
+            </a>
+          </FadeInUp>
         </div>
       </div>
     </section>

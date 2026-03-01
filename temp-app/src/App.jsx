@@ -99,6 +99,10 @@ export default function App() {
         ::-webkit-scrollbar-track { background: var(--bg-soft); }
         ::-webkit-scrollbar-thumb { background: var(--secondary-beige); border-radius: 5px; }
         ::-webkit-scrollbar-thumb:hover { background: var(--primary-rose); }
+        
+        .custom-scrollbar-mini::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar-mini::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar-mini::-webkit-scrollbar-thumb { background: var(--secondary-beige); border-radius: 4px; }
       `}</style>
 
       <Header />

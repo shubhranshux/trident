@@ -1,5 +1,32 @@
 export const NAV_LINKS = [
-  { label: "Academics",   sub: ["B.Tech CSE","B.Tech ECE","B.Tech Mechanical","B.Tech Civil","B.Tech EEE"] },
+  { label: "Academics",   sub: [
+      { label: "Departments", sub: [
+        "Civil Engineering",
+        "Biotechnology Engineering",
+        "Computer Science & Engineering",
+        "Computer Science & Engineering (AI & ML)",
+        "Computer Science & Engineering (Data Science)",
+        "Computer Science and Technology",
+        "Computer Science & Information Technology",
+        "Electronics and Telecomm Engineering",
+        "Electronics Engineering (VLSI Design Technology)",
+        "Electrical and Electronics Engineering",
+        "Mechanical Engineering",
+        "Master in Business Administration",
+        "Master in Computer Application",
+        "Science & Humanities"
+      ] },
+      "Learning Resources",
+      "Academic Advisory Body",
+      "Academic Monitoring Council",
+      "Peer Evaluation",
+      "Chapters",
+      "Programme & Course Outcomes",
+      "Calendar",
+      "Time Table",
+      "BPUT Regulation"
+    ] 
+  },
   { label: "Admissions",  sub: ["How to Apply","Eligibility","Fee Structure","Scholarships","JEE / OJEE"] },
   { label: "Research",    sub: ["Research Centers","Publications","Projects","Collaborations","SIRO-DSIR"] },
   { label: "Campus Life", sub: ["Hostels","Sports Complex","Clubs & Fests","Cafeteria","Health Center"] },

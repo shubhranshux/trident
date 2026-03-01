@@ -1,5 +1,5 @@
 import { FadeInUp } from "../utils/animations";
-import { BookMarked, FlaskConical, Dumbbell, Coffee, Wifi, ShieldCheck, Microscope } from "lucide-react";
+import { BookMarked, FlaskConical, Dumbbell, Coffee, Wifi, ShieldCheck, Microscope, ArrowRight } from "lucide-react";
 
 import libImg from "../assets/indian_campus_library.png";
 import labImg from "../assets/indian_engineering_lab.png";
@@ -96,6 +96,16 @@ export default function Facilities() {
               </div>
             </FadeInUp>
           ))}
+        </div>
+
+        {/* View More Button */}
+        <div className="mt-16 text-center">
+          <FadeInUp delay={200}>
+            <a href="#" className="inline-flex items-center gap-3 px-8 py-4 bg-white border border-[#3E3A36]/20 text-[#3E3A36] rounded-full font-bold text-[13px] uppercase tracking-widest hover:bg-[#3E3A36] hover:text-white hover:shadow-xl hover:-translate-y-1 transition-all duration-400 group">
+              View All Facilities
+              <ArrowRight size={16} className="transform group-hover:translate-x-1 transition-transform" />
+            </a>
+          </FadeInUp>
         </div>
       </div>
     </section>
