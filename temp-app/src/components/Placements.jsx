@@ -1,150 +1,251 @@
 import { FadeInUp, SlideIn } from "../utils/animations";
-import { RECRUITERS } from "../data/constants";
 import { TrendingUp, Building2, Award, Users, ArrowRight } from "lucide-react";
+import { useState } from "react";
+import { logos as CompanyLogos } from "../data/companyLogos";
 
-export default function Placements() {
-  const stats = [
-    { icon: <TrendingUp size={28} />, value: "₹12 LPA", label: "Highest Package", accent: "from-white/60 to-white/10" },
-    { icon: <Award size={28} />, value: "₹5.2 LPA", label: "Average Package", accent: "from-white/60 to-white/10" },
-    { icon: <Building2 size={28} />, value: "320+", label: "Companies Visited", accent: "from-white/60 to-white/10" },
-    { icon: <Users size={28} />, value: "94%", label: "Placement Rate", accent: "from-white/60 to-white/10" },
-  ];
+/* Smooth glow hover CSS — no pop, just fade + lift + glow */
+const hoverAnimCSS = `
+  .company-pill {
+    transition:
+      background 0.3s ease,
+      border-color 0.3s ease,
+      box-shadow 0.35s ease,
+      transform 0.3s cubic-bezier(0.25,0.46,0.45,0.94),
+      gap 0.3s ease;
+  }
+  .company-pill:hover {
+    transform: translateY(-3px) scale(1.035);
+  }
+  .logo-fade {
+    transition: opacity 0.35s ease, transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
+  }
+`;
+if (typeof document !== "undefined" && !document.getElementById("pill-hover-css")) {
+  const s = document.createElement("style");
+  s.id = "pill-hover-css";
+  s.textContent = hoverAnimCSS;
+  document.head.appendChild(s);
+}
 
-  const domainMap = {
-    "TCS": "tcs.com", "Infosys": "infosys.com", "Wipro": "wipro.com",
-    "HCL": "hcltech.com", "Capgemini": "capgemini.com", "Accenture": "accenture.com",
-    "Cognizant": "cognizant.com", "Tech Mahindra": "techmahindra.com",
-    "L&T Infotech": "ltimindtree.com", "IBM": "ibm.com",
-    "Hexaware": "hexaware.com", "Mphasis": "mphasis.com"
-  };
+/* ─── Data ──────────────────────────────────────────────────────────── */
+const stats = [
+  { icon: <TrendingUp size={28} />, value: "₹48 LPA",  label: "Highest Package" },
+  { icon: <Award size={28} />,       value: "₹5.2 LPA", label: "Average Package" },
+  { icon: <Building2 size={28} />,   value: "320+",      label: "Companies Visited" },
+  { icon: <Users size={28} />,       value: "94%",        label: "Placement Rate" },
+];
+
+const companies = [
+  "TCS", "Infosys", "Wipro", "HCL", "Capgemini", "Accenture",
+  "Cognizant", "Tech Mahindra", "L&T Infotech", "IBM",
+  "Hexaware", "Mphasis", "Amazon", "Microsoft", "Google",
+  "Goldman Sachs", "JP Morgan", "Morgan Stanley", "Deloitte",
+  "Atlassian", "Persistent", "Mindtree", "Oracle", "SAP",
+];
+
+const placements = [
+  { name: "Vikram Nair",      year: "2024", company: "Google",         pkg: "₹48 LPA" },
+  { name: "Aarav Sharma",     year: "2024", company: "Amazon",         pkg: "₹44 LPA" },
+  { name: "Priya Patel",      year: "2024", company: "Microsoft",      pkg: "₹42 LPA" },
+  { name: "Rohan Gupta",      year: "2023", company: "Atlassian",      pkg: "₹35 LPA" },
+  { name: "Sneha Reddy",      year: "2023", company: "Goldman Sachs",  pkg: "₹28 LPA" },
+  { name: "Amit Kumar",       year: "2023", company: "Morgan Stanley", pkg: "₹24 LPA" },
+  { name: "Anjali Desai",     year: "2024", company: "JP Morgan",      pkg: "₹22 LPA" },
+  { name: "Meera Iyer",       year: "2024", company: "Deloitte",       pkg: "₹18 LPA" },
+  { name: "Rahul Behera",     year: "2022", company: "TCS Digital",    pkg: "₹12 LPA" },
+  { name: "Sanya Mohanty",    year: "2022", company: "Infosys",        pkg: "₹8 LPA"  },
+  { name: "Karan Singh",      year: "2023", company: "Capgemini",      pkg: "₹7.5 LPA"},
+  { name: "Diya Patnaik",     year: "2022", company: "Wipro",          pkg: "₹6.5 LPA"},
+];
+
+/* ─── Company tag — smooth glow + logo fade ─────────────────────────── */
+function CompanyTag({ name }) {
+  const [hovered, setHovered] = useState(false);
+  const Logo = CompanyLogos[name];
+  const initials = name.split(" ").map(w => w[0]).join("").slice(0, 2).toUpperCase();
 
   return (
-    <>
-      {/* ── Recruiter ticker ── */}
-      <div className="bg-[#EFE7DF] border-y border-secondary/20 py-5 ticker-wrap relative z-20">
-        <div className="ticker-inner text-[13px] font-bold text-[#3E3A36]/70 uppercase tracking-[0.25em]">
-          {[...RECRUITERS, ...RECRUITERS].map((r, i) => (
-            <span key={i} className="flex items-center gap-8 mx-8">
-              <span className="w-2 h-2 rounded-full bg-secondary inline-block flex-shrink-0 animate-pulse"></span>
-              {r}
-            </span>
-          ))}
+    <div
+      className="company-pill flex-shrink-0 flex items-center rounded-xl px-4 py-2.5 cursor-default"
+      style={{
+        background: hovered ? "rgba(255,255,255,0.15)" : "rgba(255,255,255,0.06)",
+        borderWidth: hovered ? "1.5px" : "1px",
+        borderStyle: "solid",
+        borderColor: hovered ? "rgba(255,255,255,0.88)" : "rgba(255,255,255,0.12)",
+        boxShadow: hovered
+          ? "0 0 0 4px rgba(255,255,255,0.05), 0 0 28px 0 rgba(212,181,160,0.25), 0 8px 28px -6px rgba(0,0,0,0.5)"
+          : "none",
+        gap: hovered ? "10px" : "0px",
+      }}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      {/* Logo — smooth width + opacity transition */}
+      <div style={{
+        maxWidth: hovered ? "60px" : "0px",
+        overflow: "hidden",
+        flexShrink: 0,
+        transition: "max-width 0.35s ease",
+        display: "flex",
+        alignItems: "center",
+      }}>
+        <div
+          className="logo-fade"
+          style={{
+            opacity: hovered ? 1 : 0,
+            transform: hovered ? "scale(1) translateY(0)" : "scale(0.85) translateY(3px)",
+          }}
+        >
+          {Logo
+            ? <Logo size={26} />
+            : <span style={{
+                display: "flex", alignItems: "center", justifyContent: "center",
+                width: 26, height: 26, borderRadius: "50%",
+                background: "rgba(255,255,255,0.15)",
+                fontSize: 9, fontWeight: 900, color: "rgba(255,255,255,0.7)",
+              }}>{initials}</span>
+          }
         </div>
       </div>
 
-      {/* ── Premium Placements Section ── */}
-      <section className="relative py-32 overflow-hidden">
-        
-        {/* Rich gradient background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#2C2825] via-[#3E3A36] to-[#4A3F38]"></div>
-        
-        {/* Decorative pattern overlay */}
-        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)', backgroundSize: '32px 32px' }}></div>
-        
-        {/* Animated gradient orbs */}
-        <div className="absolute top-[-200px] right-[-100px] w-[600px] h-[600px] bg-gradient-to-br from-[#8B6E66]/40 to-[#A59381]/20 rounded-full blur-[120px] animate-pulse"></div>
-        <div className="absolute bottom-[-200px] left-[-100px] w-[500px] h-[500px] bg-gradient-to-tr from-[#A59381]/30 to-[#8B6E66]/10 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: '2s' }}></div>
-        
-        {/* Decorative line accents */}
-        <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
-        <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+      {/* Label */}
+      <span style={{
+        fontSize: 13,
+        fontWeight: hovered ? 700 : 600,
+        whiteSpace: "nowrap",
+        color: hovered ? "rgba(255,255,255,1)" : "rgba(255,255,255,0.68)",
+        letterSpacing: hovered ? "0.01em" : "0",
+        transition: "color 0.3s ease, letter-spacing 0.3s ease",
+      }}>
+        {name}
+      </span>
+    </div>
+  );
+}
 
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          
-          {/* Header */}
-          <div className="text-center mb-20">
-            <SlideIn direction="right">
-              <div className="inline-flex items-center justify-center gap-3 border border-white/15 text-white/90 text-[11px] font-bold uppercase tracking-[0.35em] px-8 py-3 rounded-full mb-10 bg-white/5 backdrop-blur-md shadow-2xl">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                Placements 2025–26
+
+/* ─── Section ───────────────────────────────────────────────────────── */
+export default function Placements() {
+  const remaining = 320 - companies.length;
+
+  return (
+    <section className="relative py-32 overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#2C2825] via-[#3E3A36] to-[#4A3F38]" />
+      <div className="absolute inset-0 opacity-[0.03]"
+        style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)", backgroundSize: "32px 32px" }} />
+      <div className="absolute top-[-200px] right-[-100px] w-[600px] h-[600px] bg-gradient-to-br from-[#8B6E66]/40 to-[#A59381]/20 rounded-full blur-[120px]"
+        style={{ animation: "pulse 4s ease-in-out infinite" }} />
+      <div className="absolute bottom-[-200px] left-[-100px] w-[500px] h-[500px] bg-gradient-to-tr from-[#A59381]/30 to-[#8B6E66]/10 rounded-full blur-[100px]"
+        style={{ animation: "pulse 4s ease-in-out infinite", animationDelay: "2s" }} />
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+
+        {/* Header */}
+        <div className="text-center mb-20">
+          <SlideIn direction="right">
+            <div className="inline-flex items-center gap-3 border border-white/15 text-white/90 text-[11px] font-bold uppercase tracking-[0.35em] px-8 py-3 rounded-full mb-10 bg-white/5 shadow-2xl">
+              <span className="w-2 h-2 rounded-full bg-emerald-400" style={{ animation: "pulse 2s ease-in-out infinite" }} />
+              Placements 2025–26
+            </div>
+          </SlideIn>
+          <FadeInUp delay={200}>
+            <h2 className="serif text-5xl md:text-6xl lg:text-7xl font-black text-white mb-6 leading-[1.05] drop-shadow-2xl">
+              Our graduates are everywhere{" "}
+              <br className="hidden md:block" />
+              <span className="italic" style={{
+                WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
+                backgroundImage: "linear-gradient(to right, #D4B5A0, #E8D5C4, #A59381)",
+                backgroundClip: "text",
+              }}>
+                that matters.
+              </span>
+            </h2>
+          </FadeInUp>
+          <FadeInUp delay={400}>
+            <p className="text-white/70 text-lg md:text-xl font-medium leading-relaxed max-w-2xl mx-auto">
+              Over 320 global companies visited our campus this year. Our students have secured leading roles across the world's top firms.
+            </p>
+          </FadeInUp>
+        </div>
+
+        {/* Stats */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 mb-20">
+          {stats.map((s, i) => (
+            <FadeInUp key={s.label} delay={200 + i * 100}>
+              <div className="group relative bg-white/[0.06] border border-white/10 rounded-2xl p-7 text-center hover:bg-white/[0.12] hover:border-white/20 transition-all duration-500 hover:-translate-y-1 overflow-hidden">
+                <div className="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-white/50 to-white/10 opacity-50 group-hover:opacity-100 transition-opacity" />
+                <div className="text-white/50 mb-4 flex justify-center group-hover:text-white/80 group-hover:scale-110 transform transition-all duration-500">{s.icon}</div>
+                <div className="serif text-3xl md:text-4xl font-black text-white mb-2">{s.value}</div>
+                <div className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/50 group-hover:text-white/70 transition-colors">{s.label}</div>
               </div>
-            </SlideIn>
-            
-            <FadeInUp delay={200}>
-              <h2 className="serif text-5xl md:text-6xl lg:text-7xl font-black text-white mb-6 leading-[1.05] drop-shadow-2xl">
-                Our graduates are everywhere <br className="hidden md:block"/>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4B5A0] via-[#E8D5C4] to-[#A59381] italic">that matters.</span>
-              </h2>
             </FadeInUp>
-            
-            <FadeInUp delay={400}>
-              <p className="text-white/70 text-lg md:text-xl font-medium leading-relaxed mb-0 max-w-2xl mx-auto">
-                Over 320 global companies visited our campus this year. Our students have secured leading roles across the world's top firms.
-              </p>
-            </FadeInUp>
-          </div>
+          ))}
+        </div>
 
-          {/* Stats Grid */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 mb-20">
-            {stats.map((s, i) => (
-              <FadeInUp key={s.label} delay={200 + i * 100}>
-                <div className="group relative bg-white/[0.06] backdrop-blur-md border border-white/10 rounded-2xl p-7 text-center hover:bg-white/[0.12] hover:border-white/20 transition-all duration-500 hover:-translate-y-1 overflow-hidden">
-                  {/* Gradient accent line at top */}
-                  <div className={`absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r ${s.accent} opacity-60 group-hover:opacity-100 transition-opacity`}></div>
-                  
-                  <div className="text-white/50 mb-4 flex justify-center group-hover:text-white/80 transition-colors group-hover:scale-110 transform duration-500">
-                    {s.icon}
+        {/* Company Tags */}
+        <FadeInUp delay={500}>
+          <div className="mb-20">
+            <div className="text-center mb-8">
+              <p className="text-[11px] font-bold uppercase tracking-[0.3em] text-white/40">
+                Trusted by Industry Leaders
+              </p>
+              <p className="text-white/25 text-[10px] mt-1.5 font-medium">Hover to reveal each company's logo</p>
+            </div>
+            <div className="flex flex-wrap justify-center gap-2.5 max-w-5xl mx-auto">
+              {companies.map((name) => (
+                <CompanyTag key={name} name={name} />
+              ))}
+              <div className="flex-shrink-0 flex items-center justify-center border border-white/10 bg-white/[0.05] rounded-lg px-5 py-2.5">
+                <span className="text-white/50 text-[13px] font-bold">+{remaining} more</span>
+              </div>
+            </div>
+          </div>
+        </FadeInUp>
+
+        {/* Student Placements */}
+        <div className="text-center mb-10">
+          <FadeInUp delay={600}>
+            <div className="w-16 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent mx-auto mb-5" />
+            <span className="text-[11px] font-bold uppercase tracking-[0.3em] text-white/40">Where Our Students Work</span>
+          </FadeInUp>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5 max-w-5xl mx-auto">
+          {placements.map((s, i) => (
+            <FadeInUp key={i} delay={650 + i * 60}>
+              <div className="group flex items-center justify-between bg-white/[0.04] hover:bg-white/[0.09] border border-white/[0.06] hover:border-white/15 rounded-xl px-5 py-4 transition-all duration-400 hover:-translate-y-0.5 cursor-default">
+                <div className="flex items-center gap-4 min-w-0">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#D4B5A0]/30 to-[#8B6E66]/20 border border-white/10 flex items-center justify-center text-white/70 text-sm font-bold flex-shrink-0 group-hover:from-[#D4B5A0]/50 transition-all duration-400">
+                    {s.name.split(" ").map(n => n[0]).join("")}
                   </div>
-                  <div className="serif text-3xl md:text-4xl font-black text-white mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-[#D4B5A0] transition-all">
-                    {s.value}
-                  </div>
-                  <div className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/50 group-hover:text-white/70 transition-colors">
-                    {s.label}
+                  <div className="min-w-0">
+                    <div className="text-white font-semibold text-[15px] leading-tight truncate">{s.name}</div>
+                    <div className="flex items-center gap-2 mt-0.5 flex-wrap">
+                      <div className="text-white/40 text-[12px] font-medium truncate">{s.company}</div>
+                      <span className="flex-shrink-0 border border-white/15 text-white/40 text-[10px] font-bold px-1.5 py-px rounded tracking-wider">{s.year}</span>
+                    </div>
                   </div>
                 </div>
-              </FadeInUp>
-            ))}
-          </div>
-
-          {/* Recruiter Logos Grid */}
-          <FadeInUp delay={600}>
-            <div className="text-center mb-10">
-              <div className="w-12 h-[2px] bg-gradient-to-r from-transparent via-white/30 to-transparent mx-auto mb-4"></div>
-              <span className="text-[11px] font-bold uppercase tracking-[0.3em] text-white/40">Trusted by Industry Leaders</span>
-            </div>
-            <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
-              {RECRUITERS.map((r) => {
-                const domain = domainMap[r] || r.toLowerCase().replace(/\s+/g, '') + '.com';
-                const faviconUrl = `https://www.google.com/s2/favicons?domain=${domain}&sz=64`;
-                return (
-                  <span 
-                    key={r} 
-                    className="group/chip relative bg-white/[0.06] hover:bg-white border border-white/[0.08] hover:border-white text-white hover:text-[#3E3A36] font-bold rounded-2xl cursor-default overflow-hidden h-[48px] flex items-center pl-6 pr-6 transition-colors duration-300 hover:shadow-[0_8px_24px_-6px_rgba(255,255,255,0.15)]"
-                  >
-                    {/* Accent bar on hover */}
-                    <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-[#8B6E66] to-[#A59381] scale-x-0 group-hover/chip:scale-x-100 transition-transform duration-300 origin-left"></div>
-                    
-                    {/* Favicon - fixed position, only fades in */}
-                    <img 
-                      src={faviconUrl} 
-                      alt="" 
-                      className="w-5 h-5 object-contain opacity-0 group-hover/chip:opacity-100 transition-opacity duration-200 rounded-sm flex-shrink-0 mr-2"
-                    />
-                    {/* Text label */}
-                    <span className="text-[13px] whitespace-nowrap">
-                      {r}
-                    </span>
-                  </span>
-                );
-              })}
-              <span className="bg-white/[0.04] border border-white/10 text-white/70 text-[13px] font-black px-6 rounded-2xl italic h-[48px] flex items-center justify-center">
-                +308 more
-              </span>
-            </div>
-          </FadeInUp>
-
-          {/* CTA */}
-          <FadeInUp delay={800}>
-            <div className="text-center mt-16">
-              <a href="#" className="group inline-flex items-center gap-3 bg-white text-[#3E3A36] px-10 py-4 rounded-full font-bold text-sm uppercase tracking-widest shadow-[0_20px_40px_-10px_rgba(0,0,0,0.3)] hover:shadow-[0_25px_50px_-10px_rgba(255,255,255,0.2)] hover:-translate-y-1 transition-all duration-500">
-                View Full Placement Report
-                <ArrowRight size={18} className="transform group-hover:translate-x-1 transition-transform" />
-              </a>
-            </div>
-          </FadeInUp>
-
+                <div className="text-[#D4B5A0] font-bold text-[15px] tracking-wide whitespace-nowrap pl-4 group-hover:text-[#E8D5C4] transition-colors">{s.pkg}</div>
+              </div>
+            </FadeInUp>
+          ))}
         </div>
-      </section>
-    </>
+
+        {/* CTA */}
+        <FadeInUp delay={800}>
+          <div className="text-center mt-16">
+            <a href="#" className="group inline-flex items-center gap-3 bg-white text-[#3E3A36] px-10 py-4 rounded-full font-bold text-sm uppercase tracking-widest shadow-[0_20px_40px_-10px_rgba(0,0,0,0.3)] hover:shadow-[0_25px_50px_-10px_rgba(255,255,255,0.2)] hover:-translate-y-1 transition-all duration-500">
+              View Full Placement Report
+              <ArrowRight size={18} className="transform group-hover:translate-x-1 transition-transform" />
+            </a>
+          </div>
+        </FadeInUp>
+
+      </div>
+    </section>
   );
 }

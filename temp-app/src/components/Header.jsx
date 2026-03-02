@@ -87,10 +87,6 @@ export default function Header() {
 
           {/* CTA Elements */}
           <div className="hidden lg:flex items-center gap-5">
-            <div className="flex items-center bg-soft border border-secondary/20 rounded-full px-4 py-2 gap-2 text-primary focus-within:border-primary focus-within:bg-white transition-all">
-              <Search size={16} />
-              <input placeholder="Search campus..." className="bg-transparent outline-none placeholder-secondary/80 w-32 text-[#3E3A36] text-[13px] font-bold" />
-            </div>
             <a href="#" className="btn-rose text-[12px] font-bold px-7 py-3 rounded uppercase whitespace-nowrap">Apply Now</a>
           </div>
 

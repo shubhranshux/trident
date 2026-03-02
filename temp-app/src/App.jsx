@@ -1,15 +1,27 @@
+import { lazy, Suspense } from "react";
+
+// Critical above-the-fold — eager loaded
 import Header from "./components/Header";
 import Hero from "./components/Hero";
-import AboutSection from "./components/AboutSection";
-import Programs from "./components/Programs";
-import AtAGlance from "./components/AtAGlance";
-import Facilities from "./components/Facilities";
-import Discover from "./components/Discover";
-import Placements from "./components/Placements";
-import Testimonials from "./components/Testimonials";
-import Events from "./components/Events";
-import NewsSection from "./components/NewsSection";
-import Footer from "./components/Footer";
+import Accreditations from "./components/Accreditations";
+
+// Below fold — lazy loaded for faster initial paint
+const AboutSection  = lazy(() => import("./components/AboutSection"));
+const Programs      = lazy(() => import("./components/Programs"));
+const AtAGlance     = lazy(() => import("./components/AtAGlance"));
+const Facilities    = lazy(() => import("./components/Facilities"));
+const Discover      = lazy(() => import("./components/Discover"));
+const NoticeBoard   = lazy(() => import("./components/NoticeBoard"));
+const Placements    = lazy(() => import("./components/Placements"));
+const Testimonials  = lazy(() => import("./components/Testimonials"));
+const Events        = lazy(() => import("./components/Events"));
+const NewsSection   = lazy(() => import("./components/NewsSection"));
+const Footer        = lazy(() => import("./components/Footer"));
+
+// Minimal inline fallback — no layout shift
+function SectionFallback() {
+  return <div style={{ minHeight: "200px" }} />;
+}
 
 export default function App() {
   return (
@@ -94,6 +106,10 @@ export default function App() {
         .ticker-inner span { color: var(--text-dark) !important; }
         @keyframes ticker { 0% { transform: translate3d(0, 0, 0); } 100% { transform: translate3d(-50%, 0, 0); } }
 
+        /* Scroll caret bounce (GPU-friendly, no flicker) */
+        @keyframes scrollBounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(5px)} }
+        .scroll-caret { animation: scrollBounce 2s ease-in-out infinite; }
+
         /* Custom Scrollbar for elegance */
         ::-webkit-scrollbar { width: 10px; }
         ::-webkit-scrollbar-track { background: var(--bg-soft); }
@@ -106,22 +122,34 @@ export default function App() {
       `}</style>
 
       <Header />
-      {/* Spacer for fixed header */}
-      <div className="h-[120px] lg:h-[100px]"></div>
+      {/* Hero is sticky (z:0) — the wrapper below slides up over it */}
       <Hero />
-      {/* All sections after Hero scroll over the fixed Hero */}
-      <main className="relative z-10 bg-[#EFE7DF] -mt-16 sm:-mt-24 rounded-t-[40px] md:rounded-t-[60px] overflow-hidden">
-        <AboutSection />
-        <Programs />
-        <AtAGlance />
-        <Facilities />
-        <Discover />
-        <Placements />
-        <Testimonials />
-        <Events />
-        <NewsSection />
-        <Footer />
-      </main>
+      {/* Scroll-over wrapper: z-10 + rounded-top creates the overlap/reveal effect */}
+      <div
+        className="relative"
+        style={{
+          zIndex: 10,
+          borderRadius: "28px 28px 0 0",
+          overflow: "hidden",
+          boxShadow: "0 -16px 64px -8px rgba(0,0,0,0.35)",
+          marginTop: "-28px", /* pull up slightly for the overlap */
+        }}
+      >
+        <Accreditations />
+        <main className="bg-[#EFE7DF] overflow-hidden">
+          <Suspense fallback={<SectionFallback />}><AboutSection /></Suspense>
+          <Suspense fallback={<SectionFallback />}><Programs /></Suspense>
+          <Suspense fallback={<SectionFallback />}><AtAGlance /></Suspense>
+          <Suspense fallback={<SectionFallback />}><Facilities /></Suspense>
+          <Suspense fallback={<SectionFallback />}><Discover /></Suspense>
+          <Suspense fallback={<SectionFallback />}><NoticeBoard /></Suspense>
+          <Suspense fallback={<SectionFallback />}><Placements /></Suspense>
+          <Suspense fallback={<SectionFallback />}><Testimonials /></Suspense>
+          <Suspense fallback={<SectionFallback />}><Events /></Suspense>
+          <Suspense fallback={<SectionFallback />}><NewsSection /></Suspense>
+          <Suspense fallback={<SectionFallback />}><Footer /></Suspense>
+        </main>
+      </div>
     </div>
   );
 }
