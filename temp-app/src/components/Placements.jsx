@@ -3,7 +3,7 @@ import { TrendingUp, Building2, Award, Users, ArrowRight } from "lucide-react";
 import { useState } from "react";
 import { logos as CompanyLogos } from "../data/companyLogos";
 
-/* Smooth glow hover CSS — no pop, just fade + lift + glow */
+/* Smooth glow hover CSS and marquee animation */
 const hoverAnimCSS = `
   .company-pill {
     transition:
@@ -18,6 +18,16 @@ const hoverAnimCSS = `
   }
   .logo-fade {
     transition: opacity 0.35s ease, transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
+  }
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .animate-marquee {
+    animation: marquee 35s linear infinite;
+  }
+  .animate-marquee:hover {
+    animation-play-state: paused;
   }
 `;
 if (typeof document !== "undefined" && !document.getElementById("pill-hover-css")) {
@@ -213,27 +223,35 @@ export default function Placements() {
           </FadeInUp>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5 max-w-5xl mx-auto">
-          {placements.map((s, i) => (
-            <FadeInUp key={i} delay={650 + i * 60}>
-              <div className="group flex items-center justify-between bg-white/[0.04] hover:bg-white/[0.09] border border-white/[0.06] hover:border-white/15 rounded-xl px-5 py-4 transition-all duration-400 hover:-translate-y-0.5 cursor-default">
-                <div className="flex items-center gap-4 min-w-0">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#D4B5A0]/30 to-[#8B6E66]/20 border border-white/10 flex items-center justify-center text-white/70 text-sm font-bold flex-shrink-0 group-hover:from-[#D4B5A0]/50 transition-all duration-400">
-                    {s.name.split(" ").map(n => n[0]).join("")}
-                  </div>
-                  <div className="min-w-0">
-                    <div className="text-white font-semibold text-[15px] leading-tight truncate">{s.name}</div>
-                    <div className="flex items-center gap-2 mt-0.5 flex-wrap">
-                      <div className="text-white/40 text-[12px] font-medium truncate">{s.company}</div>
-                      <span className="flex-shrink-0 border border-white/15 text-white/40 text-[10px] font-bold px-1.5 py-px rounded tracking-wider">{s.year}</span>
+        <FadeInUp delay={650}>
+          {/* w-[100vw] and left-1/2 -translate-x-1/2 breaks it out of the max-w-7xl container to span edge-to-edge */}
+          <div className="relative w-[100vw] left-1/2 -translate-x-1/2 overflow-hidden py-4">
+            {/* Gradient edge masks for smooth fade in/out */}
+            <div className="absolute top-0 bottom-0 left-0 w-16 md:w-48 bg-gradient-to-r from-[#2C2825] to-transparent z-10 pointer-events-none" />
+            <div className="absolute top-0 bottom-0 right-0 w-16 md:w-48 bg-gradient-to-l from-[#4A3F38] to-transparent z-10 pointer-events-none" />
+
+            {/* Scrolling container — duplicated items for infinite seamless scroll */}
+            <div className="flex w-max animate-marquee space-x-4 px-4">
+              {[...placements, ...placements].map((s, i) => (
+                <div key={i} className="group w-[320px] md:w-[380px] flex-shrink-0 flex items-center justify-between bg-white/[0.12] hover:bg-white/[0.18] border border-white/20 hover:border-white/30 rounded-xl px-5 py-4 transition-all duration-400 hover:-translate-y-1 cursor-default backdrop-blur-sm shadow-xl">
+                  <div className="flex items-center gap-4 min-w-0">
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#D4B5A0] to-[#8B6E66] border border-white/30 flex items-center justify-center text-white text-sm font-black flex-shrink-0 group-hover:from-[#E8D5C4] transition-all duration-400 shadow-inner">
+                      {s.name.split(" ").map(n => n[0]).join("")}
+                    </div>
+                    <div className="min-w-0">
+                      <div className="text-white font-bold text-[16px] leading-tight truncate">{s.name}</div>
+                      <div className="flex items-center gap-2 mt-1 flex-wrap">
+                        <div className="text-white/80 text-[13px] font-semibold truncate">{s.company}</div>
+                        <span className="flex-shrink-0 bg-white/10 border border-white/20 text-white/90 text-[10px] font-bold px-1.5 py-0.5 rounded tracking-wider">{s.year}</span>
+                      </div>
                     </div>
                   </div>
+                  <div className="text-[#F5EEEC] font-black text-[16px] tracking-wide whitespace-nowrap pl-4 group-hover:text-white transition-colors">{s.pkg}</div>
                 </div>
-                <div className="text-[#D4B5A0] font-bold text-[15px] tracking-wide whitespace-nowrap pl-4 group-hover:text-[#E8D5C4] transition-colors">{s.pkg}</div>
-              </div>
-            </FadeInUp>
-          ))}
-        </div>
+              ))}
+            </div>
+          </div>
+        </FadeInUp>
 
         {/* CTA */}
         <FadeInUp delay={800}>
