@@ -11,7 +11,6 @@ const Programs      = lazy(() => import("./components/Programs"));
 const AtAGlance     = lazy(() => import("./components/AtAGlance"));
 const Facilities    = lazy(() => import("./components/Facilities"));
 const Discover      = lazy(() => import("./components/Discover"));
-const NoticeBoard   = lazy(() => import("./components/NoticeBoard"));
 const Placements    = lazy(() => import("./components/Placements"));
 const Testimonials  = lazy(() => import("./components/Testimonials"));
 const Events        = lazy(() => import("./components/Events"));
@@ -142,7 +141,6 @@ export default function App() {
           <Suspense fallback={<SectionFallback />}><AtAGlance /></Suspense>
           <Suspense fallback={<SectionFallback />}><Facilities /></Suspense>
           <Suspense fallback={<SectionFallback />}><Discover /></Suspense>
-          <Suspense fallback={<SectionFallback />}><NoticeBoard /></Suspense>
           <Suspense fallback={<SectionFallback />}><Placements /></Suspense>
           <Suspense fallback={<SectionFallback />}><Testimonials /></Suspense>
           <Suspense fallback={<SectionFallback />}><Events /></Suspense>
