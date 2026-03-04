@@ -49,7 +49,7 @@ export default function Footer() {
             </p>
             
             <div className="space-y-4 text-sm font-medium">
-              <a href="https://contactus-tat.tekkzy.com" target="_blank" rel="noopener noreferrer" className="flex items-start gap-4 hover:text-white transition-colors group">
+              <a href="https://contactus-tat.tekkzy.com" className="flex items-start gap-4 hover:text-white transition-colors group">
                 <span className="mt-1 text-primary group-hover:scale-110 transition-transform"><MapPin size={18}/></span>
                 <span className="leading-snug">F2/A, Chandaka Industrial Estate,<br/>Chandrasekharpur, Bhubaneswar,<br/>Odisha – 751024, India</span>
               </a>
@@ -98,7 +98,7 @@ export default function Footer() {
                     const linkHref = typeof l === 'string' ? (col.href || '#') : l.href;
                     return (
                     <li key={i}>
-                      <a href={linkHref} target="_blank" rel="noopener noreferrer" className="font-medium text-bg-light/60 text-[14px] hover:text-primary hover:translate-x-1.5 transition-all flex items-center gap-2 group/link">
+                      <a href={linkHref} className="font-medium text-bg-light/60 text-[14px] hover:text-primary hover:translate-x-1.5 transition-all flex items-center gap-2 group/link">
                         <span className="w-1.5 h-1.5 rounded-full bg-secondary/30 group-hover/link:bg-primary transition-colors flex-shrink-0"></span>
                         <span className="whitespace-nowrap">{linkText}</span>
                       </a>
@@ -117,7 +117,7 @@ export default function Footer() {
             <span>© 2026 Trident Academy of Technology. All rights reserved.</span>
             <div className="flex gap-4">
                {["Privacy Policy", "Disclaimer", "Terms of Use"].map(l=>(
-                 <a key={l} href="https://tat.tekkzy.com/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">{l}</a>
+                 <a key={l} href="https://tat.tekkzy.com/" className="hover:text-white transition-colors">{l}</a>
                ))}
             </div>
           </div>
@@ -125,7 +125,7 @@ export default function Footer() {
           <div className="flex items-center gap-4">
             <span className="text-xs uppercase tracking-widest text-bg-light/40 font-bold mr-2">Connect</span>
             {[Facebook, Twitter, Linkedin, Instagram].map((Icon, i) => (
-              <a key={i} href="https://tat.tekkzy.com/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-bg-light/70 hover:bg-primary hover:text-white transition-all transform hover:-translate-y-1">
+              <a key={i} href="https://tat.tekkzy.com/" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-bg-light/70 hover:bg-primary hover:text-white transition-all transform hover:-translate-y-1">
                 <Icon size={16} />
               </a>
             ))}
@@ -135,7 +135,7 @@ export default function Footer() {
         {/* Built by credit */}
         <div className="text-center mt-8 pt-6 border-t border-white/5">
           <span className="text-[11px] font-medium text-bg-light/30 tracking-wider">
-            Crafted with AI by <a href="https://tekkzy.com" target="_blank" rel="noopener noreferrer" className="text-bg-light/50 hover:text-white transition-colors font-bold">Tekkzy</a> — AI-Powered Intelligent Cloud Solutions
+            Crafted with AI by <a href="https://tekkzy.com" className="text-bg-light/50 hover:text-white transition-colors font-bold">Tekkzy</a> — AI-Powered Intelligent Cloud Solutions
           </span>
         </div>
         

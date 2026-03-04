@@ -58,11 +58,11 @@ export default function CallToAction() {
 
               <FadeInUp delay={400}>
                 <div className="flex flex-col sm:flex-row items-center gap-4">
-                  <a href="https://admissions-tat.tekkzy.com" target="_blank" rel="noopener noreferrer" className="relative group/btn1 overflow-hidden bg-gradient-to-r from-white to-[#F5EEEC] text-[#3E3A36] px-8 py-4 rounded-xl font-extrabold text-[13px] uppercase tracking-wider flex items-center justify-center gap-2 w-full sm:w-auto hover:shadow-[0_20px_40px_-5px_rgba(255,255,255,0.4)] hover:-translate-y-1 transition-all duration-400">
+                  <a href="https://admissions-tat.tekkzy.com" className="relative group/btn1 overflow-hidden bg-gradient-to-r from-white to-[#F5EEEC] text-[#3E3A36] px-8 py-4 rounded-xl font-extrabold text-[13px] uppercase tracking-wider flex items-center justify-center gap-2 w-full sm:w-auto hover:shadow-[0_20px_40px_-5px_rgba(255,255,255,0.4)] hover:-translate-y-1 transition-all duration-400">
                     <span className="relative z-10 flex items-center gap-2">Apply Now <ArrowRight size={16} className="group-hover/btn1:translate-x-1 transition-transform" /></span>
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/80 to-transparent -translate-x-full group-hover/btn1:translate-x-full transition-transform duration-700 pointer-events-none"></div>
                   </a>
-                  <a href="https://contactus-tat.tekkzy.com" target="_blank" rel="noopener noreferrer" className="border border-white/20 bg-white/5 backdrop-blur-sm text-white px-8 py-4 rounded-xl font-extrabold text-[13px] uppercase tracking-wider flex items-center justify-center w-full sm:w-auto hover:border-white/50 hover:bg-white/10 hover:-translate-y-1 hover:shadow-[0_20px_40px_-10px_rgba(0,0,0,0.3)] transition-all duration-400 relative">
+                  <a href="https://contactus-tat.tekkzy.com" className="border border-white/20 bg-white/5 backdrop-blur-sm text-white px-8 py-4 rounded-xl font-extrabold text-[13px] uppercase tracking-wider flex items-center justify-center w-full sm:w-auto hover:border-white/50 hover:bg-white/10 hover:-translate-y-1 hover:shadow-[0_20px_40px_-10px_rgba(0,0,0,0.3)] transition-all duration-400 relative">
                     Schedule Visit
                   </a>
                 </div>

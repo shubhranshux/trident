@@ -22,7 +22,7 @@ export default function Header() {
             Affiliated to BPUT &nbsp;<span className="text-secondary opacity-50">|</span>&nbsp; NAAC 'A' Accredited
           </span>
           <div className="flex gap-6 text-[11px] font-bold text-white/90 uppercase tracking-widest">
-            <a href="https://alumni-tat.tekkzy.com/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 utility-link hover:text-white"><Users size={12}/> Alumni</a>
+            <a href="https://alumni-tat.tekkzy.com/" className="flex items-center gap-1.5 utility-link hover:text-white"><Users size={12}/> Alumni</a>
           </div>
         </div>
       </div>
@@ -45,7 +45,7 @@ export default function Header() {
             <ul className="flex items-center gap-6">
               {NAV_LINKS.map(item => (
                 <li key={item.label}>
-                  <a href={item.href} target="_blank" rel="noopener noreferrer" className="nav-link text-[14px] uppercase tracking-[0.14em] cursor-pointer whitespace-nowrap font-extrabold text-[#3E3A36] hover:text-primary transition-colors">
+                  <a href={item.href} className="nav-link text-[14px] uppercase tracking-[0.14em] cursor-pointer whitespace-nowrap font-extrabold text-[#3E3A36] hover:text-primary transition-colors">
                     {item.label}
                   </a>
                 </li>
@@ -55,7 +55,7 @@ export default function Header() {
 
           {/* CTA Elements */}
           <div className="hidden lg:flex items-center gap-5">
-            <a href="https://admissions-tat.tekkzy.com" target="_blank" rel="noopener noreferrer" className="btn-rose text-[12px] font-bold px-7 py-3 rounded uppercase whitespace-nowrap">Apply Now</a>
+            <a href="https://admissions-tat.tekkzy.com" className="btn-rose text-[12px] font-bold px-7 py-3 rounded uppercase whitespace-nowrap">Apply Now</a>
           </div>
 
           {/* Mobile Toggle */}
@@ -69,12 +69,12 @@ export default function Header() {
           <div className="lg:hidden bg-white border-b border-primary/10 py-4 absolute w-full left-0 shadow-2xl overflow-y-auto max-h-[85vh] animate-in slide-in-from-top-4">
             <div className="px-6 space-y-2">
               {NAV_LINKS.map(item => (
-                <a key={item.label} href={item.href} target="_blank" rel="noopener noreferrer" className="block py-3 text-[15px] font-bold text-[#3E3A36] uppercase tracking-widest hover:text-primary transition-colors border-b border-soft">
+                <a key={item.label} href={item.href} className="block py-3 text-[15px] font-bold text-[#3E3A36] uppercase tracking-widest hover:text-primary transition-colors border-b border-soft">
                   {item.label}
                 </a>
               ))}
               <div className="pt-6">
-                <a href="https://admissions-tat.tekkzy.com" target="_blank" rel="noopener noreferrer" className="btn-rose block text-center text-sm font-bold px-5 py-3.5 rounded">Start Application</a>
+                <a href="https://admissions-tat.tekkzy.com" className="btn-rose block text-center text-sm font-bold px-5 py-3.5 rounded">Start Application</a>
               </div>
             </div>
           </div>

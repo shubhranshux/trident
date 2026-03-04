@@ -13,7 +13,6 @@ export default function Discover() {
       img: ugImg,
       link: "Explore UG Programs",
       href: "https://academics-tat.tekkzy.com/departments-of-engineering/",
-      newTab: true,
       delay: 0
     },
     {
@@ -22,7 +21,6 @@ export default function Discover() {
       img: ptImg,
       link: "Discover Research",
       href: "https://research-tat.tekkzy.com/",
-      newTab: true,
       delay: 200
     },
     {
@@ -31,7 +29,6 @@ export default function Discover() {
       img: glImg,
       link: "See Global Reach",
       href: "https://tat.tekkzy.com/",
-      newTab: false,
       delay: 400
     }
   ];
@@ -53,7 +50,7 @@ export default function Discover() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {cards.map((c, i) => (
             <FadeInUp key={c.title} delay={c.delay}>
-              <a href={c.href || "#"} {...(c.newTab ? { target: "_blank", rel: "noopener noreferrer" } : {})} className="group block h-[500px] rounded-2xl overflow-hidden relative shadow-[0_15px_30px_-5px_rgba(62,58,54,0.1)] hover:shadow-[0_25px_50px_-15px_rgba(139,110,102,0.3)] transition-all duration-700">
+              <a href={c.href || "#"} className="group block h-[500px] rounded-2xl overflow-hidden relative shadow-[0_15px_30px_-5px_rgba(62,58,54,0.1)] hover:shadow-[0_25px_50px_-15px_rgba(139,110,102,0.3)] transition-all duration-700">
                  {/* Image */}
                  <img src={c.img} alt={c.title} loading="lazy" className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-[1.5s] ease-out" />
                  

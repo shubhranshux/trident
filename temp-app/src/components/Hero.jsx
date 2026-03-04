@@ -82,14 +82,14 @@ export default function Hero() {
             <div className="flex flex-wrap items-center gap-4">
               <a
                 href="https://admissions-tat.tekkzy.com"
-                target="_blank" rel="noopener noreferrer"
+                
                 className="bg-white text-[#3E3A36] px-10 py-4 rounded-lg font-extrabold text-[14px] flex items-center gap-3 uppercase tracking-wider transition-all duration-300 hover:shadow-[0_20px_40px_-10px_rgba(255,255,255,0.3)]"
               >
                 Apply Now <ArrowRight size={18} />
               </a>
               <a
                 href="https://academics-tat.tekkzy.com"
-                target="_blank" rel="noopener noreferrer"
+                
                 className="btn-outline-white px-10 py-4 rounded-lg font-extrabold text-[14px] flex items-center gap-3 uppercase tracking-wider"
               >
                 Explore Programs

@@ -27,7 +27,7 @@ export default function AtAGlance() {
               <p className="text-white/80 text-lg font-medium leading-relaxed mb-8">
                 A legacy of excellence defined not just by our history, but by the measurable impact of our community across the globe.
               </p>
-              <a href="https://academics-tat.tekkzy.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest hover:text-secondary transition-colors">
+              <a href="https://academics-tat.tekkzy.com" className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest hover:text-secondary transition-colors">
                 View Institutional Report <span className="w-6 h-px bg-current ml-2"></span>
               </a>
             </FadeInUp>
