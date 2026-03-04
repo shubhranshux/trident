@@ -24,7 +24,7 @@ export default function Facilities() {
       desc: "State-of-the-art AI, IoT, and Robotics labs sponsored by top industry partners.",
       img: labImg,
       colSpan: "md:col-span-2 md:row-span-1",
-      href: "https://academics-tat.tekkzy.com/computer-science-engineering/"
+      href: "https://tat.tekkzy.com/"
     },
     { 
       title: "Cafeteria & Dining", 
@@ -106,7 +106,7 @@ export default function Facilities() {
         {/* View More Button */}
         <div className="mt-16 text-center">
           <FadeInUp delay={200}>
-            <a href="https://academics-tat.tekkzy.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 px-8 py-4 bg-white border border-[#3E3A36]/20 text-[#3E3A36] rounded-full font-bold text-[13px] uppercase tracking-widest hover:bg-[#3E3A36] hover:text-white hover:shadow-xl hover:-translate-y-1 transition-all duration-400 group">
+            <a href="https://activities-tat.tekkzy.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 px-8 py-4 bg-white border border-[#3E3A36]/20 text-[#3E3A36] rounded-full font-bold text-[13px] uppercase tracking-widest hover:bg-[#3E3A36] hover:text-white hover:shadow-xl hover:-translate-y-1 transition-all duration-400 group">
               View All Facilities
               <ArrowRight size={16} className="transform group-hover:translate-x-1 transition-transform" />
             </a>

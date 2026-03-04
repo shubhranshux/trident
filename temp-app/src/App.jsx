@@ -13,8 +13,7 @@ const Facilities    = lazy(() => import("./components/Facilities"));
 const Discover      = lazy(() => import("./components/Discover"));
 const Placements    = lazy(() => import("./components/Placements"));
 const Testimonials  = lazy(() => import("./components/Testimonials"));
-const Events        = lazy(() => import("./components/Events"));
-const NewsSection   = lazy(() => import("./components/NewsSection"));
+
 const Footer        = lazy(() => import("./components/Footer"));
 
 // Minimal inline fallback — no layout shift
@@ -143,8 +142,7 @@ export default function App() {
           <Suspense fallback={<SectionFallback />}><Discover /></Suspense>
           <Suspense fallback={<SectionFallback />}><Placements /></Suspense>
           <Suspense fallback={<SectionFallback />}><Testimonials /></Suspense>
-          <Suspense fallback={<SectionFallback />}><Events /></Suspense>
-          <Suspense fallback={<SectionFallback />}><NewsSection /></Suspense>
+
           <Suspense fallback={<SectionFallback />}><Footer /></Suspense>
         </main>
       </div>
