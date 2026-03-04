@@ -2,6 +2,18 @@ import logo from "../assets/logo.png";
 import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram, ArrowRight } from "lucide-react";
 
 export default function Footer() {
+  const quickLinks = [
+    { text: "CISCO thingQbator", href: "https://tat.tekkzy.com/" },
+    { text: "Internship", href: "https://tat.tekkzy.com/" },
+    { text: "Learning Resources", href: "https://tat.tekkzy.com/" },
+    { text: "Hostels", href: "https://tat.tekkzy.com/" },
+    { text: "Student Clubs", href: "https://tat.tekkzy.com/" },
+    { text: "Sitemap", href: "https://tat.tekkzy.com/" },
+    { text: "Placement Statistics", href: "https://tat.tekkzy.com/" },
+    { text: "IQAC", href: "https://tat.tekkzy.com/" },
+    { text: "IEDC Cell", href: "https://tat.tekkzy.com/" },
+  ];
+
   return (
     <footer className="bg-[#3E3A36] text-[#EFE7DF]/90 pt-24 pb-8 relative overflow-hidden font-sans">
       
@@ -31,10 +43,10 @@ export default function Footer() {
         </div>
 
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 mb-20">
           
-          {/* Brand Info */}
-          <div className="lg:col-span-4 lg:pr-8">
+          {/* Brand Info + About Us */}
+          <div className="lg:col-span-5 lg:pr-8">
             <div className="flex items-center gap-3.5 mb-8">
               <img src={logo} alt="TAT Logo" className="w-[52px] h-[52px] object-contain flex-shrink-0 drop-shadow-sm" />
               <div className="flex flex-col justify-center">
@@ -43,49 +55,71 @@ export default function Footer() {
                 <div className="text-[9px] md:text-[10px] font-semibold text-[#8B6E66] tracking-[0.22em] uppercase leading-none">Academy of Technology</div>
               </div>
             </div>
+
+            <h5 className="serif text-white font-bold text-lg mb-6">About Us</h5>
             
-            <p className="text-bg-light/60 text-[15px] leading-relaxed mb-8 font-medium">
-              Empowering the next generation of global leaders through world-class technical education, innovative research, and an unwavering commitment to excellence.
+            <p className="text-bg-light/60 text-[15px] leading-[1.85] mb-6 font-medium">
+              Trident Academy of Technology, a name that has become a brand in the field of technical education, is today synonymous with excellence. Trident is where Education meets Enthusiasm. Within just a few years of its establishment, Trident group of institutions has built an image amongst the aspiring masses which is worth the quality of education it imparts.
             </p>
             
             <div className="space-y-4 text-sm font-medium">
-              <a href="#" className="flex items-start gap-4 hover:text-white transition-colors group">
+              <a href="https://contactus-tat.tekkzy.com" target="_blank" rel="noopener noreferrer" className="flex items-start gap-4 hover:text-white transition-colors group">
                 <span className="mt-1 text-primary group-hover:scale-110 transition-transform"><MapPin size={18}/></span>
-                <span className="leading-snug">F2/A, Chandaka Industrial Estate,<br/>Chandrasekharpur, Bhubaneswar,<br/>Odisha – 751024, India</span>
+                <span className="leading-snug">F-2, Chandaka Industrial Estate,<br/>In front of Infocity, Chandrasekharpur,<br/>Bhubaneswar, Odisha – 751024</span>
               </a>
-              <a href="tel:+916742742547" className="flex items-center gap-4 hover:text-white transition-colors group">
+              <a href="tel:06743530517" className="flex items-center gap-4 hover:text-white transition-colors group">
                 <span className="text-primary group-hover:scale-110 transition-transform"><Phone size={18}/></span>
-                +91-674-2742547
+                0674-3530517, 9861191195
               </a>
-              <a href="mailto:info@tat.ac.in" className="flex items-center gap-4 hover:text-white transition-colors group">
+              <a href="mailto:info@trident.ac.in" className="flex items-center gap-4 hover:text-white transition-colors group">
                 <span className="text-primary group-hover:scale-110 transition-transform"><Mail size={18}/></span>
-                info@tat.ac.in
+                info@trident.ac.in
               </a>
             </div>
           </div>
 
 
-          {/* Nav Links */}
-          <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12 lg:gap-8 lg:pl-12">
-            {[
-              { h:"Academics", ls:["Undergraduate Studies","Postgraduate Studies","Doctoral Programs","Research Centers","Academic Calendar"] },
-              { h:"Campus Life",    ls:["Student Hostels","Clubs & Societies","Sports & Recreation","Health & Wellness","Campus Safety"] },
-              { h:"Resources", ls:["Admissions Portal","Alumni Network","Career Placements","NIRF Data","Tenders & Notices"] },
-            ].map((col) => (
-              <div key={col.h}>
-                <h5 className="serif text-white font-bold text-lg mb-8">{col.h}</h5>
-                <ul className="space-y-4">
-                  {col.ls.map(l => (
-                    <li key={l}>
-                      <a href="#" className="font-medium text-bg-light/60 text-[14px] hover:text-primary hover:translate-x-1.5 transition-all flex items-center gap-2 group/link">
-                        <span className="w-1.5 h-1.5 rounded-full bg-secondary/30 group-hover/link:bg-primary transition-colors flex-shrink-0"></span>
-                        <span className="whitespace-nowrap">{l}</span>
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+          {/* Quick Links - 2 column grid */}
+          <div className="lg:col-span-4 lg:pl-8">
+            <h5 className="serif text-white font-bold text-lg mb-8">Quick Links</h5>
+            <div className="grid grid-cols-2 gap-x-8 gap-y-4">
+              {quickLinks.map((link, i) => (
+                <a
+                  key={i}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium text-bg-light/60 text-[14px] hover:text-primary hover:translate-x-1.5 transition-all flex items-center gap-2 group/link"
+                >
+                  <span className="w-1.5 h-1.5 rounded-full bg-secondary/30 group-hover/link:bg-primary transition-colors flex-shrink-0"></span>
+                  <span className="whitespace-nowrap">{link.text}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Get In Touch */}
+          <div className="lg:col-span-3 lg:pl-4">
+            <h5 className="serif text-white font-bold text-lg mb-8">Get In Touch</h5>
+            <ul className="space-y-4">
+              {[
+                { text: "Learn about Trident", href: "https://about-tat.tekkzy.com/" },
+                { text: "Explore Academics", href: "https://academics-tat.tekkzy.com/" },
+                { text: "Discover Research", href: "https://research-tat.tekkzy.com/" },
+                { text: "Admissions Portal", href: "https://admissions-tat.tekkzy.com" },
+                { text: "Career Placements", href: "https://placements-tat.tekkzy.com" },
+                { text: "Activities", href: "https://activities-tat.tekkzy.com" },
+                { text: "Campus Life", href: "https://campuslife-tat.tekkzy.com" },
+                { text: "Contact Us", href: "https://contactus-tat.tekkzy.com" },
+              ].map((link, i) => (
+                <li key={i}>
+                  <a href={link.href} target="_blank" rel="noopener noreferrer" className="font-medium text-bg-light/60 text-[14px] hover:text-primary hover:translate-x-1.5 transition-all flex items-center gap-2 group/link">
+                    <span className="w-1.5 h-1.5 rounded-full bg-secondary/30 group-hover/link:bg-primary transition-colors flex-shrink-0"></span>
+                    <span className="whitespace-nowrap">{link.text}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
         
@@ -95,7 +129,7 @@ export default function Footer() {
             <span>© 2026 Trident Academy of Technology. All rights reserved.</span>
             <div className="flex gap-4">
                {["Privacy Policy", "Disclaimer", "Terms of Use"].map(l=>(
-                 <a key={l} href="#" className="hover:text-white transition-colors">{l}</a>
+                 <a key={l} href="https://tat.tekkzy.com/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">{l}</a>
                ))}
             </div>
           </div>
@@ -103,7 +137,7 @@ export default function Footer() {
           <div className="flex items-center gap-4">
             <span className="text-xs uppercase tracking-widest text-bg-light/40 font-bold mr-2">Connect</span>
             {[Facebook, Twitter, Linkedin, Instagram].map((Icon, i) => (
-              <a key={i} href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-bg-light/70 hover:bg-primary hover:text-white transition-all transform hover:-translate-y-1">
+              <a key={i} href="https://tat.tekkzy.com/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-bg-light/70 hover:bg-primary hover:text-white transition-all transform hover:-translate-y-1">
                 <Icon size={16} />
               </a>
             ))}
@@ -113,7 +147,7 @@ export default function Footer() {
         {/* Built by credit */}
         <div className="text-center mt-8 pt-6 border-t border-white/5">
           <span className="text-[11px] font-medium text-bg-light/30 tracking-wider">
-            Crafted with AI by <a href="#" className="text-bg-light/50 hover:text-white transition-colors font-bold">Tekkzy</a> — AI-Powered Intelligent Cloud Solutions
+            Crafted with AI by <a href="https://tekkzy.com" target="_blank" rel="noopener noreferrer" className="text-bg-light/50 hover:text-white transition-colors font-bold">Tekkzy</a> — AI-Powered Intelligent Cloud Solutions
           </span>
         </div>
         

@@ -56,7 +56,7 @@ export default function Programs() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {PROGRAMS.map((p, i) => (
             <FadeInUp key={p.name} delay={i * 100}>
-              <a href="#" className="bg-white rounded-[24px] overflow-hidden group relative flex flex-col h-full shadow-[0_10px_30px_-15px_rgba(62,58,54,0.1)] hover:shadow-[0_25px_50px_-15px_rgba(139,110,102,0.3)] transition-all duration-500 transform hover:-translate-y-2 border border-transparent hover:border-primary/20">
+              <a href={p.href} target="_blank" rel="noopener noreferrer" className="bg-white rounded-[24px] overflow-hidden group relative flex flex-col h-full shadow-[0_10px_30px_-15px_rgba(62,58,54,0.1)] hover:shadow-[0_25px_50px_-15px_rgba(139,110,102,0.3)] transition-all duration-500 transform hover:-translate-y-2 border border-transparent hover:border-primary/20">
                 
                 {/* Photo Header */}
                 <div className="h-48 relative overflow-hidden">
@@ -92,7 +92,7 @@ export default function Programs() {
 
           {/* Special "Explore All" Card to fill the grid slot */}
           <FadeInUp delay={600}>
-            <a href="#" className="bg-[#3E3A36] rounded-[24px] overflow-hidden group relative flex flex-col h-full shadow-[0_20px_40px_-10px_rgba(62,58,54,0.4)] transition-all duration-500 transform hover:-translate-y-2 items-center justify-center p-10 text-center border-2 border-[#D4B5A0]/20 hover:border-[#D4B5A0]/80">
+            <a href="https://academics-tat.tekkzy.com/departments-of-engineering/" target="_blank" rel="noopener noreferrer" className="bg-[#3E3A36] rounded-[24px] overflow-hidden group relative flex flex-col h-full shadow-[0_20px_40px_-10px_rgba(62,58,54,0.4)] transition-all duration-500 transform hover:-translate-y-2 items-center justify-center p-10 text-center border-2 border-[#D4B5A0]/20 hover:border-[#D4B5A0]/80">
               <div className="absolute inset-0 bg-gradient-to-br from-[#8B6E66]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none mix-blend-overlay"></div>
               
               <div className="w-20 h-20 rounded-full border border-white/20 bg-white/5 backdrop-blur-md flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 group-hover:bg-white text-white group-hover:text-[#3E3A36]">

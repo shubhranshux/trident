@@ -256,7 +256,7 @@ export default function Placements() {
         {/* CTA */}
         <FadeInUp delay={800}>
           <div className="text-center mt-16">
-            <a href="#" className="group inline-flex items-center gap-3 bg-white text-[#3E3A36] px-10 py-4 rounded-full font-bold text-sm uppercase tracking-widest shadow-[0_20px_40px_-10px_rgba(0,0,0,0.3)] hover:shadow-[0_25px_50px_-10px_rgba(255,255,255,0.2)] hover:-translate-y-1 transition-all duration-500">
+            <a href="https://placements-tat.tekkzy.com" target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-3 bg-white text-[#3E3A36] px-10 py-4 rounded-full font-bold text-sm uppercase tracking-widest shadow-[0_20px_40px_-10px_rgba(0,0,0,0.3)] hover:shadow-[0_25px_50px_-10px_rgba(255,255,255,0.2)] hover:-translate-y-1 transition-all duration-500">
               View Full Placement Report
               <ArrowRight size={18} className="transform group-hover:translate-x-1 transition-transform" />
             </a>

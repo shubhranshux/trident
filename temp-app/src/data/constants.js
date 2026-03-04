@@ -1,5 +1,5 @@
 export const NAV_LINKS = [
-  { label: "Academics",   sub: [
+  { label: "Academics",   href: "https://academics-tat.tekkzy.com", sub: [
       { label: "Departments", sub: [
         "Civil Engineering",
         "Biotechnology Engineering",
@@ -27,11 +27,12 @@ export const NAV_LINKS = [
       "BPUT Regulation"
     ] 
   },
-  { label: "Admissions",  sub: ["How to Apply","Eligibility","Fee Structure","Scholarships","JEE / OJEE"] },
-  { label: "Research",    sub: ["Research Centers","Publications","Projects","Collaborations","SIRO-DSIR"] },
-  { label: "Campus Life", sub: ["Hostels","Sports Complex","Clubs & Fests","Cafeteria","Health Center"] },
-  { label: "Placements",  sub: ["Placement Cell","Recruiters","Statistics","Internships","Alumni Network"] },
-  { label: "About",       sub: ["Overview","Vision & Mission","Leadership","Accreditations","Contact"] },
+  { label: "Admissions",  href: "https://admissions-tat.tekkzy.com",  sub: ["How to Apply","Eligibility","Fee Structure","Scholarships","JEE / OJEE"] },
+  { label: "Research",    href: "https://research-tat.tekkzy.com",    sub: ["Research Centers","Publications","Projects","Collaborations","SIRO-DSIR"] },
+  { label: "Campus Life", href: "https://campuslife-tat.tekkzy.com",  sub: ["Hostels","Sports Complex","Clubs & Fests","Cafeteria","Health Center"] },
+  { label: "Activities",  href: "https://activities-tat.tekkzy.com",   sub: ["Clubs & Societies","Cultural Events","Technical Fests","Sports","NSS / NCC"] },
+  { label: "Placements",  href: "https://placements-tat.tekkzy.com",  sub: ["Placement Cell","Recruiters","Statistics","Internships","Alumni Network"] },
+  { label: "Contact Us",  href: "https://contactus-tat.tekkzy.com",   sub: ["General Enquiry","Admissions Office","Placement Cell","Campus Address","Feedback"] },
 ];
 
 export const STATS = [
@@ -49,11 +50,11 @@ export const NEWS = [
 ];
 
 export const PROGRAMS = [
-  { name:"Computer Science & Engineering", dept:"B.Tech", icon:"💻", dur:"4 Years", seats:180 },
-  { name:"Electronics & Communication",    dept:"B.Tech", icon:"📡", dur:"4 Years", seats:120 },
-  { name:"Mechanical Engineering",          dept:"B.Tech", icon:"⚙️",  dur:"4 Years", seats:120 },
-  { name:"Civil Engineering",               dept:"B.Tech", icon:"🏗️", dur:"4 Years", seats:60  },
-  { name:"Electrical & Electronics",        dept:"B.Tech", icon:"⚡", dur:"4 Years", seats:60  },
+  { name:"Computer Science & Engineering", dept:"B.Tech", icon:"💻", dur:"4 Years", seats:180, href:"https://academics-tat.tekkzy.com/computer-science-engineering" },
+  { name:"Electronics & Communication",    dept:"B.Tech", icon:"📡", dur:"4 Years", seats:120, href:"https://academics-tat.tekkzy.com/electronics-and-telecommunication-engineering" },
+  { name:"Mechanical Engineering",          dept:"B.Tech", icon:"⚙️",  dur:"4 Years", seats:120, href:"https://academics-tat.tekkzy.com/mechanical-engineering" },
+  { name:"Civil Engineering",               dept:"B.Tech", icon:"🏗️", dur:"4 Years", seats:60,  href:"https://academics-tat.tekkzy.com/civil-engineering" },
+  { name:"Electrical & Electronics",        dept:"B.Tech", icon:"⚡", dur:"4 Years", seats:60,  href:"https://academics-tat.tekkzy.com/electricals-and-electronics-engineering" },
 ];
 
 export const RECRUITERS = ["TCS","Infosys","Wipro","HCL","Capgemini","Accenture","Cognizant","Tech Mahindra","L&T Infotech","IBM","Hexaware","Mphasis"];
