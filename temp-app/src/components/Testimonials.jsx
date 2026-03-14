@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import { FadeInUp } from "../utils/animations";
 import { Quote, ChevronLeft, ChevronRight, Star } from "lucide-react";
+import avatar1 from "../assets/avatar_1.jpg";
+import avatar2 from "../assets/avatar_2.jpg";
+import avatar3 from "../assets/avatar_3.jpg";
 
 export default function Testimonials() {
   const [current, setCurrent] = useState(0);
@@ -11,21 +14,21 @@ export default function Testimonials() {
       author: "Sneha Patel",
       role: "Software Engineer, Class of 2024",
       rating: 5,
-      img: "https://i.pravatar.cc/150?img=47"
+      img: avatar1
     },
     {
       text: "Coming to Trident was the best decision of my life. The emphasis on practical skills, combined with a highly supportive alumni network, built my confidence immensely.",
       author: "Rahul Sharma",
       role: "Data Scientist, Class of 2023",
       rating: 5,
-      img: "https://i.pravatar.cc/150?img=11"
+      img: avatar2
     },
     {
       text: "The campus life is vibrant and truly diverse. Beyond academics, the clubs and societies helped me develop leadership skills that are crucial in the corporate world.",
       author: "Anjali Gupta",
       role: "Business Analyst, Class of 2025",
       rating: 5,
-      img: "https://i.pravatar.cc/150?img=32"
+      img: avatar3
     }
   ];
 
