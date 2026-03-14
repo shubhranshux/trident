@@ -12,7 +12,7 @@ export default function Hero() {
         <img
           src={heroImg1}
           alt="Trident Academy of Technology Campus"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-[center_60%] md:object-[center_75%] lg:object-[center_80%]"
           fetchPriority="high"
           decoding="sync"
         />
