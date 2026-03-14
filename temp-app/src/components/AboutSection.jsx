@@ -1,6 +1,6 @@
 import { FadeInUp, ScaleReveal } from "../utils/animations";
-import aboutImg1 from "../assets/indian_campus_library.png";
-import aboutImg2 from "../assets/indian_engineering_lab.png";
+import aboutImg1 from "../assets/about_students_studying.jpg";
+import aboutImg2 from "../assets/about_engineering_workshop.jpg";
 import { Award, BookOpen, Map, Users } from "lucide-react";
 
 export default function AboutSection() {

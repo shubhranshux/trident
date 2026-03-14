@@ -3,21 +3,28 @@ import { TrendingUp, Building2, Award, Users, ArrowRight } from "lucide-react";
 import { useState } from "react";
 import { logos as CompanyLogos } from "../data/companyLogos";
 
-/* Smooth glow hover CSS and marquee animation */
+/* Smooth hover CSS and marquee animation */
 const hoverAnimCSS = `
   .company-pill {
-    transition:
-      background 0.3s ease,
-      border-color 0.3s ease,
-      box-shadow 0.35s ease,
-      transform 0.3s cubic-bezier(0.25,0.46,0.45,0.94),
-      gap 0.3s ease;
+    position: relative;
+    overflow: hidden;
   }
-  .company-pill:hover {
-    transform: translateY(-3px) scale(1.035);
+  .company-pill .pill-logo-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    border-radius: inherit;
+    transform: translateY(100%);
+    transition: transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+    will-change: transform;
+    pointer-events: none;
+    z-index: 2;
   }
-  .logo-fade {
-    transition: opacity 0.35s ease, transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
+  .company-pill:hover .pill-logo-overlay {
+    transform: translateY(0);
   }
   @keyframes marquee {
     0% { transform: translateX(0); }
@@ -68,64 +75,40 @@ const placements = [
   { name: "Diya Patnaik",     year: "2022", company: "Wipro",          pkg: "₹6.5 LPA"},
 ];
 
-/* ─── Company tag — smooth glow + logo fade ─────────────────────────── */
+/* ─── Company tag — only name shown, logo slides up from bottom on hover ── */
 function CompanyTag({ name }) {
-  const [hovered, setHovered] = useState(false);
   const Logo = CompanyLogos[name];
   const initials = name.split(" ").map(w => w[0]).join("").slice(0, 2).toUpperCase();
 
   return (
     <div
-      className="company-pill flex-shrink-0 flex items-center rounded-xl px-4 py-2.5 cursor-default"
+      className="company-pill flex-shrink-0 flex items-center justify-center rounded-xl cursor-default"
       style={{
-        background: hovered ? "rgba(255,255,255,0.15)" : "rgba(255,255,255,0.06)",
-        borderWidth: hovered ? "1.5px" : "1px",
-        borderStyle: "solid",
-        borderColor: hovered ? "rgba(255,255,255,0.88)" : "rgba(255,255,255,0.12)",
-        boxShadow: hovered
-          ? "0 0 0 4px rgba(255,255,255,0.05), 0 0 28px 0 rgba(212,181,160,0.25), 0 8px 28px -6px rgba(0,0,0,0.5)"
-          : "none",
-        gap: hovered ? "10px" : "0px",
+        background: "rgba(255,255,255,0.06)",
+        border: "1px solid rgba(255,255,255,0.12)",
+        padding: "10px 16px",
       }}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
     >
-      {/* Logo — smooth width + opacity transition */}
-      <div style={{
-        maxWidth: hovered ? "60px" : "0px",
-        overflow: "hidden",
-        flexShrink: 0,
-        transition: "max-width 0.35s ease",
-        display: "flex",
-        alignItems: "center",
-      }}>
-        <div
-          className="logo-fade"
-          style={{
-            opacity: hovered ? 1 : 0,
-            transform: hovered ? "scale(1) translateY(0)" : "scale(0.85) translateY(3px)",
-          }}
-        >
-          {Logo
-            ? <Logo size={26} />
-            : <span style={{
-                display: "flex", alignItems: "center", justifyContent: "center",
-                width: 26, height: 26, borderRadius: "50%",
-                background: "rgba(255,255,255,0.15)",
-                fontSize: 9, fontWeight: 900, color: "rgba(255,255,255,0.7)",
-              }}>{initials}</span>
-          }
-        </div>
+      {/* Logo — slides up from bottom on hover, covers the name */}
+      <div className="pill-logo-overlay">
+        {Logo
+          ? <Logo size={26} />
+          : <span style={{
+              display: "flex", alignItems: "center", justifyContent: "center",
+              width: 28, height: 28, borderRadius: "50%",
+              background: "rgba(255,255,255,0.2)",
+              fontSize: 10, fontWeight: 900, color: "rgba(255,255,255,0.9)",
+              border: "1.5px solid rgba(255,255,255,0.3)",
+            }}>{initials}</span>
+        }
       </div>
 
-      {/* Label */}
+      {/* Company name — always visible, logo covers it on hover */}
       <span style={{
         fontSize: 13,
-        fontWeight: hovered ? 700 : 600,
+        fontWeight: 600,
         whiteSpace: "nowrap",
-        color: hovered ? "rgba(255,255,255,1)" : "rgba(255,255,255,0.68)",
-        letterSpacing: hovered ? "0.01em" : "0",
-        transition: "color 0.3s ease, letter-spacing 0.3s ease",
+        color: "rgba(255,255,255,0.68)",
       }}>
         {name}
       </span>

@@ -1,8 +1,8 @@
 import { FadeInUp } from "../utils/animations";
 import { NEWS } from "../data/constants";
 import { ArrowRight, Calendar, ArrowUpRight } from "lucide-react";
-import newsImg from "../assets/indian_campus_quad.png";
-import infoImg from "../assets/indian_business_presentation.png";
+import newsImg from "../assets/news_campus_life.jpg";
+import infoImg from "../assets/news_seminar.jpg";
 
 export default function NewsSection() {
   return (

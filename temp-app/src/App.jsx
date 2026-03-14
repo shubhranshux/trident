@@ -23,7 +23,7 @@ function SectionFallback() {
 
 export default function App() {
   return (
-    <div className="text-[#3E3A36] bg-[#EFE7DF] overflow-x-hidden font-sans">
+    <div className="text-[#3E3A36] bg-[#EFE7DF] font-sans" style={{ overflowX: "clip" }}>
       <style>{`
         :root {
           /* Dusty Rose & Beige Palette */
@@ -120,19 +120,8 @@ export default function App() {
       `}</style>
 
       <Header />
-      {/* Hero is sticky (z:0) — the wrapper below slides up over it */}
       <Hero />
-      {/* Scroll-over wrapper: z-10 + rounded-top creates the overlap/reveal effect */}
-      <div
-        className="relative"
-        style={{
-          zIndex: 10,
-          borderRadius: "28px 28px 0 0",
-          overflow: "hidden",
-          boxShadow: "0 -16px 64px -8px rgba(0,0,0,0.35)",
-          marginTop: "-28px", /* pull up slightly for the overlap */
-        }}
-      >
+      <div className="relative bg-[#EFE7DF]">
         <Accreditations />
         <main className="bg-[#EFE7DF] overflow-hidden">
           <Suspense fallback={<SectionFallback />}><AboutSection /></Suspense>

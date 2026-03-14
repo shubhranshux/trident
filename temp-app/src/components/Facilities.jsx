@@ -1,12 +1,12 @@
 import { FadeInUp } from "../utils/animations";
 import { BookMarked, FlaskConical, Dumbbell, Coffee, Wifi, ShieldCheck, Microscope, ArrowRight } from "lucide-react";
 
-import libImg from "../assets/indian_campus_library.png";
-import labImg from "../assets/indian_engineering_lab.png";
-import cafeImg from "../assets/indian_cafeteria.png";
-import quadImg from "../assets/indian_campus_quad.png";
-import aerialImg from "../assets/indian_campus_aerial.png";
-import researchImg from "../assets/indian_campus_research.png";
+import libImg from "../assets/real_library.jpg";
+import labImg from "../assets/real_lab.jpg";
+import cafeImg from "../assets/real_cafeteria.jpg";
+import quadImg from "../assets/facilities_campus_green.jpg";
+import aerialImg from "../assets/facilities_sports.jpg";
+import researchImg from "../assets/real_research.jpg";
 
 export default function Facilities() {
   const facs = [

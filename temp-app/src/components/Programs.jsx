@@ -1,34 +1,32 @@
 import { FadeInUp, SlideIn } from "../utils/animations";
 import { PROGRAMS } from "../data/constants";
-import progBg from "../assets/indian_engineering_lab.png";
+import progBg from "../assets/prog_computer_science.jpg";
 import { ArrowRight, Code, Cpu, LineChart, Cpu as Mech, Plug as Elec, UserCircle } from "lucide-react";
 
-// Image maps to add rich photography to Programs
-import imgCSE from "../assets/indian_campus_library.png";
-import imgECE from "../assets/indian_engineering_lab.png";
-import imgBBA from "../assets/indian_business_presentation.png";
-import imgCivil from "../assets/indian_campus_aerial.png";
-import imgMech from "../assets/campus_quad.png";
-import imgEE from "../assets/indian_campus_research.png";
+// Image maps — real photos per department
+import imgCSE from "../assets/prog_computer_science.jpg";
+import imgECE from "../assets/prog_electronics.jpg";
+import imgBBA from "../assets/prog_business.jpg";
+import imgCivil from "../assets/prog_civil.jpg";
+import imgMech from "../assets/prog_mechanical.jpg";
+import imgEE from "../assets/prog_electrical.jpg";
 
 export default function Programs() {
   
   const iconMap = {
-    Computer: <Code size={20} />,
-    Electronics: <Cpu size={20} />,
-    Mechanical: <Mech size={20} />,
-    Electrical: <Elec size={20} />,
-    Business: <LineChart size={20} />,
-    Civil: <UserCircle size={20} />
+    "Computer Science & Engineering": <Code size={20} />,
+    "Electronics & Communication": <Cpu size={20} />,
+    "Mechanical Engineering": <Mech size={20} />,
+    "Electrical & Electronics": <Elec size={20} />,
+    "Civil Engineering": <UserCircle size={20} />
   };
 
   const bgMap = {
-    Computer: imgCSE,
-    Electronics: imgECE,
-    Mechanical: imgMech,
-    Electrical: imgEE,
-    Business: imgBBA,
-    Civil: imgCivil
+    "Computer Science & Engineering": imgCSE,
+    "Electronics & Communication": imgECE,
+    "Mechanical Engineering": imgMech,
+    "Electrical & Electronics": imgEE,
+    "Civil Engineering": imgCivil
   };
 
 
@@ -60,7 +58,7 @@ export default function Programs() {
                 
                 {/* Photo Header */}
                 <div className="h-48 relative overflow-hidden">
-                  <img src={bgMap[p.dept] || imgCSE} alt={p.name} loading="lazy" className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-[1.5s] ease-out" />
+                  <img src={bgMap[p.name] || imgCSE} alt={p.name} loading="lazy" className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-[1.5s] ease-out" />
                   <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mix-blend-overlay"></div>
                   
                   {/* Floating Tag */}
@@ -73,7 +71,7 @@ export default function Programs() {
                 <div className="p-8 flex flex-col flex-1">
                   <div className="flex items-center gap-4 mb-4">
                     <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-bg-light text-secondary group-hover:bg-primary group-hover:text-white transition-all duration-500">
-                      {iconMap[p.dept] || <Code size={20} />}
+                      {iconMap[p.name] || <Code size={20} />}
                     </div>
                     <h3 className="serif font-bold text-[#3E3A36] text-xl leading-snug group-hover:text-primary transition-colors">{p.name}</h3>
                   </div>

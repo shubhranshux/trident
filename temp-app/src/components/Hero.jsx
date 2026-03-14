@@ -1,24 +1,11 @@
 import { FadeInUp } from "../utils/animations";
 import { ArrowRight, GraduationCap, Award, Users, ChevronDown } from "lucide-react";
-import heroImg1 from "../assets/hero-bg-new.jpg";
+import heroImg1 from "../assets/hero-graduation.jpg";
 
 export default function Hero() {
   return (
-    /*
-     * position: sticky + top:0  →  Hero stays pinned while sections below
-     * scroll up and overlap it (the "scroll-over" effect).
-     * z-index: 0 ensures content above (z-10) covers it.
-     * overflow: hidden prevents any painted artifacts escaping the box.
-     * Using contain:strict for GPU compositing efficiency on M1/M2.
-     */
     <section
-      className="w-full h-screen overflow-hidden"
-      style={{
-        position: "sticky",
-        top: 0,
-        zIndex: 0,
-        contain: "layout paint style",
-      }}
+      className="w-full h-screen overflow-hidden relative"
     >
       {/* Background image — no fixed, no transform, safe for Apple Silicon */}
       <div className="absolute inset-0 w-full h-full">

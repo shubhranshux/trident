@@ -2,10 +2,10 @@ import { ArrowRight, GraduationCap } from "lucide-react";
 import { FadeInUp, SlideIn } from "../utils/animations";
 
 // Import images for the dynamic grid
-import ctaImg1 from "../assets/indian_campus_graduation.png";
-import ctaImg2 from "../assets/indian_campus_research.png";
-import ctaImg3 from "../assets/indian_engineering_lab.png";
-import ctaImg4 from "../assets/indian_campus_library.png";
+import ctaImg1 from "../assets/cta_convocation.jpg";
+import ctaImg2 from "../assets/cta_research_scholars.jpg";
+import ctaImg3 from "../assets/cta_innovation_lab.jpg";
+import ctaImg4 from "../assets/cta_campus_reading.jpg";
 
 export default function CallToAction() {
   return (

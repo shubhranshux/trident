@@ -1,9 +1,9 @@
 import { FadeInUp } from "../utils/animations";
 import { ArrowRight } from "lucide-react";
 
-import ugImg from "../assets/indian_campus_graduation.png";
-import ptImg from "../assets/indian_campus_research.png";
-import glImg from "../assets/indian_campus_aerial.png";
+import ugImg from "../assets/discover_graduation.jpg";
+import ptImg from "../assets/discover_research_lab.jpg";
+import glImg from "../assets/discover_global_campus.jpg";
 
 export default function Discover() {
   const cards = [
