@@ -1,6 +1,6 @@
 import { FadeInUp } from "../utils/animations";
 import { ArrowRight, GraduationCap, Award, Users, ChevronDown } from "lucide-react";
-import heroImg1 from "../assets/hero-indian.png";
+import heroImg1 from "../assets/hero-bg-real.jpeg";
 
 export default function Hero() {
   return (
