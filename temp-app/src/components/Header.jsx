@@ -27,7 +27,7 @@ export default function Header() {
         </div>
       </div>
 
-      <header className={"transition-all duration-500 bg-white " + (scrolled ? "shadow-[0_4px_20px_-4px_rgba(62,58,54,0.12)] py-3" : "py-5")}>
+      <header className={"relative transition-all duration-500 bg-white " + (scrolled ? "shadow-[0_4px_20px_-4px_rgba(62,58,54,0.12)] py-3" : "py-5")}>
         <div className="mx-auto px-6 xl:px-12 flex items-center justify-between">
             
           {/* Logo Lockup */}
@@ -59,26 +59,50 @@ export default function Header() {
           </div>
 
           {/* Mobile Toggle */}
-          <button className="lg:hidden text-primary p-2 bg-soft rounded-lg" onClick={() => setMobileOpen(!mobileOpen)}>
+          <button 
+            className="lg:hidden text-primary p-2 bg-soft rounded-lg hover:bg-primary/10 transition-colors active:scale-95 z-50 relative" 
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label="Toggle Menu"
+          >
             {mobileOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
 
         {/* Mobile Menu */}
-        {mobileOpen && (
-          <div className="lg:hidden bg-white border-b border-primary/10 py-4 absolute w-full left-0 shadow-2xl overflow-y-auto max-h-[85vh] animate-in slide-in-from-top-4">
-            <div className="px-6 space-y-2">
-              {NAV_LINKS.map(item => (
-                <a key={item.label} href={item.href} className="block py-3 text-[15px] font-bold text-[#3E3A36] uppercase tracking-widest hover:text-primary transition-colors border-b border-soft">
-                  {item.label}
-                </a>
-              ))}
-              <div className="pt-6">
-                <a href="https://admissions-tat.tekkzy.com" className="btn-rose block text-center text-sm font-bold px-5 py-3.5 rounded">Start Application</a>
-              </div>
+        <div 
+          className={`lg:hidden absolute top-full left-0 w-full bg-white shadow-[0_30px_60px_-15px_rgba(62,58,54,0.2)] transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] origin-top overflow-hidden border-t border-primary/10 ${
+            mobileOpen ? "max-h-[85vh] opacity-100 py-6" : "max-h-0 opacity-0 py-0 pointer-events-none"
+          }`}
+        >
+          <div className="px-6 flex flex-col h-full overflow-y-auto pb-4">
+            {NAV_LINKS.map((item, i) => (
+              <a 
+                key={item.label} 
+                href={item.href} 
+                onClick={() => setMobileOpen(false)}
+                className={`block py-3.5 text-[15px] font-extrabold text-[#3E3A36] uppercase tracking-[0.14em] hover:text-primary hover:bg-soft/50 rounded-lg px-3 transition-all duration-500 transform ${
+                  mobileOpen ? "translate-x-0 opacity-100" : "-translate-x-8 opacity-0"
+                }`}
+                style={{ 
+                  transitionDelay: `${mobileOpen ? i * 40 + 100 : 0}ms`, 
+                  borderBottom: i !== NAV_LINKS.length - 1 ? "1px solid rgba(139,110,102,0.1)" : "none" 
+                }}
+              >
+                {item.label}
+              </a>
+            ))}
+            <div 
+              className={`pt-8 px-2 transition-all duration-700 transform ${
+                mobileOpen ? "translate-y-0 opacity-100 scale-100" : "translate-y-8 opacity-0 scale-95"
+              }`} 
+              style={{ transitionDelay: `${mobileOpen ? NAV_LINKS.length * 40 + 150 : 0}ms` }}
+            >
+              <a href="https://admissions-tat.tekkzy.com" className="btn-rose block text-center text-[13px] tracking-widest font-extrabold px-6 py-4 rounded-xl shadow-[0_10px_30px_-10px_rgba(230,57,70,0.5)]">
+                START APPLICATION
+              </a>
             </div>
           </div>
-        )}
+        </div>
       </header>
     </div>
   );
