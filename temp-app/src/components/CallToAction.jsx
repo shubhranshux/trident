@@ -9,15 +9,15 @@ import ctaImg4 from "../assets/cta_campus_reading.jpg";
 
 export default function CallToAction() {
   return (
-    <section className="relative py-12 bg-[#EFE7DF] overflow-hidden">
+    <section className="relative py-12 bg-[#F8FAFC] overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-6">
         {/* Main Glassmorphic Container with Animated Border */}
-        <div className="rounded-[32px] overflow-hidden flex flex-col lg:flex-row shadow-[0_40px_100px_-20px_rgba(62,58,54,0.5)] min-h-[420px] relative group/cta backdrop-blur-2xl bg-[#3E3A36]/90 border border-white/20">
+        <div className="rounded-[32px] overflow-hidden flex flex-col lg:flex-row shadow-[0_40px_100px_-20px_rgba(15,23,42,0.5)] min-h-[420px] relative group/cta backdrop-blur-2xl bg-[#0F172A]/90 border border-white/20">
           
           {/* Animated Background Mesh Gradient */}
           <div className="absolute inset-0 opacity-40 mix-blend-color-dodge pointer-events-none">
-            <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-gradient-to-br from-[#D4B5A0] to-transparent blur-[120px] rounded-full transform -translate-x-1/2 -translate-y-1/2 animate-[spin_20s_linear_infinite]"></div>
-            <div className="absolute bottom-0 right-0 w-[800px] h-[800px] bg-gradient-to-tl from-[#8B6E66] to-transparent blur-[150px] rounded-full transform translate-x-1/3 translate-y-1/3 animate-[spin_30s_linear_infinite_reverse]"></div>
+            <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-gradient-to-br from-brand-blue to-transparent blur-[120px] rounded-full transform -translate-x-1/2 -translate-y-1/2 animate-[spin_20s_linear_infinite]"></div>
+            <div className="absolute bottom-0 right-0 w-[800px] h-[800px] bg-gradient-to-tl from-brand-red to-transparent blur-[150px] rounded-full transform translate-x-1/3 translate-y-1/3 animate-[spin_30s_linear_infinite_reverse]"></div>
           </div>
 
           {/* Shimmer Effect on Hover */}
@@ -30,8 +30,8 @@ export default function CallToAction() {
               <FadeInUp>
                 <div className="inline-flex items-center gap-2 bg-white/5 border border-white/20 text-white/95 text-[10px] font-bold uppercase tracking-[0.25em] px-5 py-2.5 rounded-full mb-6 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.2)] hover:bg-white/10 transition-colors">
                   <div className="relative flex items-center justify-center">
-                    <GraduationCap size={14} className="text-[#D4B5A0] relative z-10" />
-                    <div className="absolute inset-0 bg-[#D4B5A0] blur-md opacity-50"></div>
+                    <GraduationCap size={14} className="text-brand-yellow relative z-10" />
+                    <div className="absolute inset-0 bg-brand-yellow blur-md opacity-50"></div>
                   </div>
                   Admissions Open 2026–27
                 </div>
@@ -40,12 +40,8 @@ export default function CallToAction() {
               <FadeInUp delay={200}>
                 <h2 className="serif text-4xl md:text-5xl lg:text-[52px] font-black text-white mb-5 leading-[1.02] tracking-tight relative">
                   <span className="relative z-10">Begin Your Journey</span><br/>
-                  <span className="italic relative inline-block">
-                    <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-[#F5EEEC] via-[#D4B5A0] to-[#EFE7DF] animate-gradient-x background-size-[200%]">
-                      at Trident.
-                    </span>
-                    {/* Glowing text shadow behind the italic text */}
-                    <span className="absolute inset-0 text-transparent bg-clip-text bg-gradient-to-r from-[#D4B5A0] to-[#EFE7DF] blur-xl opacity-50 select-none">at Trident.</span>
+                  <span className="italic text-[#529DD4] relative inline-block">
+                    at Trident.
                   </span>
                 </h2>
               </FadeInUp>
@@ -58,7 +54,7 @@ export default function CallToAction() {
 
               <FadeInUp delay={400}>
                 <div className="flex flex-col sm:flex-row items-center gap-4">
-                  <a href="https://admissions-tat.tekkzy.com" className="relative group/btn1 overflow-hidden bg-gradient-to-r from-white to-[#F5EEEC] text-[#3E3A36] px-8 py-4 rounded-xl font-extrabold text-[13px] uppercase tracking-wider flex items-center justify-center gap-2 w-full sm:w-auto hover:shadow-[0_20px_40px_-5px_rgba(255,255,255,0.4)] hover:-translate-y-1 transition-all duration-400">
+                  <a href="https://admissions-tat.tekkzy.com" className="relative group/btn1 overflow-hidden bg-gradient-to-r from-white to-[#F1F5F9] text-[#0F172A] px-8 py-4 rounded-xl font-extrabold text-[13px] uppercase tracking-wider flex items-center justify-center gap-2 w-full sm:w-auto hover:shadow-[0_20px_40px_-5px_rgba(255,255,255,0.4)] hover:-translate-y-1 transition-all duration-400">
                     <span className="relative z-10 flex items-center gap-2">Apply Now <ArrowRight size={16} className="group-hover/btn1:translate-x-1 transition-transform" /></span>
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/80 to-transparent -translate-x-full group-hover/btn1:translate-x-full transition-transform duration-700 pointer-events-none"></div>
                   </a>
@@ -71,10 +67,10 @@ export default function CallToAction() {
           </div>
 
           {/* Dynamic Interactive Image Grid Side (Right) - The "Stage" */}
-          <div className="w-full lg:w-1/2 relative bg-[#1A1817]/40 backdrop-blur-sm min-h-[400px] lg:min-h-full overflow-hidden flex items-center justify-center pointer-events-auto [perspective:1200px] border-l border-white/10">
+          <div className="w-full lg:w-1/2 relative bg-[#0B1120]/40 backdrop-blur-sm min-h-[400px] lg:min-h-full overflow-hidden flex items-center justify-center pointer-events-auto [perspective:1200px] border-l border-white/10">
             
             {/* Soft dark masking gradients */}
-            <div className="absolute inset-y-0 left-0 w-48 bg-gradient-to-r from-[#3E3A36] via-[#3E3A36]/80 to-transparent z-30 pointer-events-none hidden lg:block"></div>
+            <div className="absolute inset-y-0 left-0 w-48 bg-gradient-to-r from-[#0F172A] via-[#0F172A]/80 to-transparent z-30 pointer-events-none hidden lg:block"></div>
             <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[#1A1817]/80 to-transparent z-30 pointer-events-none"></div>
             <div className="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-t from-[#1A1817]/80 to-transparent z-30 pointer-events-none"></div>
 
@@ -120,7 +116,7 @@ export default function CallToAction() {
 
               {/* Image 4 (Bottom Right - The Hero Piece) */}
               <SlideIn direction="up" delay={400} duration={1200} className="absolute right-[2%] bottom-[5%] w-[52%] h-[45%] z-50">
-                <div className="w-full h-full rounded-2xl overflow-hidden shadow-[0_40px_80px_rgba(0,0,0,0.8)] transform transition-all duration-700 hover:scale-[1.15] hover:rotate-0 rotate-6 group-hover/cta:translate-y-6 group-hover/cta:translate-x-6 border-2 border-[#D4B5A0]/50 group-hover/cta:border-[#D4B5A0] group-hover/cta:shadow-[0_60px_120px_rgba(212,181,160,0.3)] [transform:translateZ(60px)]">
+                <div className="w-full h-full rounded-2xl overflow-hidden shadow-[0_40px_80px_rgba(0,0,0,0.8)] transform transition-all duration-700 hover:scale-[1.15] hover:rotate-0 rotate-6 group-hover/cta:translate-y-6 group-hover/cta:translate-x-6 border-2 border-brand-yellow/50 group-hover/cta:border-brand-yellow group-hover/cta:shadow-[0_60px_120px_rgba(250,204,21,0.3)] [transform:translateZ(60px)]">
                   <img src={ctaImg4} alt="Library" className="w-full h-full object-cover" loading="lazy" />
                   <div className="absolute inset-0 ring-1 ring-inset ring-white/30 rounded-2xl pointer-events-none"></div>
                 </div>
@@ -128,8 +124,8 @@ export default function CallToAction() {
 
               {/* Central Premium Emblem (Appears on Hover) */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 w-32 h-32 rounded-full bg-black/40 backdrop-blur-xl border border-white/20 shadow-[0_0_50px_rgba(0,0,0,0.5)] flex items-center justify-center transform transition-all duration-1000 scale-0 group-hover/cta:scale-100 opacity-0 group-hover/cta:opacity-100 [transform:translateZ(100px)]">
-                <div className="absolute inset-2 rounded-full border border-[#D4B5A0]/50 border-dashed animate-[spin_15s_linear_infinite]"></div>
-                <GraduationCap size={40} className="text-[#D4B5A0]" />
+                <div className="absolute inset-2 rounded-full border border-brand-yellow/50 border-dashed animate-[spin_15s_linear_infinite]"></div>
+                <GraduationCap size={40} className="text-brand-yellow" />
               </div>
               
               {/* Background technical rings */}

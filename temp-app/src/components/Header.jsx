@@ -27,16 +27,16 @@ export default function Header() {
         </div>
       </div>
 
-      <header className={"relative transition-all duration-500 bg-white " + (scrolled ? "shadow-[0_4px_20px_-4px_rgba(62,58,54,0.12)] py-3" : "py-5")}>
+      <header className={"relative transition-all duration-500 bg-white " + (scrolled ? "shadow-[0_4px_20px_-4px_rgba(15,23,42,0.12)] py-3" : "py-5")}>
         <div className="mx-auto px-6 xl:px-12 flex items-center justify-between">
             
           {/* Logo Lockup */}
           <a href="https://tat.tekkzy.com/" className="flex items-center gap-3.5 group cursor-pointer">
             <img src={logo} alt="TAT Logo" className="w-12 h-12 md:w-[52px] md:h-[52px] object-contain flex-shrink-0 drop-shadow-sm" />
             <div className="hidden sm:flex flex-col justify-center">
-              <div className="serif text-[22px] md:text-[24px] font-black text-[#3E3A36] leading-none tracking-[0.04em] uppercase">Trident</div>
-              <div className="w-full h-[1px] bg-gradient-to-r from-[#8B6E66] to-transparent my-[3px]"></div>
-              <div className="text-[9px] md:text-[10px] font-semibold text-[#8B6E66] tracking-[0.22em] uppercase leading-none">Academy of Technology</div>
+              <div className="serif text-[22px] md:text-[24px] font-black text-[#0F172A] leading-none tracking-[0.04em] uppercase">Trident</div>
+              <div className="w-full h-[1px] bg-gradient-to-r from-[#1B4D8E] to-transparent my-[3px]"></div>
+              <div className="text-[9px] md:text-[10px] font-semibold text-[#1B4D8E] tracking-[0.22em] uppercase leading-none">Academy of Technology</div>
             </div>
           </a>
 
@@ -45,7 +45,7 @@ export default function Header() {
             <ul className="flex items-center gap-6">
               {NAV_LINKS.map(item => (
                 <li key={item.label}>
-                  <a href={item.href} className="nav-link text-[14px] uppercase tracking-[0.14em] cursor-pointer whitespace-nowrap font-extrabold text-[#3E3A36] hover:text-primary transition-colors">
+                  <a href={item.href} className="nav-link text-[14px] uppercase tracking-[0.14em] cursor-pointer whitespace-nowrap font-extrabold text-[#0F172A] hover:text-primary transition-colors">
                     {item.label}
                   </a>
                 </li>
@@ -55,7 +55,7 @@ export default function Header() {
 
           {/* CTA Elements */}
           <div className="hidden lg:flex items-center gap-5">
-            <a href="https://admissions-tat.tekkzy.com" className="btn-rose text-[12px] font-bold px-7 py-3 rounded uppercase whitespace-nowrap">Apply Now</a>
+            <a href="https://admissions-tat-tekkzy.netlify.app" className="btn-rose text-[12px] font-bold px-7 py-3 rounded uppercase whitespace-nowrap">Apply Now</a>
           </div>
 
           {/* Mobile Toggle */}
@@ -68,9 +68,8 @@ export default function Header() {
           </button>
         </div>
 
-        {/* Mobile Menu */}
         <div 
-          className={`lg:hidden absolute top-full left-0 w-full bg-white shadow-[0_30px_60px_-15px_rgba(62,58,54,0.2)] transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] origin-top overflow-hidden border-t border-primary/10 ${
+          className={`lg:hidden absolute top-full left-0 w-full bg-white shadow-[0_30px_60px_-15px_rgba(15,23,42,0.2)] transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] origin-top overflow-hidden border-t border-primary/10 ${
             mobileOpen ? "max-h-[85vh] opacity-100 py-6" : "max-h-0 opacity-0 py-0 pointer-events-none"
           }`}
         >
@@ -80,12 +79,12 @@ export default function Header() {
                 key={item.label} 
                 href={item.href} 
                 onClick={() => setMobileOpen(false)}
-                className={`block py-3.5 text-[15px] font-extrabold text-[#3E3A36] uppercase tracking-[0.14em] hover:text-primary hover:bg-soft/50 rounded-lg px-3 transition-all duration-500 transform ${
+                className={`block py-3.5 text-[15px] font-extrabold text-[#0F172A] uppercase tracking-[0.14em] hover:text-primary hover:bg-soft/50 rounded-lg px-3 transition-all duration-500 transform ${
                   mobileOpen ? "translate-x-0 opacity-100" : "-translate-x-8 opacity-0"
                 }`}
                 style={{ 
                   transitionDelay: `${mobileOpen ? i * 40 + 100 : 0}ms`, 
-                  borderBottom: i !== NAV_LINKS.length - 1 ? "1px solid rgba(139,110,102,0.1)" : "none" 
+                  borderBottom: i !== NAV_LINKS.length - 1 ? "1px solid rgba(27,77,142,0.1)" : "none" 
                 }}
               >
                 {item.label}
@@ -97,7 +96,7 @@ export default function Header() {
               }`} 
               style={{ transitionDelay: `${mobileOpen ? NAV_LINKS.length * 40 + 150 : 0}ms` }}
             >
-              <a href="https://admissions-tat.tekkzy.com" className="btn-rose block text-center text-[13px] tracking-widest font-extrabold px-6 py-4 rounded-xl shadow-[0_10px_30px_-10px_rgba(230,57,70,0.5)]">
+              <a href="https://admissions-tat-tekkzy.netlify.app" className="btn-rose block text-center text-[13px] tracking-widest font-extrabold px-6 py-4 rounded-xl shadow-[0_10px_30px_-10px_rgba(230,57,70,0.5)]">
                 START APPLICATION
               </a>
             </div>

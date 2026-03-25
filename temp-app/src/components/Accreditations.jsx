@@ -274,42 +274,34 @@ export default function Accreditations() {
     <section
       id="accreditations"
       aria-label="Accreditations and Recognitions"
-      className="bg-[#FAF6F2] border-y border-[#EAE0D8]"
+      className="py-16 bg-white border-bottom border-soft mt-8"
     >
-      {/* Top colour rule */}
-      <div className="h-[3px] bg-gradient-to-r from-[#8B6E66] via-[#C9A98A] to-[#8B6E66]" />
-
-      <div className="max-w-[1400px] mx-auto px-6 md:px-10 py-8">
-        {/* Heading */}
-        <div className="flex items-center gap-5 mb-7">
-          <div className="flex-1 h-px bg-[#DDD4CC]" />
+      <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        
+        {/* Centered Heading */}
+        <div className="flex justify-center items-center gap-5 mb-10 w-full">
+          <div className="flex-1 h-px bg-[#E2E8F0]" />
           <div className="flex items-center gap-2.5">
-            {/* Small shield icon */}
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-              <path d="M7 1L1.5 3.5V7C1.5 10.15 3.9 13.1 7 14C10.1 13.1 12.5 10.15 12.5 7V3.5L7 1Z"
-                fill="#8B6E66" opacity="0.8" />
+              <path d="M7 1L1.5 3.5V7C1.5 10.15 3.9 13.1 7 14C10.1 13.1 12.5 10.15 12.5 7V3.5L7 1Z" fill="#333" opacity="0.8" />
             </svg>
-            <p className="text-[10px] font-black uppercase tracking-[0.3em] text-[#8B6E66] whitespace-nowrap">
+            <p className="text-[10px] font-black uppercase tracking-[0.3em] text-[#333] whitespace-nowrap">
               Accreditations &amp; Recognitions
             </p>
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-              <path d="M7 1L1.5 3.5V7C1.5 10.15 3.9 13.1 7 14C10.1 13.1 12.5 10.15 12.5 7V3.5L7 1Z"
-                fill="#8B6E66" opacity="0.8" />
+              <path d="M7 1L1.5 3.5V7C1.5 10.15 3.9 13.1 7 14C10.1 13.1 12.5 10.15 12.5 7V3.5L7 1Z" fill="#333" opacity="0.8" />
             </svg>
           </div>
-          <div className="flex-1 h-px bg-[#DDD4CC]" />
+          <div className="flex-1 h-px bg-[#E2E8F0]" />
         </div>
 
-        {/* 6-card grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+        {/* 6-card grid forced into a single row on desktop */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
           {items.map((item, i) => (
             <Card key={item.id} item={item} index={i} />
           ))}
         </div>
       </div>
-
-      {/* Bottom fade rule */}
-      <div className="h-px bg-gradient-to-r from-transparent via-[#DDD4CC] to-transparent" />
     </section>
   );
 }

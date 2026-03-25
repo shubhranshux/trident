@@ -1,6 +1,6 @@
 import { FadeInUp } from "../utils/animations";
 import { ArrowRight, GraduationCap, Award, Users, ChevronDown } from "lucide-react";
-import heroImg1 from "../assets/hero-bg-real.jpeg";
+import heroImg1 from "../assets/hero finall.png";
 
 export default function Hero() {
   return (
@@ -12,27 +12,13 @@ export default function Hero() {
         <img
           src={heroImg1}
           alt="Trident Academy of Technology Campus"
-          className="w-full h-full object-cover object-[center_60%] md:object-[center_75%] lg:object-[center_80%]"
+          className="w-full h-full object-cover object-center md:object-top lg:object-[center_20%]"
           fetchPriority="high"
           decoding="sync"
         />
       </div>
 
-      {/* Gradient overlays — solid colors only, no opacity stacking */}
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-            "linear-gradient(to right, rgba(26,24,23,0.94) 0%, rgba(26,24,23,0.68) 55%, rgba(26,24,23,0.10) 100%)",
-        }}
-      />
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-            "linear-gradient(to top, rgba(26,24,23,0.55) 0%, transparent 50%, rgba(26,24,23,0.18) 100%)",
-        }}
-      />
+
 
       {/* Decorative accent */}
       <div
@@ -54,7 +40,7 @@ export default function Hero() {
                 style={{
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
-                  backgroundImage: "linear-gradient(to right, #D4B5A0, #F5EEEC)",
+                  backgroundImage: "linear-gradient(to right, #529DD4, #FFFFFF)",
                   backgroundClip: "text",
                 }}
               >
@@ -70,7 +56,7 @@ export default function Hero() {
               <a
                 href="https://admissions-tat.tekkzy.com"
                 
-                className="bg-white text-[#3E3A36] px-10 py-4 rounded-lg font-extrabold text-[14px] flex items-center gap-3 uppercase tracking-wider transition-all duration-300 hover:shadow-[0_20px_40px_-10px_rgba(255,255,255,0.3)]"
+                className="bg-white text-[#0F172A] px-10 py-4 rounded-lg font-extrabold text-[14px] flex items-center gap-3 uppercase tracking-wider transition-all duration-300 hover:shadow-[0_20px_40px_-10px_rgba(255,255,255,0.3)]"
               >
                 Apply Now <ArrowRight size={18} />
               </a>

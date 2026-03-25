@@ -1,35 +1,8 @@
 export const NAV_LINKS = [
-  { label: "About",       href: "https://about-tat.tekkzy.com/" },
-  { label: "Academics",   href: "https://academics-tat.tekkzy.com", sub: [
-      { label: "Departments", sub: [
-        "Civil Engineering",
-        "Biotechnology Engineering",
-        "Computer Science & Engineering",
-        "Computer Science & Engineering (AI & ML)",
-        "Computer Science & Engineering (Data Science)",
-        "Computer Science and Technology",
-        "Computer Science & Information Technology",
-        "Electronics and Telecomm Engineering",
-        "Electronics Engineering (VLSI Design Technology)",
-        "Electrical and Electronics Engineering",
-        "Mechanical Engineering",
-        "Master in Business Administration",
-        "Master in Computer Application",
-        "Science & Humanities"
-      ] },
-      "Learning Resources",
-      "Academic Advisory Body",
-      "Academic Monitoring Council",
-      "Peer Evaluation",
-      "Chapters",
-      "Programme & Course Outcomes",
-      "Calendar",
-      "Time Table",
-      "BPUT Regulation"
-    ] 
-  },
-  { label: "Admissions",  href: "https://admissions-tat.tekkzy.com",  sub: ["How to Apply","Eligibility","Fee Structure","Scholarships","JEE / OJEE"] },
-  { label: "Research",    href: "https://research-tat.tekkzy.com",    sub: ["Research Centers","Publications","Projects","Collaborations","SIRO-DSIR"] },
+  { label: "About",       href: "https://trident-about-page.netlify.app/" },
+  { label: "Admissions",  href: "https://admissions-tat-tekkzy.netlify.app",  sub: ["How to Apply","Eligibility","Fee Structure","Scholarships","JEE / OJEE"] },
+  { label: "Academics",   href: "https://trident-academic.netlify.app/" },
+  { label: "Research",    href: "https://page-research.netlify.app/",    sub: ["Research Centers","Publications","Projects","Collaborations","SIRO-DSIR"] },
   { label: "Campus Life", href: "https://campuslife-tat.tekkzy.com",  sub: ["Hostels","Sports Complex","Clubs & Fests","Cafeteria","Health Center"] },
   { label: "Activities",  href: "https://activities-tat.tekkzy.com",   sub: ["Clubs & Societies","Cultural Events","Technical Fests","Sports","NSS / NCC"] },
 

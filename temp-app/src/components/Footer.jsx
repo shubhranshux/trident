@@ -3,7 +3,7 @@ import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram, ArrowRight
 
 export default function Footer() {
   return (
-    <footer className="bg-[#3E3A36] text-[#EFE7DF]/90 pt-24 pb-8 relative overflow-hidden font-sans">
+    <footer className="bg-[#0F172A] text-[#F8FAFC]/90 pt-24 pb-8 relative overflow-hidden font-sans">
       
       {/* Decorative Brand Accent Line */}
       <div className="absolute top-0 left-0 w-full h-[6px] bg-gradient-to-r from-primary via-secondary to-primary bg-[length:200%_auto] animate-[pulse_5s_ease-in-out_infinite]"></div>
@@ -39,8 +39,8 @@ export default function Footer() {
               <img src={logo} alt="TAT Logo" className="w-[52px] h-[52px] object-contain flex-shrink-0 drop-shadow-sm" />
               <div className="flex flex-col justify-center">
                 <div className="serif text-[22px] md:text-[24px] font-black leading-none tracking-[0.04em] uppercase text-white">Trident</div>
-                <div className="w-full h-[1px] bg-gradient-to-r from-[#8B6E66] to-transparent my-[3px]"></div>
-                <div className="text-[9px] md:text-[10px] font-semibold text-[#8B6E66] tracking-[0.22em] uppercase leading-none">Academy of Technology</div>
+                <div className="w-full h-[1px] bg-gradient-to-r from-[#1B4D8E] to-transparent my-[3px]"></div>
+                <div className="text-[9px] md:text-[10px] font-semibold text-[#1B4D8E] tracking-[0.22em] uppercase leading-none">Academy of Technology</div>
               </div>
             </div>
             

@@ -5,14 +5,14 @@ import { Award, BookOpen, Map, Users } from "lucide-react";
 
 export default function AboutSection() {
   const stats = [
-    { icon: <Award size={24}/>, v:"NAAC 'A'",   l:"Grade Accredited" },
-    { icon: <BookOpen size={24}/>, v:"NBA",        l:"Accredited Programs" },
-    { icon: <Users size={24}/>, v:"1200+",      l:"Research Papers" },
-    { icon: <Map size={24}/>, v:"200 Acres",  l:"Green Campus" },
+    { icon: <Award size={24}/>, v:"NAAC 'A'",   l:"Grade Accredited", color: "brand-yellow" },
+    { icon: <BookOpen size={24}/>, v:"NBA",        l:"Accredited Programs", color: "brand-blue" },
+    { icon: <Users size={24}/>, v:"1200+",      l:"Research Papers", color: "brand-red" },
+    { icon: <Map size={24}/>, v:"200 Acres",  l:"Green Campus", color: "brand-green" },
   ];
 
   return (
-    <section className="py-28 bg-[#EFE7DF] relative overflow-hidden transition-transform duration-700">
+    <section className="py-28 bg-[#F8FAFC] relative overflow-hidden transition-transform duration-700">
       {/* Decorative Blur blob */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-secondary opacity-10 rounded-full blur-[100px] mix-blend-multiply pointer-events-none"></div>
 
@@ -22,10 +22,10 @@ export default function AboutSection() {
           {/* Images Grid with Scale Reveals */}
           <div className="relative h-[600px]">
             <ScaleReveal duration={1200} className="absolute top-0 left-0 w-4/5 h-[450px] z-10">
-              <img src={aboutImg1} alt="Students Studying" className="w-full h-full object-cover rounded-3xl shadow-[0_30px_60px_-15px_rgba(62,58,54,0.3)] border-4 border-white bg-soft" />
+              <img src={aboutImg1} alt="Students Studying" className="w-full h-full object-cover rounded-3xl shadow-[0_30px_60px_-15px_rgba(15,23,42,0.3)] border-4 border-white bg-soft" />
             </ScaleReveal>
             <ScaleReveal delay={300} duration={1200} className="absolute bottom-0 right-0 w-3/5 h-[350px] z-20">
-              <img src={aboutImg2} alt="Engineering Lab" className="w-full h-full object-cover rounded-3xl shadow-[0_30px_60px_-15px_rgba(139,110,102,0.4)] border-8 border-[#F5EEEC]" />
+              <img src={aboutImg2} alt="Engineering Lab" className="w-full h-full object-cover rounded-3xl shadow-[0_30px_60px_-15px_rgba(27,77,142,0.4)] border-8 border-[#F1F5F9]" />
             </ScaleReveal>
             
             {/* Floating Badge */}
@@ -33,7 +33,7 @@ export default function AboutSection() {
               <FadeInUp delay={600}>
                 <div className="bg-white p-6 rounded-2xl shadow-2xl border border-soft max-w-[200px]">
                   <div className="text-secondary mb-2"><Award size={32} /></div>
-                  <div className="font-bold text-lg text-[#3E3A36]">20+ Years</div>
+                  <div className="font-bold text-lg text-[#0F172A]">20+ Years</div>
                   <div className="text-sm font-semibold text-secondary">of Academic Legacy</div>
                 </div>
               </FadeInUp>
@@ -44,13 +44,13 @@ export default function AboutSection() {
           <div>
             <FadeInUp>
               <span className="rose-rule"></span>
-              <h2 className="serif text-4xl md:text-5xl font-bold text-[#3E3A36] mb-8 leading-[1.15]">
+              <h2 className="serif text-4xl md:text-5xl font-bold text-[#0F172A] mb-8 leading-[1.15]">
                 Built on a foundation of <span className="text-primary italic">academic excellence.</span>
               </h2>
             </FadeInUp>
             
             <FadeInUp delay={200}>
-              <p className="text-[#3E3A36]/80 leading-relaxed text-lg mb-10 font-medium">
+              <p className="text-[#0F172A]/80 leading-relaxed text-lg mb-10 font-medium">
                 Founded in 2005 as a unit of the Dinabandhu Foundation, Trident Academy of Technology is one of India's leading private technical institutions. Affiliated with BPUT and approved by AICTE, TAT offers UG, PG, and doctoral programs across engineering and management disciplines, preparing students for absolute global success.
               </p>
             </FadeInUp>
@@ -65,12 +65,18 @@ export default function AboutSection() {
                       i === 1 ? aboutImg2 : 
                       i === 2 ? aboutImg1 : aboutImg2
                     } alt={f.l} className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-[1.5s] ease-out opacity-20 group-hover:opacity-40" />
-                    <div className="absolute inset-0 bg-[#3E3A36]/80 group-hover:bg-[#3E3A36]/60 transition-colors duration-500"></div>
+                    <div className="absolute inset-0 bg-[#0F172A]/80 flex flex-col justify-end p-6 group-hover:opacity-0 transition-opacity duration-500 z-10">
+                      <div className={`text-${f.color} mb-auto`}>{f.icon}</div>
+                      <div className="serif text-3xl font-bold text-white mb-1">{f.v}</div>
+                      <div className="text-[11px] text-white/60 uppercase tracking-widest font-bold">{f.l}</div>
+                    </div>
 
-                    <div className="absolute inset-0 p-6 flex flex-col justify-end">
-                      <div className="text-secondary group-hover:text-[#EFE7DF] transition-colors mb-auto transform group-hover:scale-110 origin-top-left duration-500">{f.icon}</div>
-                      <div className="serif text-3xl font-bold text-white mb-1 group-hover:translate-x-1 transition-transform">{f.v}</div>
-                      <div className="text-[11px] text-white/60 uppercase tracking-widest font-bold group-hover:text-white/80 transition-colors">{f.l}</div>
+                    <div className={`absolute inset-0 bg-${f.color}/90 opacity-0 group-hover:opacity-100 flex flex-col justify-end p-6 transition-opacity duration-500 mix-blend-multiply z-20`}></div>
+                    
+                    <div className="absolute inset-0 p-6 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-30">
+                      <div className="text-white mb-auto transform scale-110 origin-top-left transition-transform duration-500">{f.icon}</div>
+                      <div className="serif text-3xl font-bold text-white mb-1 translate-x-1 transition-transform">{f.v}</div>
+                      <div className="text-[11px] text-white/80 uppercase tracking-widest font-bold">{f.l}</div>
                     </div>
                   </div>
                 </FadeInUp>
@@ -78,7 +84,7 @@ export default function AboutSection() {
             </div>
             
             <FadeInUp delay={700}>
-              <a href="https://activities-tat.tekkzy.com" className="mt-12 group inline-flex items-center gap-3 text-sm font-bold uppercase tracking-widest text-[#3E3A36] hover:text-primary transition-colors">
+              <a href="https://activities-tat.tekkzy.com" className="mt-12 group inline-flex items-center gap-3 text-sm font-bold uppercase tracking-widest text-[#0F172A] hover:text-primary transition-colors">
                 <span className="w-12 h-[2px] bg-secondary group-hover:w-16 group-hover:bg-primary transition-all"></span>
                 Read Our Full Story
               </a>

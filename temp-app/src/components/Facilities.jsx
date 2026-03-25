@@ -16,7 +16,8 @@ export default function Facilities() {
       desc: "A sprawling repository with over 100,000 volumes, private study pods, and digital journals.",
       img: libImg,
       colSpan: "md:col-span-2 md:row-span-2",
-      href: "https://academics-tat.tekkzy.com/tat-library"
+      href: "https://academics-tat.tekkzy.com/tat-library",
+      color: "brand-blue"
     },
     { 
       title: "Advanced Laboratories", 
@@ -24,22 +25,24 @@ export default function Facilities() {
       desc: "State-of-the-art AI, IoT, and Robotics labs sponsored by top industry partners.",
       img: labImg,
       colSpan: "md:col-span-2 md:row-span-1",
-      href: "https://tat.tekkzy.com/"
+      href: "https://tat.tekkzy.com/",
+      color: "brand-red"
     },
     { 
       title: "Cafeteria & Dining", 
-      icon: <Coffee size={20}/>, 
       desc: "Multi-cuisine dining options with spacious glass-walled seating.",
       img: cafeImg,
       colSpan: "md:col-span-1 md:row-span-1",
-      href: "https://campuslife-tat.tekkzy.com"
+      href: "https://campuslife-tat.tekkzy.com",
+      color: "brand-yellow"
     },
     { 
       title: "Campus Quadrangles", 
       icon: <Wifi size={20}/>, 
       desc: "Lush green tech-enabled spaces for collaboration.",
       img: quadImg,
-      colSpan: "md:col-span-1 md:row-span-1"
+      colSpan: "md:col-span-1 md:row-span-1",
+      color: "brand-green"
     },
     { 
       title: "Athletics & Wellness", 
@@ -55,9 +58,28 @@ export default function Facilities() {
       desc: "Dedicated incubation centers equipped with cutting-edge tech to foster student innovation.",
       img: researchImg,
       colSpan: "md:col-span-2 md:row-span-1",
-      href: "https://research-tat.tekkzy.com/"
+      href: "https://research-tat.tekkzy.com/",
+      color: "brand-brown"
     }
   ];
+
+  const colorClasses = {
+    "brand-blue": "group-hover:text-brand-blue group-hover:border-brand-blue",
+    "brand-red": "group-hover:text-brand-red group-hover:border-brand-red",
+    "brand-yellow": "group-hover:text-brand-yellow group-hover:border-brand-yellow",
+    "brand-green": "group-hover:text-brand-green group-hover:border-brand-green",
+    "brand-orange": "group-hover:text-brand-orange group-hover:border-brand-orange",
+    "brand-brown": "group-hover:text-brand-brown group-hover:border-brand-brown",
+  };
+  
+  const bgClasses = {
+    "brand-blue": "group-hover:bg-brand-blue/90",
+    "brand-red": "group-hover:bg-brand-red/90",
+    "brand-yellow": "group-hover:bg-brand-yellow/90",
+    "brand-green": "group-hover:bg-brand-green/90",
+    "brand-orange": "group-hover:bg-brand-orange/90",
+    "brand-brown": "group-hover:bg-brand-brown/90",
+  };
 
   return (
     <section className="py-24 bg-white border-t border-soft relative overflow-hidden">
@@ -66,8 +88,8 @@ export default function Facilities() {
         <div className="text-center max-w-2xl mx-auto mb-16">
           <FadeInUp>
             <span className="block w-16 h-1 bg-secondary mx-auto mb-6"></span>
-            <h2 className="serif text-4xl font-bold text-[#3E3A36] mb-4">World-Class Infrastructure</h2>
-            <p className="text-[#3E3A36]/70 leading-relaxed font-medium">
+            <h2 className="serif text-4xl font-bold text-[#0F172A] mb-4">World-Class <span className="italic text-[#529DD4]">Infrastructure.</span></h2>
+            <p className="text-[#0F172A]/70 leading-relaxed font-medium">
               We provide an ecosystem that nurtures intellectual exploration, physical well-being, and social engagement, deeply embedded within stunning architecture.
             </p>
           </FadeInUp>
@@ -83,12 +105,13 @@ export default function Facilities() {
                 <img src={f.img} alt={f.title} loading="lazy" className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-[1.5s] ease-out" />
                 
                 {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1A1817]/90 via-[#1A1817]/30 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0B1120]/90 via-[#0B1120]/30 to-transparent opacity-80 group-hover:opacity-40 transition-opacity duration-500"></div>
+                <div className={`absolute inset-0 ${bgClasses[f.color] || 'group-hover:bg-primary/90'} opacity-0 group-hover:opacity-100 transition-opacity duration-500 mix-blend-multiply`}></div>
                 
                 {/* Content */}
                 <div className="absolute inset-0 p-8 flex flex-col justify-end">
                   <div className="flex items-center gap-3 mb-3 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                    <div className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white border border-white/20">
+                    <div className={`w-10 h-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white border border-white/20 transition-colors ${colorClasses[f.color] || ''} group-hover:bg-white`}>
                       {f.icon}
                     </div>
                     <h3 className="serif text-2xl font-bold text-white drop-shadow-md">{f.title}</h3>
@@ -106,7 +129,7 @@ export default function Facilities() {
         {/* View More Button */}
         <div className="mt-16 text-center">
           <FadeInUp delay={200}>
-            <a href="https://activities-tat.tekkzy.com" className="inline-flex items-center gap-3 px-8 py-4 bg-white border border-[#3E3A36]/20 text-[#3E3A36] rounded-full font-bold text-[13px] uppercase tracking-widest hover:bg-[#3E3A36] hover:text-white hover:shadow-xl hover:-translate-y-1 transition-all duration-400 group">
+            <a href="https://activities-tat.tekkzy.com" className="inline-flex items-center gap-3 px-8 py-4 bg-white border border-[#0F172A]/20 text-[#0F172A] rounded-full font-bold text-[13px] uppercase tracking-widest hover:bg-[#0F172A] hover:text-white hover:shadow-xl hover:-translate-y-1 transition-all duration-400 group">
               View All Facilities
               <ArrowRight size={16} className="transform group-hover:translate-x-1 transition-transform" />
             </a>

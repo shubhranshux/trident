@@ -4,17 +4,33 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  safelist: [
+    {
+      pattern: /(bg|text|border)-brand-(green|red|orange|brown|yellow|blue|sky)/,
+      variants: ['hover', 'group-hover'],
+    },
+  ],
   theme: {
     extend: {
       colors: {
-        'primary': '#8B6E66',
-        'primary-rose': '#8B6E66',
-        'secondary': '#A59381',
-        'secondary-beige': '#A59381',
-        'bg-light': '#EFE7DF',
-        'bg-soft': '#F5EEEC',
-        'soft': '#EAE0D5',
-        'text-dark': '#3E3A36',
+        'primary': '#529DD4',      // Custom Brand Blue
+        'primary-rose': '#529DD4',
+        'secondary': '#FACC15',
+        'secondary-beige': '#FACC15',
+        'bg-light': '#FFFFFF',
+        'bg-soft': '#F8FAFC',
+        'soft': '#E2E8F0',
+        'text-dark': '#0F172A',
+        'accent-red': '#EF4444',
+        'accent-green': '#22C55E',
+        // Exact SDG Logo Colors
+        'brand-green': '#2D9A47',   // Deep vibrant green
+        'brand-red': '#C5282F',     // Deep vibrant red
+        'brand-orange': '#E56D24',  // Vibrant orange
+        'brand-yellow': '#F0B823',  // Golden yellow
+        'brand-blue': '#529DD4',    // Custom Brand Blue from user
+        'brand-sky': '#349FCC',     // Light sky blue
+
       }
     },
   },
