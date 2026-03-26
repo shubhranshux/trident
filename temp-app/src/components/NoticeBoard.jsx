@@ -44,7 +44,7 @@ function NoticeRow({ item }) {
         </div>
       </div>
       <div className="flex-1 flex items-center gap-2 min-w-0">
-        <span className="text-[13px] text-[#0F172A] font-medium leading-snug line-clamp-1 group-hover:text-brand-blue transition-colors">
+        <span className="text-[13px] text-[#3E3A36] font-medium leading-snug line-clamp-1 group-hover:text-brand-blue transition-colors">
           {item.text}
         </span>
         {item.isNew && (
@@ -88,7 +88,7 @@ function BoardPanel({ color, title, Icon, items }) {
 /* ─── Section ───────────────────────────────────────────────────────── */
 export default function NoticeBoard() {
   return (
-    <section id="notice-board" className="py-16 bg-[#F8FAFC]">
+    <section id="notice-board" className="py-16 bg-[#F5EEEC]">
       <style>{scrollbarStyle}</style>
 
       <div className="max-w-7xl mx-auto px-6">

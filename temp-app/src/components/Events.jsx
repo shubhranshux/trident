@@ -15,10 +15,13 @@ export default function Events() {
         <div className="flex flex-col sm:flex-row justify-between items-end mb-16 gap-6">
           <FadeInUp>
             <span className="rose-rule"></span>
-            <h2 className="serif text-4xl md:text-5xl font-black text-[#0F172A]">Upcoming <span className="italic text-[#529DD4]">Events.</span></h2>
+            <h2 className="serif text-4xl md:text-5xl font-black text-[#3E3A36] relative z-10 inline-block">
+              <span className="absolute -top-2 -left-4 w-32 h-14 bg-soft transform -rotate-3 -z-10 rounded-sm"></span>
+              Upcoming <span className="italic text-[#2C3A8C]">Events.</span>
+            </h2>
           </FadeInUp>
           <FadeInUp delay={200}>
-            <a href="#" className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#0F172A]/60 hover:text-primary transition-colors hover:translate-x-1 duration-300">
+            <a href="#" className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#3E3A36]/60 hover:text-primary transition-colors hover:translate-x-1 duration-300">
                Full Calendar <ArrowRight size={14} />
             </a>
           </FadeInUp>
@@ -32,14 +35,14 @@ export default function Events() {
                  {/* Date Block */}
                  <div className={`flex-shrink-0 flex flex-col items-center justify-center bg-bg-light rounded-xl w-24 h-24 border border-soft group-hover:bg-${e.color} transition-colors duration-500`}>
                     <span className={`text-[11px] font-bold uppercase tracking-widest text-${e.color} group-hover:text-white/80 mb-1`}>{e.month}</span>
-                    <span className="serif text-4xl font-black text-[#0F172A] group-hover:text-white leading-none">{e.day}</span>
+                    <span className="serif text-4xl font-black text-[#3E3A36] group-hover:text-white leading-none">{e.day}</span>
                  </div>
 
                  {/* Content */}
                  <div className="flex-1 text-center md:text-left">
                     <div className="text-[10px] font-bold uppercase tracking-widest text-secondary mb-2">{e.type}</div>
-                    <h3 className={`serif text-2xl font-bold text-[#0F172A] mb-3 group-hover:text-${e.color} transition-colors`}>{e.title}</h3>
-                    <div className="flex flex-col sm:flex-row items-center gap-4 text-sm font-medium text-[#0F172A]/60">
+                    <h3 className={`serif text-2xl font-bold text-[#3E3A36] mb-3 group-hover:text-${e.color} transition-colors`}>{e.title}</h3>
+                    <div className="flex flex-col sm:flex-row items-center gap-4 text-sm font-medium text-[#3E3A36]/60">
                        <span className="flex items-center gap-1.5"><Calendar size={14} /> {e.time}</span>
                        <span className="hidden sm:block text-soft">|</span>
                        <span className="flex items-center gap-1.5"><MapPin size={14} /> {e.loc}</span>
@@ -48,7 +51,7 @@ export default function Events() {
 
                  {/* Action */}
                  <div className="flex-shrink-0 mt-4 md:mt-0">
-                    <div className={`w-12 h-12 rounded-full border border-soft flex items-center justify-center text-[#0F172A] group-hover:bg-${e.color} group-hover:text-white group-hover:border-${e.color} transition-all duration-500`}>
+                    <div className={`w-12 h-12 rounded-full border border-soft flex items-center justify-center text-[#3E3A36] group-hover:bg-${e.color} group-hover:text-white group-hover:border-${e.color} transition-all duration-500`}>
                        <ArrowRight size={18} className="transform group-hover:translate-x-1 transition-transform" />
                     </div>
                  </div>

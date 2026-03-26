@@ -34,7 +34,7 @@ export default function Header() {
           <a href="https://tat.tekkzy.com/" className="flex items-center gap-3.5 group cursor-pointer">
             <img src={logo} alt="TAT Logo" className="w-12 h-12 md:w-[52px] md:h-[52px] object-contain flex-shrink-0 drop-shadow-sm" />
             <div className="hidden sm:flex flex-col justify-center">
-              <div className="serif text-[22px] md:text-[24px] font-black text-[#0F172A] leading-none tracking-[0.04em] uppercase">Trident</div>
+              <div className="serif text-[22px] md:text-[24px] font-black text-[#3E3A36] leading-none tracking-[0.04em] uppercase">Trident</div>
               <div className="w-full h-[1px] bg-gradient-to-r from-[#1B4D8E] to-transparent my-[3px]"></div>
               <div className="text-[9px] md:text-[10px] font-semibold text-[#1B4D8E] tracking-[0.22em] uppercase leading-none">Academy of Technology</div>
             </div>
@@ -45,7 +45,7 @@ export default function Header() {
             <ul className="flex items-center gap-6">
               {NAV_LINKS.map(item => (
                 <li key={item.label}>
-                  <a href={item.href} className="nav-link text-[14px] uppercase tracking-[0.14em] cursor-pointer whitespace-nowrap font-extrabold text-[#0F172A] hover:text-primary transition-colors">
+                  <a href={item.href} className="nav-link text-[14px] uppercase tracking-[0.14em] cursor-pointer whitespace-nowrap font-extrabold text-[#3E3A36] hover:text-primary transition-colors">
                     {item.label}
                   </a>
                 </li>
@@ -79,7 +79,7 @@ export default function Header() {
                 key={item.label} 
                 href={item.href} 
                 onClick={() => setMobileOpen(false)}
-                className={`block py-3.5 text-[15px] font-extrabold text-[#0F172A] uppercase tracking-[0.14em] hover:text-primary hover:bg-soft/50 rounded-lg px-3 transition-all duration-500 transform ${
+                className={`block py-3.5 text-[15px] font-extrabold text-[#3E3A36] uppercase tracking-[0.14em] hover:text-primary hover:bg-soft/50 rounded-lg px-3 transition-all duration-500 transform ${
                   mobileOpen ? "translate-x-0 opacity-100" : "-translate-x-8 opacity-0"
                 }`}
                 style={{ 

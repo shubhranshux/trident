@@ -16,6 +16,8 @@ export default function Hero() {
           fetchPriority="high"
           decoding="sync"
         />
+        {/* Dark gradient overlay for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60 pointer-events-none"></div>
       </div>
 
 
@@ -33,15 +35,12 @@ export default function Hero() {
         <div className="max-w-7xl mx-auto px-6 lg:px-16 w-full">
 
           <FadeInUp delay={300} duration={1200}>
-            <h1 className="serif text-5xl md:text-7xl lg:text-[96px] font-black text-white leading-[1.02] mb-8 max-w-5xl">
+            <h1 className="serif text-5xl md:text-7xl lg:text-[96px] font-black text-white leading-[1.02] mb-8 max-w-5xl" style={{ textShadow: '0 2px 20px rgba(0,0,0,0.4), 0 4px 40px rgba(0,0,0,0.2)' }}>
               Academic{" "}
               <span
-                className="italic"
+                className="italic text-[#E8BD63]"
                 style={{
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundImage: "linear-gradient(to right, #529DD4, #FFFFFF)",
-                  backgroundClip: "text",
+                  textShadow: '0 2px 20px rgba(255,215,0,0.3)',
                 }}
               >
                 Excellence.
@@ -56,7 +55,7 @@ export default function Hero() {
               <a
                 href="https://admissions-tat.tekkzy.com"
                 
-                className="bg-white text-[#0F172A] px-10 py-4 rounded-lg font-extrabold text-[14px] flex items-center gap-3 uppercase tracking-wider transition-all duration-300 hover:shadow-[0_20px_40px_-10px_rgba(255,255,255,0.3)]"
+                className="bg-white text-[#3E3A36] px-10 py-4 rounded-lg font-extrabold text-[14px] flex items-center gap-3 uppercase tracking-wider transition-all duration-300 hover:shadow-[0_20px_40px_-10px_rgba(255,255,255,0.3)]"
               >
                 Apply Now <ArrowRight size={18} />
               </a>

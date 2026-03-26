@@ -3,7 +3,7 @@ import { Fade } from "../utils/animations";
 
 export default function StatsBand() {
   return (
-    <div className="bg-[#0F172A] border-y border-soft/20">
+    <div className="bg-[#3E3A36] border-y border-soft/20">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-white/10">
           {STATS.map((s, i) => (

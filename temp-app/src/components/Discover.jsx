@@ -41,8 +41,9 @@ export default function Discover() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <FadeInUp>
-            <h2 className="serif text-4xl md:text-5xl lg:text-6xl font-black text-[#3E3A36] mb-4">
-              Discover <span className="italic text-[#529DD4]">Trident.</span>
+            <h2 className="serif text-4xl md:text-5xl lg:text-6xl font-black text-[#3E3A36] mb-4 relative z-10 inline-block">
+              <span className="absolute -top-2 -left-4 w-40 h-16 bg-soft transform -rotate-2 -z-10 rounded-sm"></span>
+              Discover <span className="italic text-[#2C3A8C]">Trident.</span>
             </h2>
             <p className="text-[#3E3A36]/70 text-lg md:text-xl font-medium max-w-2xl mx-auto italic">
               A community of creators, thinkers, and leaders pushing the boundaries of what is possible.
@@ -58,7 +59,7 @@ export default function Discover() {
                  <img src={c.img} alt={c.title} loading="lazy" className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-[1.5s] ease-out" />
                  
                  {/* Gradient Overlay */}
-                 <div className="absolute inset-0 bg-gradient-to-t from-[#0F172A]/90 via-[#0F172A]/40 to-transparent"></div>
+                 <div className="absolute inset-0 bg-gradient-to-t from-[#3E3A36]/90 via-[#3E3A36]/40 to-transparent"></div>
                  <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 bg-${c.color}/90 transition-opacity duration-700 mix-blend-multiply`}></div>
 
                  {/* Text Content */}

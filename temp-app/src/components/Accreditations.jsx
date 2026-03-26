@@ -109,7 +109,7 @@ function DSIRLogo({ size = 64 }) {
         <textPath href="#dt" startOffset="2%">DEPARTMENT OF SCIENTIFIC &amp; INDUSTRIAL RESEARCH, GOVT. OF INDIA</textPath>
       </text>
       {/* Ashoka emblem area */}
-      <circle cx="60" cy="47" r="17" fill="#F8FAFC" stroke="#1D3461" strokeWidth="1.5" />
+      <circle cx="60" cy="47" r="17" fill="#F5EEEC" stroke="#1D3461" strokeWidth="1.5" />
       {/* Ashoka wheel spokes */}
       {Array.from({ length: 24 }).map((_, i) => {
         const a = (i / 24) * Math.PI * 2;
@@ -280,7 +280,7 @@ export default function Accreditations() {
         
         {/* Centered Heading */}
         <div className="flex justify-center items-center gap-5 mb-10 w-full">
-          <div className="flex-1 h-px bg-[#E2E8F0]" />
+          <div className="flex-1 h-px bg-[#EAE0D5]" />
           <div className="flex items-center gap-2.5">
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
               <path d="M7 1L1.5 3.5V7C1.5 10.15 3.9 13.1 7 14C10.1 13.1 12.5 10.15 12.5 7V3.5L7 1Z" fill="#333" opacity="0.8" />
@@ -292,7 +292,7 @@ export default function Accreditations() {
               <path d="M7 1L1.5 3.5V7C1.5 10.15 3.9 13.1 7 14C10.1 13.1 12.5 10.15 12.5 7V3.5L7 1Z" fill="#333" opacity="0.8" />
             </svg>
           </div>
-          <div className="flex-1 h-px bg-[#E2E8F0]" />
+          <div className="flex-1 h-px bg-[#EAE0D5]" />
         </div>
 
         {/* 6-card grid forced into a single row on desktop */}

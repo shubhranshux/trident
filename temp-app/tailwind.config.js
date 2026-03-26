@@ -13,14 +13,14 @@ export default {
   theme: {
     extend: {
       colors: {
-        'primary': '#529DD4',      // Custom Brand Blue
-        'primary-rose': '#529DD4',
-        'secondary': '#FACC15',
-        'secondary-beige': '#FACC15',
-        'bg-light': '#FFFFFF',
-        'bg-soft': '#F8FAFC',
-        'soft': '#E2E8F0',
-        'text-dark': '#0F172A',
+        'primary': '#2C3A8C',      // Custom Primary Color
+        'primary-rose': '#2C3A8C',
+        'secondary': '#A59381',
+        'secondary-beige': '#A59381',
+        'bg-light': '#EFE7DF',
+        'bg-soft': '#F5EEEC',
+        'soft': '#EAE0D5',
+        'text-dark': '#3E3A36',
         'accent-red': '#EF4444',
         'accent-green': '#22C55E',
         // Exact SDG Logo Colors
@@ -28,7 +28,7 @@ export default {
         'brand-red': '#C5282F',     // Deep vibrant red
         'brand-orange': '#E56D24',  // Vibrant orange
         'brand-yellow': '#F0B823',  // Golden yellow
-        'brand-blue': '#529DD4',    // Custom Brand Blue from user
+        'brand-blue': '#2C3A8C',    // Custom Brand Blue from user
         'brand-sky': '#349FCC',     // Light sky blue
 
       }

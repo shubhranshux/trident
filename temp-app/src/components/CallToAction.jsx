@@ -9,10 +9,10 @@ import ctaImg4 from "../assets/cta_campus_reading.jpg";
 
 export default function CallToAction() {
   return (
-    <section className="relative py-12 bg-[#F8FAFC] overflow-hidden">
+    <section className="relative py-12 bg-[#F5EEEC] overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-6">
         {/* Main Glassmorphic Container with Animated Border */}
-        <div className="rounded-[32px] overflow-hidden flex flex-col lg:flex-row shadow-[0_40px_100px_-20px_rgba(15,23,42,0.5)] min-h-[420px] relative group/cta backdrop-blur-2xl bg-[#0F172A]/90 border border-white/20">
+        <div className="rounded-[32px] overflow-hidden flex flex-col lg:flex-row shadow-[0_40px_100px_-20px_rgba(15,23,42,0.5)] min-h-[420px] relative group/cta backdrop-blur-2xl bg-[#3E3A36]/90 border border-white/20">
           
           {/* Animated Background Mesh Gradient */}
           <div className="absolute inset-0 opacity-40 mix-blend-color-dodge pointer-events-none">
@@ -38,9 +38,10 @@ export default function CallToAction() {
               </FadeInUp>
 
               <FadeInUp delay={200}>
-                <h2 className="serif text-4xl md:text-5xl lg:text-[52px] font-black text-white mb-5 leading-[1.02] tracking-tight relative">
+                <h2 className="serif text-4xl md:text-5xl lg:text-[52px] font-black text-white mb-5 leading-[1.02] tracking-tight relative z-10 inline-block">
+                  <span className="absolute -top-2 -left-4 w-40 h-16 bg-white/10 transform -rotate-2 -z-10 rounded-sm"></span>
                   <span className="relative z-10">Begin Your Journey</span><br/>
-                  <span className="italic text-[#529DD4] relative inline-block">
+                  <span className="italic text-[#2C3A8C] relative inline-block">
                     at Trident.
                   </span>
                 </h2>
@@ -54,7 +55,7 @@ export default function CallToAction() {
 
               <FadeInUp delay={400}>
                 <div className="flex flex-col sm:flex-row items-center gap-4">
-                  <a href="https://admissions-tat.tekkzy.com" className="relative group/btn1 overflow-hidden bg-gradient-to-r from-white to-[#F1F5F9] text-[#0F172A] px-8 py-4 rounded-xl font-extrabold text-[13px] uppercase tracking-wider flex items-center justify-center gap-2 w-full sm:w-auto hover:shadow-[0_20px_40px_-5px_rgba(255,255,255,0.4)] hover:-translate-y-1 transition-all duration-400">
+                  <a href="https://admissions-tat.tekkzy.com" className="relative group/btn1 overflow-hidden bg-gradient-to-r from-white to-[#F1F5F9] text-[#3E3A36] px-8 py-4 rounded-xl font-extrabold text-[13px] uppercase tracking-wider flex items-center justify-center gap-2 w-full sm:w-auto hover:shadow-[0_20px_40px_-5px_rgba(255,255,255,0.4)] hover:-translate-y-1 transition-all duration-400">
                     <span className="relative z-10 flex items-center gap-2">Apply Now <ArrowRight size={16} className="group-hover/btn1:translate-x-1 transition-transform" /></span>
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/80 to-transparent -translate-x-full group-hover/btn1:translate-x-full transition-transform duration-700 pointer-events-none"></div>
                   </a>
@@ -70,7 +71,7 @@ export default function CallToAction() {
           <div className="w-full lg:w-1/2 relative bg-[#0B1120]/40 backdrop-blur-sm min-h-[400px] lg:min-h-full overflow-hidden flex items-center justify-center pointer-events-auto [perspective:1200px] border-l border-white/10">
             
             {/* Soft dark masking gradients */}
-            <div className="absolute inset-y-0 left-0 w-48 bg-gradient-to-r from-[#0F172A] via-[#0F172A]/80 to-transparent z-30 pointer-events-none hidden lg:block"></div>
+            <div className="absolute inset-y-0 left-0 w-48 bg-gradient-to-r from-[#3E3A36] via-[#3E3A36]/80 to-transparent z-30 pointer-events-none hidden lg:block"></div>
             <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[#1A1817]/80 to-transparent z-30 pointer-events-none"></div>
             <div className="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-t from-[#1A1817]/80 to-transparent z-30 pointer-events-none"></div>
 

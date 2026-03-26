@@ -84,7 +84,7 @@ function CompanyTag({ name }) {
     <div
       className="company-pill flex-shrink-0 flex items-center justify-center rounded-xl cursor-default transition-colors duration-300"
       style={{
-        background: "#F8FAFC",
+        background: "#F5EEEC",
         border: "1px solid rgba(15,23,42,0.06)",
         padding: "10px 16px",
       }}
@@ -97,7 +97,7 @@ function CompanyTag({ name }) {
               display: "flex", alignItems: "center", justifyContent: "center",
               width: 28, height: 28, borderRadius: "50%",
               background: "#F1F5F9",
-              fontSize: 10, fontWeight: 900, color: "#0F172A",
+              fontSize: 10, fontWeight: 900, color: "#3E3A36",
               border: "1px solid rgba(15,23,42,0.1)",
             }}>{initials}</span>
         }
@@ -127,22 +127,23 @@ export default function Placements() {
         {/* Header */}
         <div className="text-center mb-20">
           <SlideIn direction="right">
-            <div className="inline-flex items-center gap-3 border border-soft text-[#0F172A] text-[11px] font-bold uppercase tracking-[0.35em] px-8 py-3 rounded-full mb-10 bg-white shadow-sm">
+            <div className="inline-flex items-center gap-3 border border-soft text-[#3E3A36] text-[11px] font-bold uppercase tracking-[0.35em] px-8 py-3 rounded-full mb-10 bg-white shadow-sm">
               <span className="w-2 h-2 rounded-full bg-emerald-400" style={{ animation: "pulse 2s ease-in-out infinite" }} />
               Placements 2025–26
             </div>
           </SlideIn>
           <FadeInUp delay={200}>
-            <h2 className="serif text-5xl md:text-6xl lg:text-7xl font-black text-[#0F172A] mb-6 leading-[1.05]">
+            <h2 className="serif text-5xl md:text-6xl lg:text-7xl font-black text-[#3E3A36] mb-6 leading-[1.05] relative z-10 inline-block">
+              <span className="absolute -top-2 md:-top-4 -left-4 w-40 md:w-56 h-16 md:h-20 bg-soft transform -rotate-2 -z-10 rounded-md"></span>
               Our graduates are everywhere{" "}
               <br className="hidden md:block" />
-              <span className="italic text-[#529DD4]">
+              <span className="italic text-[#2C3A8C]">
                 that matters.
               </span>
             </h2>
           </FadeInUp>
           <FadeInUp delay={400}>
-            <p className="text-[#0F172A]/70 text-lg md:text-xl font-medium leading-relaxed max-w-2xl mx-auto">
+            <p className="text-[#3E3A36]/70 text-lg md:text-xl font-medium leading-relaxed max-w-2xl mx-auto">
               Over 320 global companies visited our campus this year. Our students have secured leading roles across the world's top firms.
             </p>
           </FadeInUp>
@@ -152,11 +153,11 @@ export default function Placements() {
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 mb-24">
           {stats.map((s, i) => (
             <FadeInUp key={s.label} delay={200 + i * 100}>
-              <div className="group relative bg-[#F8FAFC] border border-soft/60 rounded-2xl p-7 text-center hover:bg-white hover:border-[#529DD4]/30 transition-all duration-500 hover:-translate-y-1 overflow-hidden hover:shadow-lg">
-                <div className="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-[#529DD4]/50 to-[#529DD4]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="text-[#529DD4] mb-4 flex justify-center group-hover:scale-110 transform transition-all duration-500">{s.icon}</div>
-                <div className="serif text-3xl md:text-4xl font-black text-[#0F172A] mb-2">{s.value}</div>
-                <div className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#0F172A]/50 group-hover:text-[#0F172A]/70 transition-colors">{s.label}</div>
+              <div className="group relative rounded-2xl p-7 text-center hover:border-[#C16443]/30 transition-all duration-500 hover:-translate-y-1 overflow-hidden hover:shadow-lg border border-[#E8C9A0]/40" style={{ background: 'linear-gradient(160deg, #F5E0D0 0%, #EDCBA0 100%)' }}>
+                <div className="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-[#C16443] via-[#E8A060] to-[#C16443]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="text-[#2C3A8C] mb-4 flex justify-center group-hover:scale-110 transform transition-all duration-500">{s.icon}</div>
+                <div className="serif text-3xl md:text-4xl font-black text-[#3E3A36] mb-2">{s.value}</div>
+                <div className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#3E3A36]/50 group-hover:text-[#3E3A36]/70 transition-colors">{s.label}</div>
               </div>
             </FadeInUp>
           ))}
@@ -166,17 +167,17 @@ export default function Placements() {
         <FadeInUp delay={500}>
           <div className="mb-24">
             <div className="text-center mb-8">
-              <p className="text-[11px] font-bold uppercase tracking-[0.3em] text-[#529DD4]">
+              <p className="text-[11px] font-bold uppercase tracking-[0.3em] text-[#2C3A8C]">
                 Trusted by Industry Leaders
               </p>
-              <p className="text-[#0F172A]/40 text-[10px] mt-1.5 font-medium">Hover to reveal each company's logo</p>
+              <p className="text-[#3E3A36]/40 text-[10px] mt-1.5 font-medium">Hover to reveal each company's logo</p>
             </div>
             <div className="flex flex-wrap justify-center gap-2.5 max-w-5xl mx-auto">
               {companies.map((name) => (
                 <CompanyTag key={name} name={name} />
               ))}
               <div className="flex-shrink-0 flex items-center justify-center border border-dashed border-soft bg-white rounded-lg px-5 py-2.5">
-                <span className="text-[#0F172A]/50 text-[13px] font-bold">+{remaining} more</span>
+                <span className="text-[#3E3A36]/50 text-[13px] font-bold">+{remaining} more</span>
               </div>
             </div>
           </div>
@@ -185,8 +186,8 @@ export default function Placements() {
         {/* Student Placements */}
         <div className="text-center mb-10">
           <FadeInUp delay={600}>
-            <div className="w-16 h-px bg-gradient-to-r from-transparent via-[#529DD4] to-transparent mx-auto mb-5" />
-            <span className="text-[11px] font-bold uppercase tracking-[0.3em] text-[#529DD4]">Where Our Students Work</span>
+            <div className="w-16 h-px bg-gradient-to-r from-transparent via-[#2C3A8C] to-transparent mx-auto mb-5" />
+            <span className="text-[11px] font-bold uppercase tracking-[0.3em] text-[#2C3A8C]">Where Our Students Work</span>
           </FadeInUp>
         </div>
 
@@ -200,20 +201,20 @@ export default function Placements() {
             {/* Scrolling container — duplicated items for infinite seamless scroll */}
             <div className="flex w-max animate-marquee space-x-4 px-4">
               {[...placements, ...placements].map((s, i) => (
-                <div key={i} className="group w-[320px] md:w-[380px] flex-shrink-0 flex items-center justify-between bg-white hover:bg-[#F8FAFC] border border-soft hover:border-[#529DD4]/20 rounded-xl px-5 py-4 transition-all duration-400 hover:-translate-y-1 cursor-default shadow-[0_4px_24px_rgba(15,23,42,0.02)] hover:shadow-[0_12px_40px_rgba(82,157,212,0.08)]">
+                <div key={i} className="group w-[320px] md:w-[380px] flex-shrink-0 flex items-center justify-between bg-white hover:bg-[#F5EEEC] border border-soft hover:border-[#2C3A8C]/20 rounded-xl px-5 py-4 transition-all duration-400 hover:-translate-y-1 cursor-default shadow-[0_4px_24px_rgba(15,23,42,0.02)] hover:shadow-[0_12px_40px_rgba(82,157,212,0.08)]">
                   <div className="flex items-center gap-4 min-w-0">
-                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#529DD4] to-[#2C3A8C] border-2 border-white flex items-center justify-center text-white text-sm font-black flex-shrink-0 shadow-md">
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#2C3A8C] to-[#2C3A8C] border-2 border-white flex items-center justify-center text-white text-sm font-black flex-shrink-0 shadow-md">
                       {s.name.split(" ").map(n => n[0]).join("")}
                     </div>
                     <div className="min-w-0">
-                      <div className="text-[#0F172A] font-bold text-[16px] leading-tight truncate">{s.name}</div>
+                      <div className="text-[#3E3A36] font-bold text-[16px] leading-tight truncate">{s.name}</div>
                       <div className="flex items-center gap-2 mt-1 flex-wrap">
-                        <div className="text-[#0F172A]/70 text-[13px] font-semibold truncate">{s.company}</div>
-                        <span className="flex-shrink-0 bg-[#F1F5F9] border border-soft text-[#0F172A]/60 text-[10px] font-bold px-1.5 py-0.5 rounded tracking-wider">{s.year}</span>
+                        <div className="text-[#3E3A36]/70 text-[13px] font-semibold truncate">{s.company}</div>
+                        <span className="flex-shrink-0 bg-[#F1F5F9] border border-soft text-[#3E3A36]/60 text-[10px] font-bold px-1.5 py-0.5 rounded tracking-wider">{s.year}</span>
                       </div>
                     </div>
                   </div>
-                  <div className="text-[#529DD4] font-black text-[16px] tracking-wide whitespace-nowrap pl-4 group-hover:scale-105 transition-transform">{s.pkg}</div>
+                  <div className="text-[#2C3A8C] font-black text-[16px] tracking-wide whitespace-nowrap pl-4 group-hover:scale-105 transition-transform">{s.pkg}</div>
                 </div>
               ))}
             </div>
@@ -223,7 +224,7 @@ export default function Placements() {
         {/* CTA */}
         <FadeInUp delay={800}>
           <div className="text-center mt-16">
-            <a href="https://placements-tat.tekkzy.com" className="group inline-flex items-center gap-3 bg-[#0F172A] text-white px-10 py-4 rounded-full font-bold text-sm uppercase tracking-widest shadow-xl hover:bg-[#529DD4] hover:-translate-y-1 transition-all duration-500">
+            <a href="https://placements-tat.tekkzy.com" className="group inline-flex items-center gap-3 bg-[#3E3A36] text-white px-10 py-4 rounded-full font-bold text-sm uppercase tracking-widest shadow-xl hover:bg-[#2C3A8C] hover:-translate-y-1 transition-all duration-500">
               View Full Placement Report
               <ArrowRight size={18} className="transform group-hover:translate-x-1 transition-transform" />
             </a>

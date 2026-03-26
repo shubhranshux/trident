@@ -3,130 +3,145 @@ import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram, ArrowRight
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0F172A] text-[#F8FAFC]/90 pt-24 pb-8 relative overflow-hidden font-sans">
+    <footer className="bg-[#1A1817] text-[#EFE7DF]/80 pt-24 pb-12 relative overflow-hidden font-sans border-t-4 border-[#E5AA3E]">
       
-      {/* Decorative Brand Accent Line */}
-      <div className="absolute top-0 left-0 w-full h-[6px] bg-gradient-to-r from-primary via-secondary to-primary bg-[length:200%_auto] animate-[pulse_5s_ease-in-out_infinite]"></div>
-      
+      {/* Skewed Background Accent */}
+      <div className="absolute top-0 right-0 w-1/4 h-full bg-white/[0.02] -skew-x-12 translate-x-20 pointer-events-none"></div>
+
       {/* Subtle Background Logo Watermark */}
       <div className="absolute right-0 bottom-0 w-full h-full overflow-hidden pointer-events-none opacity-[0.03] flex items-end justify-end">
         <img src={logo} alt="" className="w-[400px] h-[400px] object-contain transform translate-y-16 translate-x-16" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <div className="max-w-[1400px] mx-auto px-6 xl:px-12 relative z-10">
         
-        {/* Pre-footer subscription block */}
-        <div className="bg-white/5 border border-white/10 rounded-[32px] p-8 md:p-12 mb-20 flex flex-col lg:flex-row items-center justify-between gap-8 backdrop-blur-sm shadow-2xl relative overflow-hidden group">
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
-          <div className="max-w-xl relative z-10">
-            <h3 className="serif text-3xl font-bold text-white mb-4">Stay informed, stay ahead.</h3>
-            <p className="text-bg-light/70 font-medium">Subscribe to the official Trident Newsletter for updates on research, events, and campus developments.</p>
+        {/* Subscription block */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 bg-white/[0.03] border border-white/10 rounded-2xl p-8 md:p-16 mb-24 relative overflow-hidden group">
+          <div className="absolute top-0 left-0 w-2 h-full bg-[#E5AA3E]"></div>
+          {/* Asymmetric corner accents */}
+          <div className="absolute top-4 right-4 w-12 h-12 border-t border-r border-[#E5AA3E]/10 hidden md:block" />
+          <div className="absolute bottom-4 left-16 w-8 h-8 border-b border-l border-[#8B6E66]/10 hidden md:block" />
+          
+          <div className="lg:col-span-7">
+            <h3 className="font-serif text-3xl md:text-4xl font-black text-white mb-6 leading-tight">
+              Stay informed, <br/>stay <span className="text-[#E5AA3E]">ahead.</span>
+            </h3>
+            <p className="text-gray-400 text-lg max-w-xl leading-relaxed">
+              Subscribe to the official Trident Newsletter for updates on research, events, and campus developments.
+            </p>
           </div>
-          <div className="w-full lg:w-auto flex-1 max-w-md relative z-10 font-sans flex flex-col sm:flex-row gap-3">
-             <input type="email" placeholder="Email address..." className="bg-black/20 border border-white/10 text-white placeholder-white/40 px-6 py-4 rounded-xl flex-1 outline-none focus:border-primary/50 focus:bg-black/30 transition-all font-medium text-sm" />
-             <button className="bg-primary hover:bg-white text-white hover:text-primary px-8 py-4 rounded-xl font-bold text-[13px] uppercase tracking-widest transition-all duration-300 whitespace-nowrap shadow-lg flex items-center justify-center gap-2 group/btn">
-                Subscribe <ArrowRight size={16} className="transform group-hover/btn:translate-x-1 transition-transform" />
-             </button>
+
+          <div className="lg:col-span-5 flex flex-col justify-center">
+             <div className="flex flex-col sm:flex-row gap-4">
+                <input 
+                  type="email" 
+                  placeholder="Enter your email address" 
+                  className="bg-white/5 border border-white/10 text-white placeholder-white/30 px-8 py-5 rounded-xl flex-grow outline-none focus:border-[#E5AA3E] transition-all"
+                />
+                <button className="bg-[#E5AA3E] hover:bg-[#c99535] text-[#1A1817] px-10 py-5 rounded-xl font-black text-[12px] uppercase tracking-widest transition-all flex items-center justify-center gap-3 whitespace-nowrap">
+                  Subscribe <ArrowRight size={18} />
+                </button>
+             </div>
+             <p className="mt-4 text-[10px] font-bold text-gray-500 uppercase tracking-widest">No spam. Only updates that matter.</p>
           </div>
         </div>
 
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-16 mb-24">
           
-          {/* Brand Info */}
-          <div className="lg:col-span-4 lg:pr-8">
-            <div className="flex items-center gap-3.5 mb-8">
-              <img src={logo} alt="TAT Logo" className="w-[52px] h-[52px] object-contain flex-shrink-0 drop-shadow-sm" />
+          {/* Brand Column */}
+          <div className="lg:col-span-4">
+            <div className="flex items-center gap-5 mb-10">
+              <img src={logo} alt="TAT Logo" className="w-[64px] h-[64px] object-contain" />
+              <div className="h-12 w-[1px] bg-white/10 mx-2"></div>
               <div className="flex flex-col justify-center">
-                <div className="serif text-[22px] md:text-[24px] font-black leading-none tracking-[0.04em] uppercase text-white">Trident</div>
-                <div className="w-full h-[1px] bg-gradient-to-r from-[#1B4D8E] to-transparent my-[3px]"></div>
-                <div className="text-[9px] md:text-[10px] font-semibold text-[#1B4D8E] tracking-[0.22em] uppercase leading-none">Academy of Technology</div>
+                <div className="font-serif text-[28px] text-white leading-none font-black uppercase">Trident</div>
+                <div className="text-[10px] font-bold text-[#8B6E66] tracking-[.3em] uppercase mt-2">Academy of Technology</div>
               </div>
             </div>
             
-            <p className="text-bg-light/60 text-[15px] leading-relaxed mb-8 font-medium">
+            <p className="text-gray-400 text-[16px] leading-[1.8] mb-10">
               Empowering the next generation of global leaders through world-class technical education, innovative research, and an unwavering commitment to excellence.
             </p>
             
-            <div className="space-y-4 text-sm font-medium">
+            <div className="grid grid-cols-1 gap-6">
               <a href="https://contactus-tat.tekkzy.com" className="flex items-start gap-4 hover:text-white transition-colors group">
-                <span className="mt-1 text-primary group-hover:scale-110 transition-transform"><MapPin size={18}/></span>
-                <span className="leading-snug">F2/A, Chandaka Industrial Estate,<br/>Chandrasekharpur, Bhubaneswar,<br/>Odisha – 751024, India</span>
+                <div className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-[#8B6E66] flex-shrink-0"><MapPin size={20}/></div>
+                <div className="text-sm font-medium leading-relaxed">F2/A, Chandaka Industrial Estate,<br/>Chandrasekharpur, Bhubaneswar,<br/>Odisha – 751024, India</div>
               </a>
               <a href="tel:+916742742547" className="flex items-center gap-4 hover:text-white transition-colors group">
-                <span className="text-primary group-hover:scale-110 transition-transform"><Phone size={18}/></span>
-                +91-674-2742547
+                <div className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-[#8B6E66]"><Phone size={20}/></div>
+                <div className="text-sm font-bold">+91-674-2742547</div>
               </a>
               <a href="mailto:info@tat.ac.in" className="flex items-center gap-4 hover:text-white transition-colors group">
-                <span className="text-primary group-hover:scale-110 transition-transform"><Mail size={18}/></span>
-                info@tat.ac.in
+                <div className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-[#8B6E66]"><Mail size={20}/></div>
+                <div className="text-sm font-bold">info@tat.ac.in</div>
               </a>
             </div>
           </div>
 
 
-          {/* Nav Links */}
-          <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12 lg:gap-8 lg:pl-12">
+          {/* Links Columns */}
+          <div className="lg:col-span-8 grid grid-cols-2 lg:grid-cols-3 gap-12">
             {[
               { h:"Academics", ls:[
-                { text:"Undergraduate Studies", href:"https://academics-tat.tekkzy.com/departments-of-engineering/" },
-                { text:"Postgraduate Studies", href:"https://academics-tat.tekkzy.com/" },
-                { text:"Doctoral Programs", href:"https://academics-tat.tekkzy.com/" },
-                { text:"Research Centers", href:"https://research-tat.tekkzy.com/" },
-                { text:"Academic Calendar", href:"https://academics-tat.tekkzy.com/" },
+                { t:"Undergraduate Studies", h:"https://academics-tat.tekkzy.com/departments-of-engineering/" },
+                { t:"Postgraduate Studies", h:"https://academics-tat.tekkzy.com/" },
+                { t:"Doctoral Programs", h:"https://academics-tat.tekkzy.com/" },
+                { t:"Research Centers", h:"https://research-tat.tekkzy.com/" },
+                { t:"Academic Calendar", h:"https://academics-tat.tekkzy.com/" },
               ] },
               { h:"Campus Life", ls:[
-                { text:"Student Hostels", href:"https://campuslife-tat.tekkzy.com/" },
-                { text:"Clubs & Societies", href:"https://activities-tat.tekkzy.com/" },
-                { text:"Sports & Recreation", href:"https://campuslife-tat.tekkzy.com/" },
-                { text:"Health & Wellness", href:"https://campuslife-tat.tekkzy.com/" },
-                { text:"Campus Safety", href:"https://campuslife-tat.tekkzy.com/" },
+                { t:"Student Hostels", h:"https://campuslife-tat.tekkzy.com/" },
+                { t:"Clubs & Societies", h:"https://activities-tat.tekkzy.com/" },
+                { t:"Sports & Recreation", h:"https://campuslife-tat.tekkzy.com/" },
+                { t:"Health & Wellness", h:"https://campuslife-tat.tekkzy.com/" },
+                { t:"Campus Safety", h:"https://campuslife-tat.tekkzy.com/" },
               ] },
               { h:"Resources", ls:[
-                { text:"Admissions Portal", href:"https://admissions-tat.tekkzy.com" },
-                { text:"Alumni Network", href:"https://alumni-tat.tekkzy.com/" },
-                { text:"Career Placements", href:"https://placements-tat.tekkzy.com" },
-                { text:"NIRF Data", href:"https://academics-tat.tekkzy.com/" },
-                { text:"Tenders & Notices", href:"https://tat.tekkzy.com/" },
+                { t:"Admissions Portal", h:"https://admissions-tat.tekkzy.com" },
+                { t:"Alumni Network", h:"https://alumni-tat.tekkzy.com/" },
+                { t:"Career Placements", h:"https://placements-tat.tekkzy.com" },
+                { t:"NIRF Data", h:"https://academics-tat.tekkzy.com/" },
+                { t:"Tenders & Notices", h:"https://tat.tekkzy.com/" },
               ] },
             ].map((col) => (
               <div key={col.h}>
-                <h5 className="serif text-white font-bold text-lg mb-8">{col.h}</h5>
-                <ul className="space-y-4">
-                  {col.ls.map((l, i) => {
-                    const linkText = typeof l === 'string' ? l : l.text;
-                    const linkHref = typeof l === 'string' ? (col.href || '#') : l.href;
-                    return (
-                    <li key={i}>
-                      <a href={linkHref} className="font-medium text-bg-light/60 text-[14px] hover:text-primary hover:translate-x-1.5 transition-all flex items-center gap-2 group/link">
-                        <span className="w-1.5 h-1.5 rounded-full bg-secondary/30 group-hover/link:bg-primary transition-colors flex-shrink-0"></span>
-                        <span className="whitespace-nowrap">{linkText}</span>
+                <div className="relative mb-10">
+                   <div className="absolute -left-4 top-0 w-8 h-8 bg-[#8B6E66]/10 -skew-x-12"></div>
+                   <h5 className="font-serif text-white font-black text-[15px] uppercase tracking-widest relative z-10">{col.h}</h5>
+                </div>
+                <ul className="space-y-5">
+                  {col.ls.map((link) => (
+                    <li key={link.t}>
+                      <a href={link.h} className="text-[14px] font-bold text-gray-500 hover:text-[#E5AA3E] transition-all flex items-center gap-3 group">
+                        <span className="w-0 h-[1px] bg-[#E5AA3E] group-hover:w-4 transition-all duration-300" />
+                        {link.t}
                       </a>
                     </li>
-                    );
-                  })}
+                  ))}
                 </ul>
               </div>
             ))}
           </div>
         </div>
         
-        {/* Bottom Bar */}
-        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="text-[13px] font-medium text-bg-light/50 flex flex-col sm:flex-row gap-2 sm:gap-6 items-center">
-            <span>© 2026 Trident Academy of Technology. All rights reserved.</span>
-            <div className="flex gap-4">
+        {/* Footer Bottom */}
+        <div className="border-t border-white/5 pt-12 flex flex-col md:flex-row justify-between items-center gap-8">
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 items-center">
+            <span className="text-[11px] font-black uppercase tracking-[.2em] text-gray-600">
+              © 2026 Trident Academy of Technology. All rights reserved.
+            </span>
+            <div className="flex gap-4 text-[11px] font-bold text-gray-600">
                {["Privacy Policy", "Disclaimer", "Terms of Use"].map(l=>(
-                 <a key={l} href="https://tat.tekkzy.com/" className="hover:text-white transition-colors">{l}</a>
+                 <a key={l} href="https://tat.tekkzy.com/" className="hover:text-[#E5AA3E] transition-colors uppercase tracking-wider">{l}</a>
                ))}
             </div>
           </div>
           
-          <div className="flex items-center gap-4">
-            <span className="text-xs uppercase tracking-widest text-bg-light/40 font-bold mr-2">Connect</span>
+          <div className="flex items-center gap-5">
             {[Facebook, Twitter, Linkedin, Instagram].map((Icon, i) => (
-              <a key={i} href="https://tat.tekkzy.com/" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-bg-light/70 hover:bg-primary hover:text-white transition-all transform hover:-translate-y-1">
-                <Icon size={16} />
+              <a key={i} href="https://tat.tekkzy.com/" className="text-gray-500 hover:text-[#E5AA3E] transition-colors">
+                <Icon size={20} />
               </a>
             ))}
           </div>
@@ -134,8 +149,8 @@ export default function Footer() {
 
         {/* Built by credit */}
         <div className="text-center mt-8 pt-6 border-t border-white/5">
-          <span className="text-[11px] font-medium text-bg-light/30 tracking-wider">
-            Crafted with AI by <a href="https://tekkzy.com" className="text-bg-light/50 hover:text-white transition-colors font-bold">Tekkzy</a> — AI-Powered Intelligent Cloud Solutions
+          <span className="text-[11px] font-medium text-gray-600 tracking-wider">
+            Crafted with AI by <a href="https://tekkzy.com" className="text-gray-400 hover:text-[#E5AA3E] transition-colors font-bold">Tekkzy</a> — AI-Powered Intelligent Cloud Solutions
           </span>
         </div>
         

@@ -7,7 +7,7 @@ import bannerImg from "../../assets/chatgpt-hero.png"; // reusing hero image for
 
 export default function Academics() {
   return (
-    <div className="bg-[#F8FAFC] min-h-screen flex flex-col pt-24">
+    <div className="bg-[#F5EEEC] min-h-screen flex flex-col pt-24">
       <Header />
       
       {/* Academics Banner */}
@@ -18,7 +18,7 @@ export default function Academics() {
             alt="Academics" 
             className="w-full h-full object-cover object-[center_40%]"
           />
-          <div className="absolute inset-0 bg-[#0F172A]/70 mix-blend-multiply"></div>
+          <div className="absolute inset-0 bg-[#3E3A36]/70 mix-blend-multiply"></div>
         </div>
         
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 w-full text-center">
@@ -41,8 +41,8 @@ export default function Academics() {
           <FadeInUp delay={200} duration={1000}>
             <div className="mb-16 max-w-3xl">
               <span className="rose-rule"></span>
-              <h2 className="serif text-4xl md:text-5xl font-black text-[#0F172A] mb-6">Explore Our Disciplines</h2>
-              <p className="text-[#0F172A]/80 text-lg leading-relaxed font-medium">
+              <h2 className="serif text-4xl md:text-5xl font-black text-[#3E3A36] mb-6">Explore Our Disciplines</h2>
+              <p className="text-[#3E3A36]/80 text-lg leading-relaxed font-medium">
                 Trident Academy of Technology offers a diverse array of undergraduate and postgraduate programs designed to foster innovation, critical thinking, and leadership. Our curriculum integrates theoretical depth with practical application, preparing students for the challenges of tomorrow.
               </p>
             </div>
@@ -57,17 +57,17 @@ export default function Academics() {
                     <div className="text-4xl mb-6 bg-soft inline-flex items-center justify-center w-16 h-16 rounded-full shadow-sm text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300">
                       {prog.icon}
                     </div>
-                    <h3 className="serif text-2xl font-black text-[#0F172A] mb-3 leading-snug group-hover:text-primary transition-colors">
+                    <h3 className="serif text-2xl font-black text-[#3E3A36] mb-3 leading-snug group-hover:text-primary transition-colors">
                       {prog.name}
                     </h3>
                     <div className="flex flex-wrap gap-2 mb-6">
                       <span className="bg-soft text-primary text-[11px] font-extrabold uppercase tracking-widest px-3 py-1 rounded">
                         {prog.dept}
                       </span>
-                      <span className="bg-soft text-[#0F172A] text-[11px] font-extrabold uppercase tracking-widest px-3 py-1 rounded">
+                      <span className="bg-soft text-[#3E3A36] text-[11px] font-extrabold uppercase tracking-widest px-3 py-1 rounded">
                         {prog.dur}
                       </span>
-                      <span className="bg-soft text-[#0F172A] text-[11px] font-extrabold uppercase tracking-widest px-3 py-1 rounded">
+                      <span className="bg-soft text-[#3E3A36] text-[11px] font-extrabold uppercase tracking-widest px-3 py-1 rounded">
                         {prog.seats} Seats
                       </span>
                     </div>
@@ -75,7 +75,7 @@ export default function Academics() {
                   
                   <a 
                     href={prog.href}
-                    className="flex items-center gap-2 text-[13px] font-black uppercase tracking-widest text-[#0F172A] group-hover:text-primary transition-colors mt-auto pt-6 border-t border-[#0F172A]/10"
+                    className="flex items-center gap-2 text-[13px] font-black uppercase tracking-widest text-[#3E3A36] group-hover:text-primary transition-colors mt-auto pt-6 border-t border-[#3E3A36]/10"
                   >
                     View Details <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                   </a>

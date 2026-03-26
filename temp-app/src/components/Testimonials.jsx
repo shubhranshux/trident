@@ -52,8 +52,11 @@ export default function Testimonials() {
         <FadeInUp>
           <div className="text-center mb-16">
             <span className="block w-12 h-1 bg-secondary mx-auto mb-6"></span>
-            <h2 className="serif text-4xl md:text-5xl font-black text-[#0F172A] mb-4">Student <span className="italic text-[#529DD4]">Stories.</span></h2>
-            <p className="text-[#0F172A]/70 text-lg font-medium">Hear directly from the minds shaping the future.</p>
+            <h2 className="serif text-4xl md:text-5xl font-black text-[#3E3A36] mb-4 relative z-10 inline-block">
+              <span className="absolute -top-2 -left-4 w-32 h-14 bg-soft transform -rotate-3 -z-10 rounded-sm"></span>
+              Student <span className="italic text-[#2C3A8C]">Stories.</span>
+            </h2>
+            <p className="text-[#3E3A36]/70 text-lg font-medium">Hear directly from the minds shaping the future.</p>
           </div>
         </FadeInUp>
 
@@ -74,7 +77,7 @@ export default function Testimonials() {
                   {[...Array(t.rating)].map((_, j) => <Star key={j} size={18} fill="currentColor" />)}
                 </div>
                 
-                <h3 className="serif text-xl md:text-3xl text-center text-[#0F172A] leading-relaxed font-bold mb-10 max-w-2xl px-4 italic">
+                <h3 className="serif text-xl md:text-3xl text-center text-[#3E3A36] leading-relaxed font-bold mb-10 max-w-2xl px-4 italic">
                   "{t.text}"
                 </h3>
                 
@@ -84,7 +87,7 @@ export default function Testimonials() {
                     <div className="absolute inset-0 rounded-full border border-primary/20 scale-110 animate-ping"></div>
                   </div>
                   <div className="text-left">
-                    <div className="font-bold text-[#0F172A] tracking-wide">{t.author}</div>
+                    <div className="font-bold text-[#3E3A36] tracking-wide">{t.author}</div>
                     <div className="text-xs font-semibold text-primary uppercase tracking-wider mt-0.5">{t.role}</div>
                   </div>
                 </div>
@@ -111,13 +114,13 @@ export default function Testimonials() {
             <div className="flex gap-4">
               <button 
                 onClick={() => setCurrent((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1))}
-                className="w-12 h-12 rounded-full bg-soft flex items-center justify-center text-[#0F172A] hover:bg-primary hover:text-white transition-all shadow-sm hover:shadow-lg transform hover:-translate-x-1"
+                className="w-12 h-12 rounded-full bg-soft flex items-center justify-center text-[#3E3A36] hover:bg-primary hover:text-white transition-all shadow-sm hover:shadow-lg transform hover:-translate-x-1"
               >
                 <ChevronLeft size={20} />
               </button>
               <button 
                 onClick={() => setCurrent((prev) => (prev + 1) % testimonials.length)}
-                className="w-12 h-12 rounded-full bg-soft flex items-center justify-center text-[#0F172A] hover:bg-primary hover:text-white transition-all shadow-sm hover:shadow-lg transform hover:translate-x-1"
+                className="w-12 h-12 rounded-full bg-soft flex items-center justify-center text-[#3E3A36] hover:bg-primary hover:text-white transition-all shadow-sm hover:shadow-lg transform hover:translate-x-1"
               >
                 <ChevronRight size={20} />
               </button>

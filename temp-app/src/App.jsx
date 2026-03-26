@@ -48,15 +48,15 @@ function Home() {
 
 export default function App() {
   return (
-    <div className="text-[#0F172A] bg-white font-sans" style={{ overflowX: "clip" }}>
+    <div className="text-[#3E3A36] bg-[#EFE7DF] font-sans" style={{ overflowX: "clip" }}>
       <style>{`
         :root {
           /* Trident Custom Primary Palette */
-          --primary-rose: #529DD4;
-          --secondary-beige: #FACC15;
-          --bg-light: #FFFFFF;
-          --bg-soft: #F8FAFC;
-          --text-dark: #0F172A;
+          --primary-rose: #2C3A8C;
+          --secondary-beige: #A59381;
+          --bg-light: #EFE7DF;
+          --bg-soft: #F5EEEC;
+          --text-dark: #3E3A36;
         }
 
         html { scroll-behavior: smooth; }

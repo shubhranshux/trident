@@ -88,8 +88,11 @@ export default function Facilities() {
         <div className="text-center max-w-2xl mx-auto mb-16">
           <FadeInUp>
             <span className="block w-16 h-1 bg-secondary mx-auto mb-6"></span>
-            <h2 className="serif text-4xl font-bold text-[#0F172A] mb-4">World-Class <span className="italic text-[#529DD4]">Infrastructure.</span></h2>
-            <p className="text-[#0F172A]/70 leading-relaxed font-medium">
+            <h2 className="serif text-4xl font-bold text-[#3E3A36] mb-4 relative z-10 inline-block">
+              <span className="absolute -top-2 -left-4 w-32 h-14 bg-soft transform -rotate-3 -z-10 rounded-sm"></span>
+              World-Class <span className="italic text-[#2C3A8C]">Infrastructure.</span>
+            </h2>
+            <p className="text-[#3E3A36]/70 leading-relaxed font-medium">
               We provide an ecosystem that nurtures intellectual exploration, physical well-being, and social engagement, deeply embedded within stunning architecture.
             </p>
           </FadeInUp>
@@ -129,7 +132,7 @@ export default function Facilities() {
         {/* View More Button */}
         <div className="mt-16 text-center">
           <FadeInUp delay={200}>
-            <a href="https://activities-tat.tekkzy.com" className="inline-flex items-center gap-3 px-8 py-4 bg-white border border-[#0F172A]/20 text-[#0F172A] rounded-full font-bold text-[13px] uppercase tracking-widest hover:bg-[#0F172A] hover:text-white hover:shadow-xl hover:-translate-y-1 transition-all duration-400 group">
+            <a href="https://activities-tat.tekkzy.com" className="inline-flex items-center gap-3 px-8 py-4 bg-white border border-[#3E3A36]/20 text-[#3E3A36] rounded-full font-bold text-[13px] uppercase tracking-widest hover:bg-[#3E3A36] hover:text-white hover:shadow-xl hover:-translate-y-1 transition-all duration-400 group">
               View All Facilities
               <ArrowRight size={16} className="transform group-hover:translate-x-1 transition-transform" />
             </a>
