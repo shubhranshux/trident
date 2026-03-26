@@ -122,10 +122,10 @@ export default function Placements() {
       
       {/* Background decorative geometric elements */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute -top-10 -right-10 w-72 h-72 border border-white/5 rotate-45 hidden md:block" />
-        <div className="absolute top-[25%] left-[3%] w-40 h-40 rounded-full border border-[#E8BD63]/8 hidden md:block" />
-        <div className="absolute bottom-[15%] right-[8%] w-24 h-24 border border-[#C41E3A]/6 rotate-45 hidden md:block" />
-        <div className="absolute top-[50%] right-[30%] w-16 h-16 rounded-full border border-dashed border-white/5 hidden lg:block" />
+        <div className="absolute -top-10 -right-10 w-72 h-72 bg-white/[0.03] rotate-45 hidden md:block" />
+        <div className="absolute top-[25%] left-[3%] w-40 h-40 rounded-full bg-[#E8BD63]/[0.06] hidden md:block" />
+        <div className="absolute bottom-[15%] right-[8%] w-24 h-24 bg-[#C41E3A]/[0.05] rotate-45 hidden md:block" />
+        <div className="absolute top-[50%] right-[30%] w-16 h-16 rounded-full bg-white/[0.03] hidden lg:block" />
         <div className="absolute top-0 left-[20%] w-px h-56 bg-gradient-to-b from-[#E8BD63]/15 to-transparent hidden md:block" />
         <div className="absolute bottom-0 right-[15%] w-px h-40 bg-gradient-to-t from-[#2E6DB4]/20 to-transparent hidden md:block" />
       </div>

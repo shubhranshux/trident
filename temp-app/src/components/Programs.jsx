@@ -68,18 +68,18 @@ export default function Programs() {
                 <div className="absolute top-0 right-0 w-0 h-0 z-20" style={{ borderLeft: '45px solid transparent', borderTop: `45px solid ${cornerColor}` }} />
                 
                 {/* Large Photo */}
-                <div className="h-[260px] relative overflow-hidden">
+                <div className="h-[260px] relative overflow-hidden rounded-t-[14px]">
                   <img src={bgMap[p.name] || imgCSE} alt={p.name} loading="lazy" className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-                  
-                  {/* Colored Badge — overlapping bottom-left */}
-                  <div className="absolute -bottom-4 left-5 z-30 px-4 py-2 text-white font-black text-xs uppercase tracking-wider rounded-sm shadow-lg" style={{ backgroundColor: badgeColor }}>
-                    {p.dur} <span className="text-white/80 text-[10px] ml-1">• {p.seats} Seats</span>
-                  </div>
+                </div>
+
+                {/* Colored Badge — positioned on card, overlapping image/content boundary */}
+                <div className="absolute left-5 z-30 px-4 py-2 text-white font-black text-xs uppercase tracking-wider rounded-sm shadow-lg" style={{ backgroundColor: badgeColor, top: '244px' }}>
+                  {p.dur} <span className="text-white/80 text-[10px] ml-1">• {p.seats} Seats</span>
                 </div>
                 
                 {/* Content Body */}
-                <div className="p-8 pt-10 flex flex-col flex-1 relative z-10">
+                <div className="p-8 pt-10 flex flex-col flex-1 relative">
                   <h3 className="serif font-black text-[#1E293B] text-xl leading-snug mb-6 group-hover:text-[#2C3A8C] transition-colors">{p.name}</h3>
                   
                   <div className="mt-auto">
