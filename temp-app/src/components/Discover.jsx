@@ -37,7 +37,7 @@ export default function Discover() {
   ];
 
   return (
-    <section className="bg-white py-24 relative overflow-hidden z-30 shadow-[0_-20px_40px_rgba(62,58,54,0.05)] border-t border-soft/50">
+    <section className="py-24 relative overflow-hidden z-30" style={{ background: 'linear-gradient(180deg, #E8F5E9 0%, #F1F8F2 50%, #FFFFFF 100%)' }}>
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <FadeInUp>
@@ -55,6 +55,8 @@ export default function Discover() {
           {cards.map((c, i) => (
             <FadeInUp key={c.title} delay={c.delay}>
               <a href={c.href || "#"} className="group block h-[500px] rounded-2xl overflow-hidden relative shadow-[0_15px_30px_-5px_rgba(62,58,54,0.1)] hover:shadow-[0_25px_50px_-15px_rgba(139,110,102,0.3)] transition-all duration-700">
+                 {/* Geometric corner triangle */}
+                 <div className="absolute top-0 right-0 w-0 h-0 z-30" style={{ borderLeft: '50px solid transparent', borderTop: `50px solid ${['#E8BD63', '#C41E3A', '#2E6DB4'][i]}` }} />
                  {/* Image */}
                  <img src={c.img} alt={c.title} loading="lazy" className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-[1.5s] ease-out" />
                  
@@ -76,6 +78,13 @@ export default function Discover() {
               </a>
             </FadeInUp>
           ))}
+        </div>
+
+        {/* Tri-color accent stripe */}
+        <div className="flex items-center gap-0 mt-12">
+          <div className="h-[3px] flex-1 bg-gradient-to-r from-transparent to-[#2E6DB4]" />
+          <div className="h-[3px] w-1/4 bg-[#E8BD63]" />
+          <div className="h-[3px] w-1/6 bg-[#C41E3A]" />
         </div>
       </div>
     </section>

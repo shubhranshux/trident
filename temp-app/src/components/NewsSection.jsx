@@ -31,6 +31,8 @@ export default function NewsSection() {
           {/* Featured News Graphic */}
           <FadeInUp delay={200} duration={1000}>
             <div className="mb-12 rounded-[24px] overflow-hidden shadow-[0_20px_50px_-10px_rgba(15,23,42,0.15)] relative group cursor-pointer block border border-transparent hover:border-brand-blue/20 transition-all duration-500">
+              {/* Geometric corner triangle */}
+              <div className="absolute top-0 right-0 w-0 h-0 z-30" style={{ borderLeft: '60px solid transparent', borderTop: '60px solid #C41E3A' }} />
               <img src={newsImg} alt="Featured Campus News" className="w-full h-[400px] object-cover transform group-hover:scale-[1.03] transition-transform duration-1000" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#3E3A36]/95 via-[#3E3A36]/40 to-transparent"></div>
               
@@ -45,6 +47,10 @@ export default function NewsSection() {
                   <Calendar size={14}/> October 24, 2025
                 </p>
               </div>
+              {/* Diagonal accent bar */}
+              <div className="absolute bottom-0 left-0 right-0 h-6 z-20 overflow-hidden">
+                <div className="absolute bottom-0 right-0 h-[5px] w-full" style={{ background: 'linear-gradient(90deg, transparent 30%, #E8BD63 100%)', transform: 'skewY(-1deg)' }} />
+              </div>
             </div>
           </FadeInUp>
 
@@ -52,7 +58,9 @@ export default function NewsSection() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {NEWS.slice(0, 4).map((item, i) => (
               <FadeInUp key={item.title} delay={100 + (i * 100)}>
-                <article className="group cursor-pointer block p-6 rounded-[20px] hover:bg-white hover:shadow-[0_15px_30px_-5px_rgba(15,23,42,0.08)] transition-all duration-500 border border-transparent hover:border-soft h-full flex flex-col justify-between">
+                <article className="group cursor-pointer block p-6 rounded-[20px] hover:bg-white hover:shadow-[0_15px_30px_-5px_rgba(15,23,42,0.08)] transition-all duration-500 border border-transparent hover:border-soft h-full flex flex-col justify-between relative overflow-hidden">
+                  {/* Geometric corner triangle */}
+                  <div className="absolute top-0 right-0 w-0 h-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ borderLeft: '35px solid transparent', borderTop: `35px solid ${['#E8BD63', '#C41E3A', '#2E6DB4', '#3EA644'][i % 4]}` }} />
                   <div>
                     <div className="flex items-center gap-3 mb-4">
                       <span className="bg-soft text-brand-blue px-3 py-1 text-[10px] font-bold uppercase tracking-widest rounded-full">{item.cat}</span>

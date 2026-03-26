@@ -82,17 +82,17 @@ export default function Facilities() {
   };
 
   return (
-    <section className="py-24 bg-white border-t border-soft relative overflow-hidden">
+    <section className="py-24 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #0F1B3D 0%, #1B3060 50%, #0F1B3D 100%)' }}>
       <div className="max-w-7xl mx-auto px-6">
         
         <div className="text-center max-w-2xl mx-auto mb-16">
           <FadeInUp>
-            <span className="block w-16 h-1 bg-secondary mx-auto mb-6"></span>
-            <h2 className="serif text-4xl font-bold text-[#3E3A36] mb-4 relative z-10 inline-block">
-              <span className="absolute -top-2 -left-4 w-32 h-14 bg-soft transform -rotate-3 -z-10 rounded-sm"></span>
-              World-Class <span className="italic text-[#2C3A8C]">Infrastructure.</span>
+            <span className="block w-16 h-1 bg-[#E5AA3E] mx-auto mb-6"></span>
+            <h2 className="serif text-4xl font-bold text-white mb-4 relative z-10 inline-block">
+              <span className="absolute -top-2 -left-4 w-32 h-14 bg-white/5 transform -rotate-3 -z-10 rounded-sm"></span>
+              World-Class <span className="italic text-[#E5AA3E]">Infrastructure.</span>
             </h2>
-            <p className="text-[#3E3A36]/70 leading-relaxed font-medium">
+            <p className="text-white/70 leading-relaxed font-medium">
               We provide an ecosystem that nurtures intellectual exploration, physical well-being, and social engagement, deeply embedded within stunning architecture.
             </p>
           </FadeInUp>
@@ -132,7 +132,7 @@ export default function Facilities() {
         {/* View More Button */}
         <div className="mt-16 text-center">
           <FadeInUp delay={200}>
-            <a href="https://activities-tat.tekkzy.com" className="inline-flex items-center gap-3 px-8 py-4 bg-white border border-[#3E3A36]/20 text-[#3E3A36] rounded-full font-bold text-[13px] uppercase tracking-widest hover:bg-[#3E3A36] hover:text-white hover:shadow-xl hover:-translate-y-1 transition-all duration-400 group">
+            <a href="https://activities-tat.tekkzy.com" className="inline-flex items-center gap-3 px-8 py-4 bg-[#E5AA3E] border border-[#E5AA3E] text-[#1A1817] rounded-full font-bold text-[13px] uppercase tracking-widest hover:bg-white hover:text-[#1B3060] hover:shadow-xl hover:-translate-y-1 transition-all duration-400 group">
               View All Facilities
               <ArrowRight size={16} className="transform group-hover:translate-x-1 transition-transform" />
             </a>

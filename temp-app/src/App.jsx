@@ -5,7 +5,7 @@ import Academics from "./pages/academics/index.jsx";
 // Critical above-the-fold — eager loaded
 import Header from "./components/Header";
 import Hero from "./components/Hero";
-import Accreditations from "./components/Accreditations";
+
 
 // Below fold — lazy loaded for faster initial paint
 const AboutSection  = lazy(() => import("./components/AboutSection"));
@@ -38,7 +38,7 @@ function Home() {
           <Suspense fallback={<SectionFallback />}><Discover /></Suspense>
           <Suspense fallback={<SectionFallback />}><Testimonials /></Suspense>
 
-          <Accreditations />
+
           <Suspense fallback={<SectionFallback />}><Footer /></Suspense>
         </main>
       </div>

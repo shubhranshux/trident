@@ -57,38 +57,41 @@ export default function Programs() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {PROGRAMS.map((p, i) => {
+            const badgeColors = ['#C41E3A', '#2E6DB4', '#E8BD63', '#C41E3A', '#2E6DB4'];
+            const badgeColor = badgeColors[i % badgeColors.length];
+            const cornerColors = ['#E8BD63', '#C41E3A', '#2E6DB4', '#E8BD63', '#C41E3A'];
+            const cornerColor = cornerColors[i % cornerColors.length];
             return (
             <FadeInUp key={p.name} delay={i * 100}>
-              <a href={p.href} className="rounded-[24px] overflow-hidden group relative flex flex-col h-full shadow-[0_4px_24px_rgba(0,0,0,0.06)] hover:shadow-[0_16px_48px_rgba(44,58,140,0.12)] transition-all duration-300 transform hover:-translate-y-1.5 border border-[#E8DDD0]/60 hover:border-[#C9A96E]/50" style={{ background: 'linear-gradient(160deg, #F5E6D3 0%, #FFF8F0 35%, #FFFFFF 100%)' }}>
+              <a href={p.href} className="rounded-[16px] group relative flex flex-col h-full bg-white shadow-[0_4px_24px_rgba(0,0,0,0.06)] hover:shadow-[0_16px_48px_rgba(44,58,140,0.12)] transition-all duration-300 transform hover:-translate-y-1.5 border-2 border-[#E8BD63]/40 hover:border-[#E8BD63]">
+                {/* Geometric corner triangle */}
+                <div className="absolute top-0 right-0 w-0 h-0 z-20" style={{ borderLeft: '45px solid transparent', borderTop: `45px solid ${cornerColor}` }} />
                 
-                {/* Photo Header */}
-                <div className="h-[220px] relative overflow-hidden">
+                {/* Large Photo */}
+                <div className="h-[260px] relative overflow-hidden">
                   <img src={bgMap[p.name] || imgCSE} alt={p.name} loading="lazy" className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
                   
-                  {/* Floating Tag */}
-                  <div className="absolute top-4 right-4 bg-[#2C3A8C] text-white px-4 py-1.5 text-[10px] uppercase tracking-widest font-black rounded-full shadow-md">
-                    B.TECH
+                  {/* Colored Badge — overlapping bottom-left */}
+                  <div className="absolute -bottom-4 left-5 z-30 px-4 py-2 text-white font-black text-xs uppercase tracking-wider rounded-sm shadow-lg" style={{ backgroundColor: badgeColor }}>
+                    {p.dur} <span className="text-white/80 text-[10px] ml-1">• {p.seats} Seats</span>
                   </div>
                 </div>
                 
                 {/* Content Body */}
-                {/* Golden bottom accent line */}
-                <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#C9A96E] via-[#E8C97A] to-[#C9A96E] opacity-80"></div>
-
-                <div className="p-8 flex flex-col flex-1 relative z-10">
-                  <div className="flex items-center gap-5 mb-8">
-                    <div className="w-14 h-14 flex-shrink-0 flex items-center justify-center rounded-2xl bg-[#2C3A8C]/10 text-[#2C3A8C] group-hover:bg-[#2C3A8C] group-hover:text-white transition-all duration-400">
-                      {iconMap[p.name] || <Code size={20} />}
-                    </div>
-                    <h3 className="serif font-black text-[#1E293B] text-xl leading-snug">{p.name}</h3>
-                  </div>
+                <div className="p-8 pt-10 flex flex-col flex-1 relative z-10">
+                  <h3 className="serif font-black text-[#1E293B] text-xl leading-snug mb-6 group-hover:text-[#2C3A8C] transition-colors">{p.name}</h3>
                   
-                  <div className="mt-auto pt-6 flex items-center justify-between border-t border-[#E8DDD0]">
-                     <p className="text-[10px] text-[#6B7280] font-black uppercase tracking-[0.15em] flex items-center gap-2">
-                       {p.dur} <span className="text-[#D1C4B0]">|</span> {p.seats} Seats
-                     </p>
-                     <ArrowRight size={16} className="text-[#2C3A8C] transform group-hover:translate-x-1 transition-transform" />
+                  <div className="mt-auto">
+                    <span className="inline-flex items-center gap-2 text-[#3E3A36] text-[13px] font-black uppercase tracking-widest group-hover:text-[#2E6DB4] transition-colors">
+                      Read More <span className="text-lg">»</span>
+                    </span>
                   </div>
+                </div>
+
+                {/* Diagonal golden accent bar at bottom */}
+                <div className="relative h-5 overflow-hidden">
+                  <div className="absolute bottom-0 right-0 h-[5px] w-full" style={{ background: `linear-gradient(90deg, transparent 20%, ${badgeColor} 100%)`, transform: 'skewY(-1.5deg)' }} />
                 </div>
 
               </a>
@@ -113,6 +116,13 @@ export default function Programs() {
               </p>
             </a>
           </FadeInUp>
+        </div>
+
+        {/* Tri-color accent stripe */}
+        <div className="flex items-center gap-0 mt-16">
+          <div className="h-[3px] w-1/6 bg-[#2E6DB4]" />
+          <div className="h-[3px] w-1/4 bg-[#C41E3A]" />
+          <div className="h-[3px] flex-1 bg-gradient-to-l from-transparent to-[#E8BD63]" />
         </div>
       </div>
     </section>

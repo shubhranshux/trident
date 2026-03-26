@@ -57,9 +57,14 @@ export default function AboutSection() {
             </FadeInUp>
 
             <div className="grid grid-cols-2 gap-6">
-              {stats.map((f, i) => (
+              {stats.map((f, i) => {
+                const cornerColors = ['#E8BD63', '#C41E3A', '#2E6DB4', '#3EA644'];
+                const cornerColor = cornerColors[i % cornerColors.length];
+                return (
                 <FadeInUp key={f.l} delay={300 + (i * 100)}>
                   <div className="relative rounded-3xl overflow-hidden group h-[200px] shadow-sm hover:shadow-2xl transition-all duration-700 cursor-pointer">
+                    {/* Geometric corner triangle */}
+                    <div className="absolute top-0 right-0 w-0 h-0 z-40" style={{ borderLeft: '40px solid transparent', borderTop: `40px solid ${cornerColor}` }} />
                     {/* Background Images based on index */}
                     <img src={
                       i === 0 ? aboutImg1 : 
@@ -81,7 +86,14 @@ export default function AboutSection() {
                     </div>
                   </div>
                 </FadeInUp>
-              ))}
+              )})}
+            </div>
+
+            {/* Tri-color accent stripe */}
+            <div className="flex items-center gap-0 mt-8">
+              <div className="h-[3px] flex-1 bg-gradient-to-r from-transparent to-[#E8BD63]" />
+              <div className="h-[3px] w-1/4 bg-[#C41E3A]" />
+              <div className="h-[3px] w-1/6 bg-[#2E6DB4]" />
             </div>
             
             <FadeInUp delay={700}>

@@ -41,22 +41,22 @@ export default function Testimonials() {
   }, [testimonials.length]);
 
   return (
-    <section className="py-32 bg-bg-light relative overflow-hidden">
+    <section className="py-32 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #1B2A4A 0%, #1E3456 50%, #162240 100%)' }}>
       
       {/* Abstract Background Typography */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-serif text-[240px] md:text-[340px] text-soft opacity-40 font-black pointer-events-none select-none tracking-tighter whitespace-nowrap text-secondary/5">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-serif text-[240px] md:text-[340px] text-white/[0.03] opacity-40 font-black pointer-events-none select-none tracking-tighter whitespace-nowrap">
         SUCCESS
       </div>
 
       <div className="max-w-6xl mx-auto px-6 relative z-10">
         <FadeInUp>
           <div className="text-center mb-16">
-            <span className="block w-12 h-1 bg-secondary mx-auto mb-6"></span>
-            <h2 className="serif text-4xl md:text-5xl font-black text-[#3E3A36] mb-4 relative z-10 inline-block">
-              <span className="absolute -top-2 -left-4 w-32 h-14 bg-soft transform -rotate-3 -z-10 rounded-sm"></span>
-              Student <span className="italic text-[#2C3A8C]">Stories.</span>
+            <span className="block w-12 h-1 bg-[#E5AA3E] mx-auto mb-6"></span>
+            <h2 className="serif text-4xl md:text-5xl font-black text-white mb-4 relative z-10 inline-block">
+              <span className="absolute -top-2 -left-4 w-32 h-14 bg-white/5 transform -rotate-3 -z-10 rounded-sm"></span>
+              Student <span className="italic text-[#E5AA3E]">Stories.</span>
             </h2>
-            <p className="text-[#3E3A36]/70 text-lg font-medium">Hear directly from the minds shaping the future.</p>
+            <p className="text-white/60 text-lg font-medium">Hear directly from the minds shaping the future.</p>
           </div>
         </FadeInUp>
 

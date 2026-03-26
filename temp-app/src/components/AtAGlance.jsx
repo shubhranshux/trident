@@ -42,7 +42,7 @@ export default function AtAGlance() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
           {stats.map((s, idx) => (
             <FadeInUp key={s.label} delay={idx * 100}>
-              <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 md:p-8 group hover:-translate-y-1 transition-all duration-300 border border-white/50 shadow-[0_4px_20px_rgba(0,0,0,0.06)]">
+              <div className="bg-[#FDF8EF] rounded-2xl p-6 md:p-8 group hover:-translate-y-1 transition-all duration-300 border-2 border-[#E8BD63] shadow-[0_4px_20px_rgba(0,0,0,0.06)]">
                 <div className="w-11 h-11 rounded-xl bg-[#F0BB51]/20 text-[#212529] flex items-center justify-center mb-5 group-hover:bg-[#212529] group-hover:text-white transition-colors duration-300">
                   {s.icon}
                 </div>
