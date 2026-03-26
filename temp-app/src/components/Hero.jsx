@@ -29,8 +29,10 @@ export default function Hero() {
           </div>
 
           <h1 className={`font-serif text-5xl md:text-7xl lg:text-[88px] font-black text-[#212529] leading-[1] tracking-tight mb-8 transition-all duration-1000 delay-150 ease-out transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
-            Boundless <br />
-            <span className="italic text-[#8B6E66]">Intelligence.</span>
+            Academic <br />
+            <span className="italic text-[#8B6E66]">Excellence.</span>
+            <br />
+            <span className="text-[#212529]">Infinite Possibilities.</span>
           </h1>
 
           <p className={`text-[17px] md:text-lg text-[#5c5855] max-w-xl mb-12 leading-relaxed transition-all duration-1000 delay-300 ease-out transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
