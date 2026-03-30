@@ -15,6 +15,8 @@ const Facilities    = lazy(() => import("./components/Facilities"));
 const Discover      = lazy(() => import("./components/Discover"));
 const Placements    = lazy(() => import("./components/Placements"));
 const Testimonials  = lazy(() => import("./components/Testimonials"));
+const WhyChooseTrident = lazy(() => import("./components/WhyChooseTrident"));
+
 
 const Footer        = lazy(() => import("./components/Footer"));
 
@@ -32,6 +34,8 @@ function Home() {
         <main className="bg-white overflow-hidden">
           <Suspense fallback={<SectionFallback />}><Placements /></Suspense>
           <Suspense fallback={<SectionFallback />}><AboutSection /></Suspense>
+          <Suspense fallback={<SectionFallback />}><WhyChooseTrident /></Suspense>
+
           <Suspense fallback={<SectionFallback />}><Programs /></Suspense>
           <Suspense fallback={<SectionFallback />}><AtAGlance /></Suspense>
           <Suspense fallback={<SectionFallback />}><Facilities /></Suspense>

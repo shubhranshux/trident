@@ -41,7 +41,7 @@ export default function Testimonials() {
   }, [testimonials.length]);
 
   return (
-    <section className="py-32 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #1B2A4A 0%, #1E3456 50%, #162240 100%)' }}>
+    <section className="py-32 relative overflow-hidden" style={{ background: '#2F3A87' }}>
       
       {/* Abstract Background Typography */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-serif text-[240px] md:text-[340px] text-white/[0.03] opacity-40 font-black pointer-events-none select-none tracking-tighter whitespace-nowrap">

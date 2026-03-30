@@ -30,6 +30,7 @@ export default function Facilities() {
     },
     { 
       title: "Cafeteria & Dining", 
+      icon: <Coffee size={20}/>, 
       desc: "Multi-cuisine dining options with spacious glass-walled seating.",
       img: cafeImg,
       colSpan: "md:col-span-1 md:row-span-1",
@@ -50,7 +51,8 @@ export default function Facilities() {
       desc: "Olympic-sized pool, stadium, and expansive green fields.",
       img: aerialImg,
       colSpan: "md:col-span-2 md:row-span-1",
-      href: "https://campuslife-tat.tekkzy.com"
+      href: "https://campuslife-tat.tekkzy.com",
+      color: "brand-blue"
     },
     { 
       title: "Research Hub", 
@@ -82,7 +84,7 @@ export default function Facilities() {
   };
 
   return (
-    <section className="py-24 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #0F1B3D 0%, #1B3060 50%, #0F1B3D 100%)' }}>
+    <section className="py-24 relative overflow-hidden" style={{ background: '#00674F' }}>
       <div className="max-w-7xl mx-auto px-6">
         
         <div className="text-center max-w-2xl mx-auto mb-16">
@@ -114,7 +116,7 @@ export default function Facilities() {
                 {/* Content */}
                 <div className="absolute inset-0 p-8 flex flex-col justify-end">
                   <div className="flex items-center gap-3 mb-3 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                    <div className={`w-10 h-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white border border-white/20 transition-colors ${colorClasses[f.color] || ''} group-hover:bg-white`}>
+                    <div className={`w-10 h-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white border border-white/20 transition-all ${colorClasses[f.color] || ''} group-hover:bg-white/20 group-hover:border-white/40`}>
                       {f.icon}
                     </div>
                     <h3 className="serif text-2xl font-bold text-white drop-shadow-md">{f.title}</h3>

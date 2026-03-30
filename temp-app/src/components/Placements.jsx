@@ -118,7 +118,7 @@ export default function Placements() {
   const remaining = 320 - companies.length;
 
   return (
-    <section className="relative pt-32 pb-24 overflow-hidden" style={{ background: 'linear-gradient(160deg, #0B1930 0%, #142850 40%, #1B3060 100%)' }}>
+    <section className="relative pt-32 pb-24 overflow-hidden" style={{ background: '#2F3A87' }}>
       
       {/* Background decorative geometric elements */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -219,8 +219,8 @@ export default function Placements() {
         <FadeInUp delay={650}>
           <div className="relative w-[100vw] left-1/2 -translate-x-1/2 overflow-hidden py-4">
             {/* Gradient edge masks */}
-            <div className="absolute top-0 bottom-0 left-0 w-16 md:w-48 z-10 pointer-events-none" style={{ background: 'linear-gradient(to right, #142850, transparent)' }} />
-            <div className="absolute top-0 bottom-0 right-0 w-16 md:w-48 z-10 pointer-events-none" style={{ background: 'linear-gradient(to left, #142850, transparent)' }} />
+            <div className="absolute top-0 bottom-0 left-0 w-16 md:w-48 z-10 pointer-events-none" style={{ background: 'linear-gradient(to right, #2F3A87, transparent)' }} />
+            <div className="absolute top-0 bottom-0 right-0 w-16 md:w-48 z-10 pointer-events-none" style={{ background: 'linear-gradient(to left, #2F3A87, transparent)' }} />
 
             <div className="flex w-max animate-marquee space-x-4 px-4">
               {[...placements, ...placements].map((s, i) => (
