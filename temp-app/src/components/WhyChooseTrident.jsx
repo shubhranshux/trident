@@ -25,14 +25,7 @@ export default function WhyChooseTrident() {
             <h2 className="serif text-5xl md:text-6xl lg:text-7xl font-black text-[#3E3A36] leading-[1.05] mb-6">
               Built for{" "}
               <span
-                className="italic"
-                style={{
-                  background: "linear-gradient(135deg, #2C3A8C 0%, #4F5BD5 60%, #8B5CF6 100%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                  color: "transparent",
-                }}
+                className="italic text-[#EAB308]"
               >
                 excellence.
               </span>

@@ -46,7 +46,7 @@ export default function AboutSection() {
               <span className="rose-rule"></span>
               <h2 className="serif text-4xl md:text-5xl font-bold text-[#3E3A36] mb-8 leading-[1.15] relative z-10 inline-block">
                 <span className="absolute -top-2 -left-4 w-32 h-14 bg-soft transform -rotate-3 -z-10 rounded-sm"></span>
-                Built on a foundation of <span className="text-[#2C3A8C] italic">academic excellence.</span>
+                Built on a foundation of <span className="text-[#EAB308] italic">academic excellence.</span>
               </h2>
             </FadeInUp>
             

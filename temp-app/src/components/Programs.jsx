@@ -46,7 +46,7 @@ export default function Programs() {
             <div className="max-w-2xl">
               <h2 className="serif text-4xl md:text-5xl font-bold text-[#3E3A36] relative z-10 inline-block">
                 <span className="absolute -top-2 -left-4 w-32 h-14 bg-soft transform -rotate-3 -z-10 rounded-sm"></span>
-                Academic <span className="italic text-[#2C3A8C]">Programs.</span>
+                Academic <span className="italic text-[#006738]">Programs.</span>
               </h2>
               <p className="text-[#3E3A36]/80 mt-5 text-lg font-medium leading-relaxed italic">
                 A rigorous curriculum led by visionary scholars, providing hands-on immersive learning across diverse disciplines.
@@ -80,10 +80,10 @@ export default function Programs() {
                 
                 {/* Content Body */}
                 <div className="p-8 pt-10 flex flex-col flex-1 relative">
-                  <h3 className="serif font-black text-[#1E293B] text-xl leading-snug mb-6 group-hover:text-[#2C3A8C] transition-colors">{p.name}</h3>
+                  <h3 className="serif font-black text-[#1E293B] text-xl leading-snug mb-6 group-hover:text-[#006738] transition-colors">{p.name}</h3>
                   
                   <div className="mt-auto">
-                    <span className="inline-flex items-center gap-2 text-[#3E3A36] text-[13px] font-black uppercase tracking-widest group-hover:text-[#2E6DB4] transition-colors">
+                    <span className="inline-flex items-center gap-2 text-[#3E3A36] text-[13px] font-black uppercase tracking-widest group-hover:text-[#006738] transition-colors">
                       Read More <span className="text-lg">»</span>
                     </span>
                   </div>
@@ -100,13 +100,13 @@ export default function Programs() {
 
           {/* Special "Explore All" Card to fill the grid slot */}
           <FadeInUp delay={600}>
-            <a href="https://academics-tat.tekkzy.com/departments-of-engineering/" className="rounded-[24px] overflow-hidden group relative flex flex-col h-full shadow-[0_4px_24px_rgba(0,0,0,0.06)] hover:shadow-[0_16px_48px_rgba(44,58,140,0.15)] transition-all duration-300 transform hover:-translate-y-1.5 items-center justify-center p-10 text-center border border-[#E8DDD0]/60 hover:border-[#2C3A8C]/30" style={{ background: 'linear-gradient(160deg, #2C3A8C 0%, #3D4FA0 50%, #4F63B4 100%)' }}>
+            <a href="https://academics-tat.tekkzy.com/departments-of-engineering/" className="rounded-[24px] overflow-hidden group relative flex flex-col h-full shadow-[0_4px_24px_rgba(0,0,0,0.06)] hover:shadow-[0_16px_48px_rgba(44,58,140,0.15)] transition-all duration-300 transform hover:-translate-y-1.5 items-center justify-center p-10 text-center border border-[#E8DDD0]/60 hover:border-[#006738]/30" style={{ background: 'linear-gradient(160deg, #006738 0%, #004d3d 50%, #00332a 100%)' }}>
               <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-5 transition-opacity duration-700 pointer-events-none"></div>
               
               {/* Golden bottom accent */}
               <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#C9A96E] via-[#E8C97A] to-[#C9A96E]"></div>
               
-              <div className="w-20 h-20 rounded-full border border-white/20 bg-white/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-all duration-500 group-hover:bg-white text-white group-hover:text-[#2C3A8C] shadow-inner">
+              <div className="w-20 h-20 rounded-full border border-white/20 bg-white/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-all duration-500 group-hover:bg-white text-white group-hover:text-[#006738] shadow-inner">
                 <ArrowRight size={32} />
               </div>
               
@@ -120,7 +120,7 @@ export default function Programs() {
 
         {/* Tri-color accent stripe */}
         <div className="flex items-center gap-0 mt-16">
-          <div className="h-[3px] w-1/6 bg-[#2E6DB4]" />
+          <div className="h-[3px] w-1/6 bg-[#006738]" />
           <div className="h-[3px] w-1/4 bg-[#C41E3A]" />
           <div className="h-[3px] flex-1 bg-gradient-to-l from-transparent to-[#E8BD63]" />
         </div>

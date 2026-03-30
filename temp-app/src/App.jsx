@@ -101,7 +101,7 @@ export default function App() {
         .btn-outline-white { border: 1.5px solid rgba(255,255,255,0.8); color: white; transition: all 0.4s ease; backdrop-filter: blur(4px); letter-spacing: 0.1em;}
         .btn-outline-white:hover { background-color: white; color: var(--primary-rose) !important; transform: translateY(-2px);}
         
-        .rose-rule { display: block; width: 80px; height: 3px; background-color: var(--primary-rose); margin-bottom: 1.5rem; transition: width 0.6s ease; }
+        .rose-rule { display: block; width: 80px; height: 3px; background-color: #EAB308; margin-bottom: 1.5rem; transition: width 0.6s ease; }
         .group:hover .rose-rule { width: 120px; }
         
         /* Navbar Links */
