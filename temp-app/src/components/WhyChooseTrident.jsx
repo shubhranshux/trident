@@ -60,7 +60,7 @@ export default function WhyChooseTrident() {
             </div>
 
             {/* AICTE — narrow dark + logo */}
-            <div className="md:col-span-3 bg-[#1A1817] rounded-2xl p-8 md:p-12 shadow-[0_20px_40px_-15px_rgba(26,24,23,0.5)] transform transition-transform duration-500 hover:-translate-y-2 group relative overflow-hidden border-b-4 border-[#8B6E66]">
+            <div className="md:col-span-3 bg-[#006738] rounded-2xl p-8 md:p-12 shadow-[0_20px_40px_-15px_rgba(0,103,56,0.3)] transform transition-transform duration-500 hover:-translate-y-2 group relative overflow-hidden border-b-4 border-[#EAB308]">
               <div className="relative z-10 flex flex-col h-full justify-between min-h-[180px]">
                 <div className="flex flex-col items-start gap-4 mb-8">
                   <div className="w-16 h-16 bg-white rounded-2xl flex flex-shrink-0 items-center justify-center p-2.5 border border-white/20 shadow-2xl">
@@ -81,10 +81,10 @@ export default function WhyChooseTrident() {
         <FadeInUp delay={350}>
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6 mb-6">
             {/* NAAC — narrow dark */}
-            <div className="md:col-span-3 bg-[#1A1817] rounded-2xl p-8 md:p-12 shadow-[0_20px_40px_-15px_rgba(26,24,23,0.5)] transform transition-transform duration-500 hover:-translate-y-2 group relative overflow-hidden border-b-4 border-[#E5AA3E]">
+            <div className="md:col-span-3 bg-[#EAB308] rounded-2xl p-8 md:p-12 shadow-[0_20px_40px_-15px_rgba(232,179,8,0.3)] transform transition-transform duration-500 hover:-translate-y-2 group relative overflow-hidden border-b-4 border-[#1A1817]">
               <div className="relative z-10 h-full flex flex-col justify-end min-h-[180px]">
-                <h4 className="serif text-5xl md:text-6xl font-black mb-4 text-white">NAAC 'A'</h4>
-                <p className="text-[#A59381] text-[13px] font-black uppercase tracking-[.25em] leading-relaxed">Accredited Institution</p>
+                <h4 className="serif text-5xl md:text-6xl font-black mb-4 text-[#1A1817]">NAAC 'A'</h4>
+                <p className="text-[#1A1817]/60 text-[13px] font-black uppercase tracking-[.25em] leading-relaxed">Accredited Institution</p>
               </div>
             </div>
 

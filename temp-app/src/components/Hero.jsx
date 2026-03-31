@@ -40,10 +40,10 @@ export default function Hero() {
           </p>
 
           <div className={`flex flex-wrap items-center gap-6 transition-all duration-1000 delay-500 ease-out transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
-            <a href="https://admissions-tat.tekkzy.com" className="bg-[#212529] text-white px-10 py-5 rounded-2xl font-bold text-[13px] uppercase tracking-widest flex items-center gap-3 transition-all duration-300 hover:bg-[#8B6E66] hover:shadow-2xl hover:-translate-y-1">
+            <a href="https://admissions-tat.tekkzy.com" className="bg-[#006738] text-white px-10 py-5 rounded-2xl font-bold text-[13px] uppercase tracking-widest flex items-center gap-3 transition-all duration-300 hover:bg-[#004d3d] hover:shadow-2xl hover:-translate-y-1">
               Begin Journey <ArrowRight size={18} />
             </a>
-            <a href="#about" className="text-[#212529] font-bold text-[13px] uppercase tracking-widest border-b-2 border-[#EFE7DF] hover:border-[#8B6E66] transition-colors pb-1">
+            <a href="#about" className="text-[#006738] font-bold text-[13px] uppercase tracking-widest border-b-2 border-[#EAB308] hover:border-[#006738] transition-colors pb-1">
               Know Our Impact
             </a>
           </div>
