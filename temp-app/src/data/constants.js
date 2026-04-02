@@ -6,7 +6,7 @@ export const NAV_LINKS = [
   { label: "Campus Life", href: "https://campuslife-tat.tekkzy.com",  sub: ["Hostels","Sports Complex","Clubs & Fests","Cafeteria","Health Center"] },
   { label: "Activities",  href: "https://activities-tat.tekkzy.com",   sub: ["Clubs & Societies","Cultural Events","Technical Fests","Sports","NSS / NCC"] },
 
-  { label: "Contact Us",  href: "https://contactus-tat.tekkzy.com",   sub: ["General Enquiry","Admissions Office","Placement Cell","Campus Address","Feedback"] },
+  { label: "Contact Us",  href: "/contact",   sub: ["General Enquiry","Admissions Office","Placement Cell","Campus Address","Feedback"] },
 ];
 
 export const STATS = [

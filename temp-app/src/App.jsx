@@ -1,6 +1,8 @@
 import { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 import Academics from "./pages/academics/index.jsx";
+import ContactPage from "./pages/contact/index.jsx";
+import ApplyPage from "./pages/apply/index.jsx";
 
 // Critical above-the-fold — eager loaded
 import Header from "./components/Header";
@@ -151,6 +153,8 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/academics" element={<Academics />} />
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/apply" element={<ApplyPage />} />
       </Routes>
     </div>
   );

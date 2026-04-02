@@ -64,17 +64,17 @@ export default function Footer() {
             </p>
             
             <div className="grid grid-cols-1 gap-6">
-              <a href="https://contactus-tat.tekkzy.com" className="flex items-start gap-4 hover:text-white transition-colors group">
+              <a href="/contact" className="flex items-start gap-4 hover:text-white transition-colors group">
                 <div className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-[#8B6E66] flex-shrink-0"><MapPin size={20}/></div>
-                <div className="text-sm font-medium leading-relaxed">F2/A, Chandaka Industrial Estate,<br/>Chandrasekharpur, Bhubaneswar,<br/>Odisha – 751024, India</div>
+                <div className="text-sm font-medium leading-relaxed">F2/A, Chandaka Industrial Estate,<br/>In front of Infocity, Bhubaneswar,<br/>Odisha, Pin: 751024, India</div>
               </a>
-              <a href="tel:+916742742547" className="flex items-center gap-4 hover:text-white transition-colors group">
+              <a href="tel:+919861191195" className="flex items-center gap-4 hover:text-white transition-colors group">
                 <div className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-[#8B6E66]"><Phone size={20}/></div>
-                <div className="text-sm font-bold">+91-674-2742547</div>
+                <div className="text-sm font-bold">+91 98611 91195</div>
               </a>
-              <a href="mailto:info@tat.ac.in" className="flex items-center gap-4 hover:text-white transition-colors group">
+              <a href="mailto:info@trident.ac.in" className="flex items-center gap-4 hover:text-white transition-colors group">
                 <div className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-[#8B6E66]"><Mail size={20}/></div>
-                <div className="text-sm font-bold">info@tat.ac.in</div>
+                <div className="text-sm font-bold">info@trident.ac.in</div>
               </a>
             </div>
           </div>
