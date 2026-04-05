@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
 import Hero from "./components/Hero";
 import FeatureSection from "./components/FeatureSection";
 import InstitutionalInfo from "./components/InstitutionalInfo";
@@ -98,7 +96,6 @@ export default function Academics() {
 
   return (
     <div className="min-h-screen bg-[#F8F9FA]" style={{ fontFamily: "'Outfit', sans-serif" }}>
-      <Header />
       <Hero />
       
       {/* Introduction block with Stats */}
@@ -163,8 +160,6 @@ export default function Academics() {
       <FeatureSection title="Departments" cards={departments} variant="cinematic" />
       <FeatureSection title="Online Journals and Databases" cards={journals} variant="minimal" />
       <FeatureSection title="Digital Resources & Publications" cards={digitalResources} variant="angled" />
-
-      <Footer />
     </div>
   );
 }

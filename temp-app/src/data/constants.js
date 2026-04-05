@@ -1,10 +1,10 @@
 export const NAV_LINKS = [
-  { label: "About",       href: "https://trident-about-page.netlify.app/" },
-  { label: "Admissions",  href: "https://admissions-tat-tekkzy.netlify.app",  sub: ["How to Apply","Eligibility","Fee Structure","Scholarships","JEE / OJEE"] },
+  { label: "About",       href: "/about" },
+  { label: "Admissions",  href: "/admissions",  sub: ["How to Apply","Eligibility","Fee Structure","Scholarships","JEE / OJEE"] },
   { label: "Academics",   href: "/academics" },
-  { label: "Research",    href: "https://page-research.netlify.app/",    sub: ["Research Centers","Publications","Projects","Collaborations","SIRO-DSIR"] },
-  { label: "Campus Life", href: "https://sipitridentcampuslife.netlify.app",  sub: ["Hostels","Sports Complex","Clubs & Fests","Cafeteria","Health Center"] },
-  { label: "Activities",  href: "https://sipitridentactivity.netlify.app",   sub: ["Clubs & Societies","Cultural Events","Technical Fests","Sports","NSS / NCC"] },
+  { label: "Research",    href: "/research",    sub: ["Research Centers","Publications","Projects","Collaborations","SIRO-DSIR"] },
+  { label: "Campus Life", href: "/campus-life",  sub: ["Hostels","Sports Complex","Clubs & Fests","Cafeteria","Health Center"] },
+  { label: "Activities",  href: "/activities",   sub: ["Clubs & Societies","Cultural Events","Technical Fests","Sports","NSS / NCC"] },
 
   { label: "Contact Us",  href: "/contact",   sub: ["General Enquiry","Admissions Office","Placement Cell","Campus Address","Feedback"] },
 ];

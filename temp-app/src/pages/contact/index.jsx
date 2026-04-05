@@ -1,7 +1,5 @@
 import { useState, useRef, useEffect } from "react";
 import { FadeInUp, SlideIn } from "../../utils/animations";
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
 import {
   MapPin, Phone, Mail, Send, ArrowRight, Globe, GraduationCap,
   Building2, Users, BookOpen, ChevronRight, CheckCircle2,
@@ -116,7 +114,6 @@ export default function ContactPage() {
 
   return (
     <div className="min-h-screen bg-white" style={{ fontFamily: "'Outfit', sans-serif" }}>
-      <Header />
 
       {/* ══════ HERO ══════ */}
       <section className="relative w-full min-h-screen flex flex-col justify-center bg-white overflow-hidden pt-32 md:pt-40 pb-20 group">
@@ -491,8 +488,6 @@ export default function ContactPage() {
           </FadeInUp>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 }

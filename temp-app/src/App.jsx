@@ -3,6 +3,11 @@ import { Routes, Route } from "react-router-dom";
 import Academics from "./pages/academics/index.jsx";
 import ContactPage from "./pages/contact/index.jsx";
 import ApplyPage from "./pages/apply/index.jsx";
+import ActivitiesPage from "./pages/activities/index.jsx";
+import AdmissionsPage from "./pages/admissions/index.jsx";
+import AboutPage from "./pages/about/index.jsx";
+import ResearchPage from "./pages/research/index.jsx";
+import CampusLifePage from "./pages/campuslife/index.jsx";
 
 // Critical above-the-fold — eager loaded
 import Header from "./components/Header";
@@ -30,7 +35,6 @@ function SectionFallback() {
 function Home() {
   return (
     <>
-      <Header />
       <Hero />
       <div className="relative bg-white">
         <main className="bg-white overflow-hidden">
@@ -43,9 +47,6 @@ function Home() {
           <Suspense fallback={<SectionFallback />}><Facilities /></Suspense>
           <Suspense fallback={<SectionFallback />}><Discover /></Suspense>
           <Suspense fallback={<SectionFallback />}><Testimonials /></Suspense>
-
-
-          <Suspense fallback={<SectionFallback />}><Footer /></Suspense>
         </main>
       </div>
     </>
@@ -150,12 +151,19 @@ export default function App() {
         .custom-scrollbar-mini::-webkit-scrollbar-thumb { background: var(--secondary-beige); border-radius: 4px; }
       `}</style>
 
+      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/academics" element={<Academics />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/apply" element={<ApplyPage />} />
+        <Route path="/activities" element={<ActivitiesPage />} />
+        <Route path="/admissions" element={<AdmissionsPage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/research" element={<ResearchPage />} />
+        <Route path="/campus-life" element={<CampusLifePage />} />
       </Routes>
+      <Suspense fallback={<SectionFallback />}><Footer /></Suspense>
     </div>
   );
 }

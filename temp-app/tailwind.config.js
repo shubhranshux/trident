@@ -23,6 +23,10 @@ export default {
         'text-dark': '#3E3A36',
         'accent-red': '#EF4444',
         'accent-green': '#22C55E',
+        'inst-pink': '#FDF2F0',
+        'inst-blue': '#2C3A8C',
+        'inst-green': '#006738',
+        'inst-yellow': '#E8BD63',
         // Exact SDG Logo Colors
         'brand-green': '#2D9A47',   // Deep vibrant green
         'brand-red': '#C5282F',     // Deep vibrant red

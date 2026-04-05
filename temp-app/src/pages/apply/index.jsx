@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react";
 import { FadeInUp } from "../../utils/animations";
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
 import {
   ArrowRight, GraduationCap, ClipboardCheck, FileText,
   CalendarCheck, CheckCircle2, Send, Phone, Clock, Landmark,
@@ -84,7 +82,6 @@ export default function ApplyPage() {
 
   return (
     <div className="min-h-screen bg-white" style={{ fontFamily: "'Outfit', sans-serif" }}>
-      <Header />
 
       {/* ══════ HERO ══════ */}
       <section className="relative w-full min-h-screen flex flex-col justify-center bg-white overflow-hidden pt-32 md:pt-40 pb-20 group">
@@ -424,8 +421,6 @@ export default function ApplyPage() {
           </FadeInUp>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 }
