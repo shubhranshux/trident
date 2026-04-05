@@ -12,7 +12,7 @@ export default function FeatureSection({ title, cards, variant = "angled" }) {
         {/* Silicon Style Header Section */}
         <div className="mb-16 relative">
            <div className={`absolute -left-10 -top-4 w-32 h-20 -skew-x-12 z-0 hidden md:block ${variant === 'cinematic' ? 'bg-[#3E3A36]' : 'bg-[#EFE7DF]'}`}></div>
-           <h2 className={`relative z-10 font-serif text-[40px] md:text-[56px] lg:text-[64px] font-black capitalize leading-[1.1] tracking-tight ${variant === 'cinematic' ? 'text-white' : 'text-[#212529]'}`}>
+           <h2 className={`relative z-10 text-[40px] md:text-[56px] lg:text-[64px] font-black capitalize leading-[1.1] tracking-tight ${variant === 'cinematic' ? 'text-white' : 'text-[#212529]'}`} style={{ fontFamily: "'Playfair Display', serif" }}>
              {title}
            </h2>
         </div>

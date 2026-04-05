@@ -34,7 +34,7 @@ export default function Facilities() {
       desc: "Multi-cuisine dining options with spacious glass-walled seating.",
       img: cafeImg,
       colSpan: "md:col-span-1 md:row-span-1",
-      href: "https://campuslife-tat.tekkzy.com",
+      href: "https://sipitridentcampuslife.netlify.app",
       color: "brand-yellow"
     },
     { 
@@ -51,7 +51,7 @@ export default function Facilities() {
       desc: "Olympic-sized pool, stadium, and expansive green fields.",
       img: aerialImg,
       colSpan: "md:col-span-2 md:row-span-1",
-      href: "https://campuslife-tat.tekkzy.com",
+      href: "https://sipitridentcampuslife.netlify.app",
       color: "brand-blue"
     },
     { 
@@ -134,7 +134,7 @@ export default function Facilities() {
         {/* View More Button */}
         <div className="mt-16 text-center">
           <FadeInUp delay={200}>
-            <a href="https://activities-tat.tekkzy.com" className="inline-flex items-center gap-3 px-8 py-4 bg-[#EAB308] border border-[#EAB308] text-[#1A1817] rounded-full font-bold text-[13px] uppercase tracking-widest hover:bg-white hover:text-[#1B3060] hover:shadow-xl hover:-translate-y-1 transition-all duration-400 group">
+            <a href="https://sipitridentactivity.netlify.app" className="inline-flex items-center gap-3 px-8 py-4 bg-[#EAB308] border border-[#EAB308] text-[#1A1817] rounded-full font-bold text-[13px] uppercase tracking-widest hover:bg-white hover:text-[#1B3060] hover:shadow-xl hover:-translate-y-1 transition-all duration-400 group">
               View All Facilities
               <ArrowRight size={16} className="transform group-hover:translate-x-1 transition-transform" />
             </a>

@@ -30,7 +30,7 @@ export default function Discover() {
       desc: "Experience a vibrant community with endless opportunities for personal growth and leadership.",
       img: campusLifeImg,
       link: "Life at Trident",
-      href: "https://campuslife-tat.tekkzy.com/",
+      href: "https://sipitridentcampuslife.netlify.app/",
       delay: 400,
       color: "brand-green"
     }

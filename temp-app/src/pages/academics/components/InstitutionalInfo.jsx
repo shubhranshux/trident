@@ -42,7 +42,7 @@ export default function InstitutionalInfo() {
       <div className="max-w-[1400px] mx-auto px-6 xl:px-12 relative z-10 mb-20">
         <div className="mb-4 relative">
            <div className="absolute -left-10 -top-4 w-32 h-20 bg-[#EFE7DF] -skew-x-12 z-0 hidden md:block"></div>
-           <h2 className="relative z-10 font-serif text-[48px] md:text-[64px] font-black text-[#212529] leading-[1.1] tracking-tight">
+           <h2 className="relative z-10 text-[48px] md:text-[64px] font-black text-[#212529] leading-[1.1] tracking-tight" style={{ fontFamily: "'Playfair Display', serif" }}>
              Beyond<br/>Academics
            </h2>
         </div>
@@ -80,8 +80,9 @@ export default function InstitutionalInfo() {
               )}
               {/* Section Number — large, transparent */}
               <div 
-                className="absolute bottom-8 z-20 text-[100px] font-black font-serif leading-none opacity-[0.06] pointer-events-none select-none"
+                className="absolute bottom-8 z-20 text-[100px] font-black leading-none opacity-[0.06] pointer-events-none select-none"
                 style={{ 
+                  fontFamily: "'Playfair Display', serif",
                   color: item.accent,
                   [item.reverse ? 'left' : 'right']: '24px',
                 }}
@@ -100,15 +101,15 @@ export default function InstitutionalInfo() {
               
               <div className="relative z-20">
                 <div className="w-16 h-1 mb-8 transition-all duration-700 group-hover:w-24" style={{ backgroundColor: item.accent }}></div>
-                <h3 className="font-serif text-[32px] md:text-[40px] font-black text-[#212529] mb-6">
+                <h3 className="text-[32px] md:text-[40px] font-black text-[#212529] mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
                   {item.title}
                 </h3>
-                <p className="font-sans text-[#5c5855] text-[16px] leading-relaxed mb-10 max-w-xl">
+                <p className="text-[#5c5855] text-[16px] leading-relaxed mb-10 max-w-xl">
                   {item.description}
                 </p>
                 <a 
                   href={item.linkHref} 
-                  className="inline-flex items-center gap-4 font-sans font-bold text-[12px] uppercase tracking-widest hover:text-[#212529] transition-colors"
+                  className="inline-flex items-center gap-4 font-bold text-[12px] uppercase tracking-widest hover:text-[#212529] transition-colors"
                   style={{ color: item.accent }}
                 >
                   Discover More 

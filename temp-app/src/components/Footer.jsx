@@ -91,11 +91,11 @@ export default function Footer() {
                 { t:"Academic Calendar", h:"https://academics-tat.tekkzy.com/" },
               ] },
               { h:"Campus Life", ls:[
-                { t:"Student Hostels", h:"https://campuslife-tat.tekkzy.com/" },
-                { t:"Clubs & Societies", h:"https://activities-tat.tekkzy.com/" },
-                { t:"Sports & Recreation", h:"https://campuslife-tat.tekkzy.com/" },
-                { t:"Health & Wellness", h:"https://campuslife-tat.tekkzy.com/" },
-                { t:"Campus Safety", h:"https://campuslife-tat.tekkzy.com/" },
+                { t:"Student Hostels", h:"https://sipitridentcampuslife.netlify.app/" },
+                { t:"Clubs & Societies", h:"https://sipitridentactivity.netlify.app/" },
+                { t:"Sports & Recreation", h:"https://sipitridentcampuslife.netlify.app/" },
+                { t:"Health & Wellness", h:"https://sipitridentcampuslife.netlify.app/" },
+                { t:"Campus Safety", h:"https://sipitridentcampuslife.netlify.app/" },
               ] },
               { h:"Resources", ls:[
                 { t:"Admissions Portal", h:"https://admissions-tat.tekkzy.com" },

@@ -30,13 +30,13 @@ export default function AcademicPrograms() {
           
           <div className="w-full lg:w-1/3 relative">
             <div className="absolute -left-10 top-0 w-40 h-24 bg-[#EFE7DF] -skew-x-12 z-0 hidden md:block"></div>
-            <h2 className="relative z-10 font-serif text-[40px] md:text-[56px] font-black text-[#212529] leading-[1.1] tracking-tight">
+            <h2 className="relative z-10 text-[40px] md:text-[56px] font-black text-[#212529] leading-[1.1] tracking-tight" style={{ fontFamily: "'Playfair Display', serif" }}>
               Academic<br/>Programs
             </h2>
           </div>
 
           <div className="w-full lg:w-2/3 flex flex-col items-start justify-center">
-            <p className="text-[#3E3A36] text-[18px] md:text-[22px] font-sans font-medium leading-relaxed mb-8 max-w-3xl">
+            <p className="text-[#3E3A36] text-[18px] md:text-[22px] font-medium leading-relaxed mb-8 max-w-3xl">
               Trident's breadth of programs equip students with deep knowledge, critical thinking, and expertise to tackle real-world challenges.
             </p>
             <a href="https://academics-tat.tekkzy.com" className="bg-[#283B91] hover:bg-[#1f2d73] text-white px-8 py-3.5 rounded-xl font-bold text-[14px] uppercase tracking-wider transition-colors shadow-lg shadow-[#283B91]/30 hover:shadow-xl hover:-translate-y-1 transform duration-300">
@@ -74,7 +74,7 @@ export default function AcademicPrograms() {
               </div>
               <div className="p-6 bg-[#283B91] flex-grow flex flex-col justify-center items-start relative">
                 <div className="absolute top-0 left-6 w-12 h-[2px] bg-white/20" />
-                <h3 className="font-serif text-white font-bold text-xl leading-tight mb-4">
+                <h3 className="text-white font-bold text-xl leading-tight mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
                   {prog.title}
                 </h3>
                 {prog.link && (
