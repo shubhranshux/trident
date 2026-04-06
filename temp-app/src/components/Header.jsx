@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { Users, Menu, X } from "lucide-react";
 import { NAV_LINKS } from "../data/constants";
 import logo from "../assets/logo.png";
@@ -31,23 +32,23 @@ export default function Header() {
         <div className="mx-auto px-6 xl:px-12 flex items-center justify-between">
             
           {/* Logo Lockup */}
-          <a href="https://tat.tekkzy.com/" className="flex items-center gap-3.5 group cursor-pointer">
+          <Link to="/" className="flex items-center gap-3.5 group cursor-pointer text-decoration-none">
             <img src={logo} alt="TAT Logo" className="w-12 h-12 md:w-[52px] md:h-[52px] object-contain flex-shrink-0 drop-shadow-sm" />
             <div className="hidden sm:flex flex-col justify-center">
               <div className="serif text-[22px] md:text-[24px] font-black text-[#3E3A36] leading-none tracking-[0.04em] uppercase">Trident</div>
               <div className="w-full h-[1px] bg-gradient-to-r from-[#1B4D8E] to-transparent my-[3px]"></div>
               <div className="text-[9px] md:text-[10px] font-semibold text-[#1B4D8E] tracking-[0.22em] uppercase leading-none">Academy of Technology</div>
             </div>
-          </a>
+          </Link>
 
           {/* Desktop Nav */}
           <nav className="hidden lg:block">
-            <ul className="flex items-center gap-6">
+            <ul className="flex items-center gap-6 list-none m-0 p-0">
               {NAV_LINKS.map(item => (
                 <li key={item.label}>
-                  <a href={item.href} className="nav-link text-[14px] uppercase tracking-[0.14em] cursor-pointer whitespace-nowrap font-extrabold text-[#3E3A36] hover:text-primary transition-colors">
+                  <Link to={item.href} className="nav-link text-[14px] uppercase tracking-[0.14em] cursor-pointer whitespace-nowrap font-extrabold text-[#3E3A36] hover:text-primary transition-colors text-decoration-none">
                     {item.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -55,7 +56,7 @@ export default function Header() {
 
           {/* CTA Elements */}
           <div className="hidden lg:flex items-center gap-5">
-            <a href="/apply" className="btn-rose text-[12px] font-bold px-7 py-3 rounded uppercase whitespace-nowrap">Apply Now</a>
+            <Link to="/apply" className="btn-rose text-[12px] font-bold px-7 py-3 rounded uppercase whitespace-nowrap text-decoration-none">Apply Now</Link>
           </div>
 
           {/* Mobile Toggle */}
@@ -75,11 +76,11 @@ export default function Header() {
         >
           <div className="px-6 flex flex-col h-full overflow-y-auto pb-4">
             {NAV_LINKS.map((item, i) => (
-              <a 
+              <Link 
                 key={item.label} 
-                href={item.href} 
+                to={item.href} 
                 onClick={() => setMobileOpen(false)}
-                className={`block py-3.5 text-[15px] font-extrabold text-[#3E3A36] uppercase tracking-[0.14em] hover:text-primary hover:bg-soft/50 rounded-lg px-3 transition-all duration-500 transform ${
+                className={`block py-3.5 text-[15px] font-extrabold text-[#3E3A36] uppercase tracking-[0.14em] hover:text-primary hover:bg-soft/50 rounded-lg px-3 transition-all duration-500 transform text-decoration-none ${
                   mobileOpen ? "translate-x-0 opacity-100" : "-translate-x-8 opacity-0"
                 }`}
                 style={{ 
@@ -88,7 +89,7 @@ export default function Header() {
                 }}
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
             <div 
               className={`pt-8 px-2 transition-all duration-700 transform ${
@@ -96,9 +97,9 @@ export default function Header() {
               }`} 
               style={{ transitionDelay: `${mobileOpen ? NAV_LINKS.length * 40 + 150 : 0}ms` }}
             >
-              <a href="/apply" className="btn-rose block text-center text-[13px] tracking-widest font-extrabold px-6 py-4 rounded-xl shadow-[0_10px_30px_-10px_rgba(230,57,70,0.5)]">
+              <Link to="/apply" className="btn-rose block text-center text-[13px] tracking-widest font-extrabold px-6 py-4 rounded-xl shadow-[0_10px_30px_-10px_rgba(230,57,70,0.5)] text-decoration-none">
                 START APPLICATION
-              </a>
+              </Link>
             </div>
           </div>
         </div>

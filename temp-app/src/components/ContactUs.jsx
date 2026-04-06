@@ -81,11 +81,28 @@ export default function ContactUs() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 4000);
-    setFormData({ name: "", email: "", phone: "", subject: "", message: "", department: "General Inquiry" });
+    try {
+      const response = await fetch("https://sgemn43u4xfdset5xxdjjzsn3i0kgjrj.lambda-url.us-east-1.on.aws/", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          message: `[Subject: ${formData.subject}] [Department: ${formData.department}] ${formData.message}`,
+        }),
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+        setTimeout(() => setSubmitted(false), 4000);
+        setFormData({ name: "", email: "", phone: "", subject: "", message: "", department: "General Inquiry" });
+      }
+    } catch (error) {
+      console.error("Error submitting contact form:", error);
+    }
   };
 
   return (

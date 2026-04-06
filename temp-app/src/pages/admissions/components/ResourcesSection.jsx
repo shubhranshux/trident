@@ -1,7 +1,41 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Download, Phone, Mail, MapPin, Send, ArrowRight } from 'lucide-react';
+import { Download, Phone, Mail, MapPin, Send, ArrowRight, CheckCircle2 } from 'lucide-react';
 
 const ResourcesSection = () => {
+  const [formData, setFormData] = useState({ name: "", phone: "", email: "", query: "" });
+  const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    try {
+      const response = await fetch("https://sgemn43u4xfdset5xxdjjzsn3i0kgjrj.lambda-url.us-east-1.on.aws/", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          message: formData.query,
+        }),
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+        setFormData({ name: "", phone: "", email: "", query: "" });
+        setTimeout(() => setSubmitted(false), 5000);
+      }
+    } catch (error) {
+      console.error("Error submitting query:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <section id="downloads" className="py-24 bg-white relative overflow-hidden z-10">
       <div className="max-w-[1400px] mx-auto px-6 xl:px-12">
@@ -70,15 +104,60 @@ const ResourcesSection = () => {
               </h2>
               <p className="text-white/60 font-light mb-10 leading-relaxed text-[15px]">Fill out the form below or reach out to our admission team for immediate assistance.</p>
 
-              <form className="space-y-4 relative z-10">
-                <input type="text" placeholder="Name (required)" className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-2xl placeholder-white/30 text-white focus:border-[#E5AA3E] outline-none transition-all font-light" required />
-                <input type="tel" placeholder="Mobile Number (required)" className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-2xl placeholder-white/30 text-white focus:border-[#E5AA3E] outline-none transition-all font-light" required />
-                <input type="email" placeholder="Email (required)" className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-2xl placeholder-white/30 text-white focus:border-[#E5AA3E] outline-none transition-all font-light" required />
-                <textarea placeholder="Query details" rows="3" className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-2xl placeholder-white/30 text-white focus:border-[#E5AA3E] outline-none transition-all font-light"></textarea>
-                <button type="submit" className="w-full py-5 bg-[#1B4D8E] hover:bg-[#8B6E66] text-white rounded-2xl font-bold uppercase tracking-[.2em] text-[11px] flex items-center justify-center gap-3 transition-colors duration-300">
-                  Submit Query <Send size={16} />
-                </button>
-              </form>
+              {submitted ? (
+                <div className="flex flex-col items-center justify-center py-10 text-center relative z-10">
+                  <div className="w-16 h-16 rounded-full bg-[#E5AA3E]/20 flex items-center justify-center mb-4">
+                    <CheckCircle2 size={32} className="text-[#E5AA3E]" />
+                  </div>
+                  <h4 className="text-xl font-black text-white mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>Query Submitted!</h4>
+                  <p className="text-white/50 text-sm">We'll get back to you shortly.</p>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-4 relative z-10">
+                  <input 
+                    type="text" 
+                    name="name"
+                    placeholder="Name (required)" 
+                    className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-2xl placeholder-white/30 text-white focus:border-[#E5AA3E] outline-none transition-all font-light" 
+                    required 
+                    value={formData.name}
+                    onChange={handleChange}
+                  />
+                  <input 
+                    type="tel" 
+                    name="phone"
+                    placeholder="Mobile Number (required)" 
+                    className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-2xl placeholder-white/30 text-white focus:border-[#E5AA3E] outline-none transition-all font-light" 
+                    required 
+                    value={formData.phone}
+                    onChange={handleChange}
+                  />
+                  <input 
+                    type="email" 
+                    name="email"
+                    placeholder="Email (required)" 
+                    className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-2xl placeholder-white/30 text-white focus:border-[#E5AA3E] outline-none transition-all font-light" 
+                    required 
+                    value={formData.email}
+                    onChange={handleChange}
+                  />
+                  <textarea 
+                    name="query"
+                    placeholder="Query details" 
+                    rows="3" 
+                    className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-2xl placeholder-white/30 text-white focus:border-[#E5AA3E] outline-none transition-all font-light"
+                    value={formData.query}
+                    onChange={handleChange}
+                  ></textarea>
+                  <button 
+                    type="submit" 
+                    disabled={isSubmitting}
+                    className="w-full py-5 bg-[#1B4D8E] hover:bg-[#8B6E66] text-white rounded-2xl font-bold uppercase tracking-[.2em] text-[11px] flex items-center justify-center gap-3 transition-colors duration-300 disabled:opacity-50"
+                  >
+                    {isSubmitting ? "Sending..." : "Submit Query"} <Send size={16} />
+                  </button>
+                </form>
+              )}
 
               <div className="mt-12 space-y-6 border-t border-white/10 pt-10">
                 {[

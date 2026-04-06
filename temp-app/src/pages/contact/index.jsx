@@ -105,7 +105,32 @@ export default function ContactPage() {
   useEffect(() => { setIsVisible(true); window.scrollTo(0, 0); }, []);
 
   const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
-  const handleSubmit = (e) => { e.preventDefault(); setSubmitted(true); setTimeout(() => setSubmitted(false), 5000); setFormData({ name: "", email: "", phone: "", department: "General Inquiry", subject: "", message: "" }); };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch("https://sgemn43u4xfdset5xxdjjzsn3i0kgjrj.lambda-url.us-east-1.on.aws/", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          message: `[Subject: ${formData.subject}] [Department: ${formData.department}] ${formData.message}`,
+        }),
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+        setTimeout(() => setSubmitted(false), 5000);
+        setFormData({ name: "", email: "", phone: "", department: "General Inquiry", subject: "", message: "" });
+      } else {
+        // Fallback for non-OK response if needed, but keeping it simple as per original
+        console.error("Submission failed");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    }
+  };
 
   const inputClass = (field) => {
     const base = "w-full bg-[#FAF9F7] border-2 text-[#212529] placeholder-[#3E3A36]/20 px-5 py-4 rounded-xl outline-none transition-all duration-300 font-medium text-[15px]";
