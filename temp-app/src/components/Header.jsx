@@ -97,7 +97,7 @@ export default function Header() {
               }`} 
               style={{ transitionDelay: `${mobileOpen ? NAV_LINKS.length * 40 + 150 : 0}ms` }}
             >
-              <Link to="/apply" className="btn-rose block text-center text-[13px] tracking-widest font-extrabold px-6 py-4 rounded-xl shadow-[0_10px_30px_-10px_rgba(230,57,70,0.5)] text-decoration-none">
+              <Link onClick={() => setMobileOpen(false)} to="/apply" className="btn-rose block text-center text-[13px] tracking-widest font-extrabold px-6 py-4 rounded-xl shadow-[0_10px_30px_-10px_rgba(230,57,70,0.5)] text-decoration-none">
                 START APPLICATION
               </Link>
             </div>
