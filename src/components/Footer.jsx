@@ -64,7 +64,7 @@ export default function Footer() {
             </p>
             
             <div className="grid grid-cols-1 gap-6">
-              <a href="https://contactus-tat.tekkzy.com" className="flex items-start gap-4 hover:text-white transition-colors group">
+              <a href="https://contactus-tat.tekkzy.com/" className="flex items-start gap-4 hover:text-white transition-colors group">
                 <div className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-[#8B6E66] flex-shrink-0"><MapPin size={20}/></div>
                 <div className="text-sm font-medium leading-relaxed">F2/A, Chandaka Industrial Estate,<br/>Chandrasekharpur, Bhubaneswar,<br/>Odisha – 751024, India</div>
               </a>
@@ -98,7 +98,7 @@ export default function Footer() {
                 { t:"Campus Safety", h:"https://campuslife-tat.tekkzy.com/" },
               ] },
               { h:"Resources", ls:[
-                { t:"Admissions Portal", h:"https://admissions-tat.tekkzy.com" },
+                { t:"Admissions Portal", h:"https://admissions-tat.tekkzy.com/" },
                 { t:"Alumni Network", h:"https://alumni-tat.tekkzy.com/" },
                 { t:"Career Placements", h:"https://placements-tat.tekkzy.com" },
                 { t:"NIRF Data", h:"https://academics-tat.tekkzy.com/" },

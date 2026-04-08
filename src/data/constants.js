@@ -1,12 +1,12 @@
 export const NAV_LINKS = [
-  { label: "About",       href: "https://trident-about-page.netlify.app/" },
-  { label: "Admissions",  href: "https://admissions-tat-tekkzy.netlify.app",  sub: ["How to Apply","Eligibility","Fee Structure","Scholarships","JEE / OJEE"] },
-  { label: "Academics",   href: "https://trident-academic.netlify.app/" },
-  { label: "Research",    href: "https://page-research.netlify.app/",    sub: ["Research Centers","Publications","Projects","Collaborations","SIRO-DSIR"] },
-  { label: "Campus Life", href: "https://campuslife-tat.tekkzy.com",  sub: ["Hostels","Sports Complex","Clubs & Fests","Cafeteria","Health Center"] },
-  { label: "Activities",  href: "https://activities-tat.tekkzy.com",   sub: ["Clubs & Societies","Cultural Events","Technical Fests","Sports","NSS / NCC"] },
+  { label: "About",       href: "https://about-tat.tekkzy.com/" },
+  { label: "Admissions",  href: "https://admissions-tat.tekkzy.com/",  sub: ["How to Apply","Eligibility","Fee Structure","Scholarships","JEE / OJEE"] },
+  { label: "Academics",   href: "https://academics-tat.tekkzy.com/" },
+  { label: "Research",    href: "https://research-tat.tekkzy.com/",    sub: ["Research Centers","Publications","Projects","Collaborations","SIRO-DSIR"] },
+  { label: "Campus Life", href: "https://campuslife-tat.tekkzy.com/",  sub: ["Hostels","Sports Complex","Clubs & Fests","Cafeteria","Health Center"] },
+  { label: "Activities",  href: "https://activities-tat.tekkzy.com/",   sub: ["Clubs & Societies","Cultural Events","Technical Fests","Sports","NSS / NCC"] },
 
-  { label: "Contact Us",  href: "https://contactus-tat.tekkzy.com",   sub: ["General Enquiry","Admissions Office","Placement Cell","Campus Address","Feedback"] },
+  { label: "Contact Us",  href: "https://contactus-tat.tekkzy.com/",   sub: ["General Enquiry","Admissions Office","Placement Cell","Campus Address","Feedback"] },
 ];
 
 export const STATS = [
