@@ -38,8 +38,8 @@ function Home() {
       <Hero />
       <div className="relative bg-white">
         <main className="bg-white overflow-hidden">
-          <Suspense fallback={<SectionFallback />}><Placements /></Suspense>
           <Suspense fallback={<SectionFallback />}><AboutSection /></Suspense>
+          <Suspense fallback={<SectionFallback />}><Placements /></Suspense>
           <Suspense fallback={<SectionFallback />}><WhyChooseTrident /></Suspense>
 
           <Suspense fallback={<SectionFallback />}><Programs /></Suspense>

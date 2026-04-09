@@ -1,12 +1,23 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { Users, Menu, X } from "lucide-react";
+import { Users, Menu, X, ChevronDown, FileText } from "lucide-react";
 import { NAV_LINKS } from "../data/constants";
 import logo from "../assets/logo.png";
+
+const MANDATORY_LINKS = [
+  { label: "AICTE Mandatory Disclosure", href: "#" },
+  { label: "NIRF", href: "#" },
+  { label: "Public Notice on Menace of Ragging", href: "#" },
+  { label: "NBA Accreditation", href: "#" },
+  { label: "NAAC Accreditation", href: "#" },
+  { label: "Grievance Redressal", href: "#" },
+];
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [disclosureOpen, setDisclosureOpen] = useState(false);
+  const dropdownRef = useRef(null);
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 50);
@@ -14,16 +25,87 @@ export default function Header() {
     return () => window.removeEventListener("scroll", fn);
   }, []);
 
+  // Close dropdown on click outside
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        setDisclosureOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
   return (
     <div className="fixed top-0 left-0 w-full z-50">
-      {/* Utility Bar */}
-      <div className={"hidden lg:block bg-primary border-b border-primary/20 transition-all duration-500 " + (scrolled ? "max-h-0 overflow-hidden py-0 border-b-0" : "max-h-20 py-2.5")}>
-        <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-          <span className="text-[11px] font-semibold text-white/80 tracking-widest uppercase">
-            Affiliated to BPUT &nbsp;<span className="text-secondary opacity-50">|</span>&nbsp; NAAC 'A' Accredited
+      {/* Slim Utility Bar */}
+      <div className={"hidden lg:block border-b border-white/5 transition-all duration-500 " + (scrolled ? "max-h-0 overflow-hidden py-0 border-b-0" : "max-h-20 py-1.5")} style={{ background: 'linear-gradient(135deg, #1a2660 0%, #2C3A8C 60%, #3a4aad 100%)' }}>
+        <div className="max-w-[1400px] mx-auto px-6 xl:px-12 flex items-center justify-between">
+          <span className="text-[10px] font-semibold text-white/50 uppercase tracking-[0.2em]">
+            Approved by AICTE &nbsp;|&nbsp; Affiliated to BPUT &nbsp;|&nbsp; NAAC Accredited &nbsp;|&nbsp; NBA Accredited for 6 Programmes
           </span>
-          <div className="flex gap-6 text-[11px] font-bold text-white/90 uppercase tracking-widest">
-            <a href="https://alumni-tat.tekkzy.com/" className="flex items-center gap-1.5 utility-link hover:text-white"><Users size={12}/> Alumni</a>
+          <div className="flex items-center gap-3">
+            {/* Mandatory Disclosures Dropdown */}
+            <div ref={dropdownRef} className="relative">
+              <button
+                onClick={() => setDisclosureOpen(!disclosureOpen)}
+                className={"flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.12em] px-5 py-2 rounded-lg whitespace-nowrap transition-all duration-400 " + (disclosureOpen
+                  ? "bg-[#E8BD63] text-[#1a2660] shadow-[0_0_20px_rgba(232,189,99,0.4)]"
+                  : "bg-gradient-to-r from-white/15 to-white/5 text-white border border-white/20 hover:border-[#E8BD63]/50 hover:shadow-[0_0_15px_rgba(232,189,99,0.2)]"
+                )}
+              >
+                <FileText size={12} />
+                Mandatory Disclosures
+                <ChevronDown size={12} className={"transition-transform duration-400 ease-[cubic-bezier(0.34,1.56,0.64,1)] " + (disclosureOpen ? "rotate-180" : "")} />
+              </button>
+
+              {/* Dropdown Panel */}
+              <div
+                className={"absolute top-full right-0 mt-3 w-80 rounded-2xl overflow-hidden transition-all origin-top-right " + (disclosureOpen ? "opacity-100 scale-100 translate-y-0 duration-400" : "opacity-0 scale-90 -translate-y-3 pointer-events-none duration-200")}
+                style={{
+                  background: '#ffffff',
+                  boxShadow: disclosureOpen ? '0 25px 60px -12px rgba(15,23,42,0.3), 0 0 0 1px rgba(44,58,140,0.06)' : 'none',
+                }}
+              >
+                {/* Top accent */}
+                <div className="h-1 bg-gradient-to-r from-[#2C3A8C] via-[#E8BD63] to-[#2C3A8C]" />
+                
+                {/* Header */}
+                <div className="px-6 pt-4 pb-3 border-b border-[#EFE7DF]">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#A59381]">Important Links</p>
+                </div>
+
+                <div className="py-2 px-2">
+                  {MANDATORY_LINKS.map((link, i) => (
+                    <a
+                      key={link.label}
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => setDisclosureOpen(false)}
+                      className="flex items-center gap-3 px-4 py-3 rounded-lg text-[13px] font-semibold text-[#3E3A36] hover:bg-gradient-to-r hover:from-[#2C3A8C]/5 hover:to-transparent hover:text-[#2C3A8C] transition-all duration-300 group"
+                      style={{
+                        opacity: disclosureOpen ? 1 : 0,
+                        transform: disclosureOpen ? 'translateX(0)' : 'translateX(-12px)',
+                        transition: `opacity 300ms ease ${i * 50 + 100}ms, transform 300ms ease ${i * 50 + 100}ms, background 200ms ease, color 200ms ease`,
+                      }}
+                    >
+                      <span className="w-2 h-2 rounded-full bg-[#E8BD63] group-hover:bg-[#2C3A8C] group-hover:scale-125 transition-all duration-300 flex-shrink-0" />
+                      <span className="flex-1">{link.label}</span>
+                      <span className="text-[#2C3A8C]/0 group-hover:text-[#2C3A8C]/60 text-[11px] transition-all duration-300 transform translate-x-1 group-hover:translate-x-0">→</span>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Separator */}
+            <div className="w-px h-5 bg-white/20" />
+
+            {/* Alumni Portal */}
+            <a href="#" className="flex items-center gap-1.5 text-[10px] font-bold text-[#E8BD63] uppercase tracking-widest hover:text-[#F0D080] transition-colors whitespace-nowrap">
+              <Users size={11}/> Alumni
+            </a>
           </div>
         </div>
       </div>
@@ -46,9 +128,9 @@ export default function Header() {
             <ul className="flex items-center gap-6 list-none m-0 p-0">
               {NAV_LINKS.map(item => (
                 <li key={item.label}>
-                  <Link to={item.href} className="nav-link text-[14px] uppercase tracking-[0.14em] cursor-pointer whitespace-nowrap font-extrabold text-[#3E3A36] hover:text-primary transition-colors text-decoration-none">
+                  <a href={item.href} className="nav-link text-[14px] uppercase tracking-[0.14em] cursor-pointer whitespace-nowrap font-extrabold text-[#3E3A36] hover:text-primary transition-colors text-decoration-none">
                     {item.label}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>
@@ -56,7 +138,7 @@ export default function Header() {
 
           {/* CTA Elements */}
           <div className="hidden lg:flex items-center gap-5">
-            <Link to="/apply" className="btn-rose text-[12px] font-bold px-7 py-3 rounded uppercase whitespace-nowrap text-decoration-none">Apply Now</Link>
+            <a href="https://apply-now.tekkzy.com" className="btn-rose text-[12px] font-bold px-7 py-3 rounded uppercase whitespace-nowrap text-decoration-none">Apply Now</a>
           </div>
 
           {/* Mobile Toggle */}
@@ -76,9 +158,9 @@ export default function Header() {
         >
           <div className="px-6 flex flex-col h-full overflow-y-auto pb-4">
             {NAV_LINKS.map((item, i) => (
-              <Link 
+              <a 
                 key={item.label} 
-                to={item.href} 
+                href={item.href} 
                 onClick={() => setMobileOpen(false)}
                 className={`block py-3.5 text-[15px] font-extrabold text-[#3E3A36] uppercase tracking-[0.14em] hover:text-primary hover:bg-soft/50 rounded-lg px-3 transition-all duration-500 transform text-decoration-none ${
                   mobileOpen ? "translate-x-0 opacity-100" : "-translate-x-8 opacity-0"
@@ -89,7 +171,7 @@ export default function Header() {
                 }}
               >
                 {item.label}
-              </Link>
+              </a>
             ))}
             <div 
               className={`pt-8 px-2 transition-all duration-700 transform ${
@@ -97,9 +179,9 @@ export default function Header() {
               }`} 
               style={{ transitionDelay: `${mobileOpen ? NAV_LINKS.length * 40 + 150 : 0}ms` }}
             >
-              <Link onClick={() => setMobileOpen(false)} to="/apply" className="btn-rose block text-center text-[13px] tracking-widest font-extrabold px-6 py-4 rounded-xl shadow-[0_10px_30px_-10px_rgba(230,57,70,0.5)] text-decoration-none">
+              <a onClick={() => setMobileOpen(false)} href="https://apply-now.tekkzy.com" className="btn-rose block text-center text-[13px] tracking-widest font-extrabold px-6 py-4 rounded-xl shadow-[0_10px_30px_-10px_rgba(230,57,70,0.5)] text-decoration-none">
                 START APPLICATION
-              </Link>
+              </a>
             </div>
           </div>
         </div>

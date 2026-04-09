@@ -46,10 +46,10 @@ if (typeof document !== "undefined" && !document.getElementById("pill-hover-css"
 
 /* ─── Data ──────────────────────────────────────────────────────────── */
 const stats = [
-  { icon: <TrendingUp size={28} />, value: "₹48 LPA",  label: "Highest Package", color: "#E8BD63" },
-  { icon: <Award size={28} />,       value: "₹5.2 LPA", label: "Average Package", color: "#C41E3A" },
-  { icon: <Building2 size={28} />,   value: "320+",      label: "Companies Visited", color: "#2E6DB4" },
-  { icon: <Users size={28} />,       value: "94%",        label: "Placement Rate", color: "#3EA644" },
+  { icon: <TrendingUp size={28} />, value: "₹7.5 LPA",  label: "Highest Package", color: "#E8BD63" },
+  { icon: <Award size={28} />,       value: "₹4.5 LPA", label: "Average Package", color: "#C41E3A" },
+  { icon: <Building2 size={28} />,   value: "120+",      label: "Companies Visited", color: "#2E6DB4" },
+  { icon: <Users size={28} />,       value: "82%",        label: "Placement Rate", color: "#3EA644" },
 ];
 
 const companies = [
@@ -60,20 +60,8 @@ const companies = [
   "Atlassian", "Persistent", "Mindtree", "Oracle", "SAP",
 ];
 
-const placements = [
-  { name: "Vikram Nair",      year: "2024", company: "Google",         pkg: "₹48 LPA" },
-  { name: "Aarav Sharma",     year: "2024", company: "Amazon",         pkg: "₹44 LPA" },
-  { name: "Priya Patel",      year: "2024", company: "Microsoft",      pkg: "₹42 LPA" },
-  { name: "Rohan Gupta",      year: "2023", company: "Atlassian",      pkg: "₹35 LPA" },
-  { name: "Sneha Reddy",      year: "2023", company: "Goldman Sachs",  pkg: "₹28 LPA" },
-  { name: "Amit Kumar",       year: "2023", company: "Morgan Stanley", pkg: "₹24 LPA" },
-  { name: "Anjali Desai",     year: "2024", company: "JP Morgan",      pkg: "₹22 LPA" },
-  { name: "Meera Iyer",       year: "2024", company: "Deloitte",       pkg: "₹18 LPA" },
-  { name: "Rahul Behera",     year: "2022", company: "TCS Digital",    pkg: "₹12 LPA" },
-  { name: "Sanya Mohanty",    year: "2022", company: "Infosys",        pkg: "₹8 LPA"  },
-  { name: "Karan Singh",      year: "2023", company: "Capgemini",      pkg: "₹7.5 LPA"},
-  { name: "Diya Patnaik",     year: "2022", company: "Wipro",          pkg: "₹6.5 LPA"},
-];
+/* Placement records will be populated from Excel data */
+const placements = [];
 
 /* ─── Company tag ── */
 function CompanyTag({ name }) {
@@ -115,7 +103,7 @@ function CompanyTag({ name }) {
 
 /* ─── Section ───────────────────────────────────────────────────────── */
 export default function Placements() {
-  const remaining = 320 - companies.length;
+  const remaining = 120 - companies.length;
 
   return (
     <section className="relative pt-32 pb-24 overflow-hidden" style={{ background: '#2F3A87' }}>
@@ -158,7 +146,7 @@ export default function Placements() {
           </FadeInUp>
           <FadeInUp delay={400}>
             <p className="text-white/50 text-lg md:text-xl font-medium leading-relaxed max-w-2xl mx-auto">
-              Over 320 global companies visited our campus this year. Our students have secured leading roles across the world's top firms.
+              Over 120 companies visited our campus this year. Our students have secured leading roles across top firms.
             </p>
           </FadeInUp>
         </div>
@@ -208,7 +196,7 @@ export default function Placements() {
           </div>
         </FadeInUp>
 
-        {/* Student Placements */}
+        {/* Student Placements — Placeholder until Excel data is provided */}
         <div className="text-center mb-10">
           <FadeInUp delay={600}>
             <div className="w-16 h-px bg-gradient-to-r from-transparent via-[#E8BD63] to-transparent mx-auto mb-5" />
@@ -217,30 +205,14 @@ export default function Placements() {
         </div>
 
         <FadeInUp delay={650}>
-          <div className="relative w-[100vw] left-1/2 -translate-x-1/2 overflow-hidden py-4">
-            {/* Gradient edge masks */}
-            <div className="absolute top-0 bottom-0 left-0 w-16 md:w-48 z-10 pointer-events-none" style={{ background: 'linear-gradient(to right, #2F3A87, transparent)' }} />
-            <div className="absolute top-0 bottom-0 right-0 w-16 md:w-48 z-10 pointer-events-none" style={{ background: 'linear-gradient(to left, #2F3A87, transparent)' }} />
-
-            <div className="flex w-max animate-marquee space-x-4 px-4">
-              {[...placements, ...placements].map((s, i) => (
-                <div key={i} className="group w-[320px] md:w-[380px] flex-shrink-0 flex items-center justify-between bg-white/5 hover:bg-white/10 border border-white/10 hover:border-[#E8BD63]/30 rounded-xl px-5 py-4 transition-all duration-400 hover:-translate-y-1 cursor-default backdrop-blur-sm">
-                  <div className="flex items-center gap-4 min-w-0">
-                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#E8BD63] to-[#C9A96E] border-2 border-white/20 flex items-center justify-center text-[#0B1930] text-sm font-black flex-shrink-0 shadow-md">
-                      {s.name.split(" ").map(n => n[0]).join("")}
-                    </div>
-                    <div className="min-w-0">
-                      <div className="text-white font-bold text-[16px] leading-tight truncate">{s.name}</div>
-                      <div className="flex items-center gap-2 mt-1 flex-wrap">
-                        <div className="text-white/50 text-[13px] font-semibold truncate">{s.company}</div>
-                        <span className="flex-shrink-0 bg-white/10 border border-white/10 text-white/50 text-[10px] font-bold px-1.5 py-0.5 rounded tracking-wider">{s.year}</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="text-[#E8BD63] font-black text-[16px] tracking-wide whitespace-nowrap pl-4 group-hover:scale-105 transition-transform">{s.pkg}</div>
-                </div>
-              ))}
+          <div className="relative rounded-2xl border border-dashed border-white/20 bg-white/5 backdrop-blur-sm py-12 px-8 text-center max-w-3xl mx-auto">
+            <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-[#E8BD63]/10 flex items-center justify-center">
+              <Users size={28} className="text-[#E8BD63]" />
             </div>
+            <p className="text-white/60 text-lg font-semibold mb-2">Detailed placement records coming soon</p>
+            <p className="text-white/35 text-sm font-medium max-w-md mx-auto">
+              Student Name, Company, Batch & Package data for the last 5 years will be updated shortly.
+            </p>
           </div>
         </FadeInUp>
 
