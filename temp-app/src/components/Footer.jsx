@@ -1,5 +1,5 @@
 import logo from "../assets/logo.png";
-import { Link } from "react-router-dom";
+
 import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram, ArrowRight } from "lucide-react";
 
 export default function Footer() {
@@ -51,24 +51,24 @@ export default function Footer() {
           
           {/* Brand Column */}
           <div className="lg:col-span-4">
-            <Link to="/" className="flex items-center gap-5 mb-10 text-decoration-none">
+            <a href="/" className="flex items-center gap-5 mb-10 text-decoration-none">
               <img src={logo} alt="TAT Logo" className="w-[64px] h-[64px] object-contain" />
               <div className="h-12 w-[1px] bg-white/10 mx-2"></div>
               <div className="flex flex-col justify-center">
                 <div className="font-serif text-[28px] text-white leading-none font-black uppercase">Trident</div>
                 <div className="text-[10px] font-bold text-[#8B6E66] tracking-[.3em] uppercase mt-2">Academy of Technology</div>
               </div>
-            </Link>
+            </a>
             
             <p className="text-gray-400 text-[16px] leading-[1.8] mb-10">
               Empowering the next generation of global leaders through world-class technical education, innovative research, and an unwavering commitment to excellence.
             </p>
             
             <div className="grid grid-cols-1 gap-6">
-              <Link to="/contact" className="flex items-start gap-4 hover:text-white transition-colors group text-decoration-none">
+              <a href="https://contactus-tat.tekkzy.com" className="flex items-start gap-4 hover:text-white transition-colors group text-decoration-none">
                 <div className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-[#8B6E66] flex-shrink-0"><MapPin size={20}/></div>
                 <div className="text-sm font-medium leading-relaxed">F2/A, Chandaka Industrial Estate,<br/>In front of Infocity, Bhubaneswar,<br/>Odisha, Pin: 751024, India</div>
-              </Link>
+              </a>
               <a href="tel:+919861191195" className="flex items-center gap-4 hover:text-white transition-colors group">
                 <div className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-[#8B6E66]"><Phone size={20}/></div>
                 <div className="text-sm font-bold">+91 98611 91195</div>

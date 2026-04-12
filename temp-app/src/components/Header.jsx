@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
 import { Users, Menu, X, ChevronDown, FileText } from "lucide-react";
 import { NAV_LINKS } from "../data/constants";
 import logo from "../assets/logo.png";
@@ -16,8 +15,11 @@ const MANDATORY_LINKS = [
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [hovered, setHovered] = useState(false);
   const [disclosureOpen, setDisclosureOpen] = useState(false);
   const dropdownRef = useRef(null);
+  
+  const navActive = scrolled || hovered || mobileOpen;
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 50);
@@ -110,25 +112,29 @@ export default function Header() {
         </div>
       </div>
 
-      <header className={"relative transition-all duration-500 bg-white " + (scrolled ? "shadow-[0_4px_20px_-4px_rgba(15,23,42,0.12)] py-3" : "py-5")}>
+      <header 
+        className={"relative transition-all duration-500 " + (navActive ? "bg-white shadow-[0_4px_20px_-4px_rgba(15,23,42,0.12)] py-3" : "bg-transparent py-5")}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+      >
         <div className="mx-auto px-6 xl:px-12 flex items-center justify-between">
             
           {/* Logo Lockup */}
-          <Link to="/" className="flex items-center gap-3.5 group cursor-pointer text-decoration-none">
+          <a href="/" className="flex items-center gap-3.5 group cursor-pointer text-decoration-none">
             <img src={logo} alt="TAT Logo" className="w-12 h-12 md:w-[52px] md:h-[52px] object-contain flex-shrink-0 drop-shadow-sm" />
             <div className="hidden sm:flex flex-col justify-center">
-              <div className="serif text-[22px] md:text-[24px] font-black text-[#3E3A36] leading-none tracking-[0.04em] uppercase">Trident</div>
-              <div className="w-full h-[1px] bg-gradient-to-r from-[#1B4D8E] to-transparent my-[3px]"></div>
-              <div className="text-[9px] md:text-[10px] font-semibold text-[#1B4D8E] tracking-[0.22em] uppercase leading-none">Academy of Technology</div>
+              <div className={"serif text-[22px] md:text-[24px] font-black leading-none tracking-[0.04em] uppercase transition-colors duration-500 " + (navActive ? "text-[#3E3A36]" : "text-white")}>Trident</div>
+              <div className={"w-full h-[1px] my-[3px] transition-all duration-500 " + (navActive ? "bg-gradient-to-r from-[#1B4D8E] to-transparent" : "bg-gradient-to-r from-white/50 to-transparent")}></div>
+              <div className={"text-[9px] md:text-[10px] font-semibold tracking-[0.22em] uppercase leading-none transition-colors duration-500 " + (navActive ? "text-[#1B4D8E]" : "text-white/80")}>Academy of Technology</div>
             </div>
-          </Link>
+          </a>
 
           {/* Desktop Nav */}
           <nav className="hidden lg:block">
             <ul className="flex items-center gap-6 list-none m-0 p-0">
               {NAV_LINKS.map(item => (
                 <li key={item.label}>
-                  <a href={item.href} className="nav-link text-[14px] uppercase tracking-[0.14em] cursor-pointer whitespace-nowrap font-extrabold text-[#3E3A36] hover:text-primary transition-colors text-decoration-none">
+                  <a href={item.href} className={"nav-link text-[14px] uppercase tracking-[0.14em] cursor-pointer whitespace-nowrap font-extrabold transition-colors duration-500 text-decoration-none " + (navActive ? "text-[#3E3A36] hover:text-[#1B4D8E]" : "text-white/90 hover:text-white")}>
                     {item.label}
                   </a>
                 </li>
@@ -138,12 +144,12 @@ export default function Header() {
 
           {/* CTA Elements */}
           <div className="hidden lg:flex items-center gap-5">
-            <a href="https://apply-now.tekkzy.com" className="btn-rose text-[12px] font-bold px-7 py-3 rounded uppercase whitespace-nowrap text-decoration-none">Apply Now</a>
+            <a href="https://apply-now.tekkzy.com" className="text-[12px] font-bold px-7 py-3 rounded uppercase whitespace-nowrap text-decoration-none transition-all duration-500 hover:opacity-90" style={{ backgroundColor: '#D3494B', color: '#ffffff' }}>Apply Now</a>
           </div>
 
           {/* Mobile Toggle */}
           <button 
-            className="lg:hidden text-primary p-2 bg-soft rounded-lg hover:bg-primary/10 transition-colors active:scale-95 z-50 relative" 
+            className={"lg:hidden p-2 rounded-lg transition-colors active:scale-95 z-50 relative " + (navActive ? "text-primary bg-soft hover:bg-primary/10" : "text-white bg-white/10 hover:bg-white/20")}
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle Menu"
           >
@@ -179,7 +185,7 @@ export default function Header() {
               }`} 
               style={{ transitionDelay: `${mobileOpen ? NAV_LINKS.length * 40 + 150 : 0}ms` }}
             >
-              <a onClick={() => setMobileOpen(false)} href="https://apply-now.tekkzy.com" className="btn-rose block text-center text-[13px] tracking-widest font-extrabold px-6 py-4 rounded-xl shadow-[0_10px_30px_-10px_rgba(230,57,70,0.5)] text-decoration-none">
+              <a onClick={() => setMobileOpen(false)} href="https://apply-now.tekkzy.com" className="block text-center text-[13px] tracking-widest text-[#fff] font-extrabold px-6 py-4 rounded-xl shadow-lg transition-opacity hover:opacity-90 text-decoration-none" style={{ backgroundColor: '#D3494B' }}>
                 START APPLICATION
               </a>
             </div>

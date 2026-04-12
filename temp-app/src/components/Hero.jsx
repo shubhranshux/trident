@@ -1,220 +1,327 @@
-import React, { useEffect, useState, useCallback } from 'react';
-import { ArrowRight, ChevronDown } from 'lucide-react';
-import heroImg1 from "../assets/hero finall.png";
+import React, { useEffect, useState, useCallback, useRef } from 'react';
+import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 
-const slides = [
+/* ─── Slide data — each slide: full-bleed image + unique copy ─── */
+const SLIDES = [
   {
-    tag: "Admissions 2026–27",
-    heading: <>Admissions <br /><span className="italic text-[#EAB308]">Open.</span><br /><span className="text-[#212529]">Shape Your Future.</span></>,
-    subtext: "Your journey to excellence begins here. Join Odisha's premier technical institution and unlock infinite possibilities.",
+    image: "/hero/slide1.png",
+    heading: <>Connecting<br />education with<br />opportunity</>,
+    subtext: "At Trident Academy of Technology, we're focused on one goal: shaping the engineers, leaders, and innovators of tomorrow through world-class education.",
     ctaLabel: "Apply Now",
-    ctaHref: "/apply",
+    ctaHref: "https://apply-tat.tekkzy.com/",
+    secondaryLabel: "Explore Programs",
+    secondaryHref: "https://academics-tat.tekkzy.com/departments-of-engineering/",
   },
   {
-    tag: "About Trident",
-    heading: <>Academic <br /><span className="italic text-[#EAB308]">Excellence.</span><br /><span className="text-[#212529]">Infinite Possibilities.</span></>,
-    subtext: "Immerse yourself in Odisha's premier technical ecosystem. We combine rigorous academics with world-class innovation labs to forge the leaders of tomorrow.",
-    ctaLabel: "Know More",
-    ctaHref: "/about",
+    image: "/hero/slide2.png",
+    heading: <>Where knowledge<br />meets<br />innovation</>,
+    subtext: "Immerse yourself in Odisha's premier technical ecosystem. Rigorous academics meet world-class innovation labs to forge the leaders of tomorrow.",
+    ctaLabel: "Our Programs",
+    ctaHref: "https://academics-tat.tekkzy.com/",
+    secondaryLabel: "About Trident",
+    secondaryHref: "https://about-tat.tekkzy.com/",
   },
   {
-    tag: "Placements",
-    heading: <>120+ Companies. <br /><span className="italic text-[#EAB308]">Career-Ready</span><br /><span className="text-[#212529]">Graduates.</span></>,
-    subtext: "Where talent meets opportunity. Our graduates are placed across India's top firms with strong packages and fulfilling careers.",
+    image: "/hero/slide3.png",
+    heading: <>Building careers<br />that matter,<br />since 2005</>,
+    subtext: "120+ recruiting companies, thousands of placed graduates, and a legacy of career-readiness. Where ambition meets real-world opportunity.",
     ctaLabel: "View Placements",
     ctaHref: "#placements",
+    secondaryLabel: "Our Recruiters",
+    secondaryHref: "https://about-tat.tekkzy.com/",
   },
   {
-    tag: "Campus Life",
-    heading: <>A Campus <br /><span className="italic text-[#EAB308]">That Inspires.</span><br /><span className="text-[#212529]">Life Beyond Books.</span></>,
-    subtext: "A corporate-styled campus in the heart of Bhubaneswar — from advanced labs to vibrant student clubs, Trident has it all.",
+    image: "/hero/slide4.png",
+    heading: <>A campus<br />designed to<br />inspire</>,
+    subtext: "A corporate-styled campus in the heart of Bhubaneswar — advanced labs, vibrant student clubs, cultural festivals, and spaces that spark creativity.",
     ctaLabel: "Explore Campus",
-    ctaHref: "/campus-life",
+    ctaHref: "https://campuslife-tat.tekkzy.com/",
+    secondaryLabel: "Student Life",
+    secondaryHref: "https://activities-tat.tekkzy.com/",
+  },
+  {
+    image: "/hero/slide5.png",
+    heading: <>Pioneering<br />research with<br />real impact</>,
+    subtext: "₹2.5 Cr DST-funded AI Research Centre, 50+ patents filed, and a culture of relentless innovation. Discover what makes Trident a research powerhouse.",
+    ctaLabel: "Our Research",
+    ctaHref: "https://research-tat.tekkzy.com/",
+    secondaryLabel: "Publications",
+    secondaryHref: "https://research-tat.tekkzy.com/",
   },
 ];
 
+const INTERVAL = 6000;
+
 export default function Hero() {
-  const [isVisible, setIsVisible] = useState(false);
-  const [activeSlide, setActiveSlide] = useState(0);
-  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [active, setActive] = useState(0);
+  const [animState, setAnimState] = useState('visible');
+  const [loaded, setLoaded] = useState(false);
+  const timerRef = useRef(null);
 
   useEffect(() => {
-    setIsVisible(true);
+    const t = setTimeout(() => setLoaded(true), 100);
+    return () => clearTimeout(t);
   }, []);
 
-  const goToSlide = useCallback((index) => {
-    if (index === activeSlide || isTransitioning) return;
-    setIsTransitioning(true);
+  const transition = useCallback((nextIdx) => {
+    setAnimState('exiting');
     setTimeout(() => {
-      setActiveSlide(index);
-      setTimeout(() => setIsTransitioning(false), 50);
-    }, 400);
-  }, [activeSlide, isTransitioning]);
-
-  // Auto-rotate every 5s
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setIsTransitioning(true);
-      setTimeout(() => {
-        setActiveSlide((prev) => (prev + 1) % slides.length);
-        setTimeout(() => setIsTransitioning(false), 50);
-      }, 400);
-    }, 5000);
-    return () => clearInterval(timer);
+      setActive(typeof nextIdx === 'function' ? nextIdx : () => nextIdx);
+      setAnimState('entering');
+      setTimeout(() => setAnimState('visible'), 60);
+    }, 500);
   }, []);
 
-  const slide = slides[activeSlide];
+  const goTo = useCallback((idx) => {
+    if (idx === active || animState !== 'visible') return;
+    transition(idx);
+  }, [active, animState, transition]);
+
+  // Auto-play
+  const startTimer = useCallback(() => {
+    clearInterval(timerRef.current);
+    timerRef.current = setInterval(() => {
+      transition(p => (p + 1) % SLIDES.length);
+    }, INTERVAL);
+  }, [transition]);
+
+  useEffect(() => {
+    startTimer();
+    return () => clearInterval(timerRef.current);
+  }, [startTimer]);
+
+  const handleNav = useCallback((idx) => {
+    goTo(idx);
+    startTimer();
+  }, [goTo, startTimer]);
+
+  const slide = SLIDES[active];
+  const isOut = animState === 'exiting';
+
+  /* ── Shared transition helper ── */
+  const tx = (delay = 0, yOut = 20, yInit = 30) => ({
+    opacity: loaded ? (isOut ? 0 : 1) : 0,
+    transform: loaded
+      ? (isOut ? `translateY(${yOut}px)` : 'translateY(0)')
+      : `translateY(${yInit}px)`,
+    transition: `opacity 600ms ease-out ${isOut ? '0ms' : `${delay}ms`}, transform 600ms ease-out ${isOut ? '0ms' : `${delay}ms`}`,
+  });
 
   return (
-    <section className="relative w-full min-h-screen flex flex-col justify-center bg-white overflow-hidden pt-32 md:pt-40 pb-20 group">
-      
-      {/* Diagonal Background Split */}
-      <div className="absolute top-0 right-0 w-[45%] h-full -skew-x-12 translate-x-32 z-0 hidden lg:block bg-[#FAF9F7]" />
-      <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#EFE7DF]/20 skew-y-12 -translate-x-32 z-0" />
-      
-      {/* Subtle Grid Overlay */}
-      <div className="absolute inset-0 opacity-[0.03] mix-blend-multiply pointer-events-none z-0" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h40v40H0V0zm20 20h20v20H20V20zM0 20h20v20H0V20z' fill='%231A1817' fill-rule='evenodd'/%3E%3C/svg%3E\")" }}></div>
+    <section className="relative w-full h-screen min-h-[600px] max-h-[1080px] overflow-hidden">
 
-      <div className="max-w-[1400px] mx-auto px-6 xl:px-12 w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
-        
-        {/* Left Side: Content with Slider */}
-        <div className="text-left">
-          {/* Tag */}
-          <div className={`flex items-center gap-4 transition-all duration-1000 ease-out transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'} mb-8`}>
-             <div className="w-12 h-[2px] bg-[#8B6E66]"></div>
-             <span className="text-[12px] font-black text-[#8B6E66] uppercase tracking-[.4em]">Trident Academy of Technology</span>
-          </div>
+      {/* ═══ Background images — crossfade + Ken Burns ═══ */}
+      {SLIDES.map((s, i) => (
+        <div
+          key={i}
+          className="absolute inset-0"
+          style={{
+            opacity: i === active ? 1 : 0,
+            transition: 'opacity 1200ms ease-in-out',
+            zIndex: i === active ? 1 : 0,
+          }}
+        >
+          <img
+            src={s.image}
+            alt=""
+            className="w-full h-full object-cover"
+            style={{
+              transform: i === active ? 'scale(1.03)' : 'scale(1.08)',
+              transition: 'transform 10s ease-out',
+            }}
+            loading={i < 2 ? 'eager' : 'lazy'}
+          />
+        </div>
+      ))}
 
-          {/* Slide Content with Crossfade */}
-          <div className="relative min-h-[340px] md:min-h-[380px]">
-            {/* Slide Tag */}
-            <div
-              className="mb-4 transition-all duration-500 ease-out"
-              style={{
-                opacity: isTransitioning ? 0 : 1,
-                transform: isTransitioning ? 'translateY(-10px)' : 'translateY(0)',
-              }}
-            >
-              <span className="inline-block text-[11px] font-bold uppercase tracking-[0.3em] text-white bg-[#2C3A8C] px-4 py-1.5 rounded-full">
-                {slide.tag}
-              </span>
-            </div>
+      {/* ═══ Overlay — subtle left-heavy gradient like Strada ═══ */}
+      <div
+        className="absolute inset-0 z-[2]"
+        style={{
+          background: `
+            linear-gradient(135deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.40) 40%, rgba(0,0,0,0.18) 100%)
+          `,
+        }}
+      />
 
-            {/* Heading */}
+      {/* ═══ Content ═══ */}
+      <div className="relative z-10 h-full flex items-center pt-36 pb-28">
+        <div className="max-w-[1400px] mx-auto px-6 xl:px-14 w-full">
+          <div className="max-w-[800px]">
+
+            {/* ── Heading — Playfair Display, large & elegant ── */}
             <h1
-              className="font-serif text-5xl md:text-7xl lg:text-[82px] font-black text-[#212529] leading-[1] tracking-tight mb-8 transition-all duration-600 ease-out"
+              className="font-serif text-[48px] md:text-[64px] lg:text-[72px] font-black leading-[1.1] tracking-tight"
               style={{
-                opacity: isTransitioning ? 0 : 1,
-                transform: isTransitioning ? 'translateY(20px)' : 'translateY(0)',
-                transition: 'opacity 500ms ease-out, transform 500ms ease-out',
+                fontFamily: "'Playfair Display', serif",
+                color: '#fff',
+                marginBottom: '1.5rem',
+                ...tx(100, 24, 40),
               }}
             >
               {slide.heading}
             </h1>
 
-            {/* Subtext */}
+            {/* ── Subtext — DM Sans, clean readable ── */}
             <p
-              className="text-[17px] md:text-lg text-[#5c5855] max-w-xl mb-10 leading-relaxed"
               style={{
-                opacity: isTransitioning ? 0 : 1,
-                transform: isTransitioning ? 'translateY(15px)' : 'translateY(0)',
-                transition: 'opacity 500ms ease-out 100ms, transform 500ms ease-out 100ms',
+                fontFamily: "'DM Sans', 'Helvetica Neue', Arial, sans-serif",
+                fontWeight: 400,
+                fontSize: 'clamp(0.95rem, 1.2vw, 1.15rem)',
+                lineHeight: 1.7,
+                color: 'rgba(255,255,255,0.72)',
+                maxWidth: '540px',
+                marginBottom: '2.5rem',
+                ...tx(220, 16, 28),
               }}
             >
               {slide.subtext}
             </p>
 
-            {/* CTA */}
+            {/* ── CTAs — clean, minimal ── */}
             <div
-              className="flex flex-wrap items-center gap-6"
-              style={{
-                opacity: isTransitioning ? 0 : 1,
-                transform: isTransitioning ? 'translateY(10px)' : 'translateY(0)',
-                transition: 'opacity 400ms ease-out 150ms, transform 400ms ease-out 150ms',
-              }}
+              className="flex flex-wrap items-center gap-4"
+              style={tx(340, 12, 22)}
             >
-              <a href={slide.ctaHref} className="bg-[#006738] text-white px-10 py-5 rounded-2xl font-bold text-[13px] uppercase tracking-widest flex items-center gap-3 transition-all duration-300 hover:bg-[#004d3d] hover:shadow-2xl hover:-translate-y-1">
-                {slide.ctaLabel} <ArrowRight size={18} />
+              <a
+                href={slide.ctaHref}
+                className="group/btn inline-flex items-center gap-3 rounded-full transition-all duration-300 active:scale-[0.97]"
+                style={{
+                  fontFamily: "'DM Sans', sans-serif",
+                  fontWeight: 600,
+                  fontSize: '0.9rem',
+                  letterSpacing: '0.01em',
+                  padding: '0.9rem 2rem',
+                  background: '#fff',
+                  color: '#1a1a1a',
+                }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.background = '#1a1a1a';
+                  e.currentTarget.style.color = '#fff';
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.background = '#fff';
+                  e.currentTarget.style.color = '#1a1a1a';
+                }}
+              >
+                {slide.ctaLabel}
+                <ArrowRight size={16} strokeWidth={2.5} className="transition-transform duration-300 group-hover/btn:translate-x-1" />
               </a>
-              <a href="#about" className="text-[#006738] font-bold text-[13px] uppercase tracking-widest border-b-2 border-[#EAB308] hover:border-[#006738] transition-colors pb-1">
-                Know Our Impact
+              <a
+                href={slide.secondaryHref}
+                className="inline-flex items-center gap-2 rounded-full transition-all duration-300"
+                style={{
+                  fontFamily: "'DM Sans', sans-serif",
+                  fontWeight: 500,
+                  fontSize: '0.9rem',
+                  letterSpacing: '0.01em',
+                  padding: '0.9rem 2rem',
+                  color: '#fff',
+                  border: '1px solid rgba(255,255,255,0.25)',
+                  backdropFilter: 'blur(8px)',
+                  background: 'rgba(255,255,255,0.06)',
+                }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.background = 'rgba(255,255,255,0.15)';
+                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.45)';
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.background = 'rgba(255,255,255,0.06)';
+                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.25)';
+                }}
+              >
+                {slide.secondaryLabel}
               </a>
             </div>
           </div>
+        </div>
+      </div>
 
-          {/* Navigation Dots */}
-          <div className={`flex items-center gap-3 mt-10 transition-all duration-1000 delay-700 ease-out ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-            {slides.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => goToSlide(i)}
-                aria-label={`Go to slide ${i + 1}`}
-                className="relative group/dot p-1"
+      {/* ═══ Bottom Navigation ═══ */}
+      <div className="absolute bottom-0 left-0 right-0 z-20">
+        <div className="max-w-[1400px] mx-auto px-6 xl:px-14 pb-8">
+          <div className="flex items-end justify-between">
+
+            {/* Progress bars */}
+            <div className="flex items-center gap-2.5">
+              {SLIDES.map((s, i) => (
+                <button
+                  key={i}
+                  onClick={() => handleNav(i)}
+                  aria-label={`Slide ${i + 1}`}
+                  className="relative rounded-full overflow-hidden transition-all duration-500 cursor-pointer"
+                  style={{
+                    width: i === active ? 52 : 20,
+                    height: 3,
+                    background: 'rgba(255,255,255,0.2)',
+                  }}
+                >
+                  {i === active && (
+                    <div
+                      className="absolute inset-y-0 left-0 rounded-full"
+                      style={{
+                        background: '#fff',
+                        animation: `slideProgress ${INTERVAL}ms linear forwards`,
+                      }}
+                    />
+                  )}
+                </button>
+              ))}
+              <span
+                className="ml-3 tabular-nums"
+                style={{
+                  fontFamily: "'DM Sans', sans-serif",
+                  fontSize: '0.7rem',
+                  fontWeight: 600,
+                  color: 'rgba(255,255,255,0.35)',
+                  letterSpacing: '0.08em',
+                }}
               >
-                <div
-                  className={`h-2 rounded-full transition-all duration-500 ${
-                    i === activeSlide 
-                      ? 'w-10 bg-[#2C3A8C]' 
-                      : 'w-2 bg-[#8B6E66]/40 hover:bg-[#8B6E66]/70'
-                  }`}
-                />
-                {/* Progress bar inside active dot */}
-                {i === activeSlide && (
-                  <div
-                    className="absolute top-1 left-1 h-2 rounded-full bg-[#EAB308]"
-                    style={{
-                      animation: 'dotProgress 5s linear infinite',
-                      width: '0%',
-                    }}
-                  />
-                )}
-              </button>
-            ))}
-            <span className="text-[10px] font-bold text-[#8B6E66]/60 uppercase tracking-widest ml-3">
-              {String(activeSlide + 1).padStart(2, '0')} / {String(slides.length).padStart(2, '0')}
-            </span>
+                {String(active + 1).padStart(2, '0')}
+                <span style={{ color: 'rgba(255,255,255,0.15)', margin: '0 3px' }}>/</span>
+                {String(SLIDES.length).padStart(2, '0')}
+              </span>
+            </div>
+
+            {/* Prev / Next */}
+            <div className="flex items-center gap-2">
+              {[
+                { icon: <ChevronLeft size={16} strokeWidth={2} />, idx: (active - 1 + SLIDES.length) % SLIDES.length, label: 'Previous' },
+                { icon: <ChevronRight size={16} strokeWidth={2} />, idx: (active + 1) % SLIDES.length, label: 'Next' },
+              ].map((btn, i) => (
+                <button
+                  key={i}
+                  onClick={() => handleNav(btn.idx)}
+                  aria-label={btn.label}
+                  className="w-10 h-10 rounded-full flex items-center justify-center text-white transition-all duration-200"
+                  style={{
+                    border: '1px solid rgba(255,255,255,0.18)',
+                    background: 'rgba(255,255,255,0.04)',
+                    backdropFilter: 'blur(4px)',
+                  }}
+                  onMouseEnter={e => {
+                    e.currentTarget.style.background = 'rgba(255,255,255,0.12)';
+                    e.currentTarget.style.borderColor = 'rgba(255,255,255,0.35)';
+                  }}
+                  onMouseLeave={e => {
+                    e.currentTarget.style.background = 'rgba(255,255,255,0.04)';
+                    e.currentTarget.style.borderColor = 'rgba(255,255,255,0.18)';
+                  }}
+                >
+                  {btn.icon}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
-
-        {/* Right Side: Image with asymmetric frame */}
-        <div className={`relative transition-all duration-1000 delay-700 ease-out transform ${isVisible ? 'translate-x-0 opacity-100' : 'translate-x-12 opacity-0'}`}>
-           {/* Asymmetric offset frame — different corner radii */}
-           <div className="absolute -inset-4 border-2 border-[#EFE7DF] -z-10 hidden lg:block" style={{ borderRadius: '8px 40px 8px 40px' }} />
-           
-           <div className="relative aspect-[4/5] md:aspect-square overflow-hidden rounded-2xl shadow-2xl">
-              <img 
-                src={heroImg1}
-                alt="Students in Trident Lab" 
-                className="w-full h-full object-cover transform scale-105 group-hover:scale-100 transition-transform duration-[2000ms]" 
-              />
-              {/* Floating Accent Block — NBA instead of NAAC A+ */}
-              <div className="absolute bottom-8 right-8 bg-[#283B91] text-white p-6 rounded-xl hidden md:block">
-                 <div className="text-3xl font-black mb-1">NBA</div>
-                 <div className="text-[10px] font-bold uppercase tracking-widest opacity-80">6 Programmes Accredited</div>
-              </div>
-              {/* Small asymmetric badge — top left */}
-              <div className="absolute top-6 left-6 bg-white/90 backdrop-blur-sm text-[#212529] px-4 py-2 rounded-lg hidden md:block shadow-md">
-                <div className="text-[10px] font-black uppercase tracking-widest text-[#8B6E66]">Est. 2005</div>
-              </div>
-           </div>
-        </div>
-
       </div>
 
-      {/* Scroll Down Indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2">
-        <span className="text-[10px] font-black text-[#8B6E66] uppercase tracking-[.3em]">Scroll</span>
-        <ChevronDown size={20} className="text-[#8B6E66]" />
-      </div>
-
-      {/* Dot progress animation */}
+      {/* ═══ Keyframes ═══ */}
       <style>{`
-        @keyframes dotProgress {
+        @keyframes slideProgress {
           0% { width: 0%; }
-          100% { width: calc(100% - 8px); }
+          100% { width: 100%; }
         }
-        .hide-scrollbar::-webkit-scrollbar { display: none; }
-        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
       `}</style>
     </section>
   );

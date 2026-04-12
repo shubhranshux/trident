@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
+// eslint-disable-next-line react-refresh/only-export-components
 export function useVisible(threshold = 0.1) {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef(null);
@@ -14,9 +15,10 @@ export function useVisible(threshold = 0.1) {
       },
       { threshold }
     );
-    if (ref.current) observer.observe(ref.current);
+    const node = ref.current;
+    if (node) observer.observe(node);
     return () => {
-      if (ref.current) observer.unobserve(ref.current);
+      if (node) observer.unobserve(node);
     };
   }, [threshold]);
 

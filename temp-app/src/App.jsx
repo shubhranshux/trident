@@ -1,13 +1,4 @@
 import { lazy, Suspense } from "react";
-import { Routes, Route } from "react-router-dom";
-import Academics from "./pages/academics/index.jsx";
-import ContactPage from "./pages/contact/index.jsx";
-import ApplyPage from "./pages/apply/index.jsx";
-import ActivitiesPage from "./pages/activities/index.jsx";
-import AdmissionsPage from "./pages/admissions/index.jsx";
-import AboutPage from "./pages/about/index.jsx";
-import ResearchPage from "./pages/research/index.jsx";
-import CampusLifePage from "./pages/campuslife/index.jsx";
 
 // Critical above-the-fold — eager loaded
 import Header from "./components/Header";
@@ -152,17 +143,7 @@ export default function App() {
       `}</style>
 
       <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/academics" element={<Academics />} />
-        <Route path="/contact" element={<ContactPage />} />
-        <Route path="/apply" element={<ApplyPage />} />
-        <Route path="/activities" element={<ActivitiesPage />} />
-        <Route path="/admissions" element={<AdmissionsPage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/research" element={<ResearchPage />} />
-        <Route path="/campus-life" element={<CampusLifePage />} />
-      </Routes>
+      <Home />
       <Suspense fallback={<SectionFallback />}><Footer /></Suspense>
     </div>
   );
