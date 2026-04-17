@@ -14,6 +14,7 @@ const Discover      = lazy(() => import("./components/Discover"));
 const Placements    = lazy(() => import("./components/Placements"));
 const Testimonials  = lazy(() => import("./components/Testimonials"));
 const WhyChooseTrident = lazy(() => import("./components/WhyChooseTrident"));
+const NewsSection     = lazy(() => import("./components/NewsSection"));
 
 
 const Footer        = lazy(() => import("./components/Footer"));
@@ -38,6 +39,7 @@ function Home() {
           <Suspense fallback={<SectionFallback />}><Facilities /></Suspense>
           <Suspense fallback={<SectionFallback />}><Discover /></Suspense>
           <Suspense fallback={<SectionFallback />}><Testimonials /></Suspense>
+          <Suspense fallback={<SectionFallback />}><NewsSection /></Suspense>
         </main>
       </div>
     </>

@@ -4,7 +4,7 @@ import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 /* ─── Slide data — each slide: full-bleed image + unique copy ─── */
 const SLIDES = [
   {
-    image: "/hero/slide1.png",
+    image: "/hero/DSC_9934.JPG",
     heading: <>Connecting<br />education with<br />opportunity</>,
     subtext: "At Trident Academy of Technology, we're focused on one goal: shaping the engineers, leaders, and innovators of tomorrow through world-class education.",
     ctaLabel: "Apply Now",
@@ -13,7 +13,7 @@ const SLIDES = [
     secondaryHref: "https://academics-tat.tekkzy.com/departments-of-engineering/",
   },
   {
-    image: "/hero/slide2.png",
+    image: "/hero/Innovation.png",
     heading: <>Where knowledge<br />meets<br />innovation</>,
     subtext: "Immerse yourself in Odisha's premier technical ecosystem. Rigorous academics meet world-class innovation labs to forge the leaders of tomorrow.",
     ctaLabel: "Our Programs",
@@ -22,7 +22,7 @@ const SLIDES = [
     secondaryHref: "https://about-tat.tekkzy.com/",
   },
   {
-    image: "/hero/slide3.png",
+    image: "/hero/Placement.JPG",
     heading: <>Building careers<br />that matter,<br />since 2005</>,
     subtext: "120+ recruiting companies, thousands of placed graduates, and a legacy of career-readiness. Where ambition meets real-world opportunity.",
     ctaLabel: "View Placements",
@@ -31,7 +31,7 @@ const SLIDES = [
     secondaryHref: "https://about-tat.tekkzy.com/",
   },
   {
-    image: "/hero/slide4.png",
+    image: "/hero/gate.JPG",
     heading: <>A campus<br />designed to<br />inspire</>,
     subtext: "A corporate-styled campus in the heart of Bhubaneswar — advanced labs, vibrant student clubs, cultural festivals, and spaces that spark creativity.",
     ctaLabel: "Explore Campus",
@@ -40,7 +40,7 @@ const SLIDES = [
     secondaryHref: "https://activities-tat.tekkzy.com/",
   },
   {
-    image: "/hero/slide5.png",
+    image: "/hero/_MG_2404.JPG",
     heading: <>Pioneering<br />research with<br />real impact</>,
     subtext: "₹2.5 Cr DST-funded AI Research Centre, 50+ patents filed, and a culture of relentless innovation. Discover what makes Trident a research powerhouse.",
     ctaLabel: "Our Research",

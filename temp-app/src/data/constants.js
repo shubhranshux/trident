@@ -16,10 +16,45 @@ export const STATS = [
 ];
 
 export const NEWS = [
-  { date:"Feb 22, 2026", cat:"Placement",   title:"TAT records highest-ever placements — 320+ companies, packages up to ₹12 LPA",     desc:"TCS, Infosys, Wipro, Capgemini and HCL Technologies led the 2025-26 placement drive with strong offers across CSE and ECE branches." },
-  { date:"Feb 14, 2026", cat:"Research",    title:"TAT receives ₹2.5 Cr DST grant for AI & Machine Learning Research Centre",          desc:"The Department of Science & Technology approved funding to set up a state-of-the-art GPU-powered AI research lab on campus." },
-  { date:"Feb 06, 2026", cat:"Achievement", title:"Students clinch first prize at Smart India Hackathon 2025 Hardware Edition",              desc:"A six-member final-year CSE team won the national-level competition held at IIT Bombay, beating 400+ teams from across India." },
-  { date:"Jan 28, 2026", cat:"Event",       title:"Annual Tech Fest INFUSIO 2026 — March 14 to 16",                                         desc:"Three days of technical contests, workshops, and keynote talks from industry leaders across India’s top technology companies." },
+  {
+    date: "Mar 10, 2026", cat: "Accreditation", img: "news_nba",
+    title: "6 UG & PG Programmes Receive NBA Accreditation",
+    desc: "Trident Academy of Technology achieves a major milestone as six of its UG & PG programmes are now proudly accredited by the National Board of Accreditation (NBA), reaffirming the institution's commitment to quality education.",
+    featured: true,
+  },
+  {
+    date: "Feb 22, 2026", cat: "Placement", img: "news_placement",
+    title: "TAT Records Highest-Ever Placements — 320+ Companies Visit Campus",
+    desc: "TCS, Infosys, Wipro, Capgemini and HCL Technologies led the 2025-26 placement drive with packages up to ₹12 LPA across CSE, ETC, and EEE branches.",
+  },
+  {
+    date: "Feb 14, 2026", cat: "Achievement", img: "news_hackathon",
+    title: "Students Win First Prize at Smart India Hackathon 2025",
+    desc: "A six-member final-year CSE team clinched the national-level Smart India Hackathon Hardware Edition, beating 400+ teams from across India.",
+  },
+  {
+    date: "Feb 06, 2026", cat: "Innovation", img: "news_innovation_lab",
+    title: "CISCO thingQbator & IEDC Cell Launch New IoT Incubation Cohort",
+    desc: "The CISCO thingQbator centre at TAT, along with the Innovation & Entrepreneurship Development Cell, has launched its 5th cohort for IoT-based startup incubation.",
+  },
+  {
+    date: "Jan 28, 2026", cat: "Event", img: "news_trifest",
+    title: "TRIFEST 2026 — Annual Cultural & Technical Festival Concludes",
+    desc: "Three days of electrifying performances, technical contests, coding marathons, and keynote talks by industry leaders at Trident's flagship annual festival.",
+  },
+  {
+    date: "Jan 15, 2026", cat: "Research", img: "news_convocation",
+    title: "TAT Receives ₹2.5 Cr DST Grant for AI Research Centre",
+    desc: "The Department of Science & Technology approved funding to set up a GPU-powered AI & Machine Learning research lab, strengthening TAT's DSIR SIRO recognition.",
+  },
+];
+
+export const EVENTS = [
+  { date: "Apr 25", month: "Apr", day: "25", title: "Industry-Academia Conclave 2026", venue: "Main Auditorium", type: "Seminar" },
+  { date: "May 03", month: "May", day: "03", title: "TRILOGY Magazine Launch — Issue 12", venue: "Conference Hall", type: "Publication" },
+  { date: "May 10", month: "May", day: "10", title: "Alumni Meet 2026", venue: "Trident Campus", type: "Reunion" },
+  { date: "May 18", month: "May", day: "18", title: "National Seminar on Sustainable Tech", venue: "Seminar Hall", type: "Research" },
+  { date: "Jun 01", month: "Jun", day: "01", title: "Orientation Programme — New Batch 2026", venue: "Auditorium", type: "Academic" },
 ];
 
 export const PROGRAMS = [
