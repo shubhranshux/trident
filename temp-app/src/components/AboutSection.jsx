@@ -22,7 +22,7 @@ export default function AboutSection() {
 
   const missionPoints = [
     "To foster holistic excellence in the new generation of students.",
-    "To instill in them the power of aggressive positive thinking, insatiable desire for information and knowledge, a penchant for out-of-the-box ideation and capacity of execution.",
+    "To instill in them, the power of aggressive positive thinking, insatiable desire for information and knowledge, a penchant for out-of-the-box ideation and capacity of execution.",
     "To contribute to the society with honesty and integrity through innovative research in the multi-disciplinary areas of evolving and upcoming technologies.",
   ];
 
@@ -180,8 +180,8 @@ export default function AboutSection() {
                     {/* Quote */}
                     <div className="relative">
                       <div className="absolute -top-4 -left-2 text-[80px] leading-none text-[#E8BD63]/15 font-serif select-none">"</div>
-                      <blockquote className="relative text-[#3E3A36]/80 text-xl md:text-[22px] leading-relaxed font-medium italic pl-8 border-l-[3px] border-[#E8BD63]/50">
-                        To foster holistic excellence in the new generation of students.
+                      <blockquote className="relative text-[#3E3A36]/80 text-[19px] md:text-[22px] leading-relaxed font-medium italic pl-8 border-l-[3px] border-[#E8BD63]/50">
+                        To become a sustainable institution of excellence, advancing innovative education, research and skill development.
                       </blockquote>
                     </div>
                   </div>
