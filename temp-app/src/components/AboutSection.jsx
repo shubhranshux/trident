@@ -130,7 +130,7 @@ export default function AboutSection() {
             </div>
             
             <FadeInUp delay={700}>
-              <a href="#" className="mt-12 group inline-flex items-center gap-3 text-sm font-bold uppercase tracking-widest text-[#3E3A36] hover:text-primary transition-colors">
+              <a href="https://tat.tekkzy.com/read-our-story/" className="mt-12 group inline-flex items-center gap-3 text-sm font-bold uppercase tracking-widest text-[#3E3A36] hover:text-primary transition-colors">
                 <span className="w-12 h-[2px] bg-secondary group-hover:w-16 group-hover:bg-primary transition-all"></span>
                 Read Our Full Story
               </a>

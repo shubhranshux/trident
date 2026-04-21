@@ -27,48 +27,6 @@ const DEPARTMENTS = [
     image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80"
   },
   {
-    name: "Artificial Intelligence & ML",
-    category: "B.Tech · M.Tech",
-    desc: "Exploring neural networks, deep learning models, and cognitive automation systems.",
-    est: "2020", campus: "Adv. Computing Block", duration: "4 Years", seats: 198,
-    image: "https://images.unsplash.com/photo-1555255707-c07966088b7b?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    name: "Data Science",
-    category: "B.Tech · M.Tech",
-    desc: "Rigorous training in big data analytics, predictive modeling, and statistical intelligence.",
-    est: "2021", campus: "Data Analytics Lab", duration: "4 Years", seats: 78,
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    name: "Biotechnology",
-    category: "B.Tech · Intg. M.Tech",
-    desc: "Intersecting biology with technology for pharmaceutical, agricultural, and biochemical innovations.",
-    est: "2007", campus: "Life Sciences Block", duration: "4 Years", seats: 120,
-    image: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    name: "Electronics & Telecomm.",
-    category: "B.Tech · M.Tech",
-    desc: "Designing robust communications, microwave tech, and advanced signaling systems.",
-    est: "2005", campus: "Communication Wing", duration: "4 Years", seats: 48,
-    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    name: "VLSI Design",
-    category: "B.Tech · M.Tech",
-    desc: "Pioneering microelectronics, semiconductor design, and extreme miniaturization.",
-    est: "2010", campus: "Microelectronics Lab", duration: "4 Years", seats: 48,
-    image: "https://images.unsplash.com/photo-1562408590-e32931084e23?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    name: "Electrical & Electronics",
-    category: "Diploma · B.Tech · M.Tech",
-    desc: "Mastering power grids, renewable energy, and modern control engineering.",
-    est: "2005", campus: "Power Engg. Block", duration: "4 Years", seats: 126,
-    image: "https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?auto=format&fit=crop&w=800&q=80"
-  },
-  {
     name: "Mechanical Engineering",
     category: "Diploma · B.Tech · M.Tech",
     desc: "Advancing automation, thermodynamics, and sustainable manufacturing practices.",
@@ -82,20 +40,6 @@ const DEPARTMENTS = [
     est: "2014", campus: "Infrastructure Wing", duration: "4 Years", seats: 66,
     image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80"
   },
-  {
-    name: "Department of MBA",
-    category: "Core · IEVD · Env. Mgmt.",
-    desc: "Fostering strategic leadership, entrepreneurial agility, and global business acumen.",
-    est: "2008", campus: "Management Block", duration: "2 Years", seats: 180,
-    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    name: "Department of MCA",
-    category: "Master of Computer App.",
-    desc: "Advanced studies in enterprise software architecture, databases, and IT framework deployments.",
-    est: "2005", campus: "Computing Center", duration: "2 Years", seats: 60,
-    image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80"
-  }
 ];
 
 /* ═══════════════════════════════════════════════════════════════════════
@@ -199,7 +143,7 @@ const DeptCard = ({ dept, index }) => {
 
         {/* CTA */}
         <a
-          href="https://academics-tat.tekkzy.com/departments-of-engineering/"
+          href="https://academics-tat.tekkzy.com/departemnts-of-engineering/"
           className="inline-flex items-center gap-1.5 text-[13px] font-bold text-white
                      rounded-xl px-5 py-2.5 transition-all duration-200
                      hover:gap-2.5 hover:shadow-lg hover:brightness-110 active:scale-[0.97]"
@@ -233,7 +177,7 @@ const CtaCard = () => (
         9 UG · 12 PG · 2 Integrated · 3 Diploma Programs
       </p>
       <a
-        href="https://academics-tat.tekkzy.com/departments-of-engineering/"
+        href="https://academics-tat.tekkzy.com/departemnts-of-engineering/"
         className="bg-white hover:bg-gray-50 text-[#1A2660] font-bold py-3 px-7 rounded-xl transition-all shadow-lg hover:-translate-y-0.5 flex items-center gap-2 text-[14px]"
       >
         View All
@@ -291,31 +235,7 @@ export default function Programs() {
           </FadeInUp>
         </div>
 
-        {/* ── Bottom full-width CTA banner ── */}
-        <FadeInUp delay={DEPARTMENTS.length * 60 + 120}>
-          <div className="mt-12">
-            <div className="bg-gradient-to-r from-[#1a1a2e] via-[#2C3A8C] to-[#6C5CE7] rounded-2xl p-8 md:p-12 text-white flex flex-col md:flex-row items-center justify-between gap-8 shadow-[0_12px_40px_rgba(44,58,140,0.20)] overflow-hidden relative">
-              <div className="absolute top-0 right-0 w-72 h-72 bg-[#E8BD63]/8 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/4 pointer-events-none" />
-              <div className="absolute bottom-0 left-1/3 w-48 h-48 bg-[#6C5CE7]/15 rounded-full blur-[70px] translate-y-1/2 pointer-events-none" />
 
-              <div className="z-10 text-center md:text-left">
-                <h3 className="serif text-2xl md:text-3xl xl:text-[34px] font-bold mb-2 text-[#E8BD63]">
-                  Ready to Start Your Journey?
-                </h3>
-                <p className="text-white/75 text-[15px] max-w-lg leading-relaxed font-medium">
-                  Join 5,000+ students across 11 departments. Applications for the 2026-27 academic year are now open.
-                </p>
-              </div>
-              <a
-                href="https://academics-tat.tekkzy.com/departments-of-engineering/"
-                className="z-10 bg-white hover:bg-gray-50 text-[#1A2660] font-bold py-4 px-10 rounded-xl transition-all shadow-lg hover:-translate-y-0.5 flex items-center gap-3 whitespace-nowrap text-[15px]"
-              >
-                Explore All Programs
-                <ArrowRight size={18} strokeWidth={2.5} />
-              </a>
-            </div>
-          </div>
-        </FadeInUp>
 
       </div>
     </section>

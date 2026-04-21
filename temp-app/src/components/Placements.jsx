@@ -183,7 +183,7 @@ export default function Placements() {
               <p className="text-[11px] font-bold uppercase tracking-[0.3em] text-[#E8BD63]">
                 Trusted by Industry Leaders
               </p>
-              <p className="text-white/30 text-[10px] mt-1.5 font-medium">Hover to reveal each company's logo</p>
+
             </div>
             <div className="flex flex-wrap justify-center gap-2.5 max-w-5xl mx-auto">
               {companies.map((name) => (

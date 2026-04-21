@@ -85,11 +85,11 @@ export default function Footer() {
           <div className="lg:col-span-8 grid grid-cols-2 lg:grid-cols-3 gap-12">
             {[
               { h:"Academics", ls:[
-                { t:"Undergraduate Studies", h:"https://academics-tat.tekkzy.com/departments-of-engineering/" },
+                { t:"Undergraduate Studies", h:"https://academics-tat.tekkzy.com/departemnts-of-engineering/" },
                 { t:"Postgraduate Studies", h:"https://academics-tat.tekkzy.com/" },
                 { t:"Doctoral Programs", h:"https://academics-tat.tekkzy.com/" },
                 { t:"Research Centers", h:"https://research-tat.tekkzy.com/" },
-                { t:"Academic Calendar", h:"https://academics-tat.tekkzy.com/" },
+                { t:"Academic Calendar", h:"https://academics-tat.tekkzy.com/calenders/" },
               ] },
               { h:"Campus Life", ls:[
                 { t:"Student Hostels", h:"https://sipitridentcampuslife.netlify.app/" },

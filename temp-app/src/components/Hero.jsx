@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useCallback, useRef } from 'react';
-import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 /* ─── Slide data — each slide: full-bleed image + unique copy ─── */
 const SLIDES = [
@@ -7,46 +7,26 @@ const SLIDES = [
     image: "/hero/DSC_9934.JPG",
     heading: <>Connecting<br />education with<br />opportunity</>,
     subtext: "At Trident Academy of Technology, we're focused on one goal: shaping the engineers, leaders, and innovators of tomorrow through world-class education.",
-    ctaLabel: "Apply Now",
-    ctaHref: "https://apply-tat.tekkzy.com/",
-    secondaryLabel: "Explore Programs",
-    secondaryHref: "https://academics-tat.tekkzy.com/departments-of-engineering/",
   },
   {
     image: "/hero/Innovation.png",
     heading: <>Where knowledge<br />meets<br />innovation</>,
     subtext: "Immerse yourself in Odisha's premier technical ecosystem. Rigorous academics meet world-class innovation labs to forge the leaders of tomorrow.",
-    ctaLabel: "Our Programs",
-    ctaHref: "https://academics-tat.tekkzy.com/",
-    secondaryLabel: "About Trident",
-    secondaryHref: "https://about-tat.tekkzy.com/",
   },
   {
     image: "/hero/Placement.JPG",
     heading: <>Building careers<br />that matter,<br />since 2005</>,
     subtext: "120+ recruiting companies, thousands of placed graduates, and a legacy of career-readiness. Where ambition meets real-world opportunity.",
-    ctaLabel: "View Placements",
-    ctaHref: "#placements",
-    secondaryLabel: "Our Recruiters",
-    secondaryHref: "https://about-tat.tekkzy.com/",
   },
   {
     image: "/hero/gate.JPG",
     heading: <>A campus<br />designed to<br />inspire</>,
     subtext: "A corporate-styled campus in the heart of Bhubaneswar — advanced labs, vibrant student clubs, cultural festivals, and spaces that spark creativity.",
-    ctaLabel: "Explore Campus",
-    ctaHref: "https://campuslife-tat.tekkzy.com/",
-    secondaryLabel: "Student Life",
-    secondaryHref: "https://activities-tat.tekkzy.com/",
   },
   {
     image: "/hero/_MG_2404.JPG",
     heading: <>Pioneering<br />research with<br />real impact</>,
     subtext: "₹2.5 Cr DST-funded AI Research Centre, 50+ patents filed, and a culture of relentless innovation. Discover what makes Trident a research powerhouse.",
-    ctaLabel: "Our Research",
-    ctaHref: "https://research-tat.tekkzy.com/",
-    secondaryLabel: "Publications",
-    secondaryHref: "https://research-tat.tekkzy.com/",
   },
 ];
 
@@ -178,61 +158,7 @@ export default function Hero() {
               {slide.subtext}
             </p>
 
-            {/* ── CTAs — clean, minimal ── */}
-            <div
-              className="flex flex-wrap items-center gap-4"
-              style={tx(340, 12, 22)}
-            >
-              <a
-                href={slide.ctaHref}
-                className="group/btn inline-flex items-center gap-3 rounded-full transition-all duration-300 active:scale-[0.97]"
-                style={{
-                  fontFamily: "'DM Sans', sans-serif",
-                  fontWeight: 600,
-                  fontSize: '0.9rem',
-                  letterSpacing: '0.01em',
-                  padding: '0.9rem 2rem',
-                  background: '#fff',
-                  color: '#1a1a1a',
-                }}
-                onMouseEnter={e => {
-                  e.currentTarget.style.background = '#1a1a1a';
-                  e.currentTarget.style.color = '#fff';
-                }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.background = '#fff';
-                  e.currentTarget.style.color = '#1a1a1a';
-                }}
-              >
-                {slide.ctaLabel}
-                <ArrowRight size={16} strokeWidth={2.5} className="transition-transform duration-300 group-hover/btn:translate-x-1" />
-              </a>
-              <a
-                href={slide.secondaryHref}
-                className="inline-flex items-center gap-2 rounded-full transition-all duration-300"
-                style={{
-                  fontFamily: "'DM Sans', sans-serif",
-                  fontWeight: 500,
-                  fontSize: '0.9rem',
-                  letterSpacing: '0.01em',
-                  padding: '0.9rem 2rem',
-                  color: '#fff',
-                  border: '1px solid rgba(255,255,255,0.25)',
-                  backdropFilter: 'blur(8px)',
-                  background: 'rgba(255,255,255,0.06)',
-                }}
-                onMouseEnter={e => {
-                  e.currentTarget.style.background = 'rgba(255,255,255,0.15)';
-                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.45)';
-                }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.background = 'rgba(255,255,255,0.06)';
-                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.25)';
-                }}
-              >
-                {slide.secondaryLabel}
-              </a>
-            </div>
+
           </div>
         </div>
       </div>

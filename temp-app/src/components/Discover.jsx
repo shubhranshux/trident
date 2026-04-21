@@ -12,7 +12,7 @@ export default function Discover() {
       desc: "Lay the foundation for a transformative career with our rigorous bachelor's programs.",
       img: ugImg,
       link: "Explore UG Programs",
-      href: "https://academics-tat.tekkzy.com/departments-of-engineering/",
+      href: "https://academics-tat.tekkzy.com/departemnts-of-engineering/",
       delay: 0,
       color: "brand-blue"
     },

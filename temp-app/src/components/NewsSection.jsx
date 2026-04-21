@@ -326,7 +326,7 @@ export default function NewsSection() {
                   {/* View All Events Button */}
                   <div className="mt-8 pt-6 border-t border-white/10 flex justify-center">
                     <a
-                      href="https://tat.ac.in/activities/"
+                      href="https://academics-tat.tekkzy.com/calenders/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="group inline-flex items-center gap-3 px-6 py-3 rounded-full bg-white/5 border border-white/10 hover:border-[#E8BD63]/50 hover:bg-[#E8BD63]/10 text-white hover:text-[#E8BD63] text-xs font-bold uppercase tracking-[0.1em] transition-all duration-300"
@@ -350,7 +350,7 @@ export default function NewsSection() {
                 </div>
                 <ul className="p-2">
                   {[
-                    { label: "Academic Calendar", href: "https://tat.ac.in/academics/" },
+                    { label: "Academic Calendar", href: "https://academics-tat.tekkzy.com/calenders/" },
                     { label: "E-Governance Portal", href: "https://ais.tat.ac.in/" },
                     { label: "Placement Statistics", href: "https://tat.ac.in/placement/placement-statistics/" },
                     { label: "TRILOGY Magazine", href: "https://tat.ac.in/activities/trilogy/" },
@@ -405,7 +405,7 @@ export default function NewsSection() {
             {/* View All Events CTA Box */}
             <SlideIn direction="right" delay={600}>
               <a
-                href="https://tat.ac.in/activities/"
+                href="https://academics-tat.tekkzy.com/calenders/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group block rounded-[26px] overflow-hidden bg-gradient-to-br from-[#E8BD63] to-[#d4ac5a] p-7 md:p-8 text-center shadow-[0_20px_40px_-15px_rgba(232,189,99,0.4)] relative cursor-pointer border border-[#E8BD63]/50 hover:shadow-[0_25px_50px_-15px_rgba(232,189,99,0.6)] transition-all duration-300 hover:-translate-y-1"
