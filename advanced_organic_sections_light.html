@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Advanced Organic Sections — Light Mode</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',sans-serif;background:#f5f3ee;color:#1a1810}
+.lbl{font-size:0.6rem;letter-spacing:.2em;text-transform:uppercase;color:#b0aa9a;padding:1.8rem 1.5rem 0.6rem;display:block}
+
+/* ① MORPHING BLOB */
+.blob-wrap{display:flex;align-items:center;justify-content:center;padding:1.5rem;gap:2rem}
+.morph-blob{width:180px;height:180px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.4rem;animation:morphblob 6s ease-in-out infinite}
+@keyframes morphblob{
+  0%{border-radius:60% 40% 30% 70%/60% 30% 70% 40%;background:#e8e0f5}
+  25%{border-radius:30% 60% 70% 40%/50% 60% 30% 60%;background:#e5f0ea}
+  50%{border-radius:50% 60% 30% 40%/40% 50% 60% 50%;background:#fdf0dc}
+  75%{border-radius:70% 30% 60% 40%/30% 70% 40% 60%;background:#fce8e8}
+  100%{border-radius:60% 40% 30% 70%/60% 30% 70% 40%;background:#e8e0f5}
+}
+.morph-blob .val{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:#534ab7}
+.morph-blob .lbl2{font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:#9a90b0}
+.blob-info{flex:1;max-width:240px}
+.blob-info h3{font-family:'Playfair Display',serif;font-size:1.2rem;font-style:italic;color:#1a1810;margin-bottom:.5rem}
+.blob-info p{font-size:.78rem;color:#7a7060;line-height:1.6}
+.blob-info code{font-size:.7rem;color:#534ab7;background:#eeedfe;padding:2px 6px;border-radius:3px}
+
+/* ② HEXAGON GRID */
+.hex-section{padding:1rem 1.5rem .5rem}
+.hex-grid{display:flex;flex-wrap:wrap;gap:4px;justify-content:center}
+.hex{width:90px;height:104px;position:relative;cursor:pointer;transition:transform .2s}
+.hex:hover{transform:scale(1.08)}
+.hex svg{position:absolute;inset:0;width:100%;height:100%}
+.hex-content{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:3px;z-index:1}
+.hex:nth-child(even){margin-top:52px}
+.hex-val{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700}
+.hex-label{font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;opacity:.6}
+
+/* ③ TORN PAPER */
+.torn-above{background:#1a1a2e;padding:1.2rem 2rem 0}
+.torn-above p{font-family:'Playfair Display',serif;font-size:.95rem;font-style:italic;color:#e8e4dc;text-align:center}
+.torn-svg{display:block;width:100%;margin:0}
+.torn-below{background:#f5f3ee;padding:0 2rem 1.2rem}
+.torn-below p{font-size:.78rem;color:#a0988a;text-align:center;padding-top:.6rem;font-style:italic}
+
+/* ④ MASKED TEXT */
+.masked-wrap{padding:1rem 1.5rem;overflow:hidden}
+.masked-text{font-family:'Playfair Display',serif;font-size:5.5rem;font-weight:700;line-height:1;background:linear-gradient(135deg,#534ab7 0%,#1d9e75 35%,#ba7517 65%,#534ab7 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;background-size:200% 200%;animation:shimmer 4s linear infinite;user-select:none}
+@keyframes shimmer{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+.masked-sub{font-size:.7rem;letter-spacing:.25em;text-transform:uppercase;color:#c0b8a8;margin-top:.3rem;padding-left:3px}
+
+/* ⑤ OVERLAPPING SECTIONS */
+.overlap-a{background:#1a1a2e;padding:2rem 2rem 4rem;position:relative;z-index:1}
+.overlap-b{background:#fff8ee;padding:1.5rem 2rem 2rem;margin-top:-2.5rem;position:relative;z-index:2;clip-path:polygon(0 2rem,100% 0,100% 100%,0 100%)}
+.overlap-c{background:#eaf5f0;padding:1.5rem 2rem 2rem;margin-top:-2.5rem;position:relative;z-index:3;clip-path:polygon(0 0,100% 2rem,100% 100%,0 100%)}
+.ol-title{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;margin-bottom:.3rem}
+.ol-body{font-size:.75rem;line-height:1.5}
+.ol-tag{display:inline-block;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;padding:2px 8px;margin-bottom:.6rem;border-radius:2px}
+
+/* ⑥ WAVE */
+.wave-section{position:relative;overflow:hidden;height:120px;background:#f0eee8}
+.wave-canvas{width:100%;height:100%;display:block}
+
+/* ⑦ MARQUEE BAND */
+.marquee-outer{overflow:hidden;background:#1a1a2e;padding:.6rem 0;transform:skewY(-2deg);margin:.5rem 0}
+.marquee-inner{display:flex;gap:3rem;width:max-content;animation:marquee 12s linear infinite}
+.marquee-inner span{font-family:'Playfair Display',serif;font-size:1rem;font-style:italic;color:#c8a96e;white-space:nowrap}
+.marquee-inner .dot{color:#3a3448;font-style:normal}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ⑧ STACKED LAYERS */
+.stack-wrap{padding:1rem 1.5rem 1.5rem;display:flex;justify-content:center}
+.stack{position:relative;width:320px;height:160px}
+.layer{position:absolute;width:100%;border-radius:4px;display:flex;align-items:center;padding:1rem 1.5rem;gap:1rem}
+.layer-3{background:#ddd8f0;border:1px solid #c8c0e8;top:24px;left:12px;filter:brightness(.92)}
+.layer-2{background:#e8e4f5;border:1px solid #d0caf0;top:12px;left:6px;filter:brightness(.96)}
+.layer-1{background:#fff;border:1px solid #c8c4e0;top:0;left:0}
+.layer-icon{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.layer-text .t1{font-size:.8rem;font-weight:500;color:#1a1810}
+.layer-text .t2{font-size:.65rem;color:#9a90b0;margin-top:1px}
+</style>
+</head>
+<body>
+
+<!-- ① MORPHING BLOB -->
+<span class="lbl">① morphing blob — css border-radius animation</span>
+<div class="blob-wrap">
+  <div class="morph-blob">
+    <span class="val">∞</span>
+    <span class="lbl2">Organic</span>
+  </div>
+  <div class="blob-info">
+    <h3>No shape is permanent</h3>
+    <p>Eight-value <code>border-radius</code> animates between organic forms — no SVG, no JS, just CSS keyframes cycling through curve ratios like <code>60% 40% 30% 70% / 60% 30% 70% 40%</code></p>
+  </div>
+</div>
+
+<!-- ② HEXAGON GRID -->
+<span class="lbl">② hexagon grid — svg polygon cards</span>
+<div class="hex-section">
+  <div class="hex-grid">
+    <div class="hex">
+      <svg viewBox="0 0 90 104"><polygon points="45,2 88,26 88,78 45,102 2,78 2,26" fill="#eeedfe" stroke="#afa9ec" stroke-width="1"/></svg>
+      <div class="hex-content"><span class="hex-val" style="color:#3c3489">UI</span><span class="hex-label" style="color:#7f77dd">Design</span></div>
+    </div>
+    <div class="hex">
+      <svg viewBox="0 0 90 104"><polygon points="45,2 88,26 88,78 45,102 2,78 2,26" fill="#1a1a2e"/></svg>
+      <div class="hex-content"><span class="hex-val" style="color:#c8a96e">42</span><span class="hex-label" style="color:#7a6a40">Projects</span></div>
+    </div>
+    <div class="hex">
+      <svg viewBox="0 0 90 104"><polygon points="45,2 88,26 88,78 45,102 2,78 2,26" fill="#e1f5ee" stroke="#9fe1cb" stroke-width="1"/></svg>
+      <div class="hex-content"><span class="hex-val" style="color:#085041">Dev</span><span class="hex-label" style="color:#0f6e56">Motion</span></div>
+    </div>
+    <div class="hex">
+      <svg viewBox="0 0 90 104"><polygon points="45,2 88,26 88,78 45,102 2,78 2,26" fill="#faeeda" stroke="#fac775" stroke-width="1"/></svg>
+      <div class="hex-content"><span class="hex-val" style="color:#633806">Brand</span><span class="hex-label" style="color:#854f0b">Identity</span></div>
+    </div>
+    <div class="hex">
+      <svg viewBox="0 0 90 104"><polygon points="45,2 88,26 88,78 45,102 2,78 2,26" fill="#faece7" stroke="#f5c4b3" stroke-width="1"/></svg>
+      <div class="hex-content"><span class="hex-val" style="color:#712b13">98%</span><span class="hex-label" style="color:#993c1d">Score</span></div>
+    </div>
+    <div class="hex">
+      <svg viewBox="0 0 90 104"><polygon points="45,2 88,26 88,78 45,102 2,78 2,26" fill="#eaf3de" stroke="#c0dd97" stroke-width="1"/></svg>
+      <div class="hex-content"><span class="hex-val" style="color:#27500a">Web</span><span class="hex-label" style="color:#3b6d11">Build</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ③ TORN PAPER -->
+<span class="lbl">③ torn paper edge — svg jagged path divider</span>
+<div class="torn-above"><p>"Design is not just what it looks like — it's how it feels."</p></div>
+<svg class="torn-svg" viewBox="0 0 1440 32" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0,0 L0,18 L40,8 L80,22 L120,6 L160,20 L200,4 L240,18 L280,8 L320,24 L360,10 L400,22 L440,6 L480,20 L520,12 L560,26 L600,8 L640,20 L680,6 L720,18 L760,4 L800,22 L840,10 L880,24 L920,8 L960,20 L1000,6 L1040,18 L1080,10 L1120,26 L1160,8 L1200,20 L1240,6 L1280,22 L1320,10 L1360,24 L1400,8 L1440,14 L1440,0 Z" fill="#1a1a2e"/>
+  <path d="M0,18 L40,8 L80,22 L120,6 L160,20 L200,4 L240,18 L280,8 L320,24 L360,10 L400,22 L440,6 L480,20 L520,12 L560,26 L600,8 L640,20 L680,6 L720,18 L760,4 L800,22 L840,10 L880,24 L920,8 L960,20 L1000,6 L1040,18 L1080,10 L1120,26 L1160,8 L1200,20 L1240,6 L1280,22 L1320,10 L1360,24 L1400,8 L1440,14 L1440,32 L0,32 Z" fill="#f5f3ee"/>
+</svg>
+<div class="torn-below"><p>The tear separates two worlds — deep night above, warm light below</p></div>
+
+<!-- ④ MASKED TEXT -->
+<span class="lbl">④ oversized masked text — background-clip: text</span>
+<div class="masked-wrap">
+  <div class="masked-text">BEYOND</div>
+  <div class="masked-sub">the grid — contour layout technique</div>
+</div>
+
+<!-- ⑤ OVERLAPPING SECTIONS -->
+<span class="lbl">⑤ overlapping sections — negative margin + z-index</span>
+<div class="overlap-a">
+  <span class="ol-tag" style="background:#2a2a4e;color:#8a8ac0">Layer one</span>
+  <div class="ol-title" style="color:#e8e4dc">Deep navy foundation</div>
+  <div class="ol-body" style="color:#7a7898">This section sets the stage — it bleeds downward and the next section physically overlaps it using <code style="font-size:.7rem;color:#c8a96e">margin-top: -2.5rem</code> and a diagonal clip.</div>
+</div>
+<div class="overlap-b">
+  <span class="ol-tag" style="background:#fde8c8;color:#854f0b">Layer two</span>
+  <div class="ol-title" style="color:#3a2808">Warm amber mid-ground</div>
+  <div class="ol-body" style="color:#7a6040">Slides under the first layer visually, creating depth and a sense of stacked planes — no border, no separator, just geometry.</div>
+</div>
+<div class="overlap-c">
+  <span class="ol-tag" style="background:#c8eedc;color:#085041">Layer three</span>
+  <div class="ol-title" style="color:#042c1e">Teal depths emerge</div>
+  <div class="ol-body" style="color:#406858">A third plane completes the stack — each section emerges from beneath the one above it.</div>
+</div>
+
+<!-- ⑥ ANIMATED WAVE -->
+<span class="lbl">⑥ animated wave — canvas sine curves</span>
+<div class="wave-section">
+  <canvas class="wave-canvas" id="waveCanvas"></canvas>
+</div>
+
+<!-- ⑦ MARQUEE BAND -->
+<span class="lbl">⑦ marquee band — skewed scrolling text</span>
+<div class="marquee-outer">
+  <div class="marquee-inner">
+    <span>Organic Layout</span><span class="dot">✦</span>
+    <span>Dynamic Contours</span><span class="dot">✦</span>
+    <span>Beyond the Grid</span><span class="dot">✦</span>
+    <span>Fluid Design</span><span class="dot">✦</span>
+    <span>SVG Shapes</span><span class="dot">✦</span>
+    <span>CSS Magic</span><span class="dot">✦</span>
+    <span>Organic Layout</span><span class="dot">✦</span>
+    <span>Dynamic Contours</span><span class="dot">✦</span>
+    <span>Beyond the Grid</span><span class="dot">✦</span>
+    <span>Fluid Design</span><span class="dot">✦</span>
+    <span>SVG Shapes</span><span class="dot">✦</span>
+    <span>CSS Magic</span><span class="dot">✦</span>
+  </div>
+</div>
+
+<!-- ⑧ STACKED LAYERS -->
+<span class="lbl">⑧ stacked layers — 3d depth illusion</span>
+<div class="stack-wrap">
+  <div class="stack">
+    <div class="layer layer-3">
+      <div class="layer-icon" style="background:#ddd8f0">◈</div>
+      <div class="layer-text"><div class="t1">Data layer</div><div class="t2">PostgreSQL · Redis</div></div>
+    </div>
+    <div class="layer layer-2">
+      <div class="layer-icon" style="background:#e8e4f8">◇</div>
+      <div class="layer-text"><div class="t1">API layer</div><div class="t2">REST · GraphQL</div></div>
+    </div>
+    <div class="layer layer-1">
+      <div class="layer-icon" style="background:#f0eefe">◆</div>
+      <div class="layer-text"><div class="t1">UI layer</div><div class="t2">React · Motion</div></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const canvas = document.getElementById('waveCanvas');
+  const ctx = canvas.getContext('2d');
+  let t = 0;
+  function resize() { canvas.width = canvas.offsetWidth; canvas.height = canvas.offsetHeight; }
+  resize();
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    const w = canvas.width, h = canvas.height;
+    [
+      { amp: 18, freq: .018, speed: .04,  y: h * .4,  color: 'rgba(83,74,183,0.3)',   lw: 2   },
+      { amp: 12, freq: .025, speed: .07,  y: h * .55, color: 'rgba(29,158,117,0.25)', lw: 1.5 },
+      { amp: 22, freq: .012, speed: .025, y: h * .65, color: 'rgba(186,117,23,0.2)',  lw: 1   },
+    ].forEach(wave => {
+      ctx.beginPath();
+      ctx.moveTo(0, wave.y + Math.sin(t * wave.speed) * wave.amp);
+      for (let x = 0; x < w; x++) {
+        ctx.lineTo(x, wave.y + Math.sin(x * wave.freq + t * wave.speed) * wave.amp + Math.sin(x * wave.freq * 1.7 + t * wave.speed * .6) * wave.amp * .4);
+      }
+      ctx.strokeStyle = wave.color;
+      ctx.lineWidth = wave.lw;
+      ctx.stroke();
+    });
+    t++;
+    requestAnimationFrame(draw);
+  }
+  draw();
+  window.addEventListener('resize', resize);
+</script>
+</body>
+</html>

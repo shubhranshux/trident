@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Organic Contour Layout Demo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #0a0a0f;
+    color: #e8e4dc;
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+
+  /* ── TECHNIQUE 1: clip-path diagonal slice ── */
+  .hero {
+    position: relative;
+    min-height: 340px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow: hidden;
+  }
+  .hero-left {
+    background: #1a1a2e;
+    clip-path: polygon(0 0, 100% 0, 80% 100%, 0 100%);
+    padding: 3rem 2rem 4rem;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .hero-right {
+    background: linear-gradient(135deg, #c8a96e 0%, #e8c97e 60%, #d4a853 100%);
+    clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%);
+    margin-left: -5%;
+    width: 105%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    color: #1a1a2e;
+    font-style: italic;
+    padding-left: 3rem;
+  }
+  .hero-left h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 0.75rem;
+    color: #e8e4dc;
+  }
+  .hero-left p {
+    font-size: 0.85rem;
+    color: #9a9080;
+    line-height: 1.6;
+    max-width: 240px;
+  }
+  .tag {
+    display: inline-block;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #c8a96e;
+    margin-bottom: 1rem;
+  }
+
+  /* ── Section Labels ── */
+  .section-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #5a5450;
+    padding: 2rem 2rem 0.75rem;
+  }
+
+  /* ── TECHNIQUE 2: SVG blob shapes ── */
+  .blob-section {
+    padding: 1.5rem 1.5rem 0.5rem;
+    position: relative;
+  }
+  .blob-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+  }
+  .blob-card {
+    position: relative;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.5rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  .blob-card:hover { transform: scale(1.05); }
+  .blob-card svg.blob-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .blob-card .card-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+  }
+  .blob-card .card-label {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+  }
+  .blob-card .card-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  /* ── TECHNIQUE 3: Wavy border divider ── */
+  .wavy-divider {
+    width: 100%;
+    display: block;
+    margin: 0;
+  }
+
+  /* ── TECHNIQUE 4: Overlapping circles layout ── */
+  .circle-section {
+    padding: 1rem 1.5rem 1.5rem;
+    position: relative;
+  }
+  .circle-layout {
+    position: relative;
+    height: 200px;
+  }
+  .circ {
+    position: absolute;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem;
+  }
+  .circ-a { width: 160px; height: 160px; background: #c8a96e; left: 0; top: 20px; color: #1a1a2e; }
+  .circ-b { width: 130px; height: 130px; background: #2a2a4e; left: 110px; top: 0; border: 1.5px solid #4a4a7e; }
+  .circ-c { width: 120px; height: 120px; background: #1e1e1e; left: 200px; top: 50px; border: 1.5px solid #333; }
+  .circ-d { width: 100px; height: 100px; background: #3a2a1e; left: 300px; top: 30px; border: 1.5px solid #6a4a2e; }
+  .circ-label { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.7; margin-bottom: 0.2rem; }
+  .circ-value { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; }
+
+  /* ── TECHNIQUE 5: Skewed text bands ── */
+  .skew-bands { overflow: hidden; padding: 1rem 0; }
+  .skew-band {
+    transform: skewY(-3deg);
+    padding: 1rem 2rem;
+    margin: 0.4rem 0;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  .skew-band:nth-child(1) { background: #1a1a2e; }
+  .skew-band:nth-child(2) { background: #1e1a10; }
+  .skew-band:nth-child(3) { background: #101a1a; }
+  .skew-band .inner { transform: skewY(3deg); display: flex; align-items: center; gap: 1.5rem; width: 100%; }
+  .band-title { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 400; font-style: italic; min-width: 140px; }
+  .band-bar-wrap { flex: 1; height: 4px; background: rgba(255,255,255,0.08); border-radius: 2px; }
+  .band-bar { height: 4px; border-radius: 2px; background: #c8a96e; }
+  .band-num { font-size: 0.8rem; color: #9a9080; min-width: 36px; text-align: right; }
+
+  /* ── TECHNIQUE 6: Opposing diagonal cards ── */
+  .mask-section { padding: 1rem 1.5rem 1.5rem; }
+  .mask-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .mask-card {
+    position: relative;
+    overflow: hidden;
+    height: 100px;
+    display: flex;
+    align-items: flex-end;
+    padding: 1rem;
+  }
+  .mask-card-a { background: #1a1a2e; clip-path: polygon(0 0, 100% 15%, 100% 100%, 0 85%); }
+  .mask-card-b { background: #2a1a1a; clip-path: polygon(0 15%, 100% 0, 100% 85%, 0 100%); }
+  .mask-card-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: #9a9080; }
+  .mask-card-value { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #c8a96e; display: block; }
+
+  /* ── CTA strip ── */
+  .cta-strip {
+    margin: 0 1.5rem 1.5rem;
+    background: #c8a96e;
+    color: #1a1a2e;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    clip-path: polygon(0 0, 100% 0, 96% 100%, 4% 100%);
+  }
+  .cta-text { font-family: 'Playfair Display', serif; font-size: 1rem; font-style: italic; }
+  .cta-btn {
+    font-size: 0.7rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    background: #1a1a2e;
+    color: #c8a96e;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<!-- TECHNIQUE 1: Diagonal clip-path hero -->
+<p class="section-label">① clip-path diagonal split</p>
+<div class="hero">
+  <div class="hero-left">
+    <span class="tag">Organic Layout Demo</span>
+    <h1>Break Free From The Box</h1>
+    <p>No rectangles. No columns. Pure contour.</p>
+  </div>
+  <div class="hero-right">✦</div>
+</div>
+
+<!-- TECHNIQUE 2: SVG Blob Cards -->
+<p class="section-label">② svg blob shapes</p>
+<div class="blob-section">
+  <div class="blob-grid">
+    <div class="blob-card">
+      <svg class="blob-bg" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+        <path d="M60,10 C85,8 105,25 108,50 C111,75 95,100 70,108 C45,116 20,100 12,75 C4,50 15,20 40,12 C48,9 52,11 60,10Z" fill="#1a1a2e"/>
+      </svg>
+      <div class="card-content">
+        <div class="card-num" style="color:#c8a96e">24</div>
+        <div class="card-label" style="color:#6a6880">Projects</div>
+      </div>
+    </div>
+    <div class="blob-card">
+      <svg class="blob-bg" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+        <path d="M55,8 C78,5 102,22 110,48 C118,74 105,104 80,112 C55,120 25,108 14,82 C3,56 10,22 32,12 C40,8 47,10 55,8Z" fill="#c8a96e"/>
+      </svg>
+      <div class="card-content">
+        <div class="card-num" style="color:#1a1a2e">98%</div>
+        <div class="card-label" style="color:#4a3a20">Score</div>
+      </div>
+    </div>
+    <div class="blob-card">
+      <svg class="blob-bg" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+        <path d="M62,12 C88,10 108,28 110,54 C112,80 96,105 70,110 C44,115 16,98 10,72 C4,46 18,16 44,11 C50,9 56,12 62,12Z" fill="#101a1a"/>
+      </svg>
+      <div class="card-content">
+        <div class="card-num" style="color:#5dcaa5">7</div>
+        <div class="card-label" style="color:#3a5040">Awards</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Wavy SVG divider -->
+<p class="section-label">③ wavy svg divider</p>
+<svg class="wavy-divider" viewBox="0 0 1440 50" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0,25 C180,50 360,0 540,25 C720,50 900,0 1080,25 C1260,50 1380,10 1440,25 L1440,50 L0,50Z" fill="#1a1a2e"/>
+</svg>
+<div style="background:#1a1a2e; padding:1rem 2rem;">
+  <p style="font-size:0.8rem; color:#5a5870; text-align:center; font-style:italic;">Content can flow naturally inside wave-bounded regions</p>
+</div>
+<svg class="wavy-divider" viewBox="0 0 1440 50" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0,25 C180,0 360,50 540,25 C720,0 900,50 1080,25 C1260,0 1380,40 1440,25 L1440,0 L0,0Z" fill="#1a1a2e"/>
+</svg>
+
+<!-- TECHNIQUE 4: Overlapping circles -->
+<p class="section-label">④ overlapping circle layout</p>
+<div class="circle-section">
+  <div class="circle-layout">
+    <div class="circ circ-a">
+      <span class="circ-label">Revenue</span>
+      <span class="circ-value">$4.2M</span>
+    </div>
+    <div class="circ circ-b">
+      <span class="circ-label" style="color:#9a9ac0">Users</span>
+      <span class="circ-value" style="color:#e8e4dc">12K</span>
+    </div>
+    <div class="circ circ-c">
+      <span class="circ-label" style="color:#888">Growth</span>
+      <span class="circ-value" style="color:#c8a96e">+38%</span>
+    </div>
+    <div class="circ circ-d">
+      <span class="circ-label" style="color:#8a6a4a">NPS</span>
+      <span class="circ-value" style="color:#e8c97e">82</span>
+    </div>
+  </div>
+</div>
+
+<!-- TECHNIQUE 5: Skewed bands -->
+<p class="section-label">⑤ skewed content bands</p>
+<div class="skew-bands">
+  <div class="skew-band">
+    <div class="inner">
+      <span class="band-title">Typography</span>
+      <div class="band-bar-wrap"><div class="band-bar" style="width:92%"></div></div>
+      <span class="band-num">92%</span>
+    </div>
+  </div>
+  <div class="skew-band">
+    <div class="inner">
+      <span class="band-title">Interaction</span>
+      <div class="band-bar-wrap"><div class="band-bar" style="width:76%"></div></div>
+      <span class="band-num">76%</span>
+    </div>
+  </div>
+  <div class="skew-band">
+    <div class="inner">
+      <span class="band-title">Visual Flow</span>
+      <div class="band-bar-wrap"><div class="band-bar" style="width:88%"></div></div>
+      <span class="band-num">88%</span>
+    </div>
+  </div>
+</div>
+
+<!-- TECHNIQUE 6: Opposing diagonal cards -->
+<p class="section-label">⑥ opposing diagonal cards</p>
+<div class="mask-section">
+  <div class="mask-row">
+    <div class="mask-card mask-card-a">
+      <div>
+        <span class="mask-card-label">Avg. Session</span>
+        <span class="mask-card-value">8m 42s</span>
+      </div>
+    </div>
+    <div class="mask-card mask-card-b">
+      <div>
+        <span class="mask-card-label">Retention</span>
+        <span class="mask-card-value">64%</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA with trapezoid clip -->
+<div class="cta-strip">
+  <span class="cta-text">Ready to go beyond the grid?</span>
+  <button class="cta-btn">Get the code →</button>
+</div>
+
+</body>
+</html>
