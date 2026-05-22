@@ -136,11 +136,11 @@ export default function Discover() {
           <FadeInUp>
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#2C3A8C]/5 border border-[#2C3A8C]/10 mb-6">
               <Sparkles size={14} className="text-[#E8BD63] animate-pulse" />
-              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#2C3A8C]">
+              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#2C3A8C]">
                 Explore TAT Ecosystem
               </span>
             </div>
-            <h2 className="serif text-5xl md:text-7xl font-black text-[#3E3A36] mb-6">
+            <h2 className="serif text-5xl md:text-7xl font-bold text-[#3E3A36] mb-6">
               Discover <span className="italic font-light text-[#2C3A8C] font-serif">Trident.</span>
             </h2>
             <p className="text-[#3E3A36]/65 text-lg md:text-xl font-medium max-w-2xl mx-auto leading-relaxed">
@@ -201,7 +201,7 @@ export default function Discover() {
                         style={{ backgroundColor: item.badgeColor, color: item.textColor }}
                       >
                         <Icon size={18} className="mb-0.5" />
-                        <span className="text-[8px] font-black uppercase tracking-wider">{item.badgeText}</span>
+                        <span className="text-[8px] font-bold uppercase tracking-wider">{item.badgeText}</span>
                       </div>
 
                     </div>
@@ -216,13 +216,13 @@ export default function Discover() {
                       {/* Category label */}
                       <div className="flex items-center gap-3 mb-6">
                         <span className="w-8 h-[2px] rounded-full" style={{ backgroundColor: item.accent }} />
-                        <span className="text-xs font-black uppercase tracking-[0.25em] text-[#3E3A36]/50">
+                        <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#3E3A36]/50">
                           {item.category}
                         </span>
                       </div>
 
                       {/* Serif Heading */}
-                      <h3 className="serif text-3xl md:text-4.5xl lg:text-5xl font-black text-[#3E3A36] leading-none mb-6">
+                      <h3 className="serif text-3xl md:text-4.5xl lg:text-5xl font-bold text-[#3E3A36] leading-none mb-6">
                         {item.title}
                       </h3>
 
@@ -236,7 +236,7 @@ export default function Discover() {
                         href={item.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-3 px-8 py-4 rounded-full text-white font-black text-[11px] tracking-[0.18em] uppercase transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-102 hover:-translate-y-0.5 active:translate-y-0 relative overflow-hidden group/btn"
+                        className="inline-flex items-center gap-3 px-8 py-4 rounded-full text-white font-bold text-[11px] tracking-[0.18em] uppercase transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-102 hover:-translate-y-0.5 active:translate-y-0 relative overflow-hidden group/btn"
                         style={{
                           background: `linear-gradient(135deg, ${item.accent}, ${item.accent}ee)`,
                           boxShadow: `0 10px 25px -10px ${item.accent}88`

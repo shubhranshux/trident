@@ -138,7 +138,7 @@ export default function ContactUs() {
       <div className="pt-32 pb-20 relative z-10">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <SlideIn direction="right">
-            <div className="inline-flex items-center gap-3 border border-white/15 text-white/70 text-[11px] font-bold uppercase tracking-[0.35em] px-8 py-3 rounded-full mb-10 bg-white/5 backdrop-blur-sm">
+            <div className="inline-flex items-center gap-3 border border-white/15 text-white/70 text-[11px] font-medium uppercase tracking-[0.35em] px-8 py-3 rounded-full mb-10 bg-white/5 backdrop-blur-sm">
               <span
                 className="w-2 h-2 rounded-full bg-[#3EA644]"
                 style={{ animation: "pulse 2s ease-in-out infinite" }}
@@ -148,7 +148,7 @@ export default function ContactUs() {
           </SlideIn>
 
           <FadeInUp delay={100}>
-            <h2 className="serif text-5xl md:text-6xl lg:text-7xl font-black text-white mb-6 leading-[1.05]">
+            <h2 className="serif text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-[1.05]">
               We'd love to{" "}
               <br className="hidden md:block" />
               <span className="italic text-[#E8BD63]">hear from you.</span>
@@ -187,8 +187,8 @@ export default function ContactUs() {
                 >
                   {c.icon}
                 </div>
-                <div className="text-[11px] font-bold uppercase tracking-[0.25em] text-white/40 mb-2">{c.label}</div>
-                <div className="text-white/80 text-[15px] font-semibold leading-relaxed whitespace-pre-line">{c.value}</div>
+                <div className="text-[11px] font-medium uppercase tracking-[0.25em] text-white/40 mb-2">{c.label}</div>
+                <div className="text-white/80 text-[15px] font-medium leading-relaxed whitespace-pre-line">{c.value}</div>
               </a>
             </FadeInUp>
           ))}
@@ -212,9 +212,9 @@ export default function ContactUs() {
               <div className="relative z-10">
                 <div className="flex items-center gap-4 mb-2">
                   <div className="h-[2px] w-10" style={{ background: "linear-gradient(90deg, #E8BD63, transparent)" }} />
-                  <span className="text-[11px] font-bold uppercase tracking-[0.3em] text-white/30">Send a Message</span>
+                  <span className="text-[11px] font-medium uppercase tracking-[0.3em] text-white/30">Send a Message</span>
                 </div>
-                <h3 className="serif text-3xl md:text-4xl font-black text-white mb-8 leading-tight">
+                <h3 className="serif text-3xl md:text-4xl font-bold text-white mb-8 leading-tight">
                   Drop us a <span className="italic text-[#E8BD63]">line.</span>
                 </h3>
 
@@ -223,7 +223,7 @@ export default function ContactUs() {
                     <div className="w-20 h-20 rounded-full bg-[#3EA644]/20 flex items-center justify-center mb-6">
                       <CheckCircle2 size={40} className="text-[#3EA644]" />
                     </div>
-                    <h4 className="serif text-2xl font-black text-white mb-3">Message Sent!</h4>
+                    <h4 className="serif text-2xl font-bold text-white mb-3">Message Sent!</h4>
                     <p className="text-white/50 text-sm font-medium max-w-sm">
                       Thank you for reaching out. Our team will get back to you within 24 hours.
                     </p>
@@ -233,7 +233,7 @@ export default function ContactUs() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                       {/* Name */}
                       <div className="relative">
-                        <label className="block text-[10px] font-bold uppercase tracking-[0.25em] text-white/40 mb-2">
+                        <label className="block text-[10px] font-medium uppercase tracking-[0.25em] text-white/40 mb-2">
                           Full Name <span className="text-[#C41E3A]">*</span>
                         </label>
                         <input
@@ -255,7 +255,7 @@ export default function ContactUs() {
 
                       {/* Email */}
                       <div className="relative">
-                        <label className="block text-[10px] font-bold uppercase tracking-[0.25em] text-white/40 mb-2">
+                        <label className="block text-[10px] font-medium uppercase tracking-[0.25em] text-white/40 mb-2">
                           Email Address <span className="text-[#C41E3A]">*</span>
                         </label>
                         <input
@@ -277,7 +277,7 @@ export default function ContactUs() {
 
                       {/* Phone */}
                       <div className="relative">
-                        <label className="block text-[10px] font-bold uppercase tracking-[0.25em] text-white/40 mb-2">
+                        <label className="block text-[10px] font-medium uppercase tracking-[0.25em] text-white/40 mb-2">
                           Phone Number
                         </label>
                         <input
@@ -298,7 +298,7 @@ export default function ContactUs() {
 
                       {/* Department */}
                       <div className="relative">
-                        <label className="block text-[10px] font-bold uppercase tracking-[0.25em] text-white/40 mb-2">
+                        <label className="block text-[10px] font-medium uppercase tracking-[0.25em] text-white/40 mb-2">
                           Department
                         </label>
                         <select
@@ -329,7 +329,7 @@ export default function ContactUs() {
 
                     {/* Subject */}
                     <div className="relative">
-                      <label className="block text-[10px] font-bold uppercase tracking-[0.25em] text-white/40 mb-2">
+                      <label className="block text-[10px] font-medium uppercase tracking-[0.25em] text-white/40 mb-2">
                         Subject <span className="text-[#C41E3A]">*</span>
                       </label>
                       <input
@@ -351,7 +351,7 @@ export default function ContactUs() {
 
                     {/* Message */}
                     <div className="relative">
-                      <label className="block text-[10px] font-bold uppercase tracking-[0.25em] text-white/40 mb-2">
+                      <label className="block text-[10px] font-medium uppercase tracking-[0.25em] text-white/40 mb-2">
                         Message <span className="text-[#C41E3A]">*</span>
                       </label>
                       <textarea
@@ -373,12 +373,12 @@ export default function ContactUs() {
 
                     {/* Submit */}
                     <div className="flex items-center justify-between pt-2">
-                      <p className="text-white/20 text-[10px] font-bold uppercase tracking-widest hidden sm:block">
+                      <p className="text-white/20 text-[10px] font-medium uppercase tracking-widest hidden sm:block">
                         <span className="text-[#C41E3A]">*</span> Required fields
                       </p>
                       <button
                         type="submit"
-                        className="group inline-flex items-center gap-3 bg-[#E8BD63] text-[#0B1120] px-10 py-4 rounded-xl font-bold text-[13px] uppercase tracking-widest shadow-xl hover:bg-[#F0D080] hover:-translate-y-1 transition-all duration-500"
+                        className="group inline-flex items-center gap-3 bg-[#E8BD63] text-[#0B1120] px-10 py-4 rounded-xl font-medium text-[13px] uppercase tracking-widest shadow-xl hover:bg-[#F0D080] hover:-translate-y-1 transition-all duration-500"
                       >
                         Send Message
                         <Send size={16} className="transform group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-transform" />
@@ -407,8 +407,8 @@ export default function ContactUs() {
                 />
                 {/* Map overlay badge */}
                 <div className="absolute bottom-4 left-4 bg-[#0B1120]/90 backdrop-blur-md text-white px-5 py-3 rounded-xl border border-white/10">
-                  <div className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#E8BD63] mb-1">Campus Location</div>
-                  <div className="text-[13px] font-semibold text-white/80">Chandrasekharpur, Bhubaneswar</div>
+                  <div className="text-[10px] font-medium uppercase tracking-[0.25em] text-[#E8BD63] mb-1">Campus Location</div>
+                  <div className="text-[13px] font-medium text-white/80">Chandrasekharpur, Bhubaneswar</div>
                 </div>
               </div>
             </FadeInUp>
@@ -417,7 +417,7 @@ export default function ContactUs() {
             <FadeInUp delay={400}>
               <div className="bg-white/[0.04] backdrop-blur-sm border border-white/10 rounded-3xl p-7 overflow-hidden relative">
                 <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#E8BD63] via-[#C41E3A] to-[#2E6DB4]" />
-                <h4 className="serif text-xl font-black text-white mb-5">
+                <h4 className="serif text-xl font-bold text-white mb-5">
                   Department <span className="text-[#E8BD63]">Contacts</span>
                 </h4>
                 <div className="space-y-3">
@@ -430,7 +430,7 @@ export default function ContactUs() {
                         {d.icon}
                       </div>
                       <div className="min-w-0 flex-1">
-                        <div className="text-white/90 text-[14px] font-bold truncate">{d.name}</div>
+                        <div className="text-white/90 text-[14px] font-medium truncate">{d.name}</div>
                         <div className="text-white/40 text-[12px] font-medium truncate">{d.phone}</div>
                       </div>
                       <a
@@ -458,9 +458,9 @@ export default function ContactUs() {
               <div>
                 <div className="flex items-center gap-3 mb-3">
                   <Globe size={18} className="text-[#E8BD63]" />
-                  <span className="text-[11px] font-bold uppercase tracking-[0.3em] text-white/30">Quick Links</span>
+                  <span className="text-[11px] font-medium uppercase tracking-[0.3em] text-white/30">Quick Links</span>
                 </div>
-                <h4 className="serif text-2xl font-black text-white">
+                <h4 className="serif text-2xl font-bold text-white">
                   Explore <span className="italic text-[#E8BD63]">more.</span>
                 </h4>
               </div>
@@ -472,7 +472,7 @@ export default function ContactUs() {
                     href={link.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="group inline-flex items-center gap-2 bg-white/5 hover:bg-[#E8BD63] border border-white/10 hover:border-[#E8BD63] text-white/70 hover:text-[#0B1120] px-5 py-2.5 rounded-full text-[12px] font-bold uppercase tracking-wider transition-all duration-400 hover:-translate-y-0.5"
+                    className="group inline-flex items-center gap-2 bg-white/5 hover:bg-[#E8BD63] border border-white/10 hover:border-[#E8BD63] text-white/70 hover:text-[#0B1120] px-5 py-2.5 rounded-full text-[12px] font-medium uppercase tracking-wider transition-all duration-400 hover:-translate-y-0.5"
                   >
                     {link.label}
                     <ChevronRight size={14} className="opacity-50 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all" />
@@ -490,14 +490,14 @@ export default function ContactUs() {
           <FadeInUp delay={100}>
             <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
               <div>
-                <h4 className="serif text-2xl md:text-3xl font-black text-white mb-2">
+                <h4 className="serif text-2xl md:text-3xl font-bold text-white mb-2">
                   Ready to join <span className="italic text-[#E8BD63]">Trident?</span>
                 </h4>
                 <p className="text-white/40 text-sm font-medium">Begin your application today and take the first step towards an extraordinary career.</p>
               </div>
               <a
                 href="https://admissions-tat.tekkzy.com"
-                className="group inline-flex items-center gap-3 bg-[#E8BD63] text-[#0B1120] px-10 py-4 rounded-full font-bold text-[13px] uppercase tracking-widest shadow-xl hover:bg-[#F0D080] hover:-translate-y-1 transition-all duration-500 whitespace-nowrap"
+                className="group inline-flex items-center gap-3 bg-[#E8BD63] text-[#0B1120] px-10 py-4 rounded-full font-medium text-[13px] uppercase tracking-widest shadow-xl hover:bg-[#F0D080] hover:-translate-y-1 transition-all duration-500 whitespace-nowrap"
               >
                 Apply Now
                 <ArrowRight size={18} className="transform group-hover:translate-x-1 transition-transform" />

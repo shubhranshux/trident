@@ -93,12 +93,12 @@ export default function Testimonials() {
             <div className="relative z-10">
               <div className="flex items-center gap-3 mb-6">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#E8BD63]" />
-                <span className="text-[10px] font-black uppercase tracking-[0.3em] text-[#E8BD63]">
+                <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#E8BD63]">
                   Voices of Trident
                 </span>
               </div>
 
-              <h2 className="serif text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight mb-6">
+              <h2 className="serif text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
                 What they <br />
                 <span className="italic text-[#E8BD63] font-serif font-light">say.</span>
               </h2>
@@ -122,7 +122,7 @@ export default function Testimonials() {
 
                 <button
                   onClick={() => setActiveTab("alumni")}
-                  className={`flex-1 py-3 px-4 text-xs font-black uppercase tracking-wider rounded-lg transition-colors relative z-10 text-center ${
+                  className={`flex-1 py-3 px-4 text-xs font-bold uppercase tracking-wider rounded-lg transition-colors relative z-10 text-center ${
                     activeTab === "alumni" ? "text-[#1A2660]" : "text-white/60 hover:text-white"
                   }`}
                 >
@@ -130,7 +130,7 @@ export default function Testimonials() {
                 </button>
                 <button
                   onClick={() => setActiveTab("recruiter")}
-                  className={`flex-1 py-3 px-4 text-xs font-black uppercase tracking-wider rounded-lg transition-colors relative z-10 text-center ${
+                  className={`flex-1 py-3 px-4 text-xs font-bold uppercase tracking-wider rounded-lg transition-colors relative z-10 text-center ${
                     activeTab === "recruiter" ? "text-[#1A2660]" : "text-white/60 hover:text-white"
                   }`}
                 >
@@ -142,8 +142,8 @@ export default function Testimonials() {
             {/* Bottom Section: Controls & Counter */}
             <div className="relative z-10 mt-16 lg:mt-0 flex items-center justify-between border-t border-white/10 pt-8">
               {/* Pagination Counter */}
-              <div className="font-serif text-sm font-bold tracking-widest text-[#E8BD63]/80">
-                <span className="text-lg font-black text-white">{String(activeIdx + 1).padStart(2, "0")}</span>
+              <div className="font-serif text-sm font-medium tracking-widest text-[#E8BD63]/80">
+                <span className="text-lg font-bold text-white">{String(activeIdx + 1).padStart(2, "0")}</span>
                 <span className="mx-2 text-white/30">/</span>
                 {String(data.length).padStart(2, "0")}
               </div>
@@ -184,7 +184,7 @@ export default function Testimonials() {
                   transition={{ duration: 0.4 }}
                   className="min-h-[160px] flex flex-col justify-center"
                 >
-                  <blockquote className="serif text-[#1A2660] text-xl md:text-2xl lg:text-[27px] font-semibold leading-relaxed italic pr-4">
+                  <blockquote className="serif text-[#1A2660] text-xl md:text-2xl lg:text-[27px] font-medium leading-relaxed italic pr-4">
                     "{item.text}"
                   </blockquote>
                 </motion.div>
@@ -215,14 +215,14 @@ export default function Testimonials() {
                     </div>
 
                     <div>
-                      <h4 className="text-[#1A2660] font-black text-lg md:text-xl leading-tight">
+                      <h4 className="text-[#1A2660] font-bold text-lg md:text-xl leading-tight">
                         {item.author}
                       </h4>
-                      <p className="text-[#3E3A36]/60 text-xs md:text-sm font-semibold mt-1">
+                      <p className="text-[#3E3A36]/60 text-xs md:text-sm font-medium mt-1">
                         {item.role}
                       </p>
                       {item.branch && (
-                        <p className="text-[#2C3A8C] text-[10px] font-bold uppercase tracking-widest mt-1">
+                        <p className="text-[#2C3A8C] text-[10px] font-medium uppercase tracking-widest mt-1">
                           {item.branch}
                         </p>
                       )}
@@ -231,7 +231,7 @@ export default function Testimonials() {
 
                   {/* Company Badge Pill */}
                   <div className="flex-shrink-0 self-start sm:self-center">
-                    <span className="inline-flex items-center gap-2 bg-[#1A2660]/5 text-[#1A2660] border border-[#1A2660]/10 px-4 py-2 rounded-full text-xs font-black uppercase tracking-wider shadow-sm">
+                    <span className="inline-flex items-center gap-2 bg-[#1A2660]/5 text-[#1A2660] border border-[#1A2660]/10 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider shadow-sm">
                       <Briefcase size={12} className="text-[#E8BD63]" />
                       {item.company}
                     </span>

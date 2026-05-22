@@ -8,7 +8,7 @@ export default function StatsBand() {
         <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-white/10">
           {STATS.map((s, i) => (
             <Fade key={s.label} delay={i * 60} className="py-8 px-6 text-center">
-              <div className="serif text-3xl font-semibold text-brand-yellow mb-1">{s.value}</div>
+              <div className="serif text-3xl font-medium text-brand-yellow mb-1">{s.value}</div>
               <div className="text-white/60 text-xs font-medium uppercase tracking-wide">{s.label}</div>
             </Fade>
           ))}

@@ -41,10 +41,10 @@ function StatCounter({ icon, val, suffix, label, delay }) {
         <div className="w-14 h-14 rounded-2xl bg-[#212529]/10 flex items-center justify-center mb-5 text-[#212529] group-hover:bg-[#212529] group-hover:text-white group-hover:scale-110 transition-all duration-500">
           {icon}
         </div>
-        <div className="serif text-[48px] md:text-[64px] font-black text-[#212529] leading-none mb-2 tracking-tight">
+        <div className="serif text-[48px] md:text-[64px] font-bold text-[#212529] leading-none mb-2 tracking-tight">
           {count.toLocaleString()}<span className="text-[#8B6914]">{suffix}</span>
         </div>
-        <div className="text-[11px] font-bold uppercase tracking-[0.25em] text-[#212529]/45">{label}</div>
+        <div className="text-[11px] font-medium uppercase tracking-[0.25em] text-[#212529]/45">{label}</div>
       </div>
     </FadeInUp>
   );
@@ -70,7 +70,7 @@ export default function AtAGlance() {
       <div className="max-w-[1400px] mx-auto px-6 xl:px-12 relative z-10">
         <FadeInUp>
           <div className="text-center mb-10 md:mb-14">
-            <h2 className="relative z-10 font-serif text-[36px] md:text-[50px] font-black text-[#212529] leading-[1.1] tracking-tight">
+            <h2 className="relative z-10 font-serif text-[36px] md:text-[50px] font-bold text-[#212529] leading-[1.1] tracking-tight">
               Trident, <span className="italic">At a Glance.</span>
             </h2>
             <p className="text-[#3E3A36] text-[16px] md:text-[18px] font-medium leading-relaxed max-w-2xl mx-auto mt-4">

@@ -15,13 +15,13 @@ export default function Events() {
         <div className="flex flex-col sm:flex-row justify-between items-end mb-16 gap-6">
           <FadeInUp>
             <span className="rose-rule"></span>
-            <h2 className="serif text-4xl md:text-5xl font-black text-[#3E3A36] relative z-10 inline-block">
+            <h2 className="serif text-4xl md:text-5xl font-bold text-[#3E3A36] relative z-10 inline-block">
               <span className="absolute -top-2 -left-4 w-32 h-14 bg-soft transform -rotate-3 -z-10 rounded-sm"></span>
               Upcoming <span className="italic text-[#2C3A8C]">Events.</span>
             </h2>
           </FadeInUp>
           <FadeInUp delay={200}>
-            <a href="#" className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#3E3A36]/60 hover:text-primary transition-colors hover:translate-x-1 duration-300">
+            <a href="#" className="flex items-center gap-2 text-xs font-medium uppercase tracking-widest text-[#3E3A36]/60 hover:text-primary transition-colors hover:translate-x-1 duration-300">
                Full Calendar <ArrowRight size={14} />
             </a>
           </FadeInUp>
@@ -34,14 +34,14 @@ export default function Events() {
                  
                  {/* Date Block */}
                  <div className={`flex-shrink-0 flex flex-col items-center justify-center bg-bg-light rounded-xl w-24 h-24 border border-soft group-hover:bg-${e.color} transition-colors duration-500`}>
-                    <span className={`text-[11px] font-bold uppercase tracking-widest text-${e.color} group-hover:text-white/80 mb-1`}>{e.month}</span>
-                    <span className="serif text-4xl font-black text-[#3E3A36] group-hover:text-white leading-none">{e.day}</span>
+                    <span className={`text-[11px] font-medium uppercase tracking-widest text-${e.color} group-hover:text-white/80 mb-1`}>{e.month}</span>
+                    <span className="serif text-4xl font-bold text-[#3E3A36] group-hover:text-white leading-none">{e.day}</span>
                  </div>
 
                  {/* Content */}
                  <div className="flex-1 text-center md:text-left">
-                    <div className="text-[10px] font-bold uppercase tracking-widest text-secondary mb-2">{e.type}</div>
-                    <h3 className={`serif text-2xl font-bold text-[#3E3A36] mb-3 group-hover:text-${e.color} transition-colors`}>{e.title}</h3>
+                    <div className="text-[10px] font-medium uppercase tracking-widest text-secondary mb-2">{e.type}</div>
+                    <h3 className={`serif text-2xl font-medium text-[#3E3A36] mb-3 group-hover:text-${e.color} transition-colors`}>{e.title}</h3>
                     <div className="flex flex-col sm:flex-row items-center gap-4 text-sm font-medium text-[#3E3A36]/60">
                        <span className="flex items-center gap-1.5"><Calendar size={14} /> {e.time}</span>
                        <span className="hidden sm:block text-soft">|</span>

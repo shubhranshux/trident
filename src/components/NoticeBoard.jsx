@@ -74,13 +74,13 @@ export default function NoticeBoard() {
                 <Pin size={20} className="-rotate-45" />
               </div>
               <div>
-                <h2 className="text-2xl md:text-3xl font-black text-[#3E3A36] serif leading-tight">
+                <h2 className="text-2xl md:text-3xl font-bold text-[#3E3A36] serif leading-tight">
                   Notice <span className="italic text-[#2C3A8C]">Board</span>
                 </h2>
                 <p className="text-[13px] text-[#3E3A36]/40 font-medium mt-0.5">Updates & Announcements</p>
               </div>
             </div>
-            <a href="#" className="inline-flex items-center gap-2 text-sm font-bold text-[#2C3A8C] hover:text-[#E5AA3E] transition-colors group">
+            <a href="#" className="inline-flex items-center gap-2 text-sm font-medium text-[#2C3A8C] hover:text-[#E5AA3E] transition-colors group">
               View All
               <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
             </a>
@@ -96,21 +96,21 @@ export default function NoticeBoard() {
                   <div key={idx} className="notice-row">
                     {/* Date */}
                     <div className="flex-shrink-0 text-center min-w-[52px]">
-                      <div className="text-2xl font-black text-[#2C3A8C] leading-none">{notice.date.split(' ')[0]}</div>
-                      <div className="text-[9px] font-bold uppercase tracking-widest text-[#3E3A36]/30 mt-1">{notice.date.split(' ')[1]}</div>
+                      <div className="text-2xl font-bold text-[#2C3A8C] leading-none">{notice.date.split(' ')[0]}</div>
+                      <div className="text-[9px] font-medium uppercase tracking-widest text-[#3E3A36]/30 mt-1">{notice.date.split(' ')[1]}</div>
                     </div>
 
                     {/* Content */}
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2 mb-1.5">
                         <span
-                          className="text-[9px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider"
+                          className="text-[9px] font-medium px-2 py-0.5 rounded-full uppercase tracking-wider"
                           style={{ background: `${catColors[notice.category] || '#A59381'}12`, color: catColors[notice.category] || '#A59381' }}
                         >
                           {notice.category}
                         </span>
                       </div>
-                      <h4 className="text-[15px] font-bold text-[#3E3A36] leading-snug mb-1">{notice.title}</h4>
+                      <h4 className="text-[15px] font-medium text-[#3E3A36] leading-snug mb-1">{notice.title}</h4>
                       <p className="text-[13px] text-[#3E3A36]/40 font-medium line-clamp-1">{notice.desc}</p>
                     </div>
 

@@ -118,17 +118,17 @@ function AnnouncementRow({ item, index }) {
       {/* Content */}
       <div className="flex-1 min-w-0">
         <div className="flex items-center gap-2.5 mb-1">
-          <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#2C3A8C]/40">
+          <span className="text-[10px] font-medium uppercase tracking-[0.15em] text-[#2C3A8C]/40">
             {item.category}
           </span>
           {item.isNew && (
-            <span className="flex items-center gap-1 text-[8px] font-black uppercase tracking-wider text-[#C41E3A] bg-[#C41E3A]/8 px-2 py-0.5 rounded-full">
+            <span className="flex items-center gap-1 text-[8px] font-bold uppercase tracking-wider text-[#C41E3A] bg-[#C41E3A]/8 px-2 py-0.5 rounded-full">
               <span className="w-1 h-1 bg-[#C41E3A] rounded-full animate-pulse" />
               New
             </span>
           )}
         </div>
-        <p className="text-[14px] text-[#3E3A36]/80 font-semibold leading-snug truncate group-hover:text-[#2C3A8C] transition-colors duration-300">
+        <p className="text-[14px] text-[#3E3A36]/80 font-medium leading-snug truncate group-hover:text-[#2C3A8C] transition-colors duration-300">
           {item.title}
         </p>
       </div>
@@ -171,7 +171,7 @@ export default function Announcements() {
           <FadeInUp>
             <div className="flex items-center gap-4 mb-6">
               <div className="h-[1px] w-10 bg-[#2C3A8C]/30" />
-              <span className="text-[11px] font-bold uppercase tracking-[0.3em] text-[#2C3A8C]/50">
+              <span className="text-[11px] font-medium uppercase tracking-[0.3em] text-[#2C3A8C]/50">
                 Notice Board
               </span>
             </div>
@@ -179,7 +179,7 @@ export default function Announcements() {
 
           <FadeInUp delay={100}>
             <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
-              <h2 className="serif text-5xl md:text-6xl font-black text-[#3E3A36] leading-[1.05]">
+              <h2 className="serif text-5xl md:text-6xl font-bold text-[#3E3A36] leading-[1.05]">
                 Announce
                 <span
                   className="italic"
@@ -230,7 +230,7 @@ export default function Announcements() {
               <div className="px-6 pb-5 pt-2">
                 <button
                   onClick={() => setShowAll(!showAll)}
-                  className="w-full py-3 rounded-xl text-[12px] font-bold uppercase tracking-[0.15em] text-[#2C3A8C]/60 hover:text-[#2C3A8C] hover:bg-[#2C3A8C]/[0.04] transition-all duration-400"
+                  className="w-full py-3 rounded-xl text-[12px] font-medium uppercase tracking-[0.15em] text-[#2C3A8C]/60 hover:text-[#2C3A8C] hover:bg-[#2C3A8C]/[0.04] transition-all duration-400"
                 >
                   {showAll ? "Show Less" : `View All ${announcements.length} Announcements`}
                 </button>
@@ -247,7 +247,7 @@ export default function Announcements() {
             </p>
             <a
               href="#"
-              className="group inline-flex items-center gap-2 text-[12px] font-bold uppercase tracking-[0.12em] text-[#2C3A8C]/60 hover:text-[#2C3A8C] transition-colors duration-300"
+              className="group inline-flex items-center gap-2 text-[12px] font-medium uppercase tracking-[0.12em] text-[#2C3A8C]/60 hover:text-[#2C3A8C] transition-colors duration-300"
             >
               Subscribe to alerts
               <ArrowRight

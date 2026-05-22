@@ -1,35 +1,9 @@
 import { useRef, useState, useEffect } from "react";
-import { motion, useInView } from "framer-motion";
-import { FadeInUp } from "../utils/animations";
+import { FadeInUp, TextReveal, ParallaxLayer, MaskReveal } from "../utils/animations";
+import { GSAPCounter, ScrollReveal, GlowTrail, Tilt3D } from "../utils/advanced-animations";
 import aboutImg1 from "../assets/about_students_studying.jpg";
 import aboutImg2 from "../assets/about_engineering_workshop.jpg";
 import { Award, BookOpen, Shield, GraduationCap, Eye, Target, ArrowRight } from "lucide-react";
-
-/* ─── Animated Counter ─── */
-function AnimatedNumber({ value, suffix = "", duration = 2000 }) {
-  const [count, setCount] = useState(0);
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-50px" });
-
-  useEffect(() => {
-    if (!inView) return;
-    let start = 0;
-    const end = parseInt(value);
-    const stepTime = Math.max(Math.floor(duration / end), 16);
-    const timer = setInterval(() => {
-      start += 1;
-      setCount(start);
-      if (start >= end) clearInterval(timer);
-    }, stepTime);
-    return () => clearInterval(timer);
-  }, [inView, value, duration]);
-
-  return (
-    <span ref={ref} className="tabular-nums">
-      {count}{suffix}
-    </span>
-  );
-}
 
 export default function AboutSection() {
   const badges = [
@@ -54,11 +28,8 @@ export default function AboutSection() {
     "To contribute to the society with honesty and integrity through innovative research in the multi-disciplinary areas of evolving and upcoming technologies.",
   ];
 
-  const sectionRef = useRef(null);
-  const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
-
   return (
-    <section id="about" ref={sectionRef} className="relative overflow-hidden bg-[#F5EEEC]">
+    <section id="about" className="relative overflow-hidden bg-[#F5EEEC]">
 
 
       {/* ═══ Main Content: Dramatic Split ═══ */}
@@ -84,46 +55,43 @@ export default function AboutSection() {
               <div className="absolute bottom-32 left-6 w-40 h-40 border border-white/[0.03] rounded-full hidden lg:block" />
 
               {/* Section heading on dark */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                className="mb-10 relative z-10"
-              >
-                <span className="text-[10px] font-bold uppercase tracking-[0.35em] text-[#E8BD63]/70 block mb-4">
+              <ScrollReveal from={{ opacity: 0, y: 30 }} className="mb-10 relative z-10">
+                <span className="text-[10px] font-medium uppercase tracking-[0.35em] text-[#E8BD63]/70 block mb-4">
                   Est. 2005 · Bhubaneswar
                 </span>
-                <h2 className="serif text-3xl md:text-4xl lg:text-[42px] font-black text-white leading-[1.1] tracking-tight">
-                  Built on a
-                  <br />foundation of
-                  <br /><span className="italic text-[#E8BD63]">excellence.</span>
+                <h2 className="serif text-4xl md:text-5xl lg:text-[56px] font-bold text-white leading-[1.05] tracking-tight">
+                  <TextReveal blur={true} stagger={0.02}>Built on a</TextReveal>
+                  <TextReveal blur={true} stagger={0.02} delay={100}>foundation of</TextReveal>
+                  <TextReveal blur={true} stagger={0.02} delay={200} className="italic text-[#E8BD63]">excellence.</TextReveal>
                 </h2>
-              </motion.div>
+              </ScrollReveal>
 
-              {/* Image composition */}
-              <motion.div
-                initial={{ opacity: 0, y: 40 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                className="relative z-10 mb-12"
-              >
-                {/* Main image */}
-                <div className="relative rounded-2xl overflow-hidden shadow-[0_25px_60px_-15px_rgba(0,0,0,0.5)]" style={{ aspectRatio: '4/3' }}>
-                  <img src={aboutImg2} alt="Engineering workshop" className="w-full h-full object-cover" loading="lazy" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-                </div>
+              {/* Image composition with Parallax */}
+              <ScrollReveal from={{ opacity: 0, scale: 0.95 }} delay={200} className="relative z-10 mb-12">
+                <ParallaxLayer speed={0.05}>
+                  <Tilt3D intensity={5}>
+                    {/* Main image */}
+                    <div className="relative rounded-2xl overflow-hidden shadow-[0_25px_60px_-15px_rgba(0,0,0,0.5)]" style={{ aspectRatio: '4/3' }}>
+                      <img src={aboutImg2} alt="Engineering workshop" className="w-full h-full object-cover" loading="lazy" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+                    </div>
+                  </Tilt3D>
+                </ParallaxLayer>
 
                 {/* Overlapping secondary image */}
-                <div className="absolute -bottom-8 -right-4 md:-right-8 w-[45%] rounded-xl overflow-hidden shadow-[0_20px_50px_-10px_rgba(0,0,0,0.4)] border-[3px] border-[#111827] ring-1 ring-white/10" style={{ aspectRatio: '3/4' }}>
-                  <img src={aboutImg1} alt="Students studying" className="w-full h-full object-cover" loading="lazy" />
-                </div>
-              </motion.div>
+                <ParallaxLayer speed={-0.1} className="absolute -bottom-8 -right-4 md:-right-8 w-[45%] z-20">
+                  <Tilt3D intensity={10} scale={1.05}>
+                    <div className="rounded-xl overflow-hidden shadow-[0_20px_50px_-10px_rgba(0,0,0,0.4)] border-[3px] border-[#111827] ring-1 ring-white/10" style={{ aspectRatio: '3/4' }}>
+                      <img src={aboutImg1} alt="Students studying" className="w-full h-full object-cover" loading="lazy" />
+                    </div>
+                  </Tilt3D>
+                </ParallaxLayer>
+              </ScrollReveal>
 
               {/* Stats Grid — Card-Free Typographic Constellation */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+              <ScrollReveal
+                from={{ opacity: 0, y: 30 }}
+                delay={400}
                 className="relative z-10 grid grid-cols-2 gap-x-12 gap-y-16 px-4 py-8"
               >
                 {/* Custom keyframes injected */}
@@ -176,8 +144,8 @@ export default function AboutSection() {
 
                       {/* Number Content */}
                       <div className="relative z-10 flex items-baseline">
-                        <div className="serif text-4xl md:text-5xl lg:text-6xl font-black text-white leading-none tracking-tight mb-2 flex items-baseline transform transition-transform duration-500 group-hover:scale-105">
-                          <AnimatedNumber value={s.number} />
+                        <div className="serif text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-none tracking-tight mb-2 flex items-baseline transform transition-transform duration-500 group-hover:scale-105">
+                          <GSAPCounter end={parseInt(s.number)} duration={2.5} />
                           <span 
                             style={{ color: s.color }} 
                             className="ml-1 text-2xl md:text-3xl font-light transform transition-transform duration-500 group-hover:scale-110 select-none"
@@ -188,7 +156,7 @@ export default function AboutSection() {
                       </div>
 
                       {/* Descriptive Label */}
-                      <div className="text-[10px] md:text-[11px] font-bold uppercase tracking-[0.22em] text-white/30 group-hover:text-white/60 transition-colors duration-500 whitespace-pre-line leading-relaxed relative z-10">
+                      <div className="text-[10px] md:text-[11px] font-medium uppercase tracking-[0.22em] text-white/30 group-hover:text-white/60 transition-colors duration-500 whitespace-pre-line leading-relaxed relative z-10">
                         {s.label}
                       </div>
 
@@ -207,7 +175,7 @@ export default function AboutSection() {
                     </div>
                   );
                 })}
-              </motion.div>
+                </ScrollReveal>
             </div>
 
             {/* ═══ RIGHT: Vision & Mission on Light ═══ */}
@@ -217,24 +185,14 @@ export default function AboutSection() {
               <div className="absolute top-20 left-0 w-px h-[60%] bg-gradient-to-b from-[#E8BD63]/20 via-[#2C3A8C]/10 to-transparent hidden lg:block" />
 
               {/* Intro text */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-                className="mb-14"
-              >
+              <ScrollReveal from={{ opacity: 0, y: 30 }} delay={150} className="mb-14">
                 <p className="text-[#3E3A36]/50 text-base md:text-lg font-medium leading-relaxed max-w-lg">
                   A unit of the Dinabandhu Foundation, Trident Academy of Technology is one of India's leading private technical institutions, shaping the next generation of innovators and leaders.
                 </p>
-              </motion.div>
+              </ScrollReveal>
 
               {/* ── VISION ── */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                className="mb-14"
-              >
+              <ScrollReveal from={{ opacity: 0, y: 30 }} delay={300} className="mb-14">
                 <div className="flex items-center gap-4 mb-7">
                   <div
                     className="w-14 h-14 rounded-2xl flex items-center justify-center relative overflow-hidden shadow-[0_8px_25px_-5px_rgba(232,189,99,0.4)]"
@@ -244,7 +202,7 @@ export default function AboutSection() {
                     <div className="absolute top-0 left-0 w-full h-1/2 bg-white/20" />
                   </div>
                   <div>
-                    <h3 className="serif text-3xl font-black text-[#3E3A36] tracking-tight leading-none">Vision</h3>
+                    <h3 className="serif text-3xl font-bold text-[#3E3A36] tracking-tight leading-none">Vision</h3>
                     <div className="flex items-center gap-1.5 mt-2">
                       <div className="w-10 h-[3px] rounded-full bg-[#E8BD63]" />
                       <div className="w-3 h-[3px] rounded-full bg-[#E8BD63]/30" />
@@ -254,12 +212,12 @@ export default function AboutSection() {
                 </div>
 
                 <div className="relative pl-8 border-l-[3px] border-[#E8BD63]">
-                  <div className="absolute -top-4 -left-3 text-[90px] leading-none select-none pointer-events-none" style={{ fontFamily: "'Playfair Display', serif", color: '#E8BD63', opacity: 0.07 }}>"</div>
+                  <div className="absolute -top-4 -left-3 text-[90px] leading-none select-none pointer-events-none" style={{ fontFamily: "'Source Serif 4', Georgia, serif", color: '#E8BD63', opacity: 0.07 }}>"</div>
                   <blockquote className="text-[#3E3A36]/65 text-[18px] md:text-[20px] leading-[1.9] font-medium italic">
                     To become a sustainable institution of excellence, advancing innovative education, research and skill development.
                   </blockquote>
                 </div>
-              </motion.div>
+              </ScrollReveal>
 
               {/* ── Ornamental Divider ── */}
               <div className="flex items-center gap-5 mb-14 max-w-lg">
@@ -273,11 +231,7 @@ export default function AboutSection() {
               </div>
 
               {/* ── MISSION ── */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.8, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
-              >
+              <ScrollReveal from={{ opacity: 0, y: 30 }} delay={450}>
                 <div className="flex items-center gap-4 mb-9">
                   <div
                     className="w-14 h-14 rounded-2xl flex items-center justify-center relative overflow-hidden shadow-[0_8px_25px_-5px_rgba(44,58,140,0.4)]"
@@ -287,7 +241,7 @@ export default function AboutSection() {
                     <div className="absolute top-0 left-0 w-full h-1/2 bg-white/15" />
                   </div>
                   <div>
-                    <h3 className="serif text-3xl font-black text-[#3E3A36] tracking-tight leading-none">Mission</h3>
+                    <h3 className="serif text-3xl font-bold text-[#3E3A36] tracking-tight leading-none">Mission</h3>
                     <div className="flex items-center gap-1.5 mt-2">
                       <div className="w-10 h-[3px] rounded-full bg-[#2C3A8C]" />
                       <div className="w-3 h-[3px] rounded-full bg-[#2C3A8C]/30" />
@@ -298,14 +252,13 @@ export default function AboutSection() {
 
                 <div className="space-y-5">
                   {missionPoints.map((point, i) => (
-                    <motion.div
+                    <ScrollReveal
                       key={i}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={isInView ? { opacity: 1, x: 0 } : {}}
-                      transition={{ duration: 0.6, delay: 0.55 + i * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                      from={{ opacity: 0, x: -20 }}
+                      delay={550 + i * 100}
                       className="flex gap-4 items-start group"
                     >
-                      <span className="flex-shrink-0 w-10 h-10 rounded-xl text-white text-[13px] font-black flex items-center justify-center shadow-[0_4px_15px_-3px_rgba(44,58,140,0.35)] group-hover:shadow-[0_8px_25px_-5px_rgba(44,58,140,0.5)] group-hover:scale-105 transition-all duration-400 mt-0.5"
+                      <span className="flex-shrink-0 w-10 h-10 rounded-xl text-white text-[13px] font-bold flex items-center justify-center shadow-[0_4px_15px_-3px_rgba(44,58,140,0.35)] group-hover:shadow-[0_8px_25px_-5px_rgba(44,58,140,0.5)] group-hover:scale-105 transition-all duration-400 mt-0.5"
                         style={{ background: 'linear-gradient(135deg, #2C3A8C, #3D4FA0)' }}
                       >
                         {i + 1}
@@ -313,25 +266,21 @@ export default function AboutSection() {
                       <p className="text-[#3E3A36]/55 text-[15px] leading-[1.85] font-medium pt-1.5">
                         {point}
                       </p>
-                    </motion.div>
+                    </ScrollReveal>
                   ))}
                 </div>
-              </motion.div>
+              </ScrollReveal>
 
               {/* ── CTA ── */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={isInView ? { opacity: 1 } : {}}
-                transition={{ duration: 0.6, delay: 0.85 }}
-              >
+              <ScrollReveal from={{ opacity: 0 }} delay={850}>
                 <a
                   href="https://tat.tekkzy.com/read-our-full-storyyy/"
-                  className="mt-16 group inline-flex items-center gap-3 px-8 py-4 rounded-full text-[11px] font-bold uppercase tracking-[0.2em] border-2 border-[#2C3A8C]/15 text-[#2C3A8C] hover:bg-[#2C3A8C] hover:border-[#2C3A8C] hover:text-white transition-all duration-500 hover:shadow-[0_10px_30px_-8px_rgba(44,58,140,0.35)]"
+                  className="mt-16 group inline-flex items-center gap-3 px-8 py-4 rounded-full text-[11px] font-medium uppercase tracking-[0.2em] border-2 border-[#2C3A8C]/15 text-[#2C3A8C] hover:bg-[#2C3A8C] hover:border-[#2C3A8C] hover:text-white transition-all duration-500 hover:shadow-[0_10px_30px_-8px_rgba(44,58,140,0.35)]"
                 >
                   Read Our Full Story
                   <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform duration-400" />
                 </a>
-              </motion.div>
+              </ScrollReveal>
             </div>
 
           </div>

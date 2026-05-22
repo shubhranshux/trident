@@ -29,7 +29,7 @@ export default function CallToAction() {
             
             <div className="relative z-10">
               <FadeInUp>
-                <div className="inline-flex items-center gap-2 bg-white/5 border border-white/20 text-white/95 text-[10px] font-bold uppercase tracking-[0.25em] px-5 py-2.5 rounded-full mb-6 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.2)] hover:bg-white/10 transition-colors">
+                <div className="inline-flex items-center gap-2 bg-white/5 border border-white/20 text-white/95 text-[10px] font-medium uppercase tracking-[0.25em] px-5 py-2.5 rounded-full mb-6 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.2)] hover:bg-white/10 transition-colors">
                   <div className="relative flex items-center justify-center">
                     <GraduationCap size={14} className="text-brand-yellow relative z-10" />
                     <div className="absolute inset-0 bg-brand-yellow blur-md opacity-50"></div>
@@ -39,7 +39,7 @@ export default function CallToAction() {
               </FadeInUp>
 
               <FadeInUp delay={200}>
-                <h2 className="serif text-4xl md:text-5xl lg:text-[52px] font-black text-white mb-5 leading-[1.02] tracking-tight relative z-10 inline-block">
+                <h2 className="serif text-4xl md:text-5xl lg:text-[52px] font-bold text-white mb-5 leading-[1.02] tracking-tight relative z-10 inline-block">
                   <span className="absolute -top-2 -left-4 w-40 h-16 bg-white/10 transform -rotate-2 -z-10 rounded-sm"></span>
                   <span className="relative z-10">Begin Your Journey</span><br/>
                   <span className="italic text-[#2C3A8C] relative inline-block">

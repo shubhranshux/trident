@@ -1,4 +1,5 @@
 import { lazy, Suspense } from "react";
+import { NoiseOverlay, CursorGlow } from "./utils/animations";
 
 // Critical above-the-fold — eager loaded
 import Header from "./components/Header";
@@ -55,13 +56,17 @@ function Home() {
           <SectionDivider type="tilt" topColor="#F9F7F5" bottomColor="#F0BB51" height={70} />
           <Suspense fallback={<SectionFallback />}><AtAGlance /></Suspense>
 
-          <SectionDivider type="wave" topColor="#F0BB51" bottomColor="#D5E8D4" height={70} />
+          <div className="relative z-[20]">
+            <SectionDivider type="curve" topColor="#F0BB51" bottomColor="#34785A" height={80} />
+          </div>
           <Suspense fallback={<SectionFallback />}><Facilities /></Suspense>
 
-          <SectionDivider type="wave" topColor="#D2E6D1" bottomColor="#FAF7F2" height={70} />
+          <div className="relative z-[20]" style={{ marginTop: '-2px' }}>
+            <SectionDivider type="tilt" topColor="#34785A" bottomColor="#FAF7F2" height={80} />
+          </div>
           <Suspense fallback={<SectionFallback />}><Discover /></Suspense>
 
-          <SectionDivider type="tilt" topColor="#FAF7F2" bottomColor="#FAF9F6" height={50} />
+          <SectionDivider type="curve" topColor="#FAF7F2" bottomColor="#FAF9F6" height={50} />
           <Suspense fallback={<SectionFallback />}><Testimonials /></Suspense>
 
           <SectionDivider type="gradient" topColor="#FAF9F6" bottomColor="#F5EEEC" accentColor="#E8BD63" accentHeight={8} height={50} />
@@ -88,11 +93,11 @@ export default function App() {
           --text-dark: #3E3A36;
         }
 
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Inter', sans-serif; background-color: var(--bg-light); color: var(--text-dark); font-weight: 500; font-size: 19px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
-        .serif { font-family: 'Playfair Display', serif; font-weight: 900; line-height: 1.08; letter-spacing: -0.02em; }
-        h1, h2, h3 { font-weight: 900; letter-spacing: -0.02em; }
-        p { font-size: 19px; line-height: 1.75; font-weight: 500; }
+        html { scroll-behavior: auto; /* Lenis handles smooth scroll */ }
+        body { font-family: 'Inter', 'DM Sans', sans-serif; background-color: var(--bg-light); color: var(--text-dark); font-weight: 400; font-size: 18px; line-height: 1.7; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+        .serif { font-family: 'Source Serif 4', Georgia, serif; font-weight: 700; line-height: 1.08; letter-spacing: -0.025em; }
+        h1, h2, h3 { font-weight: 700; letter-spacing: -0.02em; }
+        p { font-size: 18px; line-height: 1.75; font-weight: 400; letter-spacing: -0.01em; }
         
         .bg-primary { background-color: var(--primary-rose) !important; color: white; }
         .bg-secondary { background-color: var(--secondary-beige) !important; color: white; }
@@ -172,6 +177,11 @@ export default function App() {
         .custom-scrollbar-mini::-webkit-scrollbar-track { background: transparent; }
         .custom-scrollbar-mini::-webkit-scrollbar-thumb { background: var(--secondary-beige); border-radius: 4px; }
       `}</style>
+
+      {/* Subtle noise grain overlay */}
+      <NoiseOverlay opacity={0.018} />
+      {/* Cursor-following radial glow */}
+      <CursorGlow color="rgba(44, 58, 140, 0.05)" size={600} />
 
       <Header />
       <Home />

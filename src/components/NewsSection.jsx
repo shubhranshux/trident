@@ -36,7 +36,7 @@ export default function NewsSection() {
   return (
     <section className="relative z-10 bg-[#F5EEEC] py-24 md:py-32 overflow-hidden" id="news-events">
       {/* Editorial Watermark Behind */}
-      <div className="absolute top-10 left-10 text-[120px] font-black text-[#3E3A36]/[0.02] select-none pointer-events-none serif leading-none uppercase">
+      <div className="absolute top-10 left-10 text-[120px] font-bold text-[#3E3A36]/[0.02] select-none pointer-events-none serif leading-none uppercase">
         Chronicle
       </div>
 
@@ -53,10 +53,10 @@ export default function NewsSection() {
             
             {/* Header Section */}
             <div className="border-b border-[#3E3A36]/15 pb-8 mb-16">
-              <span className="block text-[11px] font-black uppercase tracking-[0.3em] text-[#E8BD63] mb-4">
+              <span className="block text-[11px] font-bold uppercase tracking-[0.3em] text-[#E8BD63] mb-4">
                 THE TAT JOURNAL & REVIEWS
               </span>
-              <h2 className="serif text-5xl md:text-7xl font-black text-[#3E3A36] leading-[1.05] tracking-tight">
+              <h2 className="serif text-5xl md:text-7xl font-bold text-[#3E3A36] leading-[1.05] tracking-tight">
                 News & <span className="italic font-light text-[#2C3A8C] font-serif">Events.</span>
               </h2>
               <p className="text-[#3E3A36]/60 text-base md:text-lg font-medium mt-4 max-w-xl">
@@ -99,7 +99,7 @@ export default function NewsSection() {
                         </div>
                         
                         {/* Date Stamp */}
-                        <div className="absolute -top-3 -left-3 bg-[#E8BD63] text-[#1A2660] text-[10px] font-black uppercase tracking-[0.2em] px-4 py-2 rounded shadow-lg z-20">
+                        <div className="absolute -top-3 -left-3 bg-[#E8BD63] text-[#1A2660] text-[10px] font-bold uppercase tracking-[0.2em] px-4 py-2 rounded shadow-lg z-20">
                           {featured.date}
                         </div>
                       </div>
@@ -107,10 +107,10 @@ export default function NewsSection() {
                       {/* Content text */}
                       <div className="md:w-1/2 flex flex-col justify-center py-2 relative z-10">
                         <div className="flex items-center gap-3 mb-4">
-                          <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#E8BD63] bg-[#E8BD63]/10 px-2 py-1 rounded">⭐ Featured</span>
+                          <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#E8BD63] bg-[#E8BD63]/10 px-2 py-1 rounded">⭐ Featured</span>
                           <span className="w-1.5 h-1.5 rounded-full bg-[#3E3A36]/30" />
                           <span 
-                            className="text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded"
+                            className="text-[10px] font-medium uppercase tracking-widest px-2 py-0.5 rounded"
                             style={{ 
                               color: CAT_CONFIG[featured.cat]?.color || '#2C3A8C',
                               backgroundColor: CAT_CONFIG[featured.cat]?.bg || 'rgba(44,58,140,0.05)'
@@ -120,7 +120,7 @@ export default function NewsSection() {
                           </span>
                         </div>
                         
-                        <h3 className="serif text-3xl lg:text-4xl font-bold text-[#3E3A36] leading-[1.1] mb-5 group-hover:text-[#2C3A8C] transition-colors duration-300">
+                        <h3 className="serif text-3xl lg:text-4xl font-medium text-[#3E3A36] leading-[1.1] mb-5 group-hover:text-[#2C3A8C] transition-colors duration-300">
                           {featured.title}
                         </h3>
                         
@@ -128,7 +128,7 @@ export default function NewsSection() {
                           {featured.desc}
                         </p>
                         
-                        <div className="mt-2 flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-[#2C3A8C]">
+                        <div className="mt-2 flex items-center gap-3 text-xs font-medium uppercase tracking-widest text-[#2C3A8C]">
                           Read Full Story
                           <div className="w-8 h-[1.5px] bg-[#2C3A8C] group-hover:w-12 transition-all duration-300" />
                           <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
@@ -153,36 +153,35 @@ export default function NewsSection() {
                       href="https://tat.ac.in/view-news/" 
                       target="_blank" 
                       rel="noopener noreferrer" 
-                      className="group relative flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border border-[#3E3A36]/5 transition-all duration-500 hover:-translate-y-1 h-full"
+                      className="group relative flex flex-col transition-all duration-500 h-full"
                     >
-                      {/* Card Image */}
-                      <div className="relative w-full h-48 overflow-hidden">
+                      {/* Image */}
+                      <div className="relative w-full h-56 overflow-hidden rounded-xl">
                         <img 
                           src={IMG_MAP[item.img]} 
                           alt={item.title} 
-                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[1.5s]" 
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1.5s]" 
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none" />
+                        <div className="absolute inset-0 bg-black/10 mix-blend-multiply opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
                         
                         {/* Category Badge */}
                         <span 
-                          className="absolute top-3 left-3 text-[9px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full backdrop-blur-sm"
+                          className="absolute top-4 left-4 text-[9px] font-bold uppercase tracking-widest px-3 py-1.5 rounded bg-white/90 backdrop-blur-md shadow-sm"
                           style={{ 
-                            color: '#FFFFFF',
-                            backgroundColor: (CAT_CONFIG[item.cat]?.color || '#2C3A8C') + 'DD',
+                            color: CAT_CONFIG[item.cat]?.color || '#2C3A8C',
                           }}
                         >
                           {item.cat}
                         </span>
                       </div>
 
-                      {/* Card Body */}
-                      <div className="flex flex-col flex-1 p-5">
-                        <span className="text-[10px] font-bold text-[#3E3A36]/40 uppercase tracking-widest mb-2">
+                      {/* Text Body */}
+                      <div className="flex flex-col flex-1 py-5">
+                        <span className="text-[10px] font-medium text-[#3E3A36]/40 uppercase tracking-widest mb-2">
                           {item.date}
                         </span>
                         
-                        <h3 className="serif text-lg font-bold text-[#3E3A36] leading-snug mb-2 group-hover:text-[#2C3A8C] transition-colors duration-300 line-clamp-2">
+                        <h3 className="serif text-lg font-medium text-[#3E3A36] leading-snug mb-2 group-hover:text-[#2C3A8C] transition-colors duration-300 line-clamp-2">
                           {item.title}
                         </h3>
                         
@@ -191,7 +190,7 @@ export default function NewsSection() {
                         </p>
 
                         <div className="flex items-center justify-between mt-4 pt-3 border-t border-[#3E3A36]/5">
-                          <span className="text-[10px] font-bold uppercase tracking-widest text-[#2C3A8C]">Read More</span>
+                          <span className="text-[10px] font-medium uppercase tracking-widest text-[#2C3A8C]">Read More</span>
                           <div className="w-8 h-8 rounded-full border border-[#3E3A36]/10 flex items-center justify-center text-[#3E3A36]/40 group-hover:text-[#2C3A8C] group-hover:border-[#2C3A8C] group-hover:bg-[#2C3A8C]/5 transition-all duration-300">
                             <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
                           </div>
@@ -214,68 +213,75 @@ export default function NewsSection() {
               {/* Events Title */}
               <div className="flex items-center gap-3 mb-10 pb-4 border-b border-white/10 lg:border-white/10">
                 <Sparkles size={22} className="text-[#E8BD63] animate-pulse" />
-                <h3 className="serif text-3xl font-bold text-white">
+                <h3 className="serif text-3xl font-medium text-white">
                   Upcoming <span className="italic font-light text-[#E8BD63] font-serif">Agenda.</span>
                 </h3>
               </div>
 
-              {/* Tickets Stack */}
-              <div className="space-y-6 max-h-[600px] overflow-y-auto overflow-x-hidden custom-scrollbar-mini pr-2">
-                {EVENTS.slice(0, 5).map((ev, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, x: 30 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: i * 0.1 }}
-                  >
-                    <a 
-                      href="https://tat.ac.in/events/" 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
-                      className="relative group flex items-stretch bg-white/5 hover:bg-white/10 rounded-xl border border-white/10 overflow-visible transition-all duration-500 shadow-md w-full min-w-0"
+              {/* Auto-scrolling Events Container */}
+              <style>{`
+                @keyframes vertical-marquee {
+                  0% { transform: translateY(0); }
+                  100% { transform: translateY(-50%); }
+                }
+                .animate-vertical-marquee {
+                  animation: vertical-marquee 25s linear infinite;
+                }
+                .animate-vertical-marquee:hover {
+                  animation-play-state: paused;
+                }
+              `}</style>
+              
+              <div className="relative max-h-[500px] overflow-hidden pr-2">
+                {/* Fade masks for top/bottom edges to blend with the background */}
+                <div className="absolute top-0 left-0 right-0 h-8 bg-gradient-to-b from-[#1A2660] lg:from-[#1A2660] to-transparent z-20 pointer-events-none hidden lg:block" />
+                <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-[#1A2660] lg:from-[#1A2660] to-transparent z-20 pointer-events-none hidden lg:block" />
+                
+                <div className="flex flex-col animate-vertical-marquee">
+                  {[...EVENTS, ...EVENTS].map((ev, i) => (
+                    <div
+                      key={i}
+                      className="pb-2"
                     >
-                      {/* CSS Ticket Cutout Punch Holes */}
-                      <div className="absolute top-0 bottom-0 left-[80px] flex flex-col justify-between pointer-events-none -translate-y-[8px] h-[calc(100%+16px)] z-20">
-                        <div className="w-4 h-4 rounded-full bg-[#1A2660] -mt-2 -ml-2" />
-                        <div className="w-4 h-4 rounded-full bg-[#1A2660] -mb-2 -ml-2" />
-                      </div>
-
-                      {/* Ticket Stub */}
-                      <div className="w-20 flex-shrink-0 flex flex-col items-center justify-center bg-gradient-to-br from-[#E8BD63] to-[#C99E47] text-[#1A2660] rounded-l-xl py-4 font-bold select-none">
-                        <span className="text-[10px] uppercase tracking-widest opacity-80">{ev.month}</span>
-                        <span className="serif text-3xl font-black leading-none">{ev.day}</span>
-                      </div>
-
-                      {/* Dotted border separator */}
-                      <div className="w-[1px] border-r border-dashed border-white/20 h-full ml-[1px]" />
-
-                      {/* Ticket body content */}
-                      <div className="flex-1 p-5 pl-6 flex flex-col justify-between min-w-0">
-                        <div className="min-w-0">
-                          <span className="inline-block text-[9px] uppercase tracking-widest border border-[#E8BD63]/40 text-[#E8BD63] px-2 py-0.5 rounded-full mb-2 font-semibold">
-                            {ev.type}
-                          </span>
-                          <h4 className="serif text-base font-bold text-white leading-snug group-hover:text-[#E8BD63] transition-colors duration-300 line-clamp-2 min-w-0">
-                            {ev.title}
-                          </h4>
+                      <a 
+                        href="https://tat.ac.in/events/" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="group relative flex flex-col md:flex-row items-start md:items-center py-5 border-b border-white/10 hover:border-white/30 transition-all duration-500 w-full min-w-0"
+                      >
+                        {/* Date Block */}
+                        <div className="w-24 flex-shrink-0 flex flex-col items-start justify-center text-[#E8BD63] pb-3 md:pb-0 md:pr-4 font-medium select-none">
+                          <span className="text-[10px] uppercase tracking-widest opacity-80">{ev.month}</span>
+                          <span className="serif text-3xl font-bold leading-none">{ev.day}</span>
                         </div>
-                        
-                        <div className="mt-3 flex items-center gap-1.5 text-[11px] text-white/50">
-                          <MapPin size={12} className="text-[#E8BD63] flex-shrink-0" />
-                          <span className="truncate max-w-[150px]">{ev.venue || ev.loc}</span>
-                        </div>
-                      </div>
 
-                      {/* Ticket right chevron wrapper */}
-                      <div className="flex items-center pr-4">
-                        <div className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center text-white/50 group-hover:text-white group-hover:border-[#E8BD63]/50 group-hover:bg-[#E8BD63]/10 transition-all duration-300">
-                          <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                        {/* Content */}
+                        <div className="flex-1 flex flex-col justify-between min-w-0 pr-4">
+                          <div className="min-w-0">
+                            <span className="inline-block text-[9px] uppercase tracking-widest border border-[#E8BD63]/40 text-[#E8BD63] px-2 py-0.5 rounded-full mb-2 font-medium">
+                              {ev.type}
+                            </span>
+                            <h4 className="serif text-base font-medium text-white leading-snug group-hover:text-[#E8BD63] transition-colors duration-300 line-clamp-2 min-w-0">
+                              {ev.title}
+                            </h4>
+                          </div>
+                          
+                          <div className="mt-3 flex items-center gap-1.5 text-[11px] text-white/50">
+                            <MapPin size={12} className="text-[#E8BD63] flex-shrink-0" />
+                            <span className="truncate max-w-[150px]">{ev.venue || ev.loc}</span>
+                          </div>
                         </div>
-                      </div>
-                    </a>
-                  </motion.div>
-                ))}
+
+                        {/* Arrow Right */}
+                        <div className="absolute right-0 top-1/2 -translate-y-1/2 flex items-center">
+                          <div className="w-8 h-8 rounded-full flex items-center justify-center text-white/50 group-hover:text-[#E8BD63] transition-all duration-300">
+                            <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                  ))}
+                </div>
               </div>
 
               {/* View Full Calendar CTA */}
@@ -284,7 +290,7 @@ export default function NewsSection() {
                   href="https://tat.ac.in/events/" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="flex items-center justify-center gap-3 w-full px-8 py-5 rounded-2xl text-sm font-bold uppercase tracking-[0.15em] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_12px_30px_-8px_rgba(232,189,99,0.4)] group"
+                  className="flex items-center justify-center gap-3 w-full px-8 py-5 rounded-2xl text-sm font-medium uppercase tracking-[0.15em] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_12px_30px_-8px_rgba(232,189,99,0.4)] group"
                   style={{ background: 'linear-gradient(135deg, #E8BD63, #C99E47)', color: '#1A2660' }}
                 >
                   <Calendar size={18} />
@@ -293,10 +299,8 @@ export default function NewsSection() {
                 </a>
               </div>
 
-              {/* Admissions Apply Now Block to fill space */}
-              <div className="mt-8 bg-gradient-to-br from-[#1B2754] to-[#121A3F] border border-[#E8BD63]/20 rounded-2xl p-6 relative overflow-hidden group hover:border-[#E8BD63]/50 transition-colors duration-500 shadow-xl">
-                {/* Decorative BG element */}
-                <div className="absolute top-0 right-0 w-32 h-32 bg-[#E8BD63]/5 rounded-full blur-2xl pointer-events-none group-hover:bg-[#E8BD63]/10 transition-colors duration-500" />
+              {/* Admissions Apply Now Block - Minimalist List Item */}
+              <div className="mt-8 border-t border-white/10 pt-6 group transition-colors duration-500">
                 
                 <div className="relative z-10 flex flex-col h-full justify-center">
                   <div className="flex items-center gap-2 mb-3">
@@ -304,10 +308,10 @@ export default function NewsSection() {
                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#E8BD63] opacity-75"></span>
                       <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#E8BD63]"></span>
                     </span>
-                    <span className="text-[10px] font-black uppercase tracking-widest text-[#E8BD63]">Admissions 2026</span>
+                    <span className="text-[10px] font-bold uppercase tracking-widest text-[#E8BD63]">Admissions 2026</span>
                   </div>
                   
-                  <h4 className="font-serif text-2xl font-bold text-white mb-2 leading-tight">
+                  <h4 className="font-serif text-2xl font-medium text-white mb-2 leading-tight">
                     Your Future Starts Here.
                   </h4>
                   <p className="text-white/60 text-sm font-medium mb-6 leading-relaxed pr-2">
@@ -318,12 +322,10 @@ export default function NewsSection() {
                     href="https://tat.ac.in/admissions/" 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className="inline-flex items-center justify-between w-full bg-white text-[#1A2660] px-5 py-3.5 rounded-xl font-bold text-sm hover:bg-[#E8BD63] transition-colors duration-300 group/btn shadow-[0_4px_14px_0_rgba(255,255,255,0.1)]"
+                    className="inline-flex items-center gap-4 text-[#E8BD63] font-medium text-sm group/btn w-max transition-colors"
                   >
-                    <span>Apply Now</span>
-                    <div className="w-8 h-8 rounded-full bg-[#1A2660]/5 flex items-center justify-center group-hover/btn:bg-[#1A2660]/10 transition-colors">
-                      <ArrowRight size={16} className="group-hover/btn:translate-x-1 transition-transform" />
-                    </div>
+                    <span className="uppercase tracking-widest text-[11px] border-b border-[#E8BD63]/30 pb-1 group-hover/btn:border-[#E8BD63] transition-colors">Begin Application</span>
+                    <ArrowRight size={16} className="group-hover/btn:translate-x-1 transition-transform" />
                   </a>
                 </div>
               </div>

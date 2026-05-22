@@ -1,15 +1,16 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FadeInUp, SlideIn } from "../utils/animations";
+import { FadeInUp, SlideIn, AmbientParticles } from "../utils/animations";
+import { GSAPCounter, ScrambleText, Tilt3D, AnimatedGradient, ScrollReveal, GlowTrail } from "../utils/advanced-animations";
 import { TrendingUp, Building2, Award, Users, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { logos as CompanyLogos } from "../data/companyLogos";
 
 /* ─── Data ──────────────────────────────────────────────────────────── */
 const stats = [
-  { icon: <TrendingUp size={28} />, value: "₹7.5 LPA",  label: "Highest Package", color: "#E8BD63" },
-  { icon: <Award size={28} />,       value: "₹4.5 LPA", label: "Average Package", color: "#C41E3A" },
-  { icon: <Building2 size={28} />,   value: "120+",      label: "Companies Visited", color: "#2E6DB4" },
-  { icon: <Users size={28} />,       value: "94%",        label: "Placement Rate", color: "#3EA644" },
+  { icon: <TrendingUp size={28} />, value: 7.5,   label: "Highest Package", color: "#E8BD63", prefix: "₹", suffix: " LPA", decimals: 1 },
+  { icon: <Award size={28} />,       value: 4.5,  label: "Average Package", color: "#C41E3A", prefix: "₹", suffix: " LPA", decimals: 1 },
+  { icon: <Building2 size={28} />,   value: 120,      label: "Companies Visited", color: "#2E6DB4", prefix: "", suffix: "+", decimals: 0 },
+  { icon: <Users size={28} />,       value: 94,        label: "Placement Rate", color: "#3EA644", prefix: "", suffix: "%", decimals: 0 },
 ];
 
 const domains = {
@@ -112,13 +113,13 @@ function RecruiterCircle({ name }) {
               <Logo size={44} />
             </div>
           ) : (
-            <span className="text-base font-black tracking-wider text-[#1A2660]/75">{initials}</span>
+            <span className="text-base font-bold tracking-wider text-[#1A2660]/75">{initials}</span>
           )}
         </div>
       </div>
       
       {/* Label with dynamic corporate brand color matching on hover */}
-      <span className={`text-white/60 text-[10px] md:text-xs font-black tracking-widest uppercase text-center transition-all duration-300 w-24 truncate ${brand.text}`}>
+      <span className={`text-white/60 text-[10px] md:text-xs font-bold tracking-widest uppercase text-center transition-all duration-300 w-24 truncate ${brand.text}`}>
         {name}
       </span>
     </motion.div>
@@ -166,6 +167,8 @@ export default function Placements() {
         <div className="absolute top-[25%] left-[-10%] w-[500px] h-[500px] rounded-full bg-[#2C3A8C]/20 blur-[150px] hidden md:block" />
         <div className="absolute bottom-[15%] right-[5%] w-80 h-80 rounded-full bg-[#C41E3A]/5 blur-[100px] hidden md:block" />
         <div className="absolute top-[50%] right-[30%] w-32 h-32 rounded-full bg-white/[0.02] blur-[50px] hidden lg:block" />
+        <AnimatedGradient colors={["#E8BD63", "#C41E3A", "#2C3A8C"]} opacity={0.03} speed={25} />
+        <AmbientParticles count={10} color="rgba(255,255,255,0.05)" section={true} />
       </div>
 
       {/* Top Accent Stripe */}
@@ -180,13 +183,13 @@ export default function Placements() {
         {/* Header */}
         <div className="text-center mb-20">
           <SlideIn direction="right">
-            <div className="inline-flex items-center gap-3 border border-white/15 text-white/70 text-[11px] font-bold uppercase tracking-[0.35em] px-8 py-3 rounded-full mb-10 bg-white/5 backdrop-blur-sm">
+            <div className="inline-flex items-center gap-3 border border-white/15 text-white/70 text-[11px] font-medium uppercase tracking-[0.35em] px-8 py-3 rounded-full mb-10 bg-white/5 backdrop-blur-sm">
               <span className="w-2 h-2 rounded-full bg-[#3EA644]" style={{ animation: "pulse 2s ease-in-out infinite" }} />
               Placements 2025–26
             </div>
           </SlideIn>
           <FadeInUp delay={200}>
-            <h2 className="serif text-5xl md:text-6xl lg:text-7xl font-black text-white mb-6 leading-[1.05]">
+            <h2 className="serif text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-[1.05]">
               Our graduates are everywhere{" "}
               <br className="hidden md:block" />
               <span className="italic text-[#E8BD63] font-serif font-light">
@@ -201,17 +204,20 @@ export default function Placements() {
           </FadeInUp>
         </div>
 
-        {/* Glass Metrics Dashboard */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 mb-16">
+        {/* Premium Borderless Metrics Dashboard */}
+        <div className="flex flex-wrap lg:flex-nowrap justify-between items-center mb-16 py-6 lg:py-10 border-y border-white/10">
           {stats.map((s, i) => (
-            <FadeInUp key={s.label} delay={200 + i * 100}>
-              <div className="group relative rounded-2xl p-7 text-center transition-all duration-500 hover:-translate-y-2 overflow-hidden bg-white/5 backdrop-blur-xl border border-white/10 hover:border-white/20 shadow-xl">
-                {/* Colored top accent line */}
-                <div className="absolute top-0 left-0 right-0 h-[3.5px] transition-all duration-500" style={{ backgroundColor: s.color }} />
+            <FadeInUp key={s.label} delay={200 + i * 100} className="w-full sm:w-1/2 lg:w-1/4 flex justify-center">
+              <div className="group relative text-center px-4 py-8 w-full border-b sm:border-b-0 sm:border-r border-white/10 [&:nth-child(2n)]:border-r-0 lg:[&:nth-child(2n)]:border-r last:border-b-0 lg:last:border-r-0">
+                {/* Subtle colored accent */}
+                <div className="mx-auto w-8 h-1 mb-6 rounded-full transition-all duration-500 group-hover:w-16 group-hover:bg-opacity-100 bg-opacity-60" style={{ backgroundColor: s.color }} />
                 
-                <div className="mb-4 flex justify-center group-hover:scale-110 transform transition-all duration-500 text-white/70">{s.icon}</div>
-                <div className="serif text-3xl md:text-4xl font-black mb-2 text-white">{s.value}</div>
-                <div className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/40">{s.label}</div>
+                <div className="mb-5 flex justify-center text-white/30 group-hover:text-white/80 group-hover:-translate-y-1 transform transition-all duration-500">{s.icon}</div>
+                
+                <div className="serif text-4xl md:text-5xl font-bold mb-3 text-white tracking-tight">
+                  <GSAPCounter end={s.value} prefix={s.prefix} suffix={s.suffix} decimals={s.decimals} />
+                </div>
+                <div className="text-[11px] font-bold uppercase tracking-[0.25em] text-white/50">{s.label}</div>
               </div>
             </FadeInUp>
           ))}
@@ -230,10 +236,10 @@ export default function Placements() {
           {/* LEFT: Domain Recruiter Constellation (7 cols) */}
           <div className="lg:col-span-7 flex flex-col justify-between">
             <div className="mb-8">
-              <span className="text-[11px] font-black uppercase tracking-[0.3em] text-[#E8BD63] block mb-3">
+              <span className="text-[11px] font-bold uppercase tracking-[0.3em] text-[#E8BD63] block mb-3">
                 Industry Alignments
               </span>
-              <h3 className="serif text-3xl font-bold text-white mb-6">
+              <h3 className="serif text-3xl font-medium text-white mb-6">
                 Recruiter <span className="italic font-light text-[#E8BD63] font-serif">Networks.</span>
               </h3>
 
@@ -243,7 +249,7 @@ export default function Placements() {
                   <button
                     key={key}
                     onClick={() => setActiveTab(key)}
-                    className={`py-3 px-6 text-[10px] md:text-xs font-black uppercase tracking-wider rounded-xl transition-all duration-300 whitespace-nowrap ${
+                    className={`py-3 px-6 text-[10px] md:text-xs font-bold uppercase tracking-wider rounded-xl transition-all duration-300 whitespace-nowrap ${
                       activeTab === key
                         ? "bg-[#E8BD63] text-[#1A2660] shadow-lg scale-105"
                         : "text-white/60 hover:text-white hover:bg-white/5"
@@ -256,7 +262,7 @@ export default function Placements() {
             </div>
 
             {/* Glowing Recruiter Bubble Network */}
-            <div className="bg-white/[0.02] backdrop-blur-sm border border-white/5 rounded-3xl p-8 md:p-10 flex-1 min-h-[380px] flex items-center justify-center">
+            <div className="flex-1 min-h-[380px] flex items-center justify-center lg:pr-8">
               <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 justify-items-center w-full">
                 <AnimatePresence mode="wait">
                   {domains[activeTab].companies.map((name) => (
@@ -268,14 +274,14 @@ export default function Placements() {
           </div>
 
           {/* RIGHT: SVG Chart Dashboard (5 cols) */}
-          <div className="lg:col-span-5 bg-white rounded-3xl p-8 relative overflow-hidden shadow-2xl border border-gray-100 flex flex-col justify-between h-full">
+          <div className="lg:col-span-5 relative flex flex-col justify-between h-full lg:pl-10 lg:border-l border-white/10 pt-8 lg:pt-0">
             {/* Chart Header */}
             <div>
-              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#1A2660]/40 block mb-1">
+              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#E8BD63] block mb-1">
                 Trend Analysis
               </span>
-              <h4 className="serif text-2xl font-black text-[#1A2660]">Year-wise Performance</h4>
-              <p className="text-[#3E3A36]/60 text-xs font-bold uppercase tracking-wider mt-1">Offers and Recruiter Trends</p>
+              <h4 className="serif text-2xl font-bold text-white">Year-wise Performance</h4>
+              <p className="text-white/50 text-xs font-medium uppercase tracking-wider mt-1">Offers and Recruiter Trends</p>
             </div>
 
             {/* SVG Graph */}
@@ -314,8 +320,8 @@ export default function Placements() {
                   const y = 310 - (val / 900) * 270;
                   return (
                     <g key={val}>
-                      <line x1="35" y1={y} x2="630" y2={y} stroke="#F3F4F6" strokeWidth="1" />
-                      <text x="25" y={y + 4} fill="#9CA3AF" fontSize="11" textAnchor="end" fontWeight="700">{val}</text>
+                      <line x1="35" y1={y} x2="630" y2={y} stroke="rgba(255,255,255,0.05)" strokeWidth="1" />
+                      <text x="25" y={y + 4} fill="rgba(255,255,255,0.4)" fontSize="11" textAnchor="end" fontWeight="700">{val}</text>
                     </g>
                   );
                 })}
@@ -324,7 +330,7 @@ export default function Placements() {
                 {["2020-21", "2021-22", "2022-23", "2023-24", "2024-25"].map((year, i) => {
                   const x = 60 + (540 / 4) * i;
                   return (
-                    <text key={year} x={x} y="335" fill="#4B5563" fontSize="13" textAnchor="middle" fontWeight="bold">
+                    <text key={year} x={x} y="335" fill="rgba(255,255,255,0.6)" fontSize="13" textAnchor="middle" fontWeight="bold">
                       {year}
                     </text>
                   );
@@ -396,8 +402,8 @@ export default function Placements() {
                   { x: 600, y: 108.4, val: 672 },
                 ].map((pt, i) => (
                   <g key={`offer-${i}`} className="svg-point-anim" style={{ animationDelay: `${0.6 + i * 0.2}s` }}>
-                    <circle cx={pt.x} cy={pt.y} r="6" fill="#E57345" stroke="#fff" strokeWidth="2.5" filter="url(#shadow)" />
-                    <text x={pt.x} y={pt.y - 14} fill="#3E3A36" fontSize="12" textAnchor="middle" fontWeight="800">
+                    <circle cx={pt.x} cy={pt.y} r="6" fill="#E57345" stroke="#1A2660" strokeWidth="2.5" filter="url(#shadow)" />
+                    <text x={pt.x} y={pt.y - 14} fill="#ffffff" fontSize="12" textAnchor="middle" fontWeight="800">
                       {pt.val}
                     </text>
                   </g>
@@ -412,8 +418,8 @@ export default function Placements() {
                   { x: 600, y: 274.0, val: 120 },
                 ].map((pt, i) => (
                   <g key={`recruiter-${i}`} className="svg-point-anim" style={{ animationDelay: `${0.6 + i * 0.2}s` }}>
-                    <circle cx={pt.x} cy={pt.y} r="6" fill="#2E6DB4" stroke="#fff" strokeWidth="2.5" filter="url(#shadow)" />
-                    <text x={pt.x} y={pt.y - 14} fill="#3E3A36" fontSize="12" textAnchor="middle" fontWeight="800">
+                    <circle cx={pt.x} cy={pt.y} r="6" fill="#2E6DB4" stroke="#1A2660" strokeWidth="2.5" filter="url(#shadow)" />
+                    <text x={pt.x} y={pt.y - 14} fill="#ffffff" fontSize="12" textAnchor="middle" fontWeight="800">
                       {pt.val}
                     </text>
                   </g>
@@ -422,14 +428,14 @@ export default function Placements() {
             </div>
 
             {/* Legend */}
-            <div className="flex items-center justify-center gap-8 border-t border-gray-100 pt-5">
+            <div className="flex items-center justify-center gap-8 border-t border-white/10 pt-5">
               <div className="flex items-center gap-2.5">
                 <span className="w-8 h-1.5 rounded-full" style={{ background: '#2E6DB4' }} />
-                <span className="text-[#4B5563] text-xs font-black uppercase tracking-wider">Recruiters</span>
+                <span className="text-white/60 text-xs font-bold uppercase tracking-wider">Recruiters</span>
               </div>
               <div className="flex items-center gap-2.5">
                 <span className="w-8 h-1.5 rounded-full" style={{ background: '#E57345' }} />
-                <span className="text-[#4B5563] text-xs font-black uppercase tracking-wider">Offers Secured</span>
+                <span className="text-white/60 text-xs font-bold uppercase tracking-wider">Offers Secured</span>
               </div>
             </div>
           </div>
@@ -454,10 +460,10 @@ export default function Placements() {
         <div className="text-center mb-12">
           <FadeInUp delay={600}>
             <div className="w-16 h-px bg-gradient-to-r from-transparent via-[#E8BD63] to-transparent mx-auto mb-5" />
-            <span className="text-[11px] font-bold uppercase tracking-[0.3em] text-[#E8BD63]">
+            <span className="text-[11px] font-medium uppercase tracking-[0.3em] text-[#E8BD63]">
               Where Our Students Work
             </span>
-            <h3 className="serif text-3xl md:text-4xl font-black text-white mt-4">
+            <h3 className="serif text-3xl md:text-4xl font-bold text-white mt-4">
               Success <span className="italic font-light text-[#E8BD63] font-serif">Stories.</span>
             </h3>
           </FadeInUp>
@@ -490,18 +496,18 @@ export default function Placements() {
                       {/* Card Content */}
                       <div className="absolute inset-0 p-5 flex flex-col justify-end">
                         <div className="mb-3">
-                          <h3 className="text-white font-black text-lg tracking-wide leading-tight">{student.name}</h3>
-                          <p className="text-[#E8BD63] text-[10px] font-bold uppercase tracking-wider mt-1">{student.role}</p>
+                          <h3 className="text-white font-bold text-lg tracking-wide leading-tight">{student.name}</h3>
+                          <p className="text-[#E8BD63] text-[10px] font-medium uppercase tracking-wider mt-1">{student.role}</p>
                         </div>
 
                         <div className="bg-white/10 backdrop-blur-md rounded-xl p-3 flex justify-between items-center border border-white/20">
                           <div>
-                            <p className="text-[9px] text-white/60 uppercase font-black tracking-[0.15em] mb-0.5">Company</p>
-                            <p className="text-white font-bold text-xs tracking-wide">{student.company}</p>
+                            <p className="text-[9px] text-white/60 uppercase font-bold tracking-[0.15em] mb-0.5">Company</p>
+                            <p className="text-white font-medium text-xs tracking-wide">{student.company}</p>
                           </div>
                           <div className="text-center">
-                            <p className="text-[9px] text-white/60 uppercase font-black tracking-[0.15em] mb-0.5">Package</p>
-                            <div className="bg-[#E8BD63] text-[#1A2660] px-2.5 py-1 rounded-full text-[9px] font-black tracking-widest shadow-lg">
+                            <p className="text-[9px] text-white/60 uppercase font-bold tracking-[0.15em] mb-0.5">Package</p>
+                            <div className="bg-[#E8BD63] text-[#1A2660] px-2.5 py-1 rounded-full text-[9px] font-bold tracking-widest shadow-lg">
                               {student.package}
                             </div>
                           </div>
@@ -521,7 +527,7 @@ export default function Placements() {
         {/* CTA */}
         <FadeInUp delay={800}>
           <div className="text-center mt-16">
-            <a href="https://tat.tekkzy.com/placement-report/" className="group inline-flex items-center gap-3 bg-[#E8BD63] text-[#1A2660] px-10 py-4 rounded-full font-bold text-sm uppercase tracking-widest shadow-xl hover:bg-[#F0D080] hover:-translate-y-1 transition-all duration-500">
+            <a href="https://tat.tekkzy.com/placement-report/" className="group inline-flex items-center gap-3 bg-[#E8BD63] text-[#1A2660] px-10 py-4 rounded-full font-medium text-sm uppercase tracking-widest shadow-xl hover:bg-[#F0D080] hover:-translate-y-1 transition-all duration-500">
               View Full Placement Report
               <ArrowRight size={18} className="transform group-hover:translate-x-1 transition-transform" />
             </a>

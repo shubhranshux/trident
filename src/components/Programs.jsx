@@ -100,8 +100,8 @@ const DeptCard = ({ dept, index }) => {
         <div className="absolute inset-x-0 bottom-0 p-6 z-10" style={{ transform: 'skewX(6deg)' }}>
           {/* Title */}
           <h3
-            className="text-white text-xl md:text-2xl font-black leading-[1.15] mb-3 tracking-tight"
-            style={{ fontFamily: "'Playfair Display', serif" }}
+            className="text-white text-xl md:text-2xl font-bold leading-[1.15] mb-3 tracking-tight"
+            style={{ fontFamily: "'Source Serif 4', Georgia, serif" }}
           >
             {dept.name}
           </h3>
@@ -109,7 +109,7 @@ const DeptCard = ({ dept, index }) => {
           {/* Meta row */}
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-white/50 text-[10px] font-semibold tracking-wider uppercase">{dept.category}</p>
+              <p className="text-white/50 text-[10px] font-medium tracking-wider uppercase">{dept.category}</p>
               <p className="text-white/35 text-[10px] font-medium mt-0.5">{dept.duration} · {dept.seats} Seats</p>
             </div>
 
@@ -173,13 +173,13 @@ const CtaCard = () => (
         <div className="w-14 h-14 rounded-2xl bg-white/10 border border-white/15 flex items-center justify-center text-[#E8BD63] mb-6 mx-auto group-hover:scale-110 transition-all duration-500 backdrop-blur-sm">
           <GraduationCap size={24} />
         </div>
-        <h3 className="text-2xl md:text-3xl font-black text-white mb-3 leading-[1.1]" style={{ fontFamily: "'Playfair Display', serif" }}>
+        <h3 className="text-2xl md:text-3xl font-bold text-white mb-3 leading-[1.1]" style={{ fontFamily: "'Source Serif 4', Georgia, serif" }}>
           Explore More<br /><span className="text-[#E8BD63] italic">Opportunities</span>
         </h3>
         <p className="text-white/45 text-[12px] font-medium mb-6 max-w-[240px] mx-auto leading-relaxed">
           12 UG · 7 PG · 5 Diploma programs
         </p>
-        <button className="bg-white/10 backdrop-blur-sm border border-white/20 text-white px-6 py-3 rounded-full text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-[#E8BD63] hover:border-[#E8BD63] hover:text-[#1A2660] transition-all duration-400">
+        <button className="bg-white/10 backdrop-blur-sm border border-white/20 text-white px-6 py-3 rounded-full text-[10px] font-medium uppercase tracking-[0.2em] hover:bg-[#E8BD63] hover:border-[#E8BD63] hover:text-[#1A2660] transition-all duration-400">
           Explore More
         </button>
       </div>
@@ -262,9 +262,9 @@ export default function Programs() {
                   <div className="w-10 h-10 rounded-full bg-[#E8BD63]/15 flex items-center justify-center">
                     <GraduationCap size={18} className="text-[#D4A84B]" />
                   </div>
-                  <span className="text-[#D4A84B] text-[11px] font-bold tracking-[0.2em] uppercase">Our Programs</span>
+                  <span className="text-[#D4A84B] text-[11px] font-medium tracking-[0.2em] uppercase">Our Programs</span>
                 </div>
-                <h2 className="serif text-[#3E3A36] text-4xl sm:text-5xl md:text-[56px] font-black tracking-tight leading-[1.05]">
+                <h2 className="serif text-[#3E3A36] text-5xl sm:text-6xl md:text-[72px] font-bold tracking-tight leading-[1.02]">
                   Academic <span className="italic text-[#2C3A8C]">Departments.</span>
                 </h2>
               </SlideIn>

@@ -12,6 +12,10 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Inter', 'DM Sans', 'sans-serif'],
+        serif: ['"Source Serif 4"', 'Georgia', 'serif'],
+      },
       colors: {
         'primary': '#2C3A8C',      // Custom Primary Color
         'primary-rose': '#2C3A8C',

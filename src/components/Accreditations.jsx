@@ -243,7 +243,7 @@ function Card({ item, index }) {
     >
       {/* Label pill */}
       <span
-        className="text-[9px] font-black uppercase tracking-[0.2em] px-3 py-1 rounded-full mb-4"
+        className="text-[9px] font-bold uppercase tracking-[0.2em] px-3 py-1 rounded-full mb-4"
         style={{ color: item.accent, background: item.accent + "14" }}
       >
         {item.label}
@@ -259,8 +259,8 @@ function Card({ item, index }) {
 
       {/* Name + full name */}
       <div className="text-center">
-        <div className="font-black text-[13px] text-[#1A1817] leading-tight">{item.name}</div>
-        <div className="text-[9.5px] text-[#9A8C82] font-semibold mt-1 leading-snug">{item.full}</div>
+        <div className="font-bold text-[13px] text-[#1A1817] leading-tight">{item.name}</div>
+        <div className="text-[9.5px] text-[#9A8C82] font-medium mt-1 leading-snug">{item.full}</div>
       </div>
     </div>
   );
@@ -285,7 +285,7 @@ export default function Accreditations() {
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
               <path d="M7 1L1.5 3.5V7C1.5 10.15 3.9 13.1 7 14C10.1 13.1 12.5 10.15 12.5 7V3.5L7 1Z" fill="#333" opacity="0.8" />
             </svg>
-            <p className="text-[10px] font-black uppercase tracking-[0.3em] text-[#333] whitespace-nowrap">
+            <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#333] whitespace-nowrap">
               Accreditations &amp; Recognitions
             </p>
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
