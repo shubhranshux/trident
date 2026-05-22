@@ -1,4 +1,5 @@
 import logo from "../assets/logo.png";
+import { FadeInUp } from "../utils/animations";
 
 import { Mail, Phone, MapPin, Facebook, Linkedin, Instagram, ArrowRight, Youtube } from "lucide-react";
 
@@ -31,89 +32,91 @@ export default function Footer() {
         
 
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-16 mb-24">
-          
-          {/* Brand Column */}
-          <div className="lg:col-span-4">
-            <a href="/" className="flex items-center gap-5 mb-10 text-decoration-none">
-              <img src={logo} alt="TAT Logo" className="w-[64px] h-[64px] object-contain" />
-              <div className="h-12 w-[1px] bg-white/10 mx-2"></div>
-              <div className="flex flex-col justify-center">
-                <div className="font-serif text-[28px] text-white leading-none font-bold uppercase">Trident</div>
-                <div className="text-[10px] font-medium text-[#8B6E66] tracking-[.3em] uppercase mt-2">Academy of Technology</div>
+        <FadeInUp>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-16 mb-24">
+            
+            {/* Brand Column */}
+            <div className="lg:col-span-4">
+              <a href="/" className="flex items-center gap-5 mb-10 text-decoration-none">
+                <img src={logo} alt="TAT Logo" className="w-[64px] h-[64px] object-contain" />
+                <div className="h-12 w-[1px] bg-white/10 mx-2"></div>
+                <div className="flex flex-col justify-center">
+                  <div className="font-serif text-[28px] text-white leading-none font-bold uppercase">Trident</div>
+                  <div className="text-[10px] font-medium text-[#8B6E66] tracking-[.3em] uppercase mt-2">Academy of Technology</div>
+                </div>
+              </a>
+              
+              <p className="text-gray-400 text-[16px] leading-[1.8] mb-10">
+                Where Education Meets Excellence — Trident Academy of Technology empowers future professionals with quality education, innovation, and industry-ready skills.
+              </p>
+              
+              <div className="grid grid-cols-1 gap-6">
+                <a href="https://contactus-tat.tekkzy.com" className="flex items-start gap-4 hover:text-white transition-colors group text-decoration-none">
+                  <div className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-[#8B6E66] flex-shrink-0"><MapPin size={20}/></div>
+                  <div className="text-sm font-medium leading-relaxed">F2/A, Chandaka Industrial Estate,<br/>In front of Infocity, Bhubaneswar,<br/>Odisha, Pin: 751024, India</div>
+                </a>
+                <a href="tel:+919861191195" className="flex items-center gap-4 hover:text-white transition-colors group">
+                  <div className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-[#8B6E66]"><Phone size={20}/></div>
+                  <div className="text-sm font-medium">+91 98611 91195</div>
+                </a>
+                <a href="mailto:info@trident.ac.in" className="flex items-center gap-4 hover:text-white transition-colors group">
+                  <div className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-[#8B6E66]"><Mail size={20}/></div>
+                  <div className="text-sm font-medium">info@trident.ac.in</div>
+                </a>
               </div>
-            </a>
-            
-            <p className="text-gray-400 text-[16px] leading-[1.8] mb-10">
-              Where Education Meets Excellence — Trident Academy of Technology empowers future professionals with quality education, innovation, and industry-ready skills.
-            </p>
-            
-            <div className="grid grid-cols-1 gap-6">
-              <a href="https://contactus-tat.tekkzy.com" className="flex items-start gap-4 hover:text-white transition-colors group text-decoration-none">
-                <div className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-[#8B6E66] flex-shrink-0"><MapPin size={20}/></div>
-                <div className="text-sm font-medium leading-relaxed">F2/A, Chandaka Industrial Estate,<br/>In front of Infocity, Bhubaneswar,<br/>Odisha, Pin: 751024, India</div>
-              </a>
-              <a href="tel:+919861191195" className="flex items-center gap-4 hover:text-white transition-colors group">
-                <div className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-[#8B6E66]"><Phone size={20}/></div>
-                <div className="text-sm font-medium">+91 98611 91195</div>
-              </a>
-              <a href="mailto:info@trident.ac.in" className="flex items-center gap-4 hover:text-white transition-colors group">
-                <div className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-[#8B6E66]"><Mail size={20}/></div>
-                <div className="text-sm font-medium">info@trident.ac.in</div>
-              </a>
+            </div>
+
+
+            {/* Links Columns */}
+            <div className="lg:col-span-8 grid grid-cols-2 lg:grid-cols-3 gap-12">
+              {[
+                { h:"Academics & Student Life", ls:[
+                  { t:"Library", h:"#" },
+                  { t:"IQAC", h:"#" },
+                  { t:"Testimonials", h:"#" },
+                  { t:"Student Clubs", h:"#" },
+                  { t:"CISCO thingQbator", h:"#" },
+                  { t:"E-Governance Portal", h:"https://ais.tat.ac.in/ais/" },
+                  { t:"Grievance", h:"#" },
+                  { t:"ICC", h:"#" },
+                ] },
+                { h:"About the Institution", ls:[
+                  { t:"About Us", h:"#" },
+                  { t:"NAAC", h:"#" },
+                  { t:"NBA", h:"#" },
+                  { t:"NIRF", h:"#" },
+                  { t:"SIRO (DSIR)", h:"#" },
+                  { t:"AICTE Mandatory Disclosure", h:"#" },
+                  { t:"Career", h:"#" },
+                  { t:"Information Brochure", h:"#" },
+                ] },
+                { h:"Trident Group Websites", ls:[
+                  { t:"Trident Academy of Creative Technology (TACT)", h:"https://tact.ac.in/" },
+                  { t:"Trident Academy of Professional Studies (TAPS)", h:"https://taps.ac.in/" },
+                  { t:"Trident School of Biotech Sciences (TSBS)", h:"https://tsbs.ac.in/" },
+                  { t:"The DF Group", h:"https://dfgroup.in/" },
+                ] },
+              ].map((col) => (
+                <div key={col.h}>
+                  <div className="relative mb-10">
+                    <div className="absolute -left-4 top-0 w-8 h-8 bg-[#8B6E66]/10 -skew-x-12"></div>
+                    <h5 className="font-serif text-white font-bold text-[15px] uppercase tracking-widest relative z-10 whitespace-nowrap">{col.h}</h5>
+                  </div>
+                  <ul className="space-y-5">
+                    {col.ls.map((link) => (
+                      <li key={link.t}>
+                        <a href={link.h} className="text-[14px] font-medium text-gray-500 hover:text-[#E5AA3E] transition-all flex items-center gap-3 group">
+                          <span className="w-0 h-[1px] bg-[#E5AA3E] group-hover:w-4 transition-all duration-300" />
+                          {link.t}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
             </div>
           </div>
-
-
-          {/* Links Columns */}
-          <div className="lg:col-span-8 grid grid-cols-2 lg:grid-cols-3 gap-12">
-            {[
-              { h:"Academics & Student Life", ls:[
-                { t:"Library", h:"#" },
-                { t:"IQAC", h:"#" },
-                { t:"Testimonials", h:"#" },
-                { t:"Student Clubs", h:"#" },
-                { t:"CISCO thingQbator", h:"#" },
-                { t:"E-Governance Portal", h:"https://ais.tat.ac.in/ais/" },
-                { t:"Grievance", h:"#" },
-                { t:"ICC", h:"#" },
-              ] },
-              { h:"About the Institution", ls:[
-                { t:"About Us", h:"#" },
-                { t:"NAAC", h:"#" },
-                { t:"NBA", h:"#" },
-                { t:"NIRF", h:"#" },
-                { t:"SIRO (DSIR)", h:"#" },
-                { t:"AICTE Mandatory Disclosure", h:"#" },
-                { t:"Career", h:"#" },
-                { t:"Information Brochure", h:"#" },
-              ] },
-              { h:"Trident Group Websites", ls:[
-                { t:"Trident Academy of Creative Technology (TACT)", h:"https://tact.ac.in/" },
-                { t:"Trident Academy of Professional Studies (TAPS)", h:"https://taps.ac.in/" },
-                { t:"Trident School of Biotech Sciences (TSBS)", h:"https://tsbs.ac.in/" },
-                { t:"The DF Group", h:"https://dfgroup.in/" },
-              ] },
-            ].map((col) => (
-              <div key={col.h}>
-                <div className="relative mb-10">
-                   <div className="absolute -left-4 top-0 w-8 h-8 bg-[#8B6E66]/10 -skew-x-12"></div>
-                   <h5 className="font-serif text-white font-bold text-[15px] uppercase tracking-widest relative z-10 whitespace-nowrap">{col.h}</h5>
-                </div>
-                <ul className="space-y-5">
-                  {col.ls.map((link) => (
-                    <li key={link.t}>
-                      <a href={link.h} className="text-[14px] font-medium text-gray-500 hover:text-[#E5AA3E] transition-all flex items-center gap-3 group">
-                        <span className="w-0 h-[1px] bg-[#E5AA3E] group-hover:w-4 transition-all duration-300" />
-                        {link.t}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </div>
+        </FadeInUp>
         
         {/* Footer Bottom */}
         <div className="border-t border-white/5 pt-12 flex flex-col md:flex-row justify-between items-center gap-8">

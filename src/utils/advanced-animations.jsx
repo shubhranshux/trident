@@ -337,7 +337,8 @@ export function ScrollReveal({ children, className = "", from = {}, to = {}, sta
     });
 
     return () => st.kill();
-  }, [from, to, start, duration]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [start, duration]);
 
   return (
     <div ref={ref} className={className}>

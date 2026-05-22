@@ -95,7 +95,7 @@ export default function Facilities() {
             <TextReveal blur={true} stagger={0.02}>World-Class</TextReveal>{' '}
             <TextReveal blur={true} stagger={0.02} delay={100} className="italic font-light text-white/90">Infrastructure.</TextReveal>
           </h2>
-          <p className="text-white text-base md:text-[19px] font-normal leading-[1.7] max-w-lg mx-auto">
+          <p className="text-white/90 text-[17px] md:text-[22px] font-normal leading-[1.7] max-w-2xl mx-auto">
             Six pillars of excellence designed to nurture intellectual exploration and holistic development.
           </p>
         </ScrollReveal>

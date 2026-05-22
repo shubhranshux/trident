@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback, useRef } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { gsap, ScrollTrigger } from '../lib/gsap-setup';
-import { AmbientParticles } from '../utils/animations';
+import { AmbientParticles, ParallaxLayer } from '../utils/animations';
 
 import heroSlide1 from "../assets/slide_1.jpg";
 import heroSlide2 from "../assets/slide_2.jpg";
@@ -199,31 +199,33 @@ export default function Hero() {
       style={{ transformOrigin: "center center" }}
     >
 
-      {/* ═══ Background images — crossfade + Ken Burns + mouse parallax ═══ */}
-      {SLIDES.map((s, i) => (
-        <div
-          key={i}
-          className="absolute inset-0"
-          style={{
-            opacity: i === active ? 1 : 0,
-            transition: 'opacity 1200ms ease-in-out',
-            zIndex: i === active ? 1 : 0,
-          }}
-        >
-          <img
-            src={s.image}
-            alt=""
-            className="w-full h-full object-cover"
+      {/* ═══ Background images — crossfade + Ken Burns + scroll parallax ═══ */}
+      <ParallaxLayer speed={0.4} className="absolute inset-[-100px] w-[calc(100%+200px)] h-[calc(100%+200px)] pointer-events-none z-0">
+        {SLIDES.map((s, i) => (
+          <div
+            key={i}
+            className="absolute inset-0"
             style={{
-              transform: i === active
-                ? `scale(1.08) translate(${(mousePos.current.x - 0.5) * -8}px, ${(mousePos.current.y - 0.5) * -8}px)`
-                : 'scale(1.12)',
-              transition: 'transform 10s ease-out',
+              opacity: i === active ? 1 : 0,
+              transition: 'opacity 1200ms ease-in-out',
+              zIndex: i === active ? 1 : 0,
             }}
-            loading={i < 2 ? 'eager' : 'lazy'}
-          />
-        </div>
-      ))}
+          >
+            <img
+              src={s.image}
+              alt=""
+              className="w-full h-full object-cover"
+              style={{
+                transform: i === active
+                  ? `scale(1.08) translate(${(mousePos.current.x - 0.5) * -8}px, ${(mousePos.current.y - 0.5) * -8}px)`
+                  : 'scale(1.12)',
+                transition: 'transform 10s ease-out',
+              }}
+              loading={i < 2 ? 'eager' : 'lazy'}
+            />
+          </div>
+        ))}
+      </ParallaxLayer>
 
       {/* ═══ Overlay — cinematic gradient ═══ */}
       <div

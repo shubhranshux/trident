@@ -106,11 +106,22 @@ export default function App() {
         .text-secondary { color: var(--secondary-beige) !important; }
         .border-primary { border-color: var(--primary-rose) !important; }
         
-        /* High-End Buttons */
+        /* High-End Buttons (Creative 3D Flip & Bounce) */
+        .btn-rose, .btn-outline-rose, .btn-outline-white, .btn-creative {
+          transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.6s ease, background-color 0.4s ease;
+          transform-style: preserve-3d;
+          perspective: 800px;
+          will-change: transform;
+        }
+
+        .btn-creative:hover {
+          transform: scale(1.08) rotateX(12deg) translateY(-2px); 
+          box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.4); 
+        }
+
         .btn-rose { 
           background-color: var(--primary-rose); 
           color: white; 
-          transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); 
           text-transform: uppercase;
           letter-spacing: 0.1em;
           box-shadow: 0 10px 30px -10px rgba(27, 77, 142, 0.6);
@@ -123,13 +134,25 @@ export default function App() {
           background: rgba(255,255,255,0.1); z-index: -1; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .btn-rose:hover::before { width: 100%; }
-        .btn-rose:hover { transform: translateY(-2px); box-shadow: 0 12px 30px -10px rgba(27, 77, 142, 0.7); }
         
-        .btn-outline-rose { border: 1.5px solid var(--primary-rose); color: var(--primary-rose); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); letter-spacing: 0.1em;}
-        .btn-outline-rose:hover { background-color: var(--primary-rose); color: white; transform: translateY(-2px); box-shadow: 0 10px 20px -10px rgba(27, 77, 142, 0.4);}
+        .btn-rose:hover { 
+          transform: scale(1.08) rotateX(12deg) translateY(-2px); 
+          box-shadow: 0 20px 40px -10px rgba(27, 77, 142, 0.8); 
+        }
         
-        .btn-outline-white { border: 1.5px solid rgba(255,255,255,0.8); color: white; transition: all 0.4s ease; backdrop-filter: blur(4px); letter-spacing: 0.1em;}
-        .btn-outline-white:hover { background-color: white; color: var(--primary-rose) !important; transform: translateY(-2px);}
+        .btn-outline-rose { border: 1.5px solid var(--primary-rose); color: var(--primary-rose); letter-spacing: 0.1em;}
+        .btn-outline-rose:hover { 
+          background-color: var(--primary-rose); color: white; 
+          transform: scale(1.08) rotateX(12deg) translateY(-2px); 
+          box-shadow: 0 20px 40px -10px rgba(27, 77, 142, 0.4);
+        }
+        
+        .btn-outline-white { border: 1.5px solid rgba(255,255,255,0.8); color: white; backdrop-filter: blur(4px); letter-spacing: 0.1em;}
+        .btn-outline-white:hover { 
+          background-color: white; color: var(--primary-rose) !important; 
+          transform: scale(1.08) rotateX(12deg) translateY(-2px);
+          box-shadow: 0 20px 40px -10px rgba(255, 255, 255, 0.4);
+        }
         
         .rose-rule { display: block; width: 80px; height: 3px; background-color: #EAB308; margin-bottom: 1.5rem; transition: width 0.6s ease; }
         .group:hover .rose-rule { width: 120px; }
@@ -180,8 +203,6 @@ export default function App() {
 
       {/* Subtle noise grain overlay */}
       <NoiseOverlay opacity={0.018} />
-      {/* Cursor-following radial glow */}
-      <CursorGlow color="rgba(44, 58, 140, 0.05)" size={600} />
 
       <Header />
       <Home />

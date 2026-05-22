@@ -14,29 +14,10 @@ import {
   ArrowRight
 } from "lucide-react";
 
-function parseStat(stat) {
-  const match = stat.match(/^([^\d]*?)(\d[\d,]*)(.*?)$/);
-  if (!match) return { isNumeric: false, raw: stat };
-  const prefix = match[1] || "";
-  const num = parseInt(match[2].replace(/,/g, ""), 10);
-  const suffix = match[3] || "";
-  return { isNumeric: true, prefix, number: num, suffix };
-}
-
 function AnimatedStat({ stat, color }) {
-  const parsed = parseStat(stat);
-
-  if (!parsed.isNumeric) {
-    return (
-      <h3 className="serif text-4xl md:text-5xl font-bold tracking-tight leading-none" style={{ color }}>
-        <ScrambleText text={stat} />
-      </h3>
-    );
-  }
-
   return (
-    <h3 className="serif text-4xl md:text-5xl font-bold tracking-tight leading-none flex items-baseline" style={{ color }}>
-      <GSAPCounter end={parsed.number} prefix={parsed.prefix} suffix={parsed.suffix} duration={2} />
+    <h3 className="serif text-4xl md:text-5xl font-bold tracking-tight leading-none" style={{ color }}>
+      {stat}
     </h3>
   );
 }
@@ -83,16 +64,14 @@ export default function WhyChooseTrident() {
     <section className="relative bg-[#F9F7F5] border-t border-[#EFE7DF]/50">
 
       <style dangerouslySetInnerHTML={{__html: `
-        @keyframes node-breathe {
-          0%, 100% { box-shadow: 0 0 0 0px var(--ring-color); }
-          50% { box-shadow: 0 0 0 6px var(--ring-color), 0 0 20px 2px var(--glow-color); }
-        }
         @keyframes checkmark-pop {
           0% { transform: scale(0) rotate(-45deg); opacity: 0; }
           60% { transform: scale(1.3) rotate(0deg); opacity: 1; }
           100% { transform: scale(1) rotate(0deg); opacity: 1; }
         }
-        .node-active { animation: node-breathe 2.5s ease-in-out infinite; }
+        .node-active {
+           box-shadow: 0 0 0 4px var(--ring-color);
+        }
         .checkmark-enter { animation: checkmark-pop 0.5s cubic-bezier(0.34,1.56,0.64,1) forwards; }
       `}} />
 

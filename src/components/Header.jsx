@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { Users, Menu, X } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+import { Users, Menu, X, FileText, ChevronDown, Award, CheckCircle, ShieldCheck, FileSpreadsheet, ShieldAlert, BookOpen } from "lucide-react";
 import { NAV_LINKS } from "../data/constants";
 import logo from "../assets/logo.png";
 
@@ -16,17 +16,71 @@ export default function Header() {
     return () => window.removeEventListener("scroll", fn);
   }, []);
 
-
+  const mandatoryLinks = [
+    { label: "AICTE Approvals", href: "#", icon: CheckCircle, color: "text-emerald-600", bg: "bg-emerald-50", hover: "group-hover/link:bg-emerald-600" },
+    { label: "BPUT Affiliation", href: "#", icon: Award, color: "text-blue-600", bg: "bg-blue-50", hover: "group-hover/link:bg-blue-600" },
+    { label: "NAAC Certificate", href: "#", icon: ShieldCheck, color: "text-purple-600", bg: "bg-purple-50", hover: "group-hover/link:bg-purple-600" },
+    { label: "NBA Documents", href: "#", icon: FileSpreadsheet, color: "text-amber-600", bg: "bg-amber-50", hover: "group-hover/link:bg-amber-600" },
+    { label: "Financial Audits", href: "#", icon: BookOpen, color: "text-indigo-600", bg: "bg-indigo-50", hover: "group-hover/link:bg-indigo-600" },
+    { label: "Anti-Ragging Policy", href: "#", icon: ShieldAlert, color: "text-rose-600", bg: "bg-rose-50", hover: "group-hover/link:bg-rose-600" }
+  ];
 
   return (
     <div className="fixed top-0 left-0 w-full z-50">
       {/* Slim Utility Bar */}
       <div className={"hidden lg:block border-b border-white/5 transition-all duration-500 " + (scrolled ? "max-h-0 overflow-hidden py-0 border-b-0" : "max-h-20 py-1.5")} style={{ background: 'linear-gradient(135deg, #1a2660 0%, #2C3A8C 60%, #3a4aad 100%)' }}>
         <div className="max-w-[1400px] mx-auto px-6 xl:px-12 flex items-center justify-between">
-          <span className="text-[10px] font-medium text-white/50 uppercase tracking-[0.2em]">
-            Approved by AICTE &nbsp;|&nbsp; Affiliated to BPUT &nbsp;|&nbsp; NAAC Accredited &nbsp;|&nbsp; NBA Accredited for 6 Programmes
-          </span>
-          <div className="flex items-center gap-3">
+          <div className="flex-1"></div>
+          <div className="flex items-center gap-5">
+            {/* Mandatory Disclosure Dropdown (Hover) */}
+            <div className="relative group py-2">
+              <button 
+                className="flex items-center gap-1.5 text-[10px] font-medium text-white/80 uppercase tracking-widest group-hover:text-white transition-colors whitespace-nowrap outline-none"
+              >
+                <FileText size={11} />
+                Mandatory Disclosure
+                <ChevronDown size={11} className={`transition-transform duration-300 group-hover:rotate-180`} />
+              </button>
+              
+              {/* Dropdown Menu Wrapper (Invisible but provides continuous hover area) */}
+              <div className="absolute top-full right-0 pt-2 w-[260px] opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-400 origin-top z-50">
+                {/* The actual visible box */}
+                <div 
+                  className="w-full bg-white rounded-xl shadow-[0_20px_40px_-10px_rgba(26,38,96,0.3)] overflow-hidden"
+                  style={{ border: '1px solid rgba(26,38,96,0.08)' }}
+                >
+                <div className="flex flex-col p-2 gap-1 relative overflow-hidden">
+                  {/* Decorative background glow */}
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+                  
+                  {mandatoryLinks.map((link, idx) => {
+                    const Icon = link.icon;
+                    return (
+                      <a 
+                        key={idx} 
+                        href={link.href} 
+                        className="group/link flex items-center gap-3 text-[#3E3A36] px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-all duration-300 relative overflow-hidden"
+                      >
+                        {/* Subtle colored background on hover */}
+                        <div className={`absolute inset-0 opacity-0 group-hover/link:opacity-100 ${link.bg} transition-opacity duration-300 -z-10`}></div>
+                        
+                        <div className={`w-7 h-7 rounded-md flex items-center justify-center flex-shrink-0 bg-white shadow-sm border border-slate-100 ${link.color} group-hover/link:shadow-md transition-all duration-300 group-hover/link:scale-110`}>
+                          <Icon size={14} strokeWidth={2.5} />
+                        </div>
+                        
+                        <span className="text-[12.5px] font-semibold tracking-wide flex-1 group-hover/link:translate-x-0.5 transition-transform duration-300">
+                          {link.label}
+                        </span>
+                        
+                        <ChevronDown size={14} className="opacity-0 -rotate-90 -translate-x-2 text-slate-400 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all duration-300" />
+                      </a>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+            </div>
+
             {/* Alumni Portal */}
             <a href="#" className="flex items-center gap-1.5 text-[10px] font-medium text-[#E8BD63] uppercase tracking-widest hover:text-[#F0D080] transition-colors whitespace-nowrap">
               <Users size={11}/> Alumni

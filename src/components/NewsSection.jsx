@@ -53,15 +53,17 @@ export default function NewsSection() {
             
             {/* Header Section */}
             <div className="border-b border-[#3E3A36]/15 pb-8 mb-16">
-              <span className="block text-[11px] font-bold uppercase tracking-[0.3em] text-[#E8BD63] mb-4">
-                THE TAT JOURNAL & REVIEWS
-              </span>
-              <h2 className="serif text-5xl md:text-7xl font-bold text-[#3E3A36] leading-[1.05] tracking-tight">
-                News & <span className="italic font-light text-[#2C3A8C] font-serif">Events.</span>
-              </h2>
-              <p className="text-[#3E3A36]/60 text-base md:text-lg font-medium mt-4 max-w-xl">
-                Stay updated with achievements, institutional updates, and research initiatives.
-              </p>
+              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
+                <span className="block text-[11px] font-bold uppercase tracking-[0.3em] text-[#E8BD63] mb-4">
+                  THE TAT JOURNAL & REVIEWS
+                </span>
+                <h2 className="serif text-5xl md:text-7xl font-bold text-[#3E3A36] leading-[1.05] tracking-tight">
+                  News & <span className="italic font-light text-[#2C3A8C] font-serif">Events.</span>
+                </h2>
+                <p className="text-[#3E3A36]/60 text-base md:text-lg font-medium mt-4 max-w-xl">
+                  Stay updated with achievements, institutional updates, and research initiatives.
+                </p>
+              </motion.div>
             </div>
 
             {/* News Feed Stream */}

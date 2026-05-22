@@ -45,6 +45,8 @@ const DEPARTMENTS = [
   },
 ];
 
+import { ParallaxLayer } from "../utils/animations";
+
 /* ═══ Glass Department Card ═══ */
 const DeptCard = ({ dept, index }) => {
   const tint = TINTS[index % TINTS.length];
@@ -61,17 +63,24 @@ const DeptCard = ({ dept, index }) => {
       transition={{ type: "spring", stiffness: 280, damping: 24 }}
     >
       <div
-        className="relative w-full h-full overflow-hidden shadow-2xl"
-        style={{ borderRadius: '24px', transform: 'skewX(-6deg)' }}
+        className="relative w-full h-full overflow-hidden shadow-2xl isolate"
+        style={{ 
+          borderRadius: '24px', 
+          transform: 'skewX(-6deg) translateZ(0)',
+          WebkitMaskImage: '-webkit-radial-gradient(white, black)',
+          maskImage: 'radial-gradient(white, black)'
+        }}
       >
-        {/* Background image */}
-        <img
-          src={dept.image}
-          alt={dept.name}
-          className="absolute inset-[-20px] w-[calc(100%+40px)] h-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-110"
-          style={{ transform: 'skewX(6deg)' }}
-          loading="lazy"
-        />
+        {/* Background image with Parallax effect */}
+        <ParallaxLayer speed={0.15} className="absolute inset-[-40px] w-[calc(100%+80px)] h-[calc(100%+80px)]">
+          <img
+            src={dept.image}
+            alt={dept.name}
+            className="w-full h-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-110"
+            style={{ transform: 'skewX(6deg)' }}
+            loading="lazy"
+          />
+        </ParallaxLayer>
 
         {/* Color tint overlay */}
         <div className="absolute inset-0" style={{ background: tint }} />
