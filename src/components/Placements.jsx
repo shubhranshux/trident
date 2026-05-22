@@ -160,22 +160,66 @@ export default function Placements() {
   const scrollRightBtn = () => scrollRef.current?.scrollBy({ left: 344, behavior: 'smooth' });
 
   return (
-    <section className="relative pt-32 pb-24 overflow-hidden bg-[#1A2660]">
-      {/* Geometric Ambient Lights */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute -top-10 -right-10 w-96 h-96 bg-[#E8BD63]/5 rounded-full blur-[120px] hidden md:block" />
-        <div className="absolute top-[25%] left-[-10%] w-[500px] h-[500px] rounded-full bg-[#2C3A8C]/20 blur-[150px] hidden md:block" />
-        <div className="absolute bottom-[15%] right-[5%] w-80 h-80 rounded-full bg-[#C41E3A]/5 blur-[100px] hidden md:block" />
-        <div className="absolute top-[50%] right-[30%] w-32 h-32 rounded-full bg-white/[0.02] blur-[50px] hidden lg:block" />
-        <AnimatedGradient colors={["#E8BD63", "#C41E3A", "#2C3A8C"]} opacity={0.03} speed={25} />
-        <AmbientParticles count={10} color="rgba(255,255,255,0.05)" section={true} />
-      </div>
+    <section className="relative pt-32 pb-24 overflow-hidden bg-[#0B112A]">
+      {/* Layered Wave Background — dark blue to light blue gradient */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
+        <svg viewBox="0 0 1440 900" preserveAspectRatio="none" className="absolute inset-0 w-full h-full">
+          {/* Layer 1 — lightest, covers most area */}
+          <path
+            d="M1440,0 L1440,900 L0,900 L0,600 C200,500 400,700 600,580 C800,460 1000,620 1200,500 C1350,420 1420,300 1440,200 Z"
+            fill="#A8C4F0"
+            opacity="0.3"
+          />
+          {/* Layer 2 */}
+          <path
+            d="M1440,0 L1440,900 L0,900 L0,650 C180,540 380,720 580,620 C780,520 960,660 1160,540 C1320,440 1400,350 1440,280 Z"
+            fill="#8BB0E8"
+            opacity="0.35"
+          />
+          {/* Layer 3 */}
+          <path
+            d="M1440,0 L1440,900 L0,900 L0,700 C160,590 360,750 560,660 C760,570 940,700 1120,580 C1290,470 1380,400 1440,360 Z"
+            fill="#6E9ADF"
+            opacity="0.4"
+          />
+          {/* Layer 4 */}
+          <path
+            d="M1440,200 L1440,900 L0,900 L0,740 C200,640 340,780 540,700 C740,620 920,740 1100,620 C1260,520 1370,450 1440,420 Z"
+            fill="#5485D4"
+            opacity="0.45"
+          />
+          {/* Layer 5 */}
+          <path
+            d="M1440,300 L1440,900 L0,900 L0,770 C220,680 320,810 520,740 C720,670 900,780 1080,660 C1240,560 1360,500 1440,480 Z"
+            fill="#3D6FC5"
+            opacity="0.5"
+          />
+          {/* Layer 6 */}
+          <path
+            d="M1440,400 L1440,900 L0,900 L0,800 C240,720 300,840 500,780 C700,720 880,820 1060,710 C1220,610 1350,550 1440,540 Z"
+            fill="#2C5AB0"
+            opacity="0.55"
+          />
+          {/* Layer 7 */}
+          <path
+            d="M1440,500 L1440,900 L0,900 L0,830 C260,760 280,860 480,810 C680,760 860,850 1040,760 C1200,670 1340,600 1440,600 Z"
+            fill="#1E4490"
+            opacity="0.65"
+          />
+          {/* Layer 8 — darkest, smallest area */}
+          <path
+            d="M1440,600 L1440,900 L0,900 L0,860 C280,800 260,880 460,840 C660,800 840,880 1020,810 C1180,740 1330,660 1440,660 Z"
+            fill="#162F6E"
+            opacity="0.75"
+          />
+        </svg>
 
-      {/* Top Accent Stripe */}
-      <div className="absolute top-0 left-0 right-0 flex items-center gap-0">
-        <div className="h-[3px] flex-1 bg-[#E8BD63]" />
-        <div className="h-[3px] flex-1 bg-[#C41E3A]" />
-        <div className="h-[3px] flex-1 bg-[#2C3A8C]" />
+        {/* Subtle glowing orbs for depth */}
+        <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-[#2C3A8C] blur-[120px] opacity-20 animate-[pulse_8s_ease-in-out_infinite]" />
+        <div className="absolute bottom-[-20%] right-[-10%] w-[40%] h-[40%] rounded-full bg-[#4A6CC4] blur-[150px] opacity-15 animate-[pulse_10s_ease-in-out_infinite_reverse]" />
+        
+        {/* Grid pattern overlay */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_75%)]" />
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -204,30 +248,60 @@ export default function Placements() {
           </FadeInUp>
         </div>
 
-        {/* Premium Borderless Metrics Dashboard */}
-        <div className="flex flex-wrap lg:flex-nowrap justify-between items-center mb-16 py-6 lg:py-10 border-y border-white/10">
-          {stats.map((s, i) => (
-            <FadeInUp key={s.label} delay={200 + i * 100} className="w-full sm:w-1/2 lg:w-1/4 flex justify-center">
-              <div className="group relative text-center px-4 py-8 w-full border-b sm:border-b-0 sm:border-r border-white/10 [&:nth-child(2n)]:border-r-0 lg:[&:nth-child(2n)]:border-r last:border-b-0 lg:last:border-r-0">
-                {/* Subtle colored accent */}
-                <div className="mx-auto w-8 h-1 mb-6 rounded-full transition-all duration-500 group-hover:w-16 group-hover:bg-opacity-100 bg-opacity-60" style={{ backgroundColor: s.color }} />
-                
-                <div className="mb-5 flex justify-center text-white/30 group-hover:text-white/80 group-hover:-translate-y-1 transform transition-all duration-500">{s.icon}</div>
-                
-                <div className="serif text-4xl md:text-5xl font-bold mb-3 text-white tracking-tight">
-                  <GSAPCounter end={s.value} prefix={s.prefix} suffix={s.suffix} decimals={s.decimals} />
+      </div>
+
+      {/* "At a Glance" Style Metrics Dashboard */}
+      <div className="relative z-10 w-full mb-16 py-16 lg:py-24 overflow-hidden">
+        {/* Slanted Background Blocks */}
+        <div className="absolute inset-0 bg-[#28357a] skew-x-[-12deg] scale-125 origin-center shadow-2xl opacity-90" />
+        <div className="absolute inset-0 bg-[#374893] skew-x-[-12deg] scale-125 translate-x-[25%] opacity-50" />
+        
+        {/* Decorative Wireframe Diamond */}
+        <div className="absolute right-[5%] lg:right-[15%] top-1/2 -translate-y-1/2 w-40 h-40 border border-white/15 rotate-45 pointer-events-none hidden md:block" />
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="flex flex-wrap lg:flex-nowrap justify-center items-center gap-y-12 lg:gap-y-0">
+            {stats.map((s, i) => (
+              <FadeInUp key={s.label} delay={200 + i * 100} className="w-full sm:w-1/2 lg:flex-1 flex justify-center">
+                <div className={`relative flex flex-col items-center text-center w-full 
+                  ${i % 2 !== 0 ? 'sm:border-l sm:border-white/10' : ''} 
+                  ${i !== 0 ? 'lg:border-l lg:border-white/10' : ''}
+                `}>
+                  
+                  {/* Icon in Rounded Box */}
+                  <div className="w-14 h-14 rounded-2xl bg-black/10 border border-white/5 flex items-center justify-center text-white/90 mb-5 shadow-inner">
+                    {s.icon}
+                  </div>
+                  
+                  {/* Big Serif Number */}
+                  <div className="serif text-5xl lg:text-6xl font-bold mb-3 text-white drop-shadow-md">
+                    <GSAPCounter end={s.value} prefix={s.prefix} suffix={s.suffix} decimals={s.decimals} />
+                  </div>
+                  
+                  {/* Small Tracked Label */}
+                  <div className="text-[10px] md:text-xs font-bold uppercase tracking-[0.25em] md:tracking-[0.3em] text-white/60">
+                    {s.label}
+                  </div>
+                  
                 </div>
-                <div className="text-[11px] font-bold uppercase tracking-[0.25em] text-white/50">{s.label}</div>
-              </div>
-            </FadeInUp>
-          ))}
+              </FadeInUp>
+            ))}
+          </div>
         </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
 
         {/* Connecting Line Divider */}
         <div className="flex items-center gap-0 mb-20 mt-2">
           <div className="h-[1.5px] flex-1 bg-gradient-to-r from-transparent to-white/15" />
           <div className="h-[2px] w-24 bg-[#E8BD63]" />
           <div className="h-[1.5px] flex-1 bg-gradient-to-l from-transparent to-white/15" />
+        </div>
+
+        {/* Luminous Section Divider */}
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-[#6B8FDE]/50 to-transparent mb-16 relative">
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-1 bg-[#6B8FDE] blur-md opacity-50"></div>
         </div>
 
         {/* Dashboard Constellation Layout */}
@@ -273,8 +347,8 @@ export default function Placements() {
             </div>
           </div>
 
-          {/* RIGHT: SVG Chart Dashboard (5 cols) */}
-          <div className="lg:col-span-5 relative flex flex-col justify-between h-full lg:pl-10 lg:border-l border-white/10 pt-8 lg:pt-0">
+          {/* RIGHT: SVG Chart Dashboard (5 cols) - Glassmorphic Container */}
+          <div className="lg:col-span-5 relative flex flex-col justify-between h-full p-8 lg:p-10 bg-gradient-to-br from-[#1E4490]/40 to-[#162F6E]/40 backdrop-blur-xl rounded-[2rem] border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.3)]">
             {/* Chart Header */}
             <div>
               <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#E8BD63] block mb-1">
@@ -536,12 +610,6 @@ export default function Placements() {
 
       </div>
 
-      {/* Bottom Accent Stripe */}
-      <div className="absolute bottom-0 left-0 right-0 flex items-center gap-0">
-        <div className="h-[3px] flex-1 bg-[#2C3A8C]" />
-        <div className="h-[3px] flex-1 bg-[#C41E3A]" />
-        <div className="h-[3px] flex-1 bg-[#E8BD63]" />
-      </div>
     </section>
   );
 }
