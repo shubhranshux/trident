@@ -181,106 +181,127 @@ export default function AboutSection() {
             {/* ═══ RIGHT: Vision & Mission on Light ═══ */}
             <div className="lg:col-span-7 relative bg-[#F5EEEC] lg:bg-transparent px-6 md:px-10 lg:pl-16 xl:pl-24 lg:pr-10 py-16 lg:py-20">
 
-              {/* Decorative vertical line */}
-              <div className="absolute top-20 left-0 w-px h-[60%] bg-gradient-to-b from-[#E8BD63]/20 via-[#2C3A8C]/10 to-transparent hidden lg:block" />
-
-              {/* Intro text */}
-              <ScrollReveal from={{ opacity: 0, y: 30 }} delay={150} className="mb-14">
-                <p className="text-[#3E3A36]/50 text-base md:text-lg font-medium leading-relaxed max-w-lg">
-                  A unit of the Dinabandhu Foundation, Trident Academy of Technology is one of India's leading private technical institutions, shaping the next generation of innovators and leaders.
-                </p>
-              </ScrollReveal>
-
-              {/* ── VISION ── */}
-              <ScrollReveal from={{ opacity: 0, y: 30 }} delay={300} className="mb-14">
-                <div className="flex items-center gap-4 mb-7">
-                  <div
-                    className="w-14 h-14 rounded-2xl flex items-center justify-center relative overflow-hidden shadow-[0_8px_25px_-5px_rgba(232,189,99,0.4)]"
-                    style={{ background: 'linear-gradient(135deg, #E8BD63 0%, #D4A84B 100%)' }}
-                  >
-                    <Eye size={24} className="text-white relative z-10" />
-                    <div className="absolute top-0 left-0 w-full h-1/2 bg-white/20" />
-                  </div>
-                  <div>
-                    <h3 className="serif text-3xl font-bold text-[#3E3A36] tracking-tight leading-none">Vision</h3>
-                    <div className="flex items-center gap-1.5 mt-2">
-                      <div className="w-10 h-[3px] rounded-full bg-[#E8BD63]" />
-                      <div className="w-3 h-[3px] rounded-full bg-[#E8BD63]/30" />
-                      <div className="w-1.5 h-[3px] rounded-full bg-[#E8BD63]/15" />
-                    </div>
-                  </div>
+              {/* --- Abstract Fluid Background Design --- */}
+              <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
+                {/* Massive faint watermark text */}
+                <div className="absolute top-0 right-[-5%] text-[150px] md:text-[200px] leading-none font-bold text-[#2C3A8C]/[0.02] select-none serif tracking-tighter italic">
+                  Vision.
                 </div>
-
-                <div className="relative pl-8 border-l-[3px] border-[#E8BD63]">
-                  <div className="absolute -top-4 -left-3 text-[90px] leading-none select-none pointer-events-none" style={{ fontFamily: "'Source Serif 4', Georgia, serif", color: '#E8BD63', opacity: 0.07 }}>"</div>
-                  <blockquote className="text-[#3E3A36]/65 text-[18px] md:text-[20px] leading-[1.9] font-medium italic">
-                    To become a sustainable institution of excellence, advancing innovative education, research and skill development.
-                  </blockquote>
-                </div>
-              </ScrollReveal>
-
-              {/* ── Ornamental Divider ── */}
-              <div className="flex items-center gap-5 mb-14 max-w-lg">
-                <div className="h-px flex-1 bg-gradient-to-r from-[#E8BD63]/20 to-transparent" />
-                <div className="flex items-center gap-2">
-                  <div className="w-1 h-1 rounded-full bg-[#E8BD63]/25" />
-                  <div className="w-2 h-2 rotate-45 border border-[#3E3A36]/10" />
-                  <div className="w-1 h-1 rounded-full bg-[#2C3A8C]/25" />
-                </div>
-                <div className="h-px flex-1 bg-gradient-to-l from-[#2C3A8C]/15 to-transparent" />
+                
+                {/* Sweeping concentric orbital rings */}
+                <div className="absolute top-[-10%] right-[-20%] w-[400px] h-[400px] md:w-[600px] md:h-[600px] rounded-full border-[1px] border-[#2C3A8C]/[0.05]" />
+                <div className="absolute top-[5%] right-[-10%] w-[300px] h-[300px] md:w-[450px] md:h-[450px] rounded-full border-[1px] border-[#E8BD63]/[0.06]" />
+                
+                {/* Soft ambient glowing orbs */}
+                <div className="absolute top-[20%] right-[10%] w-[200px] h-[200px] md:w-[300px] md:h-[300px] bg-[#E8BD63]/[0.05] rounded-full blur-[80px]" />
+                <div className="absolute bottom-[10%] left-[10%] w-[300px] h-[300px] md:w-[400px] md:h-[400px] bg-[#2C3A8C]/[0.04] rounded-full blur-[100px]" />
+                
+                {/* Subtle dotted matrix patch */}
+                <div className="absolute bottom-[15%] right-[5%] w-[150px] h-[150px] md:w-[200px] md:h-[200px] bg-[radial-gradient(#2C3A8C_1.5px,transparent_1.5px)] opacity-[0.05]" style={{ backgroundSize: '20px 20px' }} />
               </div>
 
-              {/* ── MISSION ── */}
-              <ScrollReveal from={{ opacity: 0, y: 30 }} delay={450}>
-                <div className="flex items-center gap-4 mb-9">
-                  <div
-                    className="w-14 h-14 rounded-2xl flex items-center justify-center relative overflow-hidden shadow-[0_8px_25px_-5px_rgba(44,58,140,0.4)]"
-                    style={{ background: 'linear-gradient(135deg, #2C3A8C 0%, #3D4FA0 100%)' }}
-                  >
-                    <Target size={24} className="text-white relative z-10" />
-                    <div className="absolute top-0 left-0 w-full h-1/2 bg-white/15" />
-                  </div>
-                  <div>
-                    <h3 className="serif text-3xl font-bold text-[#3E3A36] tracking-tight leading-none">Mission</h3>
-                    <div className="flex items-center gap-1.5 mt-2">
-                      <div className="w-10 h-[3px] rounded-full bg-[#2C3A8C]" />
-                      <div className="w-3 h-[3px] rounded-full bg-[#2C3A8C]/30" />
-                      <div className="w-1.5 h-[3px] rounded-full bg-[#2C3A8C]/15" />
+              {/* Decorative vertical line */}
+              <div className="absolute top-20 left-0 w-px h-[60%] bg-gradient-to-b from-[#E8BD63]/20 via-[#2C3A8C]/10 to-transparent hidden lg:block z-0" />
+
+              <div className="relative z-10">
+                {/* Intro text */}
+                <ScrollReveal from={{ opacity: 0, y: 30 }} delay={150} className="mb-14">
+                  <p className="text-[#3E3A36]/50 text-base md:text-lg font-medium leading-relaxed max-w-lg">
+                    A unit of the Dinabandhu Foundation, Trident Academy of Technology is one of India's leading private technical institutions, shaping the next generation of innovators and leaders.
+                  </p>
+                </ScrollReveal>
+
+                {/* ── VISION ── */}
+                <ScrollReveal from={{ opacity: 0, y: 30 }} delay={300} className="mb-14">
+                  <div className="flex items-center gap-4 mb-7">
+                    <div
+                      className="w-14 h-14 rounded-2xl flex items-center justify-center relative overflow-hidden shadow-[0_8px_25px_-5px_rgba(232,189,99,0.4)]"
+                      style={{ background: 'linear-gradient(135deg, #E8BD63 0%, #D4A84B 100%)' }}
+                    >
+                      <Eye size={24} className="text-white relative z-10" />
+                      <div className="absolute top-0 left-0 w-full h-1/2 bg-white/20" />
+                    </div>
+                    <div>
+                      <h3 className="serif text-3xl font-bold text-[#3E3A36] tracking-tight leading-none">Vision</h3>
+                      <div className="flex items-center gap-1.5 mt-2">
+                        <div className="w-10 h-[3px] rounded-full bg-[#E8BD63]" />
+                        <div className="w-3 h-[3px] rounded-full bg-[#E8BD63]/30" />
+                        <div className="w-1.5 h-[3px] rounded-full bg-[#E8BD63]/15" />
+                      </div>
                     </div>
                   </div>
+
+                  <div className="relative pl-8 border-l-[3px] border-[#E8BD63]">
+                    <div className="absolute -top-4 -left-3 text-[90px] leading-none select-none pointer-events-none" style={{ fontFamily: "'Source Serif 4', Georgia, serif", color: '#E8BD63', opacity: 0.07 }}>"</div>
+                    <blockquote className="text-[#3E3A36]/65 text-[18px] md:text-[20px] leading-[1.9] font-medium italic">
+                      To become a sustainable institution of excellence, advancing innovative education, research and skill development.
+                    </blockquote>
+                  </div>
+                </ScrollReveal>
+
+                {/* ── Ornamental Divider ── */}
+                <div className="flex items-center gap-5 mb-14 max-w-lg">
+                  <div className="h-px flex-1 bg-gradient-to-r from-[#E8BD63]/20 to-transparent" />
+                  <div className="flex items-center gap-2">
+                    <div className="w-1 h-1 rounded-full bg-[#E8BD63]/25" />
+                    <div className="w-2 h-2 rotate-45 border border-[#3E3A36]/10" />
+                    <div className="w-1 h-1 rounded-full bg-[#2C3A8C]/25" />
+                  </div>
+                  <div className="h-px flex-1 bg-gradient-to-l from-[#2C3A8C]/15 to-transparent" />
                 </div>
 
-                <div className="space-y-5">
-                  {missionPoints.map((point, i) => (
-                    <ScrollReveal
-                      key={i}
-                      from={{ opacity: 0, x: -20 }}
-                      delay={550 + i * 100}
-                      className="flex gap-4 items-start group"
+                {/* ── MISSION ── */}
+                <ScrollReveal from={{ opacity: 0, y: 30 }} delay={450}>
+                  <div className="flex items-center gap-4 mb-9">
+                    <div
+                      className="w-14 h-14 rounded-2xl flex items-center justify-center relative overflow-hidden shadow-[0_8px_25px_-5px_rgba(44,58,140,0.4)]"
+                      style={{ background: 'linear-gradient(135deg, #2C3A8C 0%, #3D4FA0 100%)' }}
                     >
-                      <span className="flex-shrink-0 w-10 h-10 rounded-xl text-white text-[13px] font-bold flex items-center justify-center shadow-[0_4px_15px_-3px_rgba(44,58,140,0.35)] group-hover:shadow-[0_8px_25px_-5px_rgba(44,58,140,0.5)] group-hover:scale-105 transition-all duration-400 mt-0.5"
-                        style={{ background: 'linear-gradient(135deg, #2C3A8C, #3D4FA0)' }}
-                      >
-                        {i + 1}
-                      </span>
-                      <p className="text-[#3E3A36]/55 text-[15px] leading-[1.85] font-medium pt-1.5">
-                        {point}
-                      </p>
-                    </ScrollReveal>
-                  ))}
-                </div>
-              </ScrollReveal>
+                      <Target size={24} className="text-white relative z-10" />
+                      <div className="absolute top-0 left-0 w-full h-1/2 bg-white/15" />
+                    </div>
+                    <div>
+                      <h3 className="serif text-3xl font-bold text-[#3E3A36] tracking-tight leading-none">Mission</h3>
+                      <div className="flex items-center gap-1.5 mt-2">
+                        <div className="w-10 h-[3px] rounded-full bg-[#2C3A8C]" />
+                        <div className="w-3 h-[3px] rounded-full bg-[#2C3A8C]/30" />
+                        <div className="w-1.5 h-[3px] rounded-full bg-[#2C3A8C]/15" />
+                      </div>
+                    </div>
+                  </div>
 
-              {/* ── CTA ── */}
-              <ScrollReveal from={{ opacity: 0 }} delay={850}>
-                <a
-                  href="https://tat.tekkzy.com/read-our-full-storyyy/"
-                  className="mt-16 group inline-flex items-center gap-3 px-8 py-4 rounded-full text-[11px] font-medium uppercase tracking-[0.2em] border-2 border-[#2C3A8C]/15 text-[#2C3A8C] hover:bg-[#2C3A8C] hover:border-[#2C3A8C] hover:text-white transition-all duration-500 hover:shadow-[0_10px_30px_-8px_rgba(44,58,140,0.35)]"
-                >
-                  Read Our Full Story
-                  <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform duration-400" />
-                </a>
-              </ScrollReveal>
+                  <div className="space-y-5">
+                    {missionPoints.map((point, i) => (
+                      <ScrollReveal
+                        key={i}
+                        from={{ opacity: 0, x: -20 }}
+                        delay={550 + i * 100}
+                        className="flex gap-4 items-start group"
+                      >
+                        <span className="flex-shrink-0 w-10 h-10 rounded-xl text-white text-[13px] font-bold flex items-center justify-center shadow-[0_4px_15px_-3px_rgba(44,58,140,0.35)] group-hover:shadow-[0_8px_25px_-5px_rgba(44,58,140,0.5)] group-hover:scale-105 transition-all duration-400 mt-0.5"
+                          style={{ background: 'linear-gradient(135deg, #2C3A8C, #3D4FA0)' }}
+                        >
+                          {i + 1}
+                        </span>
+                        <p className="text-[#3E3A36]/55 text-[15px] leading-[1.85] font-medium pt-1.5">
+                          {point}
+                        </p>
+                      </ScrollReveal>
+                    ))}
+                  </div>
+                </ScrollReveal>
+
+                {/* ── CTA ── */}
+                <ScrollReveal from={{ opacity: 0 }} delay={850}>
+                  <a
+                    href="https://tat.tekkzy.com/read-our-full-storyyy/"
+                    className="mt-16 group inline-flex items-center gap-3 px-8 py-4 rounded-full text-[11px] font-medium uppercase tracking-[0.2em] border-2 border-[#2C3A8C]/15 text-[#2C3A8C] hover:bg-[#2C3A8C] hover:border-[#2C3A8C] hover:text-white transition-all duration-500 hover:shadow-[0_10px_30px_-8px_rgba(44,58,140,0.35)]"
+                  >
+                    Read Our Full Story
+                    <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform duration-400" />
+                  </a>
+                </ScrollReveal>
+              </div>
             </div>
 
           </div>

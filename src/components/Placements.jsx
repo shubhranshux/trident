@@ -7,7 +7,7 @@ import { logos as CompanyLogos } from "../data/companyLogos";
 
 /* ─── Data ──────────────────────────────────────────────────────────── */
 const stats = [
-  { icon: <TrendingUp size={28} />, value: 7.5,   label: "Highest Package", color: "#E8BD63", prefix: "₹", suffix: " LPA", decimals: 1 },
+  { icon: <TrendingUp size={28} />, value: 7.5,   label: "Highest Package", color: "#D1D5DB", prefix: "₹", suffix: " LPA", decimals: 1 },
   { icon: <Award size={28} />,       value: 4.5,  label: "Average Package", color: "#C41E3A", prefix: "₹", suffix: " LPA", decimals: 1 },
   { icon: <Building2 size={28} />,   value: 120,      label: "Companies Visited", color: "#2E6DB4", prefix: "", suffix: "+", decimals: 0 },
   { icon: <Users size={28} />,       value: 94,        label: "Placement Rate", color: "#3EA644", prefix: "", suffix: "%", decimals: 0 },
@@ -85,7 +85,7 @@ const getBrandStyle = (name) => {
     "ICICI Bank": { border: "hover:border-[#F37021]", glow: "hover:shadow-[#7A2500]/40", text: "group-hover:text-[#F37021]" },
     "Axis Bank": { border: "hover:border-[#841439]", glow: "hover:shadow-[#841439]/40", text: "group-hover:text-[#841439]" }
   };
-  return styles[name] || { border: "hover:border-[#E8BD63]", glow: "hover:shadow-[#E8BD63]/30", text: "group-hover:text-[#E8BD63]" };
+  return styles[name] || { border: "hover:border-[#D1D5DB]", glow: "hover:shadow-[#D1D5DB]/30", text: "group-hover:text-[#D1D5DB]" };
 };
 
 function RecruiterCircle({ name }) {
@@ -167,50 +167,50 @@ export default function Placements() {
           {/* Layer 1 — lightest, covers most area */}
           <path
             d="M1440,0 L1440,900 L0,900 L0,600 C200,500 400,700 600,580 C800,460 1000,620 1200,500 C1350,420 1420,300 1440,200 Z"
-            fill="#A8C4F0"
-            opacity="0.3"
+            fill="#F9FAFB"
+            opacity="0.2"
           />
           {/* Layer 2 */}
           <path
             d="M1440,0 L1440,900 L0,900 L0,650 C180,540 380,720 580,620 C780,520 960,660 1160,540 C1320,440 1400,350 1440,280 Z"
-            fill="#8BB0E8"
-            opacity="0.35"
+            fill="#E5E7EB"
+            opacity="0.25"
           />
           {/* Layer 3 */}
           <path
             d="M1440,0 L1440,900 L0,900 L0,700 C160,590 360,750 560,660 C760,570 940,700 1120,580 C1290,470 1380,400 1440,360 Z"
-            fill="#6E9ADF"
-            opacity="0.4"
+            fill="#E5E7EB"
+            opacity="0.3"
           />
           {/* Layer 4 */}
           <path
             d="M1440,200 L1440,900 L0,900 L0,740 C200,640 340,780 540,700 C740,620 920,740 1100,620 C1260,520 1370,450 1440,420 Z"
-            fill="#5485D4"
-            opacity="0.45"
+            fill="#D1D5DB"
+            opacity="0.35"
           />
           {/* Layer 5 */}
           <path
             d="M1440,300 L1440,900 L0,900 L0,770 C220,680 320,810 520,740 C720,670 900,780 1080,660 C1240,560 1360,500 1440,480 Z"
-            fill="#3D6FC5"
-            opacity="0.5"
+            fill="#9CA3AF"
+            opacity="0.4"
           />
           {/* Layer 6 */}
           <path
             d="M1440,400 L1440,900 L0,900 L0,800 C240,720 300,840 500,780 C700,720 880,820 1060,710 C1220,610 1350,550 1440,540 Z"
-            fill="#2C5AB0"
-            opacity="0.55"
+            fill="#6B7280"
+            opacity="0.45"
           />
           {/* Layer 7 */}
           <path
             d="M1440,500 L1440,900 L0,900 L0,830 C260,760 280,860 480,810 C680,760 860,850 1040,760 C1200,670 1340,600 1440,600 Z"
-            fill="#1E4490"
-            opacity="0.65"
+            fill="#4B5563"
+            opacity="0.5"
           />
           {/* Layer 8 — darkest, smallest area */}
           <path
             d="M1440,600 L1440,900 L0,900 L0,860 C280,800 260,880 460,840 C660,800 840,880 1020,810 C1180,740 1330,660 1440,660 Z"
-            fill="#162F6E"
-            opacity="0.75"
+            fill="#374151"
+            opacity="1"
           />
         </svg>
 
@@ -220,6 +220,9 @@ export default function Placements() {
         
         {/* Grid pattern overlay */}
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_75%)]" />
+        
+        {/* Seamless blend guard at the bottom edge */}
+        <div className="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-[#374151] to-transparent" />
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -236,7 +239,7 @@ export default function Placements() {
             <h2 className="serif text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-[1.05]">
               Our graduates are everywhere{" "}
               <br className="hidden md:block" />
-              <span className="italic text-[#E8BD63] font-serif font-light">
+              <span className="italic text-[#D1D5DB] font-serif font-light">
                 that matters.
               </span>
             </h2>
@@ -253,33 +256,33 @@ export default function Placements() {
       {/* "At a Glance" Style Metrics Dashboard */}
       <div className="relative z-10 w-full mb-16 py-16 lg:py-24 overflow-hidden">
         {/* Slanted Background Blocks */}
-        <div className="absolute inset-0 bg-[#28357a] skew-x-[-12deg] scale-125 origin-center shadow-2xl opacity-90" />
-        <div className="absolute inset-0 bg-[#374893] skew-x-[-12deg] scale-125 translate-x-[25%] opacity-50" />
+        <div className="absolute inset-0 bg-[#D1D5DB] skew-x-[-12deg] scale-125 origin-center shadow-2xl opacity-90" />
+        <div className="absolute inset-0 bg-[#E5E7EB] skew-x-[-12deg] scale-125 translate-x-[25%] opacity-50" />
         
         {/* Decorative Wireframe Diamond */}
-        <div className="absolute right-[5%] lg:right-[15%] top-1/2 -translate-y-1/2 w-40 h-40 border border-white/15 rotate-45 pointer-events-none hidden md:block" />
+        <div className="absolute right-[5%] lg:right-[15%] top-1/2 -translate-y-1/2 w-40 h-40 border border-[#1A2660]/15 rotate-45 pointer-events-none hidden md:block" />
 
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="flex flex-wrap lg:flex-nowrap justify-center items-center gap-y-12 lg:gap-y-0">
             {stats.map((s, i) => (
               <FadeInUp key={s.label} delay={200 + i * 100} className="w-full sm:w-1/2 lg:flex-1 flex justify-center">
                 <div className={`relative flex flex-col items-center text-center w-full 
-                  ${i % 2 !== 0 ? 'sm:border-l sm:border-white/10' : ''} 
-                  ${i !== 0 ? 'lg:border-l lg:border-white/10' : ''}
+                  ${i % 2 !== 0 ? 'sm:border-l sm:border-[#1A2660]/10' : ''} 
+                  ${i !== 0 ? 'lg:border-l lg:border-[#1A2660]/10' : ''}
                 `}>
                   
                   {/* Icon in Rounded Box */}
-                  <div className="w-14 h-14 rounded-2xl bg-black/10 border border-white/5 flex items-center justify-center text-white/90 mb-5 shadow-inner">
+                  <div className="w-14 h-14 rounded-2xl bg-black/5 border border-black/5 flex items-center justify-center text-[#1A2660] mb-5 shadow-inner">
                     {s.icon}
                   </div>
                   
                   {/* Big Serif Number */}
-                  <div className="serif text-5xl lg:text-6xl font-bold mb-3 text-white drop-shadow-md">
+                  <div className="serif text-5xl lg:text-6xl font-bold mb-3 text-[#1A2660] drop-shadow-sm">
                     <GSAPCounter end={s.value} prefix={s.prefix} suffix={s.suffix} decimals={s.decimals} />
                   </div>
                   
                   {/* Small Tracked Label */}
-                  <div className="text-[10px] md:text-xs font-bold uppercase tracking-[0.25em] md:tracking-[0.3em] text-white/60">
+                  <div className="text-[10px] md:text-xs font-bold uppercase tracking-[0.25em] md:tracking-[0.3em] text-[#1A2660]/70">
                     {s.label}
                   </div>
                   
@@ -295,7 +298,7 @@ export default function Placements() {
         {/* Connecting Line Divider */}
         <div className="flex items-center gap-0 mb-20 mt-2">
           <div className="h-[1.5px] flex-1 bg-gradient-to-r from-transparent to-white/15" />
-          <div className="h-[2px] w-24 bg-[#E8BD63]" />
+          <div className="h-[2px] w-24 bg-[#D1D5DB]" />
           <div className="h-[1.5px] flex-1 bg-gradient-to-l from-transparent to-white/15" />
         </div>
 
@@ -310,11 +313,11 @@ export default function Placements() {
           {/* LEFT: Domain Recruiter Constellation (7 cols) */}
           <div className="lg:col-span-7 flex flex-col justify-between">
             <div className="mb-8">
-              <span className="text-[11px] font-bold uppercase tracking-[0.3em] text-[#E8BD63] block mb-3">
+              <span className="text-[11px] font-bold uppercase tracking-[0.3em] text-[#D1D5DB] block mb-3">
                 Industry Alignments
               </span>
               <h3 className="serif text-3xl font-medium text-white mb-6">
-                Recruiter <span className="italic font-light text-[#E8BD63] font-serif">Networks.</span>
+                Recruiter <span className="italic font-light text-[#D1D5DB] font-serif">Networks.</span>
               </h3>
 
               {/* Central Domain Switcher Selector Tab */}
@@ -325,7 +328,7 @@ export default function Placements() {
                     onClick={() => setActiveTab(key)}
                     className={`py-3 px-6 text-[10px] md:text-xs font-bold uppercase tracking-wider rounded-xl transition-all duration-300 whitespace-nowrap ${
                       activeTab === key
-                        ? "bg-[#E8BD63] text-[#1A2660] shadow-lg scale-105"
+                        ? "bg-[#D1D5DB] text-[#1A2660] shadow-lg scale-105"
                         : "text-white/60 hover:text-white hover:bg-white/5"
                     }`}
                   >
@@ -351,7 +354,7 @@ export default function Placements() {
           <div className="lg:col-span-5 relative flex flex-col justify-between h-full p-8 lg:p-10 bg-gradient-to-br from-[#1E4490]/40 to-[#162F6E]/40 backdrop-blur-xl rounded-[2rem] border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.3)]">
             {/* Chart Header */}
             <div>
-              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#E8BD63] block mb-1">
+              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#D1D5DB] block mb-1">
                 Trend Analysis
               </span>
               <h4 className="serif text-2xl font-bold text-white">Year-wise Performance</h4>
@@ -533,12 +536,12 @@ export default function Placements() {
 
         <div className="text-center mb-12">
           <FadeInUp delay={600}>
-            <div className="w-16 h-px bg-gradient-to-r from-transparent via-[#E8BD63] to-transparent mx-auto mb-5" />
-            <span className="text-[11px] font-medium uppercase tracking-[0.3em] text-[#E8BD63]">
+            <div className="w-16 h-px bg-gradient-to-r from-transparent via-[#D1D5DB] to-transparent mx-auto mb-5" />
+            <span className="text-[11px] font-medium uppercase tracking-[0.3em] text-[#D1D5DB]">
               Where Our Students Work
             </span>
             <h3 className="serif text-3xl md:text-4xl font-bold text-white mt-4">
-              Success <span className="italic font-light text-[#E8BD63] font-serif">Stories.</span>
+              Success <span className="italic font-light text-[#D1D5DB] font-serif">Stories.</span>
             </h3>
           </FadeInUp>
         </div>
@@ -571,7 +574,7 @@ export default function Placements() {
                       <div className="absolute inset-0 p-5 flex flex-col justify-end">
                         <div className="mb-3">
                           <h3 className="text-white font-bold text-lg tracking-wide leading-tight">{student.name}</h3>
-                          <p className="text-[#E8BD63] text-[10px] font-medium uppercase tracking-wider mt-1">{student.role}</p>
+                          <p className="text-[#D1D5DB] text-[10px] font-medium uppercase tracking-wider mt-1">{student.role}</p>
                         </div>
 
                         <div className="bg-white/10 backdrop-blur-md rounded-xl p-3 flex justify-between items-center border border-white/20">
@@ -581,7 +584,7 @@ export default function Placements() {
                           </div>
                           <div className="text-center">
                             <p className="text-[9px] text-white/60 uppercase font-bold tracking-[0.15em] mb-0.5">Package</p>
-                            <div className="bg-[#E8BD63] text-[#1A2660] px-2.5 py-1 rounded-full text-[9px] font-bold tracking-widest shadow-lg">
+                            <div className="bg-[#D1D5DB] text-[#1A2660] px-2.5 py-1 rounded-full text-[9px] font-bold tracking-widest shadow-lg">
                               {student.package}
                             </div>
                           </div>
@@ -601,7 +604,7 @@ export default function Placements() {
         {/* CTA */}
         <FadeInUp delay={800}>
           <div className="text-center mt-16">
-            <a href="https://tat.tekkzy.com/placement-report/" className="group inline-flex items-center gap-3 bg-[#E8BD63] text-[#1A2660] px-10 py-4 rounded-full font-medium text-sm uppercase tracking-widest shadow-xl hover:bg-[#F0D080] hover:-translate-y-1 transition-all duration-500">
+            <a href="https://tat.tekkzy.com/placement-report/" className="group inline-flex items-center gap-3 bg-[#D1D5DB] text-[#1A2660] px-10 py-4 rounded-full font-medium text-sm uppercase tracking-widest shadow-xl hover:bg-[#E5E7EB] hover:-translate-y-1 transition-all duration-500">
               View Full Placement Report
               <ArrowRight size={18} className="transform group-hover:translate-x-1 transition-transform" />
             </a>

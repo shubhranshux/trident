@@ -35,7 +35,7 @@ function Home() {
         <main style={{ overflowX: "clip" }}>
           <Suspense fallback={<SectionFallback />}><Placements /></Suspense>
 
-          <SectionDivider type="wave" topColor="#1A2660" bottomColor="#1A2660" height={70} />
+          <SectionDivider type="curve" topColor="#374151" bottomColor="#F5EEEC" leftBottomColor="#111827" splitPercent={45} height={70} />
           <Suspense fallback={<SectionFallback />}><AboutSection /></Suspense>
 
           <SectionDivider type="wave" topColor="#F5EEEC" bottomColor="#F9F7F5" leftTopColor="#111827" splitPercent={45} height={50} />
@@ -62,7 +62,7 @@ function Home() {
           <Suspense fallback={<SectionFallback />}><Facilities /></Suspense>
 
           <div className="relative z-[20]" style={{ marginTop: '-2px' }}>
-            <SectionDivider type="tilt" topColor="#34785A" bottomColor="#FAF7F2" height={80} />
+            <SectionDivider type="wave" topColor="#34785A" bottomColor="#FAF7F2" height={80} />
           </div>
           <Suspense fallback={<SectionFallback />}><Discover /></Suspense>
 

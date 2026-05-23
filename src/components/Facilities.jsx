@@ -84,8 +84,9 @@ export default function Facilities() {
     <section className="relative" id="facilities" style={{ backgroundColor: '#34785A' }}>
 
       {/* ═══ Top Header ═══ */}
-      <div className="text-center pt-24 md:pt-32 pb-16 md:pb-20 px-6">
-        <ScrollReveal from={{ opacity: 0, y: 30 }}>
+      <div className="relative text-center pt-24 md:pt-32 pb-16 md:pb-20 px-6 overflow-hidden">
+        
+        <ScrollReveal from={{ opacity: 0, y: 30 }} className="relative z-10">
           <div className="inline-flex items-center gap-3 mb-5">
             <div className="h-[1px] w-10 bg-white/30" />
             <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/80">Campus Ecosystem</span>
@@ -106,7 +107,7 @@ export default function Facilities() {
 
         {/* ── LEFT: Sticky Image ── */}
         <div className="lg:col-start-1 lg:row-start-1">
-          <div className="w-full h-[50vh] lg:h-screen lg:sticky lg:top-0" style={{ overflow: 'clip' }}>
+          <div className="w-full h-[50vh] lg:h-screen lg:sticky lg:top-0 relative" style={{ overflow: 'clip' }}>
             {FACILITIES.map((fac, i) => (
               <div
                 key={fac.title}
@@ -142,18 +143,31 @@ export default function Facilities() {
                 </div>
               </div>
             ))}
-
-
-
-
-
-
-
           </div>
         </div>
 
         {/* ── RIGHT: Scrolling Text Content (reference style) ── */}
-        <div className="lg:col-start-2 lg:row-start-1">
+        <div className="lg:col-start-2 lg:row-start-1 relative">
+          
+          {/* Right Column Geometric Sticky Background */}
+          <div className="hidden lg:block absolute inset-0 pointer-events-none z-0">
+            <div className="sticky top-0 h-screen w-full overflow-hidden bg-[#34785A]">
+               {/* Subtle Dot Pattern */}
+               <div className="absolute inset-0 opacity-[0.2] bg-[radial-gradient(#E8BD63_1.5px,transparent_1.5px)]" style={{ backgroundSize: '30px 30px' }} />
+
+               {/* Top Left Diagonal Panel */}
+               <div className="absolute top-[-30%] left-[-30%] w-[90%] h-[80%] bg-[#286048] shadow-[15px_15px_40px_rgba(0,0,0,0.5)] border-b-[1.5px] border-r-[1.5px] border-[#E8BD63]/50 transform rotate-[35deg]" />
+
+               {/* Bottom Right Diagonal Panel */}
+               <div className="absolute bottom-[-30%] right-[-40%] w-[120%] h-[70%] bg-[#1E4B37] shadow-[-15px_-15px_40px_rgba(0,0,0,0.6)] border-t-[1.5px] border-l-[1.5px] border-[#E8BD63]/40 transform -rotate-[35deg]" />
+
+               {/* Inner floating slice for extra depth */}
+               <div className="absolute top-[30%] right-[-40%] w-[100%] h-[30%] bg-[#2A664B] shadow-[0_0_30px_rgba(0,0,0,0.3)] border-t-[1px] border-l-[1px] border-[#E8BD63]/30 transform -rotate-[45deg]" />
+
+               {/* Bottom blend guard to hide sharp cutoff at the end of the section */}
+               <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#34785A] via-[#34785A]/80 to-transparent" />
+            </div>
+          </div>
           {FACILITIES.map((fac, i) => {
             const Icon = fac.icon;
 
@@ -161,7 +175,7 @@ export default function Facilities() {
               <div
                 key={fac.title}
                 ref={el => sectionRefs.current[i] = el}
-                className="min-h-screen flex items-center justify-center px-8 md:px-16 lg:px-20 xl:px-28"
+                className="relative z-10 min-h-screen flex items-center justify-center px-8 md:px-16 lg:px-20 xl:px-28"
               >
                 <div className="text-center max-w-lg mx-auto py-20">
                   

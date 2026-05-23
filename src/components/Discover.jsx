@@ -110,6 +110,23 @@ export default function Discover() {
       <div className="absolute top-[40%] right-[5%] w-[400px] md:w-[500px] h-[400px] md:h-[500px] rounded-full bg-[#2C3A8C]/5 blur-[120px] pointer-events-none z-0" />
       <div className="absolute bottom-[10%] left-[10%] w-[380px] md:w-[480px] h-[380px] md:h-[480px] rounded-full bg-[#006738]/6 blur-[110px] pointer-events-none z-0" />
 
+      {/* Decorative Layered Diagonal Triangle Accent on Right Side (Top) */}
+      <div className="absolute top-[-150px] md:top-[-300px] right-[-10%] w-[300px] h-[500px] md:w-[500px] md:h-[800px] pointer-events-none z-0 transform rotate-[35deg]">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#2C3A8C]/[0.07] to-transparent border-l-[2px] border-b-[2px] border-[#2C3A8C]/15 shadow-[-15px_15px_40px_rgba(44,58,140,0.05)] rounded-bl-[40px]" />
+        <div className="absolute top-0 left-[80px] w-full h-[80%] bg-gradient-to-br from-[#C41E3A]/[0.05] to-transparent border-l-[1.5px] border-b-[1.5px] border-[#C41E3A]/15 rounded-bl-[30px]" />
+        <div className="absolute top-0 left-[160px] w-full h-[60%] bg-gradient-to-br from-[#E8BD63]/[0.08] to-transparent border-l-[1px] border-b-[1px] border-[#E8BD63]/25 rounded-bl-[20px]" />
+      </div>
+
+      {/* Top blend guard to hide sharp cutoff below the wavy SectionDivider */}
+      <div className="absolute top-0 left-0 w-full h-32 md:h-48 bg-gradient-to-b from-[#FAF7F2] via-[#FAF7F2]/80 to-transparent pointer-events-none z-0" />
+
+      {/* Decorative Layered Diagonal Triangle Accent on Left Side (Bottom) */}
+      <div className="absolute bottom-[-10%] left-[-10%] w-[300px] h-[500px] md:w-[500px] md:h-[800px] pointer-events-none z-0 transform rotate-[215deg]">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#006738]/[0.07] to-transparent border-l-[2px] border-b-[2px] border-[#006738]/15 shadow-[-15px_15px_40px_rgba(0,103,56,0.05)] rounded-bl-[40px]" />
+        <div className="absolute top-0 left-[80px] w-full h-[80%] bg-gradient-to-br from-[#E8BD63]/[0.05] to-transparent border-l-[1.5px] border-b-[1.5px] border-[#E8BD63]/15 rounded-bl-[30px]" />
+        <div className="absolute top-0 left-[160px] w-full h-[60%] bg-gradient-to-br from-[#2C3A8C]/[0.08] to-transparent border-l-[1px] border-b-[1px] border-[#2C3A8C]/25 rounded-bl-[20px]" />
+      </div>
+
       {/* Decorative dynamic winding line behind nodes on desktop */}
       <div className="hidden lg:block absolute inset-0 z-0 pointer-events-none" aria-hidden="true">
         <svg className="w-full h-full min-h-[900px]" viewBox="0 0 1200 1200" preserveAspectRatio="none" fill="none">

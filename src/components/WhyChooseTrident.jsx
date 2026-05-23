@@ -63,40 +63,74 @@ export default function WhyChooseTrident() {
   return (
     <section className="relative bg-[#F9F7F5] border-t border-[#EFE7DF]/50">
 
-      <style dangerouslySetInnerHTML={{__html: `
-        @keyframes checkmark-pop {
-          0% { transform: scale(0) rotate(-45deg); opacity: 0; }
-          60% { transform: scale(1.3) rotate(0deg); opacity: 1; }
-          100% { transform: scale(1) rotate(0deg); opacity: 1; }
-        }
-        .node-active {
-           box-shadow: 0 0 0 4px var(--ring-color);
-        }
-        .checkmark-enter { animation: checkmark-pop 0.5s cubic-bezier(0.34,1.56,0.64,1) forwards; }
-      `}} />
+      {/* Neumorphic Light Background Circles */}
+      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+        <style dangerouslySetInnerHTML={{__html: `
+          .neumorphic-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: #F9F7F5;
+            box-shadow: 14px 14px 30px #e0ddd9, -14px -14px 30px #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+          }
+          .neumorphic-circle-sm {
+            position: absolute;
+            border-radius: 50%;
+            background: #F9F7F5;
+            box-shadow: 8px 8px 16px #e0ddd9, -8px -8px 16px #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+          }
+          @keyframes checkmark-pop {
+            0% { transform: scale(0) rotate(-45deg); opacity: 0; }
+            60% { transform: scale(1.3) rotate(0deg); opacity: 1; }
+            100% { transform: scale(1) rotate(0deg); opacity: 1; }
+          }
+          .node-active {
+             box-shadow: 0 0 0 4px var(--ring-color);
+          }
+          .checkmark-enter { animation: checkmark-pop 0.5s cubic-bezier(0.34,1.56,0.64,1) forwards; }
+        `}} />
+        
+        {/* Top Left Cluster */}
+        <div className="neumorphic-circle w-96 h-96 top-16 -left-16" style={{ backgroundColor: "rgba(44, 58, 140, 0.15)" }} /> {/* Blue */}
+        <div className="neumorphic-circle w-64 h-64 top-48 left-10" style={{ backgroundColor: "rgba(196, 30, 58, 0.12)" }} /> {/* Red */}
+        <div className="neumorphic-circle-sm w-32 h-32 top-10 left-64" style={{ backgroundColor: "rgba(232, 189, 99, 0.25)" }} /> {/* Gold */}
+        
+        {/* Middle Cluster */}
+        <div className="neumorphic-circle w-[400px] h-[400px] top-[40%] -left-20" style={{ backgroundColor: "rgba(0, 103, 56, 0.12)" }} /> {/* Green */}
+        <div className="neumorphic-circle-sm w-40 h-40 top-[50%] left-60" style={{ backgroundColor: "rgba(44, 58, 140, 0.15)" }} /> {/* Blue */}
+        
+        {/* Top Right Cluster */}
+        <div className="neumorphic-circle w-80 h-80 top-16 -right-10" style={{ backgroundColor: "rgba(0, 103, 56, 0.12)" }} /> {/* Green */}
+        <div className="neumorphic-circle-sm w-24 h-24 top-20 right-64" style={{ backgroundColor: "rgba(232, 189, 99, 0.25)" }} /> {/* Gold */}
+        
+        {/* Bottom Right Cluster */}
+        <div className="neumorphic-circle w-[450px] h-[450px] bottom-16 -right-20" style={{ backgroundColor: "rgba(196, 30, 58, 0.12)" }} /> {/* Red */}
+        <div className="neumorphic-circle w-72 h-72 bottom-56 right-10" style={{ backgroundColor: "rgba(44, 58, 140, 0.15)" }} /> {/* Blue */}
+      </div>
 
-      <div className="max-w-[1400px] mx-auto px-6 xl:px-12 flex flex-col lg:flex-row items-start relative">
+      <div className="max-w-[1400px] mx-auto px-6 xl:px-12 flex flex-col lg:flex-row items-start relative z-10">
         
         {/* ─── LEFT COLUMN: Sticky Navigation Panel ─── */}
-        <div className="w-full lg:w-[35%] lg:sticky lg:top-24 h-max lg:py-24 py-16 z-20">
+        <div className="w-full lg:w-[35%] lg:sticky lg:top-20 h-max lg:pt-12 lg:pb-10 py-16 z-20 flex flex-col justify-center min-h-[calc(100vh-100px)]">
           
           {/* Header */}
-          <ScrollReveal from={{ opacity: 0, y: 30 }} className="mb-14">
-            <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#C41E3A] block mb-5">
+          <ScrollReveal from={{ opacity: 0, y: 30 }} className="mb-8">
+            <span className="text-[11px] font-bold uppercase tracking-[0.3em] text-[#C41E3A] block mb-4">
               The Trident Advantage
             </span>
-            <h2 className="serif text-5xl md:text-6xl lg:text-[72px] font-bold text-[#1A1817] leading-[1.02] tracking-tight mb-5">
+            <h2 className="serif text-5xl md:text-5xl lg:text-[64px] font-bold text-[#1A1817] leading-[1.02] tracking-tight mb-4">
               <TextReveal blur={true} stagger={0.02}>Why students</TextReveal>
-              <TextReveal blur={true} stagger={0.02} delay={100} className="italic font-light text-[#A59381]">choose us.</TextReveal>
+              <TextReveal blur={true} stagger={0.02} delay={100} className="italic font-light text-[#8A7B6B]">choose us.</TextReveal>
             </h2>
-            <p className="text-[#3E3A36]/60 text-base md:text-lg font-medium leading-relaxed max-w-sm">
+            <p className="text-[#3E3A36]/90 text-base md:text-[17px] font-medium leading-relaxed max-w-md">
               Discover the pillars that make Trident Academy of Technology the premier destination for future-ready education.
             </p>
           </ScrollReveal>
 
           {/* Interactive Node Navigation */}
           <ScrollReveal from={{ opacity: 0, x: -20 }} delay={200} className="hidden lg:block relative">
-            <div className="flex flex-col gap-1 relative">
+            <div className="flex flex-col gap-2 relative">
               {pillars.map((item, idx) => {
                 const isActive = activePillar === item.id;
                 const activeIdx = pillars.findIndex(p => p.id === activePillar);
@@ -104,14 +138,14 @@ export default function WhyChooseTrident() {
                 const isUpcoming = idx > activeIdx;
                 return (
                   <button key={item.id} onClick={() => handleScrollTo(item.id)}
-                    className={`group flex items-center gap-5 py-5 px-5 text-left w-full rounded-2xl relative overflow-hidden transition-all duration-700 ease-out ${isActive ? "bg-white shadow-[0_4px_24px_rgba(0,0,0,0.06)]" : "hover:bg-white/50"}`}>
-                    <div className={`w-[34px] h-[34px] rounded-full flex items-center justify-center flex-shrink-0 border-2 transition-all duration-700 ${isActive ? 'node-active' : ''}`}
-                      style={{ borderColor: isUpcoming ? "#D5CCC4" : item.color, backgroundColor: isUpcoming ? "#F9F7F5" : item.color, '--ring-color': `${item.color}20`, '--glow-color': `${item.color}30`, transform: isActive ? 'scale(1.2)' : 'scale(1)' }}>
-                      {isPassed ? <span className="checkmark-enter text-white text-[12px] font-bold">✓</span> : <span className="text-[10px] font-bold" style={{ color: isUpcoming ? "#A59381" : "#FFF" }}>{item.num}</span>}
+                    className={`group flex items-center gap-4 py-4 px-4 text-left w-full rounded-2xl relative overflow-hidden transition-all duration-700 ease-out ${isActive ? "bg-white shadow-[0_4px_24px_rgba(0,0,0,0.06)]" : "hover:bg-white/50"}`}>
+                    <div className={`w-[36px] h-[36px] rounded-full flex items-center justify-center flex-shrink-0 border-2 transition-all duration-700 ${isActive ? 'node-active' : ''}`}
+                      style={{ borderColor: isUpcoming ? "#C5BDB5" : item.color, backgroundColor: isUpcoming ? "#F9F7F5" : item.color, '--ring-color': `${item.color}20`, '--glow-color': `${item.color}30`, transform: isActive ? 'scale(1.1)' : 'scale(1)' }}>
+                      {isPassed ? <span className="checkmark-enter text-white text-[14px] font-bold">✓</span> : <span className="text-[11px] font-bold" style={{ color: isUpcoming ? "#7A736B" : "#FFF" }}>{item.num}</span>}
                     </div>
-                    <div className="flex flex-col gap-0.5">
-                      <span className="text-[10px] font-bold uppercase tracking-[0.2em]" style={{ color: isActive ? item.color : isPassed ? item.color : "#8A8279", opacity: isUpcoming ? 0.6 : 1 }}>{item.short}</span>
-                      <span className="font-serif text-[22px] font-medium leading-tight" style={{ color: isActive ? item.color : isPassed ? "#3E3A36" : "#5A554F", opacity: isUpcoming ? 0.5 : 1, transform: isActive ? 'translateX(4px)' : 'translateX(0)' }}>{item.title}</span>
+                    <div className="flex flex-col gap-1">
+                      <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: isActive ? item.color : isPassed ? item.color : "#6B655F", opacity: isUpcoming ? 0.9 : 1 }}>{item.short}</span>
+                      <span className="font-serif text-[22px] font-medium leading-tight" style={{ color: isActive ? item.color : isPassed ? "#2A2725" : "#4A4540", opacity: isUpcoming ? 0.9 : 1, transform: isActive ? 'translateX(4px)' : 'translateX(0)' }}>{item.title}</span>
                     </div>
                   </button>
                 );

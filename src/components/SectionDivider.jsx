@@ -9,6 +9,7 @@ export default function SectionDivider({
   flip = false, 
   height = 80,
   leftTopColor = null,
+  leftBottomColor = null,
   splitPercent = 0,
   accentColor = null,
   accentHeight = 0,
@@ -83,7 +84,7 @@ export default function SectionDivider({
           className="absolute inset-y-0 left-0 hidden lg:block"
           style={{
             width: `${splitPercent}%`,
-            backgroundColor: leftTopColor,
+            background: `linear-gradient(to bottom, ${leftTopColor} 50%, ${topColor} 100%)`,
             zIndex: 0
           }}
         />
@@ -94,7 +95,19 @@ export default function SectionDivider({
         className="block w-full relative z-10"
         style={{ height: `${height}px` }}
       >
-        <path d={paths[type] || paths.wave} fill={bottomColor} />
+        {leftBottomColor && splitPercent > 0 ? (
+          <>
+            <defs>
+              <linearGradient id={`splitGrad-${splitPercent}`} x1="0" y1="0" x2="1" y2="0">
+                <stop offset={`${splitPercent}%`} stopColor={leftBottomColor} />
+                <stop offset={`${splitPercent}%`} stopColor={bottomColor} />
+              </linearGradient>
+            </defs>
+            <path d={paths[type] || paths.wave} fill={`url(#splitGrad-${splitPercent})`} />
+          </>
+        ) : (
+          <path d={paths[type] || paths.wave} fill={bottomColor} />
+        )}
       </svg>
     </div>
   );
