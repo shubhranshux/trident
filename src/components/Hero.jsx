@@ -3,34 +3,21 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { gsap, ScrollTrigger } from '../lib/gsap-setup';
 import { AmbientParticles, ParallaxLayer } from '../utils/animations';
 
-import heroSlide1 from "../assets/slide_1.jpg";
+
 import heroSlide2 from "../assets/slide_2.jpg";
 import heroSlide4 from "../assets/slide_4.jpg";
 import heroSlide5 from "../assets/slide_5.png";
 import heroSlide6 from "../assets/slide_6.png";
 import heroSlide7 from "../assets/slide_7.png";
+import heroSlide8 from "../assets/slide_8.jpeg";
+import heroSlide9 from "../assets/slide_9.jpeg";
 
 /* ─── Slide data — each slide: full-bleed image + unique copy ─── */
 const SLIDES = [
   {
-    image: heroSlide1,
-    heading: <>Connecting<br />education with<br />opportunity</>,
-    subtext: "At Trident Academy of Technology, we're focused on one goal: shaping the engineers, leaders, and innovators of tomorrow through world-class education.",
-  },
-  {
-    image: heroSlide2,
-    heading: <>Where knowledge<br />meets<br />innovation</>,
-    subtext: "Immerse yourself in Odisha's premier technical ecosystem. Rigorous academics meet world-class innovation labs to forge the leaders of tomorrow.",
-  },
-  {
-    image: "/hero/Placement.JPG",
-    heading: <>Building careers<br />that matter,<br />since 2005</>,
-    subtext: "120+ recruiting companies, thousands of placed graduates, and a legacy of career-readiness. Where ambition meets real-world opportunity.",
-  },
-  {
-    image: heroSlide4,
-    heading: <>A campus<br />designed to<br />inspire</>,
-    subtext: "A corporate-styled campus in the heart of Bhubaneswar — advanced labs, vibrant student clubs, cultural festivals, and spaces that spark creativity.",
+    image: heroSlide6,
+    heading: <>Shaping<br />tomorrow's<br />engineers</>,
+    subtext: "From state-of-the-art classrooms to hands-on workshops, Trident provides the environment where curiosity transforms into expertise.",
   },
   {
     image: heroSlide5,
@@ -38,14 +25,30 @@ const SLIDES = [
     subtext: "₹2.5 Cr DST-funded AI Research Centre, 50+ patents filed, and a culture of relentless innovation. Discover what makes Trident a research powerhouse.",
   },
   {
-    image: heroSlide6,
-    heading: <>Shaping<br />tomorrow's<br />engineers</>,
-    subtext: "From state-of-the-art classrooms to hands-on workshops, Trident provides the environment where curiosity transforms into expertise.",
-  },
-  {
     image: heroSlide7,
     heading: <>A legacy of<br />excellence &<br />innovation</>,
     subtext: "Two decades of academic distinction, industry partnerships, and a vibrant community — Trident continues to set the benchmark in technical education.",
+  },
+  {
+    image: heroSlide4,
+    heading: <>A campus<br />designed to<br />inspire</>,
+    subtext: "A corporate-styled campus in the heart of Bhubaneswar — advanced labs, vibrant student clubs, cultural festivals, and spaces that spark creativity.",
+  },
+  {
+    image: heroSlide2,
+    heading: <>Where knowledge<br />meets<br />innovation</>,
+    subtext: "Immerse yourself in Odisha's premier technical ecosystem. Rigorous academics meet world-class innovation labs to forge the leaders of tomorrow.",
+  },
+
+  {
+    image: heroSlide8,
+    heading: <>Connecting<br />education with<br />opportunity</>,
+    subtext: "At Trident Academy of Technology, we're focused on one goal: shaping the engineers, leaders, and innovators of tomorrow through world-class education.",
+  },
+  {
+    image: heroSlide9,
+    heading: <>Building careers<br />that matter,<br />since 2005</>,
+    subtext: "120+ recruiting companies, thousands of placed graduates, and a legacy of career-readiness. Where ambition meets real-world opportunity.",
   },
 ];
 

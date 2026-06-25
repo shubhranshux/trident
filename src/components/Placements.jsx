@@ -29,14 +29,13 @@ const domains = {
 };
 
 const dummyPlacements = [
-  { name: "Aarav Sharma", company: "TCS", package: "7.5 LPA", role: "Software Engineer", img: "/students/student_male_1.png" },
-  { name: "Priya Patel", company: "Infosys", package: "8.0 LPA", role: "System Analyst", img: "/students/student_female_1.png" },
-  { name: "Rahul Kumar", company: "Wipro", package: "6.5 LPA", role: "Project Engineer", img: "/students/student_male_2.png" },
-  { name: "Neha Singh", company: "Cognizant", package: "7.0 LPA", role: "Programmer Analyst", img: "/students/student_female_2.png" },
-  { name: "Rohan Gupta", company: "Accenture", package: "8.5 LPA", role: "Application Dev", img: "/students/student_male_3.png" },
-  { name: "Aditi Desai", company: "Capgemini", package: "7.5 LPA", role: "Software Associate", img: "/students/student_female_3.png" },
-  { name: "Karan Verma", company: "Tech Mahindra", package: "6.0 LPA", role: "Network Engineer", img: "/students/student_male_4.png" },
-  { name: "Sneha Roy", company: "IBM", package: "8.0 LPA", role: "Cloud Consultant", img: "/students/student_female_4.png" }
+  { name: "Seeladitya Rout", company: "VEDANT Group", package: "5.0 LPA", role: "Mechanical Engineer", img: "/students/seeladitya.jpeg" },
+  { name: "Nirmal Kumar Patro", company: "SPD Pvt Ltd", package: "3.0 LPA", role: "Mechanical Engineer", img: "/students/nirmal.jpeg" },
+  { name: "Dr. Arpita Nayak", company: "KIIT DU", package: "6.0 LPA", role: "Assistant Professor", img: "/students/arpita.png" },
+  { name: "Poornima Mohapatra", company: "Utkarsh SF Bank", package: "5.5 LPA", role: "Assistant Manager", img: "/students/poornima.png" },
+  { name: "Prem Kishan", company: "Jindal Steel Power Plant", package: "4.5 LPA", role: "Assistant Engineer", img: "/students/prem.png" },
+  { name: "Abhishek Nanda", company: "Jindal Steel Power Plant", package: "4.0 LPA", role: "Technical Sales Officer", img: "/students/abhishek.png" },
+  { name: "Pragati Behera", company: "HDFC Bank", package: "3.5 LPA", role: "Sales Coordinator", img: "/students/pragati.png" }
 ];
 
 const getBrandStyle = (name) => {
@@ -568,7 +567,7 @@ export default function Placements() {
                       />
 
                       {/* Gradient Overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#1A2660] via-[#1A2660]/70 to-transparent opacity-90" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#1A2660]/90 via-[#1A2660]/20 to-transparent opacity-80" />
 
                       {/* Card Content */}
                       <div className="absolute inset-0 p-5 flex flex-col justify-end">
@@ -604,7 +603,7 @@ export default function Placements() {
         {/* CTA */}
         <FadeInUp delay={800}>
           <div className="text-center mt-16">
-            <a href="https://tat.tekkzy.com/placement-report/" className="group inline-flex items-center gap-3 bg-[#D1D5DB] text-[#1A2660] px-10 py-4 rounded-full font-medium text-sm uppercase tracking-widest shadow-xl hover:bg-[#E5E7EB] hover:-translate-y-1 transition-all duration-500">
+            <a href="https://placement-tat.tekkzy.com" className="group inline-flex items-center gap-3 bg-[#D1D5DB] text-[#1A2660] px-10 py-4 rounded-full font-medium text-sm uppercase tracking-widest shadow-xl hover:bg-[#E5E7EB] hover:-translate-y-1 transition-all duration-500">
               View Full Placement Report
               <ArrowRight size={18} className="transform group-hover:translate-x-1 transition-transform" />
             </a>

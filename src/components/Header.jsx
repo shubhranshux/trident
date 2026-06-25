@@ -17,12 +17,12 @@ export default function Header() {
   }, []);
 
   const mandatoryLinks = [
-    { label: "AICTE Approvals", href: "#", icon: CheckCircle, color: "text-emerald-600", bg: "bg-emerald-50", hover: "group-hover/link:bg-emerald-600" },
-    { label: "BPUT Affiliation", href: "#", icon: Award, color: "text-blue-600", bg: "bg-blue-50", hover: "group-hover/link:bg-blue-600" },
-    { label: "NAAC Certificate", href: "#", icon: ShieldCheck, color: "text-purple-600", bg: "bg-purple-50", hover: "group-hover/link:bg-purple-600" },
-    { label: "NBA Documents", href: "#", icon: FileSpreadsheet, color: "text-amber-600", bg: "bg-amber-50", hover: "group-hover/link:bg-amber-600" },
-    { label: "Financial Audits", href: "#", icon: BookOpen, color: "text-indigo-600", bg: "bg-indigo-50", hover: "group-hover/link:bg-indigo-600" },
-    { label: "Anti-Ragging Policy", href: "#", icon: ShieldAlert, color: "text-rose-600", bg: "bg-rose-50", hover: "group-hover/link:bg-rose-600" }
+    { label: "AICTE Approvals", href: "/aicte-disclosure", icon: CheckCircle, color: "text-emerald-600", bg: "bg-emerald-50", hover: "group-hover/link:bg-emerald-600" },
+    { label: "BPUT Affiliation", href: "/bput-affiliation", icon: Award, color: "text-blue-600", bg: "bg-blue-50", hover: "group-hover/link:bg-blue-600" },
+    { label: "NAAC Certificate", href: "/naac", icon: ShieldCheck, color: "text-purple-600", bg: "bg-purple-50", hover: "group-hover/link:bg-purple-600" },
+    { label: "NBA Documents", href: "/nba", icon: FileSpreadsheet, color: "text-amber-600", bg: "bg-amber-50", hover: "group-hover/link:bg-amber-600" },
+    { label: "Financial Audits", href: "/financial-audits", icon: BookOpen, color: "text-indigo-600", bg: "bg-indigo-50", hover: "group-hover/link:bg-indigo-600" },
+    { label: "Anti-Ragging Policy", href: "/anti-ragging", icon: ShieldAlert, color: "text-rose-600", bg: "bg-rose-50", hover: "group-hover/link:bg-rose-600" }
   ];
 
   return (
@@ -33,17 +33,19 @@ export default function Header() {
           <div className="flex-1"></div>
           <div className="flex items-center gap-5">
             {/* Mandatory Disclosure Dropdown (Hover) */}
-            <div className="relative group py-2">
+            <div className="relative group/md pb-0">
               <button 
-                className="flex items-center gap-1.5 text-[10px] font-medium text-white/80 uppercase tracking-widest group-hover:text-white transition-colors whitespace-nowrap outline-none"
+                className="flex items-center gap-1.5 text-[10px] font-medium text-white/80 uppercase tracking-widest group-hover/md:text-white transition-colors whitespace-nowrap outline-none py-2"
               >
                 <FileText size={11} />
                 Mandatory Disclosure
-                <ChevronDown size={11} className={`transition-transform duration-300 group-hover:rotate-180`} />
+                <ChevronDown size={11} className={`transition-transform duration-300 group-hover/md:rotate-180`} />
               </button>
               
-              {/* Dropdown Menu Wrapper (Invisible but provides continuous hover area) */}
-              <div className="absolute top-full right-0 pt-2 w-[260px] opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-400 origin-top z-50">
+              {/* Dropdown Menu — invisible bridge + panel */}
+              <div className="absolute top-full right-0 w-[260px] opacity-0 translate-y-2 pointer-events-none group-hover/md:opacity-100 group-hover/md:translate-y-0 group-hover/md:pointer-events-auto transition-all duration-300 origin-top z-50">
+                {/* Invisible bridge to prevent hover gap */}
+                <div className="h-2" />
                 {/* The actual visible box */}
                 <div 
                   className="w-full bg-white rounded-xl shadow-[0_20px_40px_-10px_rgba(26,38,96,0.3)] overflow-hidden"
@@ -81,6 +83,7 @@ export default function Header() {
             </div>
             </div>
 
+
             {/* Alumni Portal */}
             <a href="#" className="flex items-center gap-1.5 text-[10px] font-medium text-[#E8BD63] uppercase tracking-widest hover:text-[#F0D080] transition-colors whitespace-nowrap">
               <Users size={11}/> Alumni
@@ -97,25 +100,31 @@ export default function Header() {
         <div className="mx-auto px-6 xl:px-12 flex items-center justify-between">
             
           {/* Logo Lockup */}
-          <a href="/" className="flex items-center gap-3.5 group cursor-pointer text-decoration-none">
+          <a href="https://tat.tekkzy.com" className="flex items-center gap-3.5 group cursor-pointer text-decoration-none">
             <img src={logo} alt="TAT Logo" className="w-12 h-12 md:w-[52px] md:h-[52px] object-contain flex-shrink-0 drop-shadow-sm" />
-            <div className="hidden sm:flex flex-col justify-center">
-              <div className={"serif text-[22px] md:text-[24px] font-bold leading-none tracking-[0.04em] uppercase transition-colors duration-500 " + (navActive ? "text-[#3E3A36]" : "text-white")}>Trident</div>
-              <div className={"w-full h-[1px] my-[3px] transition-all duration-500 " + (navActive ? "bg-gradient-to-r from-[#1B4D8E] to-transparent" : "bg-gradient-to-r from-white/50 to-transparent")}></div>
-              <div className={"text-[9px] md:text-[10px] font-medium tracking-[0.22em] uppercase leading-none transition-colors duration-500 " + (navActive ? "text-[#1B4D8E]" : "text-white/80")}>Academy of Technology</div>
+            <div className="hidden sm:flex flex-col justify-center items-start">
+              <div className={"font-serif text-[24px] md:text-[28px] font-black leading-none uppercase transition-colors duration-500 " + (navActive ? "text-[#3E3A36]" : "text-white")} style={{ fontFamily: "'Playfair Display', 'Source Serif 4', serif", letterSpacing: "0.02em" }}>TRIDENT</div>
+              <div className={"w-full h-[1px] my-[4px] transition-all duration-500 " + (navActive ? "bg-gradient-to-r from-[#1B4D8E] to-transparent" : "bg-white/40")}></div>
+              <div className={"font-sans text-[9px] md:text-[10.5px] font-bold tracking-[0.25em] uppercase leading-none transition-colors duration-500 " + (navActive ? "text-[#1B4D8E]" : "text-white/90")}>ACADEMY OF TECHNOLOGY</div>
             </div>
           </a>
 
           {/* Desktop Nav */}
           <nav className="hidden lg:block">
             <ul className="flex items-center gap-6 list-none m-0 p-0">
-              {NAV_LINKS.map(item => (
-                <li key={item.label}>
-                  <a href={item.href} className={"nav-link text-[14px] uppercase tracking-[0.14em] cursor-pointer whitespace-nowrap font-extrabold transition-colors duration-500 text-decoration-none " + (navActive ? "text-[#3E3A36] hover:text-[#1B4D8E]" : "text-white/90 hover:text-white")}>
-                    {item.label}
-                  </a>
-                </li>
-              ))}
+              {NAV_LINKS.map(item => {
+                const isAcademics = item.label.toLowerCase() === 'academics';
+                return (
+                  <li key={item.label} className="relative py-1">
+                    <a href={item.href} className={"nav-link text-[14px] uppercase tracking-[0.14em] cursor-pointer whitespace-nowrap font-extrabold transition-colors duration-500 text-decoration-none " + (navActive ? (isAcademics ? "text-[#1B4D8E]" : "text-[#3E3A36] hover:text-[#1B4D8E]") : "text-white/90 hover:text-white")}>
+                      {item.label}
+                    </a>
+                    {isAcademics && (
+                      <div className="absolute -bottom-1 left-0 w-full h-[3px] bg-[#1B4D8E] rounded-full" />
+                    )}
+                  </li>
+                );
+              })}
             </ul>
           </nav>
 
@@ -140,14 +149,16 @@ export default function Header() {
           }`}
         >
           <div className="px-6 flex flex-col h-full overflow-y-auto pb-4">
-            {NAV_LINKS.map((item, i) => (
+            {NAV_LINKS.map((item, i) => {
+              const isAcademics = item.label.toLowerCase() === 'academics';
+              return (
               <a 
                 key={item.label} 
                 href={item.href} 
                 onClick={() => setMobileOpen(false)}
                 className={`block py-3.5 text-[15px] font-extrabold text-[#3E3A36] uppercase tracking-[0.14em] hover:text-primary hover:bg-soft/50 rounded-lg px-3 transition-all duration-500 transform text-decoration-none ${
                   mobileOpen ? "translate-x-0 opacity-100" : "-translate-x-8 opacity-0"
-                }`}
+                } ${isAcademics ? 'text-[#1B4D8E]' : ''}`}
                 style={{ 
                   transitionDelay: `${mobileOpen ? i * 40 + 100 : 0}ms`, 
                   borderBottom: i !== NAV_LINKS.length - 1 ? "1px solid rgba(27,77,142,0.1)" : "none" 
@@ -155,7 +166,7 @@ export default function Header() {
               >
                 {item.label}
               </a>
-            ))}
+            )})}
             <div 
               className={`pt-8 px-2 transition-all duration-700 transform ${
                 mobileOpen ? "translate-y-0 opacity-100 scale-100" : "translate-y-8 opacity-0 scale-95"
@@ -172,4 +183,3 @@ export default function Header() {
     </div>
   );
 }
-

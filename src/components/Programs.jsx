@@ -188,9 +188,9 @@ const CtaCard = () => (
         <p className="text-white/45 text-[12px] font-medium mb-6 max-w-[240px] mx-auto leading-relaxed">
           12 UG · 7 PG · 5 Diploma programs
         </p>
-        <button className="bg-white/10 backdrop-blur-sm border border-white/20 text-white px-6 py-3 rounded-full text-[10px] font-medium uppercase tracking-[0.2em] hover:bg-[#E8BD63] hover:border-[#E8BD63] hover:text-[#1A2660] transition-all duration-400">
+        <a href="https://academics-tat.tekkzy.com/" className="inline-block bg-white/10 backdrop-blur-sm border border-white/20 text-white px-6 py-3 rounded-full text-[10px] font-medium uppercase tracking-[0.2em] hover:bg-[#E8BD63] hover:border-[#E8BD63] hover:text-[#1A2660] transition-all duration-400">
           Explore More
-        </button>
+        </a>
       </div>
     </div>
   </motion.div>

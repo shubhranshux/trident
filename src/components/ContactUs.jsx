@@ -57,7 +57,7 @@ const departments = [
 
 const quickLinks = [
   { label: "Admissions Portal", href: "https://admissions-tat.tekkzy.com" },
-  { label: "Placement Reports", href: "https://placements-tat.tekkzy.com" },
+  { label: "Placement Reports", href: "https://placement-tat.tekkzy.com" },
   { label: "Campus Life", href: "https://campuslife-tat.tekkzy.com/" },
   { label: "Research & Innovation", href: "https://research-tat.tekkzy.com" },
   { label: "Alumni Network", href: "https://alumni-tat.tekkzy.com/" },

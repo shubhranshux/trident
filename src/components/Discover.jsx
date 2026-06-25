@@ -3,7 +3,7 @@ import { ArrowRight, GraduationCap, Microscope, Compass, Sparkles } from "lucide
 
 import ugImg from "../assets/discover_graduation.jpg";
 import ptImg from "../assets/discover_research_lab.jpg";
-import campusLifeImg from "../assets/user-img-1.jpeg";
+import campusLifeImg from "../assets/campus_life321.jpeg";
 
 export default function Discover() {
   const nodes = [

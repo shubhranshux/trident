@@ -207,7 +207,7 @@ export default function AboutSection() {
                 {/* Intro text */}
                 <ScrollReveal from={{ opacity: 0, y: 30 }} delay={150} className="mb-14">
                   <p className="text-[#3E3A36]/50 text-base md:text-lg font-medium leading-relaxed max-w-lg">
-                    A unit of the Dinabandhu Foundation, Trident Academy of Technology is one of India's leading private technical institutions, shaping the next generation of innovators and leaders.
+                    A unit of the Dinabandhu Foundation, Trident Academy of Technology is one of India's leading private engineering and management institutions, recognized for academic excellence and industry-oriented education. With a strong focus on innovation, research, and skill development, Trident empowers students to become future-ready professionals. The institution combines world-class infrastructure with experienced faculty to create a dynamic learning environment where education meets enthusiasm and success.
                   </p>
                 </ScrollReveal>
 
@@ -294,7 +294,7 @@ export default function AboutSection() {
                 {/* ── CTA ── */}
                 <ScrollReveal from={{ opacity: 0 }} delay={850}>
                   <a
-                    href="https://tat.tekkzy.com/read-our-full-storyyy/"
+                    href="https://about-tat.tekkzy.com/"
                     className="mt-16 group inline-flex items-center gap-3 px-8 py-4 rounded-full text-[11px] font-medium uppercase tracking-[0.2em] border-2 border-[#2C3A8C]/15 text-[#2C3A8C] hover:bg-[#2C3A8C] hover:border-[#2C3A8C] hover:text-white transition-all duration-500 hover:shadow-[0_10px_30px_-8px_rgba(44,58,140,0.35)]"
                   >
                     Read Our Full Story

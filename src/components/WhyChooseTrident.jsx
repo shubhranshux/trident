@@ -205,11 +205,7 @@ export default function WhyChooseTrident() {
                                 </p>
                               </div>
 
-                              {/* Arrow on hover */}
-                              <div className="hidden md:flex items-center justify-center w-10 h-10 rounded-full flex-shrink-0 mt-1 opacity-0 group-hover:opacity-100 transition-all duration-400 -translate-x-2 group-hover:translate-x-0 border"
-                                style={{ borderColor: `${stat.color}30`, color: stat.color }}>
-                                <ArrowRight size={16} />
-                              </div>
+
                             </div>
 
                             {/* Thin separator between rows */}
