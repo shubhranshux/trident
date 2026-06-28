@@ -13,7 +13,7 @@ export default function Discover() {
       desc: "Lay the foundation for a transformative career with our rigorous, future-ready curriculum designed for leaders.",
       img: ugImg,
       link: "Explore UG Programs",
-      href: "https://academics-tat.tekkzy.com/departemnts-of-engineering/",
+      href: "https://academics-tat.tekkzy.com/",
       accent: "#2C3A8C",
       morph: "morph-programs",
       float: "float-slow",

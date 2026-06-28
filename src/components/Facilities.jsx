@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { TextReveal } from "../utils/animations";
 import { ScrollReveal } from "../utils/advanced-animations";
+import { Link } from "react-router-dom";
 import { BookMarked, FlaskConical, Dumbbell, Coffee, Wifi, Microscope, ArrowRight } from "lucide-react";
 
 import libImg from "../assets/real_library.jpg";
@@ -16,21 +17,21 @@ const FACILITIES = [
     icon: BookMarked, 
     desc: "Every student should have access to knowledge without barriers. Our central library houses over 100,000 volumes, digital journal subscriptions, private study pods, and collaborative workspaces — open round-the-clock to support deep research and self-directed learning.",
     img: libImg,
-    href: "https://academics-tat.tekkzy.com/department-libraries/",
+    href: "/library",
   },
   { 
     title: "Advanced\nLaboratories", 
     icon: FlaskConical, 
     desc: "Hands-on learning is the foundation of real engineering skill. Our 25+ specialized labs — spanning AI, IoT, Robotics, and Biotechnology — are sponsored by leading industry partners and equipped with professional-grade instruments to bridge the gap between theory and practice.",
     img: labImg,
-    href: "https://tat.tekkzy.com/career-guidance/",
+    href: "https://research-tat.tekkzy.com/",
   },
   { 
     title: "Cafeteria\n& Dining", 
     icon: Coffee, 
     desc: "Good nutrition fuels great thinking. Our multi-cuisine dining halls offer wholesome meals in spacious, naturally-lit settings designed to encourage conversation, collaboration, and community among students and faculty alike.",
     img: cafeImg,
-    href: "https://activities-tat.tekkzy.com/",
+    href: "https://campuslife-tat.tekkzy.com/",
   },
   { 
     title: "Smart Green\nCampus", 
@@ -44,7 +45,7 @@ const FACILITIES = [
     icon: Dumbbell, 
     desc: "Physical well-being is essential to academic excellence. Students have access to an indoor stadium, swimming pool, gymnasium, and expansive green fields across 8+ disciplines — ensuring a balanced and holistic approach to personal growth.",
     img: aerialImg,
-    href: "https://activities-tat.tekkzy.com/",
+    href: "https://campuslife-tat.tekkzy.com/",
   },
   { 
     title: "Research\n& Innovation", 
@@ -197,15 +198,25 @@ export default function Facilities() {
                   </p>
 
                   {/* Learn More Link */}
-                  <a 
-                    href={fac.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-3 text-white font-bold text-[16px] tracking-wide group/link transition-all duration-300 hover:gap-5"
-                  >
-                    <span>Learn more</span>
-                    <ArrowRight size={20} strokeWidth={2.5} className="transition-transform duration-300 group-hover/link:translate-x-1" />
-                  </a>
+                  {fac.href.startsWith("/") ? (
+                    <Link 
+                      to={fac.href}
+                      className="inline-flex items-center gap-3 text-white font-bold text-[16px] tracking-wide group/link transition-all duration-300 hover:gap-5"
+                    >
+                      <span>Learn more</span>
+                      <ArrowRight size={20} strokeWidth={2.5} className="transition-transform duration-300 group-hover/link:translate-x-1" />
+                    </Link>
+                  ) : (
+                    <a 
+                      href={fac.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-3 text-white font-bold text-[16px] tracking-wide group/link transition-all duration-300 hover:gap-5"
+                    >
+                      <span>Learn more</span>
+                      <ArrowRight size={20} strokeWidth={2.5} className="transition-transform duration-300 group-hover/link:translate-x-1" />
+                    </a>
+                  )}
 
                 </div>
               </div>

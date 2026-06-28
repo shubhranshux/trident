@@ -17,7 +17,8 @@ const DEPARTMENTS = [
     name: "School of Computing",
     category: "B.Tech · M.Tech · Ph.D",
     est: "2005", duration: "4 Years", seats: 480,
-    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1000&q=80"
+    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1000&q=80",
+    link: "https://academics-tat.tekkzy.com/school-of-computing"
   },
   {
     name: "School of Computer Applications",
@@ -29,13 +30,15 @@ const DEPARTMENTS = [
     name: "School of Engineering",
     category: "B.Tech · M.Tech",
     est: "2005", duration: "4 Years", seats: 240,
-    image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1000&q=80"
+    image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1000&q=80",
+    link: "https://academics-tat.tekkzy.com/school-of-engineering"
   },
   {
     name: "School of Biotechnology",
     category: "B.Sc · M.Sc · Ph.D",
     est: "2015", duration: "3 Years", seats: 90,
-    image: "https://images.unsplash.com/photo-1532187643603-ba119ca4109e?auto=format&fit=crop&w=1000&q=80"
+    image: "https://images.unsplash.com/photo-1532187643603-ba119ca4109e?auto=format&fit=crop&w=1000&q=80",
+    link: "https://academics-tat.tekkzy.com/biotechnology-engineering"
   },
   {
     name: "School of Business",
@@ -50,10 +53,13 @@ import { ParallaxLayer } from "../utils/animations";
 /* ═══ Glass Department Card ═══ */
 const DeptCard = ({ dept, index }) => {
   const tint = TINTS[index % TINTS.length];
+  const Component = dept.link ? motion.a : motion.div;
+  const linkProps = dept.link ? { href: dept.link, target: "_blank", rel: "noopener noreferrer" } : {};
 
   return (
-    <motion.div
-      className="dept-card group relative flex-shrink-0 cursor-pointer"
+    <Component
+      {...linkProps}
+      className="dept-card group relative flex-shrink-0 cursor-pointer block"
       style={{
         width: 'clamp(280px, 30vw, 360px)',
         height: 'clamp(360px, 48vh, 440px)',
@@ -137,7 +143,7 @@ const DeptCard = ({ dept, index }) => {
           }}
         />
       </div>
-    </motion.div>
+    </Component>
   );
 };
 

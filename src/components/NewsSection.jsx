@@ -289,7 +289,7 @@ export default function NewsSection() {
               {/* View Full Calendar CTA */}
               <div className="mt-12 pt-6 border-t border-white/10">
                 <a 
-                  href="https://tat.ac.in/events/" 
+                  href="https://academics-tat.tekkzy.com/calendar" 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="flex items-center justify-center gap-3 w-full px-8 py-5 rounded-2xl text-sm font-medium uppercase tracking-[0.15em] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_12px_30px_-8px_rgba(232,189,99,0.4)] group"

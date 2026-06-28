@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { Users, Menu, X, FileText, ChevronDown, Award, CheckCircle, ShieldCheck, FileSpreadsheet, ShieldAlert, BookOpen } from "lucide-react";
 import { NAV_LINKS } from "../data/constants";
 import logo from "../assets/logo.png";
@@ -7,8 +8,10 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [hovered, setHovered] = useState(false);
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
   
-  const navActive = scrolled || hovered || mobileOpen;
+  const navActive = scrolled || hovered || mobileOpen || !isHomePage;
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 50);
@@ -85,15 +88,15 @@ export default function Header() {
 
 
             {/* Alumni Portal */}
-            <a href="#" className="flex items-center gap-1.5 text-[10px] font-medium text-[#E8BD63] uppercase tracking-widest hover:text-[#F0D080] transition-colors whitespace-nowrap">
+            <Link to="/alumni" className="flex items-center gap-1.5 text-[10px] font-medium text-[#E8BD63] uppercase tracking-widest hover:text-[#F0D080] transition-colors whitespace-nowrap">
               <Users size={11}/> Alumni
-            </a>
+            </Link>
           </div>
         </div>
       </div>
 
       <header 
-        className={"relative transition-all duration-500 " + (navActive ? "bg-white shadow-[0_4px_20px_-4px_rgba(15,23,42,0.12)] py-3" : "bg-transparent py-5")}
+        className={`relative transition-all duration-500 ${navActive ? "bg-white shadow-[0_4px_20px_-4px_rgba(15,23,42,0.12)] py-3" : "bg-transparent py-5"}`}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
       >
@@ -103,28 +106,22 @@ export default function Header() {
           <a href="https://tat.tekkzy.com" className="flex items-center gap-3.5 group cursor-pointer text-decoration-none">
             <img src={logo} alt="TAT Logo" className="w-12 h-12 md:w-[52px] md:h-[52px] object-contain flex-shrink-0 drop-shadow-sm" />
             <div className="hidden sm:flex flex-col justify-center items-start">
-              <div className={"font-serif text-[24px] md:text-[28px] font-black leading-none uppercase transition-colors duration-500 " + (navActive ? "text-[#3E3A36]" : "text-white")} style={{ fontFamily: "'Playfair Display', 'Source Serif 4', serif", letterSpacing: "0.02em" }}>TRIDENT</div>
-              <div className={"w-full h-[1px] my-[4px] transition-all duration-500 " + (navActive ? "bg-gradient-to-r from-[#1B4D8E] to-transparent" : "bg-white/40")}></div>
-              <div className={"font-sans text-[9px] md:text-[10.5px] font-bold tracking-[0.25em] uppercase leading-none transition-colors duration-500 " + (navActive ? "text-[#1B4D8E]" : "text-white/90")}>ACADEMY OF TECHNOLOGY</div>
+              <div className={`font-serif text-[24px] md:text-[28px] font-black leading-none uppercase transition-colors duration-500 ${navActive ? "text-[#3E3A36]" : "text-white"}`} style={{ fontFamily: "'Playfair Display', 'Source Serif 4', serif", letterSpacing: "0.02em" }}>TRIDENT</div>
+              <div className={`w-full h-[1px] my-[4px] transition-all duration-500 bg-gradient-to-r ${navActive ? "from-[#1B4D8E]" : "from-white/60"} to-transparent`}></div>
+              <div className={`font-sans text-[9px] md:text-[10.5px] font-bold tracking-[0.25em] uppercase leading-none transition-colors duration-500 ${navActive ? "text-[#1B4D8E]" : "text-white/80"}`}>ACADEMY OF TECHNOLOGY</div>
             </div>
           </a>
 
           {/* Desktop Nav */}
           <nav className="hidden lg:block">
             <ul className="flex items-center gap-6 list-none m-0 p-0">
-              {NAV_LINKS.map(item => {
-                const isAcademics = item.label.toLowerCase() === 'academics';
-                return (
+              {NAV_LINKS.map(item => (
                   <li key={item.label} className="relative py-1">
-                    <a href={item.href} className={"nav-link text-[14px] uppercase tracking-[0.14em] cursor-pointer whitespace-nowrap font-extrabold transition-colors duration-500 text-decoration-none " + (navActive ? (isAcademics ? "text-[#1B4D8E]" : "text-[#3E3A36] hover:text-[#1B4D8E]") : "text-white/90 hover:text-white")}>
+                    <a href={item.href} className={`nav-link text-[14px] uppercase tracking-[0.14em] cursor-pointer whitespace-nowrap font-extrabold transition-colors duration-500 text-decoration-none ${navActive ? "text-[#3E3A36] hover:text-[#1B4D8E]" : "text-white hover:text-white/70"}`}>
                       {item.label}
                     </a>
-                    {isAcademics && (
-                      <div className="absolute -bottom-1 left-0 w-full h-[3px] bg-[#1B4D8E] rounded-full" />
-                    )}
                   </li>
-                );
-              })}
+                ))}
             </ul>
           </nav>
 
@@ -135,7 +132,7 @@ export default function Header() {
 
           {/* Mobile Toggle */}
           <button 
-            className={"lg:hidden p-2 rounded-lg transition-colors active:scale-95 z-50 relative " + (navActive ? "text-primary bg-soft hover:bg-primary/10" : "text-white bg-white/10 hover:bg-white/20")}
+            className={"lg:hidden p-2 rounded-lg transition-colors active:scale-95 z-50 relative text-primary bg-soft hover:bg-primary/10"}
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle Menu"
           >
